@@ -7,3 +7,49 @@ Cliente a Servidor
 0x06 stop shoot
 0x07 bomb + 1 coordenada en 1 variable de 32bits con signo para la direccion
 0x08 strike
+
+
+UserActions
+0x03 move + 2 coordenadas en 2 variables de 32bits con signo
+0x04 stop move + 2 coordenadas en 2 variables de 32bits con signo
+0x05 shoot + 1 coordenada en 1 variable de 32bits con signo para la direccion
+0x06 stop shoot
+0x07 bomb + 1 coordenada en 1 variable de 32bits con signo para la direccion
+0x08 strike
+
+
+UserAction:
+   Move:
+        id: 0x03 = uint8_t
+        x: int32_t
+        y: int32_t
+   StopMove:
+        id: 0x04 = uint8_t
+        x: int32_t
+        y: int32_t
+   Shoot:
+        id: 0x05 = uint8_t
+        param1: int32_t
+        param2: 0 = int32_t
+
+   StopShoot:
+        id: 0x06 = uint8_t
+        param1: 0 = int32_t
+        param2: 0 = int32_t
+   Bomb:
+       id: 0x07 = uint8_t
+       param1: 0 = int32_t
+       param2: 0 = int32_t
+   Strike:
+       id: 0x08 = uint8_t
+       param1: 0 = int32_t
+       param2: 0 = int32_t
+
+
+Server to Client
+    idCharacter: uint8_t (Representa que "personaje" es (witch, soldado, etc))
+    owner: uint8_t (Representa el dueño del personaje) = 0x00 false 0x01 true
+    status: uint8_t (Representa el estado del personaje (idle, moving, etc))
+    posX: int32_t (Representa la posicion en X del personaje)
+    posY: int32_t (Representa la posicion en Y del personaje)
+    dir: uint8_t (Representa la direccion del personaje, para donde esta mirando? (up, down, left, right))
