@@ -13,13 +13,17 @@ class Arma {
   int municion_maxima;
   int municion_actual;
   int velocidad_disparo;
+  bool disparando;
 
  public:
   Arma();
+  virtual ~Arma();
   int get_tipo_arma();
   int get_municiones();
   int get_velocidad_disparo();
-  int disparar();
+  int iniciar_disparo();
+  int finalizar_disparo();
+  void disparar();
   int recargar();
 };
 #endif  // ARMA_H_

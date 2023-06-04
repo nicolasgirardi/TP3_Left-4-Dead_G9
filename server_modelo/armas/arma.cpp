@@ -4,12 +4,20 @@ Arma::Arma() {}
 
 Arma::~Arma() {}
 
-int Arma::disparar() {
-  if (this->municion_actual > 0) {
+int Arma::iniciar_disparo() {
+  this->disparando = true;
+  return 0;
+}
+
+int Arma::finalizar_disparo() {
+  this->disparando = false;
+  return 0;
+}
+
+void Arma::disparar() {
+  if (this->disparando) {
     this->municion_actual--;
-    return 0;
   }
-  return 1;
 }
 
 int Arma::recargar() {

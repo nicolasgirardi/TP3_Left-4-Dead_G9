@@ -3,6 +3,7 @@
 Aceptador::Aceptador(const char* port) : socket(port) {
     this->running = true;
     this->keep_running = true;
+    this->partidas = new ListaPartidas();
 }
 
 void Aceptador::run() {
@@ -24,4 +25,9 @@ void Aceptador::stop() {
     socket.shutdown(2);
     socket.close();
     //juegos.end();
+}
+
+Aceptador::~Aceptador() {
+    delete partidas;
+    stop();
 }
