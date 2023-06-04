@@ -1,12 +1,12 @@
-#ifndef LEFT4DEAD_RECEIVERUPDATE_H
-#define LEFT4DEAD_RECEIVERUPDATE_H
+#ifndef LEFT4DEAD_RECEIVER_UPDATE_H
+#define LEFT4DEAD_RECEIVER_UPDATE_H
 
 
 #include "../../common/include/Thread.h"
 #include "../../common/include/Socket.h"
-#include "GameUpdate.h"
+#include "game_update.h"
 #include "../../common/include/ProtectedQueue.h"
-#include "../../common/include/Protocol.h"
+#include "../../common_libs/protocol.h"
 
 class ReceiverUpdate : public Thread {
 private:
@@ -23,4 +23,4 @@ public:
 };
 
 
-#endif //LEFT4DEAD_RECEIVERUPDATE_H
+#endif //LEFT4DEAD_RECEIVER_UPDATE_H

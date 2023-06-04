@@ -1,4 +1,4 @@
-#include "../include/GameUpdate.h"
+#include "../include/game_update.h"
 
 GameUpdate::GameUpdate() {
     this->typeCharacter = CHARACTER::NONE_CHARACTER;

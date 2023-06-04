@@ -1,6 +1,6 @@
 #include <netinet/in.h>
 #include <string>
-#include "../include/Protocol.h"
+#include "protocol.h"
 
 Protocol::Protocol(const std::string port) : socket(port.c_str()), wasClosed(false) {}
 

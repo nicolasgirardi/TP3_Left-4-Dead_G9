@@ -1,4 +1,4 @@
-#include "../include/ReceiverUpdate.h"
+#include "../include/receiver_update.h"
 #include "../../common/include/LibError.h"
 
 ReceiverUpdate::ReceiverUpdate(Protocol& protocol, ProtectedQueue<GameUpdate>& updates)

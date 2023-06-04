@@ -1,8 +1,8 @@
-#include "../include/Client.h"
+#include "../include/client.h"
 
 int main (int argc, char *argv[]) {
     if (argc != 2) {
-        std::cout << "Invalid args, must be: ./client <PORT>." << std::endl;
+        std::cout << "Invalid args, must be: ./Client <PORT>." << std::endl;
         return 1;
     }
     Client client;

@@ -1,6 +1,6 @@
-#include "../include/SenderServer.h"
+#include "../include/sender_server.h"
 
-SenderServer::SenderServer(ProtectedQueue <UserAction> &userActions, Protocol &protocol, std::atomic<bool>& isRunning)
+SenderServer::SenderServer(Queue<UserAction> &userActions, Protocol &protocol, std::atomic<bool>& isRunning)
     : userActions(userActions), protocol(protocol), isRunning(isRunning){}
 
 void SenderServer::run() {

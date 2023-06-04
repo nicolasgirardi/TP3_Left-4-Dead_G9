@@ -1,12 +1,11 @@
-#ifndef LEFT4DEAD_SENDERSERVER_H
-#define LEFT4DEAD_SENDERSERVER_H
+#ifndef LEFT4DEAD_SENDER_SERVER_H
+#define LEFT4DEAD_SENDER_SERVER_H
 
 
 #include <atomic>
-#include "../../common/include/Thread.h"
-#include "../../common/include/Protocol.h"
-#include "../../common/include/ProtectedQueue.h"
-#include "UserAction.h"
+#include "../../common_libs/common_queue.h"
+#include "user_action.h"
+#include "../../common_libs/common_thread.h"
 
 class SenderServer : public Thread {
 private:
@@ -15,7 +14,7 @@ private:
     std::atomic<bool>& isRunning;
 
 public:
-    SenderServer(ProtectedQueue<UserAction>& userActions, Protocol& protocol, std::atomic<bool>& isRunning);
+    SenderServer(Queue<UserAction>& userActions, Protocol& protocol, std::atomic<bool>& isRunning);
 
     void run() override;
 
@@ -31,4 +30,4 @@ public:
 };
 
 
-#endif // LEFT4DEAD_SENDERSERVER_H
+#endif // LEFT4DEAD_SENDER_SERVER_H

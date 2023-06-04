@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_USERACTION_H
-#define LEFT4DEAD_USERACTION_H
+#ifndef LEFT4DEAD_USER_ACTION_H
+#define LEFT4DEAD_USER_ACTION_H
 
 #include <cstdint>
 
@@ -26,4 +26,4 @@ public:
         return param2;
     }
 };
-#endif // LEFT4DEAD_USERACTION_H
+#endif // LEFT4DEAD_USER_ACTION_H

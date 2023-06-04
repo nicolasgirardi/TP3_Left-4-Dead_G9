@@ -4,10 +4,10 @@
 
 #include <atomic>
 #include "../../common/include/Thread.h"
-#include "UserAction.h"
+#include "user_action.h"
 #include "../../common/include/ProtectedQueue.h"
-#include "../../common/include/Protocol.h"
-#include "GameUpdate.h"
+#include "../../common_libs/protocol.h"
+#include "game_update.h"
 
 class Client {
  private:

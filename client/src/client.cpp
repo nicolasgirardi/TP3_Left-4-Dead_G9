@@ -1,8 +1,8 @@
 #include <utility>
 
-#include "../include/Client.h"
-#include "../include/SenderServer.h"
-#include "../include/ReceiverUpdate.h"
+#include "../include/client.h"
+#include "../include/sender_server.h"
+#include "../include/receiver_update.h"
 
 Client::Client(std::string port) : protocol(std::move(port)), isRunning(true) {}
 

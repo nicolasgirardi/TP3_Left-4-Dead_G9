@@ -1,9 +1,9 @@
 #ifndef LEFT4DEADUI_PROTOCOL_H
 #define LEFT4DEADUI_PROTOCOL_H
 
-#include "Socket.h"
-#include "../../client/include/UserAction.h"
-#include "../../client/include/GameUpdate.h"
+#include "../client/include/user_action.h"
+#include "common_socket.h"
+#include "../client/include/game_update.h"
 
 class Protocol {
 private:
