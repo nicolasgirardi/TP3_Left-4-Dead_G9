@@ -9,21 +9,29 @@
 
 #include "./../common_libs/common_thread.h"
 #include "./../common_libs/common_queue.h"
+#include "./../common_libs/common_socket.h"
 
-#include "./../server_modelo/eventos/evento.h"
-#include "./../server_modelo/eventos/creador_eventos.h"
+#include "./../server_modelo/partida.h"
+#include "./server_reciever.h"
 
 class ClienteHandler : public Thread {
  private:
     bool running;
     bool keep_running;
-    Queue<Evento*>* queue;
-    CreadorEventos creador;
+    Socket socket;
+    ListaPartidas* partidas;
+    Partida* partida;
+    Reciever reciever;
+    // Queue<GameStatus> queue;
 
  public:
-    explicit ClienteHandler(Queue<Evento*>* queue);
+    ClienteHandler(Socket socket, ListaPartidas* partidas);
+    // get puntero a la queue
+    bool is_running();
+    void start();
     void run() override;
     void stop();
+    void create_reciever(Queue<Evento*>* queue);
 };
 
 #endif

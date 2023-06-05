@@ -16,11 +16,14 @@ class Juego : public Thread {
     bool running;
     bool keep_running;
     Queue<Evento*> ejecutar;
+    Queue<Queue<Evento>*>* clientes;
     Partida* partida;
 
  public:
     Juego();
-    void launch(Partida* partida);
+    ~Juego();
+    Queue<Evento*>* getQueue();
+    void launch(Partida* partida, Queue<Queue<Evento*>*>* clientes);
     void run() override;
     void stop();
 };

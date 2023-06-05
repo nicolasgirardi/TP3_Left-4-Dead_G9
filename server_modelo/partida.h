@@ -4,15 +4,16 @@
 // Me traigo un map para poder guardarme las queues de los clientes y su id
 
 #include <map>
-#include <unordered_map>
 
 #include "./../common_libs/common_queue.h"
 #include "./../common_libs/common_socket.h"
 
 #include "./eventos/evento.h"
 #include "./personaje.h"
+#include "./generador_id.h"
+#include "./juego.h"
 
-#define MAX_CLIENTES 4
+#define MAX_CLIENTES 3
 
 /*
 class Match  {
@@ -36,15 +37,16 @@ class Match  {
 class Partida {
  private:
     std::map<int, Queue<Evento*>*> clientes;
+    GeneradorID generadorID;
     int id;
-    std::unordered_map<int, Personaje*> personajes;
-    
+    int maxClientes = MAX_CLIENTES;
+
  public:
     Partida(int id);
-    void addClient(int id, Queue<Evento*>* queue);
+    int addClient(Queue<Evento*>* queue);
     void removeClient(int id);
-    Personaje* getPersonaje(int id);
-    void addPersonaje(int id, Personaje* personaje);
+    bool isFull();
+    void start();
     ~Partida();
 };
 

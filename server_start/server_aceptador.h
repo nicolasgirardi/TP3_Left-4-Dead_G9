@@ -11,6 +11,7 @@
 #include "./../common_libs/common_thread.h"
 #include "./../common_libs/common_socket.h"
 #include "./../server_modelo/partida.h"
+#include "./server_cliente_handler.h"
 
 class Aceptador : public Thread {
  private:
@@ -18,6 +19,7 @@ class Aceptador : public Thread {
     bool running;
     bool keep_running;
     ListaPartidas* partidas;
+    std::list<ClienteHandler*> clientes;
 
  public:
     explicit Aceptador(const char* port);
