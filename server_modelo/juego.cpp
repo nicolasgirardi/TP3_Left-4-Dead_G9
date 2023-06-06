@@ -6,9 +6,11 @@ Juego::Juego() : ejecutar(MAX_EVENTOS) {
     this->partida = nullptr;
 }
 
-void Juego::launch(Partida* partida) {
+void Juego::launch(Partida* partida, std::map<int, Queue<Evento*>*>* clientes, std::list<Personaje*> personajes) {
     this->partida = partida;
-    this->run();
+    this->clientes = clientes;
+    this->personajes = personajes;
+    start();
 }
 
 void Juego::run() {
@@ -22,6 +24,9 @@ void Juego::run() {
         }
 
         // Mando el estado del juego a todos los clientes
+        for (auto& cliente : *clientes) {
+            // cliente.second->push(partida->getEstado());
+        }
 
         // Simulo el paso del tiempo
         std::chrono::steady_clock::time_point start_time = std::chrono::steady_clock::now();

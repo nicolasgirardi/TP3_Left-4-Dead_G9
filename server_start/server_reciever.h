@@ -19,6 +19,7 @@ class Reciever : public Thread {
  public:
     Reciever& operator=(Reciever&);
     explicit Reciever(Socket* socket, Queue<Evento*>* queue);
+    bool is_running();
     void run() override;
     void stop();
 };

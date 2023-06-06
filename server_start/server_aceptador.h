@@ -6,12 +6,12 @@
 
 #include <string.h>
 #include <list>
-#include <utility>
 
 #include "./../common_libs/common_thread.h"
 #include "./../common_libs/common_socket.h"
 #include "./../server_modelo/partida.h"
 #include "./server_cliente_handler.h"
+#include "./../server_modelo/generador_id.h"
 
 class Aceptador : public Thread {
  private:

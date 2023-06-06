@@ -18,15 +18,17 @@ class ClienteHandler : public Thread {
  private:
     bool running;
     bool keep_running;
+    int id;
     Socket socket;
     ListaPartidas* partidas;
     Partida* partida;
     Reciever reciever;
-    // Queue<GameStatus> queue;
+    Queue<std::string> mensajes = Queue<std::string>(10);
 
  public:
-    ClienteHandler(Socket socket, ListaPartidas* partidas);
-    // get puntero a la queue
+    ClienteHandler(Socket socket, ListaPartidas* partidas, int id);
+    ~ClienteHandler();
+    Queue<std::string>* get_mensajes();
     bool is_running();
     void start();
     void run() override;

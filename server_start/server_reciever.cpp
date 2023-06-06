@@ -14,6 +14,10 @@ void Reciever::stop() {
     keep_running = false;
 }
 
+bool Reciever::is_running() {
+    return running;
+}
+
 Reciever::~Reciever() {
     stop();
 }

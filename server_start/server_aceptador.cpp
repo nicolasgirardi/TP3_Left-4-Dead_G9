@@ -7,7 +7,7 @@ Aceptador::Aceptador(const char* port) : socket(port), running(true), keep_runni
 void Aceptador::run() {
     while (keep_running) {
         Socket peer = socket.accept();
-        ClienteHandler* cliente = new ClienteHandler(std::move(peer), partidas);
+        ClienteHandler* cliente = new ClienteHandler(std::move(peer), partidas, GeneradorID::get_id());
         cliente->start();
         clientes.push_back(cliente);
         clientes.remove_if([](ClienteHandler* cliente) { return !cliente->is_running(); });
