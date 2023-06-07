@@ -23,6 +23,7 @@ file(GLOB_RECURSE HEADERS
     client_animation.h
     client_center.h
     client_soldier1textures.h
+    client_constants.h
 )
 add_subdirectory(SDL2pp)
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})

@@ -10,19 +10,22 @@
 #include <SDL2pp/Wav.hh>
 #include <SDL2pp/SDL2pp.hh>
 #include "client_soldier1textures.h"
+#include "client_constants.h"
 #include <vector>
 
+using namespace paths;
+
 Soldier1_Textures::Soldier1_Textures(SDL2pp::Renderer* renderer): 
-    attack(*renderer,"../resources/Soldier_1/Attack.png"),
-    dead(*renderer,"../resources/Soldier_1/Dead.png"),
-    grenade(*renderer,"../resources/Soldier_1/Grenade.png"),
-    hurt(*renderer,"../resources/Soldier_1/Hurt.png"),
-    idle(*renderer,"../resources/Soldier_1/Idle.png"),
-    recharge(*renderer,"../resources/Soldier_1/Recharge.png"),
-    run(*renderer,"../resources/Soldier_1/Run.png"),
-    shot_1(*renderer,"../resources/Soldier_1/Shot_1.png"),
-    shot_2(*renderer,"../resources/Soldier_1/Shot_2.png"),
-    walk(*renderer,"../resources/Soldier_1/Walk.png")
+    attack(*renderer,Soldier_1_Attack),
+    dead(*renderer,Soldier_1_Dead),
+    grenade(*renderer,Soldier_1_Grenade),
+    hurt(*renderer,Soldier_1_Hurt),
+    idle(*renderer,Soldier_1_Idle),
+    recharge(*renderer,Soldier_1_Recharge),
+    run(*renderer,Soldier_1_Run),
+    shot_1(*renderer,Soldier_1_Shot_1),
+    shot_2(*renderer,Soldier_1_Shot_2),
+    walk(*renderer,Soldier_1_Walk)
 {
 
 }
