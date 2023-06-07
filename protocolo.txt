@@ -1,9 +1,0 @@
-Cliente a Servidor
-0x01 create + 8bits con largo del nombre + string
-0x02 join + 32bits del codigo
-0x03 move + 2 coordenadas en 2 variables de 32bits con signo
-0x04 stop move + 2 coordenadas en 2 variables de 32bits con signo
-0x05 shoot + 1 coordenada en 1 variable de 32bits con signo para la direccion
-0x06 stop shoot
-0x07 bomb + 1 coordenada en 1 variable de 32bits con signo para la direccion
-0x08 strike
