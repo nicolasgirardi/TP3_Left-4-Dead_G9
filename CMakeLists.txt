@@ -13,7 +13,7 @@ file(GLOB_RECURSE SOURCES
     client_soldier1.cpp
     client_animation.cpp
     client_center.cpp
-    client_soldier1textures.cpp
+    client_Textureholder.cpp
 )
 file(GLOB_RECURSE HEADERS 
     client_scenario.h
@@ -22,7 +22,7 @@ file(GLOB_RECURSE HEADERS
     client_soldier1.h
     client_animation.h
     client_center.h
-    client_soldier1textures.h
+    client_Textureholder.h
     client_constants.h
 )
 add_subdirectory(SDL2pp)

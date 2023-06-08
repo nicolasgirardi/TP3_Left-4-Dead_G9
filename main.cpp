@@ -34,11 +34,15 @@
 #include "client_war1.h"
 #include "client_character.h"
 #include "client_soldier1.h"
-#include "client_soldier1textures.h"
+#include "client_Textureholder.h"
 #include "client_center.h"
+#include "client_constants.h"
 #include <memory>
 
 using namespace SDL2pp;
+
+using namespace paths;
+
 int foo(int value){
 	if(value<800)
 		return value;
@@ -84,7 +88,19 @@ int main(int, char*[]) try {
 	uint32_t frame = 0;
 	int pos1 = 450;
 	int pos2 = 400;
-	Soldier1_Textures soldier1_textures(&renderer);
+	std::vector<std::string> soldier_type_1 = {
+		Soldier_1_Attack,
+		Soldier_1_Dead,
+		Soldier_1_Grenade,
+		Soldier_1_Hurt,
+		Soldier_1_Idle,
+		Soldier_1_Recharge,
+		Soldier_1_Run,
+		Soldier_1_Shot_1,
+		Soldier_1_Shot_2,
+		Soldier_1_Walk
+	};
+	Texture_holder soldier1_textures(&renderer,soldier_type_1);
 	std::vector<Texture*> textures_s1 = soldier1_textures.all_textures();
 	std::unique_ptr<Character> soldier1(new Soldier1(pos1,50,960,720,textures_s1,frame));
 	std::unique_ptr<Character> soldier2(new Soldier1(pos2,60,960,720,textures_s1,frame));
