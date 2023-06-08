@@ -163,10 +163,8 @@ int main(int, char*[]) try {
 		renderer.Present();
 		auto end = std::chrono::high_resolution_clock::now();
 		int time = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count());
-		std::cout << "tardó en procesar todo " << time << " milisegundos" << std::endl;
 		frame = frame + 1 + (time/frame_rate);
 		int delay = frame_rate - (time % frame_rate);
-		std::cout << "iteracion " << j << " avanza " << 1 + (time/frame_rate) << " frames" << std::endl;
 		// Sound plays after this call
 		SDL_Delay(delay);
 	}
