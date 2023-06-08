@@ -1,5 +1,5 @@
-#ifndef CLIENT_WAR1_H
-#define CLIENT_WAR1_H
+#ifndef CLIENT_WAR3_H
+#define CLIENT_WAR3_H
 
 #include <iostream>
 #include <stdexcept>
@@ -18,7 +18,6 @@
 class War3: public Scenario{
     private:
     SDL2pp::Texture sky;
-    SDL2pp::Texture sun;
     SDL2pp::Texture house3;
     SDL2pp::Texture house2;
     SDL2pp::Texture trees;
@@ -27,8 +26,9 @@ class War3: public Scenario{
     SDL2pp::Texture road;
 
     public:
-    War3(int width,int height,std::vector<std::string>& textures,Renderer* renderer);
+    War3(int width,int height,std::vector<std::string>& textures,SDL2pp::Renderer* renderer);
 
-    void copy(int center,Renderer* renderer);
+    void copy(int center,SDL2pp::Renderer* renderer);
 
-}
+};
+#endif

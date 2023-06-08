@@ -14,18 +14,26 @@
 #include "client_character.h"
 #include "client_soldier1.h"
 #include "client_center.h"
-#include "client_sprite.h"
+#include "client_thread.h"
+#include "client_queue.h"
+//#include "client_Message.h"
 #include <memory>
 
-class Renderer {
+class MyRenderer: public Thread {
     private:
     int width;
     int height;
-    std::vector<std::shared_ptr<Sprite>> all_sprites;
+    int my_map;
+    int my_id;
+    //Queue<Message>* my_queue;
 
     public:
-    Renderer(int width, int height);
+    MyRenderer(int width, int height,int map,int ID/*,Queue<Message>* queue*/);
 
+    void run();
     
+    private:
+    void get_map_paths(std::vector<std::string>& textures);
+    void load_map();
 };
 #endif

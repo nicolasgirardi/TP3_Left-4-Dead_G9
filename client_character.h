@@ -22,6 +22,7 @@ class Character{
     int y;
     int pos_x;
     int pos_y;
+    int ID;
     SDL_RendererFlip invert;
     Animation* current_animation;
 

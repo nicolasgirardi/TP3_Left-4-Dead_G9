@@ -9,7 +9,7 @@
 #include <SDL2pp/AudioSpec.hh>
 #include <SDL2pp/Wav.hh>
 #include <SDL2pp/SDL2pp.hh>
-#include "client_Textureholder.h"
+#include "client_textureholder.h"
 #include <vector>
 
 Texture_holder::Texture_holder(SDL2pp::Renderer* renderer,std::vector<std::string>& paths) 

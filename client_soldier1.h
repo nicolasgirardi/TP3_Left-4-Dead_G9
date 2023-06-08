@@ -15,7 +15,7 @@
 #include "client_character.h"
 #include "client_animation.h"
 #include "client_center.h"
-#include "client_soldier1.h"
+
 
 class Soldier1: public Character {
     private:

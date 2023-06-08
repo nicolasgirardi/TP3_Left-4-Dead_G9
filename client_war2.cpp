@@ -24,18 +24,18 @@ War2::War2(int width,int height,std::vector<std::string>& textures,SDL2pp::Rende
     x = width;
     y = height;
 }
-void War1::copy(int center, SDL2pp::Renderer* renderer){
+void War2::copy(int center, SDL2pp::Renderer* renderer){
     renderer->Copy(sky,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(0,0,x,y));
-	renderer->Copy(house4,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(-center_scenario(center/4),0,x,y));
-	renderer->Copy(house4,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(x-center_scenario(center/4),0,x,y));
-	renderer->Copy(house3,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(-center_scenario(center/2),0,x,y));
-	renderer->Copy(house3,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(x-center_scenario(center/2),0,x,y));
-	renderer->Copy(house2,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(-center_scenario(center),0,x,y));
-	renderer->Copy(house2,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(x-center_scenario(center),0,x,y));
-	renderer->Copy(house1,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(-center_scenario(center*2),0,x,y));
-	renderer->Copy(house1,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(x-center_scenario(center*2),0,x,y));
-	renderer->Copy(wall,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(-center_scenario(center*3),0,x,y));
-	renderer->Copy(wall,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(x-center_scenario(center*3),0,x,y));
-	renderer->Copy(road,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(-center_scenario(center*4),0,x,y));
-	renderer->Copy(road,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(x-center_scenario(center*4),0,x,y));
+	renderer->Copy(house4,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(-center_scenario(center/32),0,x,y));
+	renderer->Copy(house4,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(x-center_scenario(center/32),0,x,y));
+	renderer->Copy(house3,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(-center_scenario(center/16),0,x,y));
+	renderer->Copy(house3,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(x-center_scenario(center/16),0,x,y));
+	renderer->Copy(house2,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(-center_scenario(center/8),0,x,y));
+	renderer->Copy(house2,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(x-center_scenario(center/8),0,x,y));
+	renderer->Copy(house1,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(-center_scenario(center/4),0,x,y));
+	renderer->Copy(house1,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(x-center_scenario(center/4),0,x,y));
+	renderer->Copy(wall,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(-center_scenario(center/2),0,x,y));
+	renderer->Copy(wall,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(x-center_scenario(center/2),0,x,y));
+	renderer->Copy(road,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(-center_scenario(center),0,x,y));
+	renderer->Copy(road,SDL2pp::Rect(0,0,1920,1080),SDL2pp::Rect(x-center_scenario(center),0,x,y));
 }
