@@ -1,21 +1,23 @@
 #include "server_aceptador.h"
 
-Aceptador::Aceptador(const char* port) : socket(port) {
-    this->running = true;
-    this->keep_running = true;
+Aceptador::Aceptador(const char* port) : socket(port), running(true), keep_running(true) {
+    partidas = new ListaPartidas();
 }
 
 void Aceptador::run() {
     while (keep_running) {
         Socket peer = socket.accept();
-        //Juego* juego = new Juego(std::move(peer), &juegos);
-        //juego->start();
-        //juegos.push(juego);
-        //juegos.check_finished();
+        ClienteHandler* cliente = new ClienteHandler(std::move(peer), partidas, GeneradorID::get_id());
+        cliente->start();
+        clientes.push_back(cliente);
+        clientes.remove_if([](ClienteHandler* cliente) { return !cliente->is_running(); });
     }
     running = false;
-    // Cierro los juegos que quedaron abiertos
-    //juegos.end();
+    for (auto& cliente : clientes) {
+        cliente->stop();
+        cliente->join();
+        delete cliente;
+    }
 }
 
 void Aceptador::stop() {
@@ -23,5 +25,14 @@ void Aceptador::stop() {
     // Fuerzo a un cierre total del socket
     socket.shutdown(2);
     socket.close();
-    //juegos.end();
+    for (auto& cliente : clientes) {
+        cliente->stop();
+        cliente->join();
+        delete cliente;
+    }
+}
+
+Aceptador::~Aceptador() {
+    delete partidas;
+    stop();
 }

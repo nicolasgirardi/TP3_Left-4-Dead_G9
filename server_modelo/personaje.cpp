@@ -39,6 +39,16 @@ std::vector<int> Personaje::mover(int largo, int ancho) {
   return pos;
 }
 
-int Personaje::disparar() {
-  return this->arma->disparar();
+int Personaje::recargar() {
+  return this->arma->recargar();
+}
+
+int Personaje::iniciar_disparo() {
+  this->disparando = true;
+  return 0;
+}
+
+int Personaje::finalizar_disparo() {
+  this->disparando = false;
+  return 0;
 }
