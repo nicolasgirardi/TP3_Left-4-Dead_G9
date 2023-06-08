@@ -34,7 +34,7 @@
 #include "client_war1.h"
 #include "client_character.h"
 #include "client_soldier1.h"
-#include "client_Textureholder.h"
+#include "client_textureholder.h"
 #include "client_center.h"
 #include "client_constants.h"
 #include <memory>
@@ -105,14 +105,14 @@ int main(int, char*[]) try {
 	std::unique_ptr<Character> soldier1(new Soldier1(pos1,50,960,720,textures_s1,frame));
 	std::unique_ptr<Character> soldier2(new Soldier1(pos2,60,960,720,textures_s1,frame));
 	std::vector<std::string> textures;
-	textures.push_back("../resources/backgrounds/War1/Bright/sky.png");
-	textures.push_back("../resources/backgrounds/War1/Bright/sun.png");
-	textures.push_back("../resources/backgrounds/War1/Bright/ruins.png");
-	textures.push_back("../resources/backgrounds/War1/Bright/house3.png");
-	textures.push_back("../resources/backgrounds/War1/Bright/houses2.png");
-	textures.push_back("../resources/backgrounds/War1/Bright/houses1.png");
-	textures.push_back("../resources/backgrounds/War1/Bright/fence.png");
-	textures.push_back("../resources/backgrounds/War1/Bright/road.png");
+	textures.push_back(backgrounds_War1_Pale_sky);
+	textures.push_back(backgrounds_War1_Pale_sun);
+	textures.push_back(backgrounds_War1_Pale_ruins);
+	textures.push_back(backgrounds_War1_Pale_house3);
+	textures.push_back(backgrounds_War1_Pale_houses2);
+	textures.push_back(backgrounds_War1_Pale_houses1);
+	textures.push_back(backgrounds_War1_Pale_fence);
+	textures.push_back(backgrounds_War1_Pale_road);
 
 	// Clear screen
 	std::unique_ptr<Scenario> scenary(new War1(960,720,textures,&renderer));
