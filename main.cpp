@@ -37,6 +37,7 @@
 #include "client_textureholder.h"
 #include "client_center.h"
 #include "client_constants.h"
+#include <chrono>
 #include <memory>
 
 using namespace SDL2pp;
@@ -123,7 +124,9 @@ int main(int, char*[]) try {
 	int speed1 = 8;
 	int speed2 = 4;
 	// Render our image, stretching it to the whole window
+	auto start = std::chrono::high_resolution_clock::now();
 	for(int j = 0;j<400;j++){
+		auto start = std::chrono::high_resolution_clock::now();
 		//time = tiempo_actual(ms)
 		if(j ==  100){
 			speed1 = 0;
@@ -158,10 +161,14 @@ int main(int, char*[]) try {
 		frame = frame + 1;
 		// Show rendered frame
 		renderer.Present();
-		//time = tiempo_actual(ms) - time
-		frame = frame + 1;// + (int) (time/frame_rate);
+		auto end = std::chrono::high_resolution_clock::now();
+		int time = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count());
+		std::cout << "tardó en procesar todo " << time << " milisegundos" << std::endl;
+		frame = frame + 1 + (time/frame_rate);
+		int delay = frame_rate - (time % frame_rate);
+		std::cout << "iteracion " << j << " avanza " << 1 + (time/frame_rate) << " frames" << std::endl;
 		// Sound plays after this call
-		SDL_Delay(frame_rate);
+		SDL_Delay(delay);
 	}
 	// Play for 5 seconds, after which everything is stopped and closed
 	//SDL_Delay(10000);
