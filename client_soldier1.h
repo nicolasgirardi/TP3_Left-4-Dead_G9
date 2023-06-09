@@ -14,21 +14,23 @@
 #include <SDL2pp/SDL2pp.hh>
 #include "client_character.h"
 #include "client_animation.h"
+#include "client_loopanimation.h"
+#include "client_singleanimation.h"
 #include "client_center.h"
 
 
 class Soldier1: public Character {
     private:
-    Animation attack;
-    Animation dead;
-    Animation grenade;
-    Animation hurt;
-    Animation idle;
-    Animation Recharge;
-    Animation run;
-    Animation shot_1;
-    Animation shot_2;
-    Animation walk;
+    LoopAnimation attack;
+    SingleAnimation dead;
+    LoopAnimation grenade;
+    LoopAnimation hurt;
+    LoopAnimation idle;
+    LoopAnimation Recharge;
+    LoopAnimation run;
+    LoopAnimation shot_1;
+    LoopAnimation shot_2;
+    LoopAnimation walk;
 
     public:
     Soldier1(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame);

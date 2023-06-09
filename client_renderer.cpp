@@ -20,6 +20,7 @@
 #include "client_textureholder.h"
 #include "client_constants.h"
 #include <memory>
+#include <fstream>
 
 using namespace SDL2pp;
 using namespace paths;
@@ -35,7 +36,8 @@ MyRenderer::MyRenderer(int width, int height,int map,int ID/*,Queue<Message>* qu
 void MyRenderer::run(){
     try {
 	SDL sdl(SDL_INIT_AUDIO | SDL_INIT_VIDEO);
-
+	std::fstream report;
+	report.open("report.csv",std::ofstream::out);
 	Wav wav("../resources/Music/StartMenu.wav");
 	Uint8* wav_pos = wav.GetBuffer();
 
@@ -226,8 +228,8 @@ void MyRenderer::run(){
 		}
 		pos1 = pos1+speed1;
 		pos2 = pos2+speed2;
-		soldier1.get()->set_position(pos1,50);
-		soldier2.get()->set_position(pos2,60);
+		soldier1.get()->set_position(pos1,0);
+		soldier2.get()->set_position(pos2,0);
 		Center center;
 		soldier1.get()->add_to_center(center);
 		soldier2.get()->add_to_center(center);
@@ -250,6 +252,7 @@ void MyRenderer::run(){
 		frame = frame + 1 + (time/frame_rate);
 		int delay = frame_rate - (time % frame_rate);
 		// Sound plays after this call
+		report << (time/frame_rate) << "," << (time + delay) << std::endl;
 		SDL_Delay(delay);
 	}
 	// Play for 5 seconds, after which everything is stopped and closed

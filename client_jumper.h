@@ -14,21 +14,23 @@
 #include <SDL2pp/SDL2pp.hh>
 #include "client_character.h"
 #include "client_animation.h"
+#include "client_loopanimation.h"
+#include "client_singleanimation.h"
 #include "client_center.h"
 
 
 class Jumper: public Character {
     private:
-    Animation attack_1;
-    Animation attack_2;
-    Animation attack_3;
-    Animation dead;
-    Animation eating;
-    Animation hurt;
-    Animation idle;
-    Animation jump;
-    Animation run;
-    Animation walk;
+    LoopAnimation attack_1;
+    LoopAnimation attack_2;
+    LoopAnimation attack_3;
+    SingleAnimation dead;
+    LoopAnimation eating;
+    LoopAnimation hurt;
+    LoopAnimation idle;
+    LoopAnimation jump;
+    LoopAnimation run;
+    LoopAnimation walk;
 
     public:
     Jumper(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame);

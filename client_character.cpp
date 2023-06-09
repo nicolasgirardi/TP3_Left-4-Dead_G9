@@ -18,7 +18,7 @@ void Character::set_position(int x,int y){
     if (x > pos_x)
         invert = SDL_FLIP_NONE;
     pos_x = x;
-    pos_y = y;
+    pos_y = height * (7 + ( height*y /200 )) / 8;
 }
 int Character::get_vertical(){
     return pos_y;

@@ -14,21 +14,23 @@
 #include <SDL2pp/SDL2pp.hh>
 #include "client_character.h"
 #include "client_animation.h"
+#include "client_loopanimation.h"
+#include "client_singleanimation.h"
 #include "client_center.h"
 
 
 class Spear: public Character {
     private:
-    Animation attack_1;
-    Animation attack_2;
-    Animation dead;
-    Animation fall;
-    Animation hurt;
-    Animation idle;
-    Animation protect;
-    Animation run;
-    Animation run_attack;
-    Animation walk;
+    LoopAnimation attack_1;
+    LoopAnimation attack_2;
+    SingleAnimation dead;
+    LoopAnimation fall;
+    LoopAnimation hurt;
+    LoopAnimation idle;
+    LoopAnimation protect;
+    LoopAnimation run;
+    LoopAnimation run_attack;
+    LoopAnimation walk;
 
     public:
     Spear(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame);

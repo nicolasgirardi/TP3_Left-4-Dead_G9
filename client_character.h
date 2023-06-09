@@ -18,8 +18,8 @@
 
 class Character{
     protected:
-    int x;
-    int y;
+    int width;
+    int height;
     int pos_x;
     int pos_y;
     int ID;

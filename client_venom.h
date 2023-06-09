@@ -14,19 +14,21 @@
 #include <SDL2pp/SDL2pp.hh>
 #include "client_character.h"
 #include "client_animation.h"
+#include "client_loopanimation.h"
+#include "client_singleanimation.h"
 #include "client_center.h"
 
 
 class Venom: public Character {
     private:
-    Animation attack_1;
-    Animation attack_2;
-    Animation dead;
-    Animation hurt;
-    Animation idle;
-    Animation jump;
-    Animation run;
-    Animation walk;
+    LoopAnimation attack_1;
+    LoopAnimation attack_2;
+    SingleAnimation dead;
+    LoopAnimation hurt;
+    LoopAnimation idle;
+    LoopAnimation jump;
+    LoopAnimation run;
+    LoopAnimation walk;
 
     public:
     Venom(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame);

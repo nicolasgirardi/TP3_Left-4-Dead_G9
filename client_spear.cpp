@@ -11,6 +11,8 @@
 #include <SDL2pp/SDL2pp.hh>
 #include "client_character.h"
 #include "client_animation.h"
+#include "client_loopanimation.h"
+#include "client_singleanimation.h"
 #include "client_spear.h"
 #include "client_center.h"
 
@@ -27,15 +29,14 @@ Spear::Spear(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Textur
     walk(frame,texture[9],1,7)
 {
     this->pos_x = pos_x;
-    this->pos_y = pos_y;
-    x = width;
-    y = height;
+    this->pos_y = height * (7+ ( height*pos_y /200 )) / 8;
+    this->width = width;
+    this->height = height;
     current_animation = &idle;
 }
 void Spear::copy(int center,SDL2pp::Renderer* renderer,uint32_t frame){
-    int new_x = pos_x - center + (x/2) - 64; //el 64 hay que definirlo de alguna forma mejor
-    int new_y = (y*4/5) + (pos_y*y/500) - 64; //el 100 es el maximo y
-    current_animation->copy(frame,new_x,new_y,renderer,invert);
+    int new_x = pos_x - center + (width/2) - 64; //el 64 hay que definirlo de alguna forma mejor
+    current_animation->copy(frame,new_x,pos_y,renderer,invert);
 }
 void Spear::change_action(int code,uint32_t frame){
     Animation* next_animation = current_animation;
