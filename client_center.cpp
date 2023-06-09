@@ -16,5 +16,8 @@ void Center::add_participation(int value,int weight){
 }
 
 int Center::center_value(){
-    return sum/num;
+    if(num > 0)
+        return sum/num;
+    else
+        return 0;
 }

@@ -72,8 +72,8 @@ void MyRenderer::run(){
 	Texture sprites10(renderer,"../resources/Soldier_2/Run.png");
 	*/
 	uint32_t frame = 0;
-	int pos1 = 400;
-	int pos2 = 450;
+	int pos1 = 0;
+	int pos2 = 0;
 	std::vector<std::string> soldier_type_1 = {
 		Soldier_1_Attack,
 		Soldier_1_Dead,
@@ -229,7 +229,7 @@ void MyRenderer::run(){
 		pos1 = pos1+speed1;
 		pos2 = pos2+speed2;
 		soldier1.get()->set_position(pos1,0);
-		soldier2.get()->set_position(pos2,0);
+		soldier2.get()->set_position(pos2,200);
 		Center center;
 		soldier1.get()->add_to_center(center);
 		soldier2.get()->add_to_center(center);

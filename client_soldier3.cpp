@@ -29,7 +29,7 @@ Soldier3::Soldier3(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::
     walk(frame,texture[9],1,8)
 {
     this->pos_x = pos_x;
-    this->pos_y = height * (7+ ( height*pos_y /200 )) / 8;
+    this->pos_y = (height * ((7*200) + pos_y )) / (200*8);
     this->width = width;
     this->height = height;
     current_animation = &idle;
