@@ -33,7 +33,7 @@ class Spear: public Character {
     LoopAnimation walk;
 
     public:
-    Spear(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame);
+    Spear(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID);
 
     void copy(int center,SDL2pp::Renderer* renderer,uint32_t frame);
 

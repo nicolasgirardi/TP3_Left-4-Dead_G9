@@ -16,7 +16,7 @@
 #include "client_spear.h"
 #include "client_center.h"
 
-Spear::Spear(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame):
+Spear::Spear(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID):
     attack_1(frame,texture[0],1,4),
     attack_2(frame,texture[1],1,4),
     dead(frame,texture[2],1,5),
@@ -33,6 +33,7 @@ Spear::Spear(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Textur
     this->width = width;
     this->height = height;
     current_animation = &idle;
+    my_id = ID;
 }
 void Spear::copy(int center,SDL2pp::Renderer* renderer,uint32_t frame){
     int new_x = pos_x - center + (width/2) - 64; //el 64 hay que definirlo de alguna forma mejor

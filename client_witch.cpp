@@ -16,7 +16,7 @@
 #include "client_witch.h"
 #include "client_center.h"
 
-Witch::Witch(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame):
+Witch::Witch(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID):
     attack_1(frame,texture[0],1,4),
     attack_2(frame,texture[1],1,4),
     attack_3(frame,texture[2],1,4),
@@ -34,6 +34,7 @@ Witch::Witch(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Textur
     this->width = width;
     this->height = height;
     current_animation = &idle;
+    my_id = ID;
 }
 void Witch::copy(int center,SDL2pp::Renderer* renderer,uint32_t frame){
     int new_x = pos_x - center + (width/2) - 64; //el 64 hay que definirlo de alguna forma mejor

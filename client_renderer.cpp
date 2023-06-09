@@ -178,8 +178,8 @@ void MyRenderer::run(){
 	Texture_holder zombie_textures(&renderer,enemy_zombie);
 	std::vector<Texture*> textures_s1 = soldier1_textures.all_textures();
 	std::vector<Texture*> textures_s2 = soldier2_textures.all_textures();
-	std::unique_ptr<Character> soldier1(new Soldier1(pos1,50,960,720,textures_s1,frame));
-	std::unique_ptr<Character> soldier2(new Soldier2(pos2,60,960,720,textures_s2,frame));
+	std::unique_ptr<Character> soldier1(new Soldier1(pos1,50,960,720,textures_s1,frame,1));
+	std::unique_ptr<Character> soldier2(new Soldier2(pos2,60,960,720,textures_s2,frame,2));
 	std::vector<std::string> textures;
 	get_map_paths(textures);
 

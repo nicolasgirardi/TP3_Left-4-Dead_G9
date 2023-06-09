@@ -31,7 +31,7 @@ class Venom: public Character {
     LoopAnimation walk;
 
     public:
-    Venom(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame);
+    Venom(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID);
 
     void copy(int center,SDL2pp::Renderer* renderer,uint32_t frame);
 

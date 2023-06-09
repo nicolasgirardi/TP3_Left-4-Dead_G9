@@ -16,7 +16,7 @@
 #include "client_venom.h"
 #include "client_center.h"
 
-Venom::Venom(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame):
+Venom::Venom(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID):
     attack_1(frame,texture[0],1,8),
     attack_2(frame,texture[1],1,14),
     dead(frame,texture[2],1,6),
@@ -31,6 +31,7 @@ Venom::Venom(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Textur
     this->width = width;
     this->height = height;
     current_animation = &idle;
+    my_id = ID;
 }
 void Venom::copy(int center,SDL2pp::Renderer* renderer,uint32_t frame){
     int new_x = pos_x - center + (width/2) - 64; //el 64 hay que definirlo de alguna forma mejor

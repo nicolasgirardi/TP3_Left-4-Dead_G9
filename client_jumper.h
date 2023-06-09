@@ -33,7 +33,7 @@ class Jumper: public Character {
     LoopAnimation walk;
 
     public:
-    Jumper(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame);
+    Jumper(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID);
 
     void copy(int center,SDL2pp::Renderer* renderer,uint32_t frame);
 
