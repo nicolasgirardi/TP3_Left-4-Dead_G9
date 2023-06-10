@@ -7,7 +7,6 @@ EventoNoMover::EventoNoMover(int id_personaje) {
 
 EventoNoMover::~EventoNoMover() {}
 
-void EventoNoMover::ejecutar(Partida* partida) {
-    Personaje* personaje = partida->get_personaje(this->id_personaje);
+void EventoNoMover::ejecutar(Personaje* personaje) {
     personaje->modificar_velocidad(0, 0);
 }

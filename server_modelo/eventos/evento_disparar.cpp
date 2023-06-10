@@ -6,7 +6,6 @@ EventoDisparar::EventoDisparar(int id_personaje) {
 
 EventoDisparar::~EventoDisparar() {}
 
-void EventoDisparar::ejecutar(Partida* partida) {
-    Personaje* personaje = partida->get_personaje(this->id_personaje);
+void EventoDisparar::ejecutar(Personaje* personaje) {
     personaje->iniciar_disparo();
 }

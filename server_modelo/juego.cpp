@@ -20,7 +20,9 @@ void Juego::run() {
         // Espero para poder mandarlo más o menos cada 1/60 segundos
         Evento* evento;
         while (ejecutar.try_pop(evento)) {
-            evento->ejecutar(partida);
+            int id = evento->get_id_personaje();
+            Personaje* personaje = getPersonaje(id);
+            evento->ejecutar(personaje);
         }
 
         // Mando el estado del juego a todos los clientes
@@ -48,4 +50,17 @@ void Juego::stop() {
 
 Juego::~Juego() {
     stop();
+}
+
+Queue<Evento*>* Juego::getQueue() {
+    return &ejecutar;
+}
+
+Personaje* Juego::getPersonaje(int id) {
+    for (auto& personaje : personajes) {
+        if (personaje->get_id() == id) {
+            return personaje;
+        }
+    }
+    return nullptr;
 }

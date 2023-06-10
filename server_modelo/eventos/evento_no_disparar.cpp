@@ -6,7 +6,6 @@ EventoNoDisparar::EventoNoDisparar(int id_personaje) {
 
 EventoNoDisparar::~EventoNoDisparar() {}
 
-void EventoNoDisparar::ejecutar(Partida* partida) {
-    Personaje* personaje = partida->get_personaje(this->id_personaje);
+void EventoNoDisparar::ejecutar(Personaje* personaje) {
     personaje->finalizar_disparo();
 }

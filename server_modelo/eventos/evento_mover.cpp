@@ -8,7 +8,6 @@ EventoMover::EventoMover(int id_personaje, int x, int y) {
 
 EventoMover::~EventoMover() {}
 
-void EventoMover::ejecutar(Partida* partida) {
-    Personaje* personaje = partida->get_personaje(this->id_personaje);
-    personaje->modificar_velocidad(this->x, this->y);
+void EventoMover::ejecutar(Personaje* personaje) {
+    personaje->modificar_velocidad(x, y);
 }

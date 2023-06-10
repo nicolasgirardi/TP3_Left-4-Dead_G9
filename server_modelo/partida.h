@@ -39,22 +39,35 @@ class Partida {
  private:
     std::map<int, Queue<Evento*>*> clientes;
     int id;
+    std::string nombre;
     int maxClientes = MAX_CLIENTES;
     std::list<Personaje*> personajes;
 
  public:
-    Partida(int id);
+    Partida(int id, std::string nombre);
     void addClient(Queue<Evento*>* queue, int id);
     bool addPersonaje(int id, int arma);
     void removeClient(int id);
     bool isFull();
     void start();
     std::string getEstado();
+    int getId();
     ~Partida();
 };
 
 class ListaPartidas {
-
+    private:
+        std::mutex m;
+        std::map<int, Partida*> partidas;
+        int id = 0;
+    
+    public:
+        ListaPartidas();
+        Partida* addPartida(std::string nombre);
+        void addClient(Queue<Evento*>* queue, int id);
+        void removeClient(int id);
+        bool addPersonaje(int id, int arma);
+        ~ListaPartidas();
 };
 
 #endif // PARTIDA_H_

@@ -36,3 +36,12 @@ int Arma::get_municiones() {
 int Arma::get_velocidad_disparo() {
   return this->velocidad_disparo;
 }
+
+std::string Arma::get_estado() {
+  std::string estado = "";
+  estado += std::to_string(this->tipo_arma) + " ";
+  estado += std::to_string(this->municion_actual) + " ";
+  estado += std::to_string(this->velocidad_disparo) + " ";
+  estado += std::to_string(this->disparando) + " ";
+  return estado;
+}
