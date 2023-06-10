@@ -1,5 +1,5 @@
-#ifndef CLIENT_RENDERER_H
-#define CLIENT_RENDERER_H
+#ifndef CLIENT_MYRENDERER_H
+#define CLIENT_MYRENDERER_H
 #include <iostream>
 
 #include <SDL.h>
@@ -16,7 +16,7 @@
 #include "client_center.h"
 #include "client_thread.h"
 #include "client_queue.h"
-//#include "client_Message.h"
+#include "client_message.h"
 #include <memory>
 
 class MyRenderer: public Thread {
@@ -25,15 +25,21 @@ class MyRenderer: public Thread {
     int height;
     int my_map;
     int my_id;
-    //Queue<Message>* my_queue;
+    Queue<Message>* my_queue;
+    std::vector<std::unique_ptr<Character>> all_characters;
 
     public:
-    MyRenderer(int width, int height,int map,int ID/*,Queue<Message>* queue*/);
+    MyRenderer(int width, int height,int map,int ID,Queue<Message>* queue);
 
     void run();
     
     private:
     void get_map_paths(std::vector<std::string>& textures);
     void load_map();
+    void update_characters(Message& message);
+    void add_character(Message& message);
+    void update_character(Message& message,Character* character);
+    void remove_character(Message& message);
+
 };
 #endif

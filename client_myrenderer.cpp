@@ -16,21 +16,22 @@
 #include "client_soldier1.h"
 #include "client_soldier2.h"
 #include "client_center.h"
-#include "client_renderer.h"
+#include "client_myrenderer.h"
 #include "client_textureholder.h"
 #include "client_constants.h"
 #include <memory>
 #include <fstream>
+#include "client_message.h"
 
 using namespace SDL2pp;
 using namespace paths;
 
-MyRenderer::MyRenderer(int width, int height,int map,int ID/*,Queue<Message>* queue*/){
+MyRenderer::MyRenderer(int width, int height,int map,int ID,Queue<Message>* queue){
     this->width = width;
     this->height = height;
     this->my_map = map;
     this->my_id = ID;
-    //this->my_queue = queue;
+    this->my_queue = queue;
 }
 
 void MyRenderer::run(){
@@ -342,3 +343,7 @@ void MyRenderer::get_map_paths(std::vector<std::string>& textures){
     }
 
 }
+void MyRenderer::update_characters(Message& message){}
+void MyRenderer::add_character(Message& message){}
+void MyRenderer::update_character(Message& message,Character* character){}
+void MyRenderer::remove_character(Message& message){}
