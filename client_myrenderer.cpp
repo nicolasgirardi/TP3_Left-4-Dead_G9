@@ -29,6 +29,7 @@
 #include <fstream>
 #include "common_queue.h"
 #include "client_message.h"
+#include "client_myenum.h"
 
 using namespace SDL2pp;
 using namespace paths;
@@ -346,7 +347,7 @@ void MyRenderer::get_map_paths(std::vector<std::string>& textures){
 
 }
 void MyRenderer::update_characters(Message& message){
-	int abm = message.get_amb();
+	Type_of_AMB abm = message.get_amb();
 	switch(abm){
 		case(0):
 			add_character(message);

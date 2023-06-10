@@ -15,6 +15,7 @@
 #include "client_singleanimation.h"
 #include "client_spear.h"
 #include "client_center.h"
+#include "client_myenum.h"
 
 Spear::Spear(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID):
     attack_1(frame,texture[0],1,4),
@@ -39,37 +40,37 @@ void Spear::copy(int center,SDL2pp::Renderer* renderer,uint32_t frame){
     int new_x = pos_x - center + (width/2) - 64; //el 64 hay que definirlo de alguna forma mejor
     current_animation->copy(frame,new_x,pos_y,renderer,invert);
 }
-void Spear::change_action(int code,uint32_t frame){
+void Spear::change_action(myenum::Type_of_action code,uint32_t frame){
     Animation* next_animation = current_animation;
     switch(code){
-        case(0):
+        case(myenum::attack_1):
             next_animation = &attack_1;
             break;
-        case(1):
+        case(myenum::attack_2):
             next_animation = &attack_2;
             break;
-        case(2):
+        case(myenum::dead):
             next_animation = &dead;
             break;
-        case(3):
+        case(myenum::fall):
             next_animation = &fall;
             break;
-        case(4):
+        case(myenum::hurt):
             next_animation = &hurt;
             break;
-        case(5):
+        case(myenum::idle):
             next_animation = &idle;
             break;
-        case(6):
+        case(myenum::protect):
             next_animation = &protect;
             break;
-        case(7):
+        case(myenum::run):
             next_animation = &run;
             break;
-        case(8):
+        case(myenum::run_attack):
             next_animation = &run_attack;
             break;
-        case(9):
+        case(myenum::walk):
             next_animation = &walk;
             break;
     }

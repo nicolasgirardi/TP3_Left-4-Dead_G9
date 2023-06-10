@@ -11,6 +11,7 @@
 #include <SDL2pp/SDL2pp.hh>
 #include "client_myrenderer.h"
 #include <chrono>
+#include "client_myenum.h"
 #include "common_thread.h"
 #include "common_queue.h"
 #include <memory>
@@ -26,20 +27,20 @@ int main(int, char*[]){
 	int pos2 = 50;
 	int speed1 = 2;
 	int speed2 = 4;
-	int action1 = 9;
-	int action2 = 6;
-	Message message(1,action1,pos1,75,soldier1,0);
+	myenum::Type_of_action action1 = myenum::walk;
+	myenum::Type_of_action action2 = myenum::run;
+	Message message(1,action1,pos1,75,soldier1,alta);
 	queue.push(message);
-	message = Message(2,action2,pos2,125,soldier2,0);
+	message = Message(2,action2,pos2,125,soldier2,alta);
 	queue.push(message);
 	for(int i = 0;i<400;i++){
 		if(i == 100){
 			speed2 = 0;
-			action2 = 4;
+			action2 = myenum::idle;
 		}
 		if(i == 200){
 			speed2 = 2;
-			action2 = 9;
+			action2 = myenum::walk;
 		}
 		if(i == 300){
 			speed1 = -2;
@@ -47,9 +48,9 @@ int main(int, char*[]){
 		}
 		pos1 = pos1 + speed1;
 		pos2 = pos2 + speed2;
-		Message message(1,action1,pos1,75,soldier1,2);
+		Message message(1,action1,pos1,75,soldier1,modificacion);
 		queue.push(message);
-		message = Message(2,action2,pos2,125,soldier2,2);
+		message = Message(2,action2,pos2,125,soldier2,modificacion);
 		queue.push(message);
 		SDL_Delay(40);
 	}

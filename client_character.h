@@ -14,7 +14,7 @@
 #include <SDL2pp/SDL2pp.hh>
 #include "client_animation.h"
 #include "client_center.h"
-
+#include "client_myenum.h"
 
 class Character{
     protected:
@@ -33,7 +33,7 @@ class Character{
     void set_position(int horizontal,int vertical);
     int get_vertical();
     virtual void add_to_center(Center& center) = 0;
-    virtual void change_action(int code,uint32_t frame) = 0;
+    virtual void change_action(myenum::Type_of_action code,uint32_t frame) = 0;
     bool is(int another_id);
     virtual ~Character(){};
 

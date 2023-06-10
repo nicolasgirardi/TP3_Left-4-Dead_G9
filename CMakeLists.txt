@@ -54,6 +54,7 @@ file(GLOB_RECURSE HEADERS
     client_witch.h
     client_zombie.h
     client_message.h
+    client_myenum.h
 )
 add_subdirectory(SDL2pp)
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})

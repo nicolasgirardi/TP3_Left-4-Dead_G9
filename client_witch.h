@@ -17,6 +17,7 @@
 #include "client_loopanimation.h"
 #include "client_singleanimation.h"
 #include "client_center.h"
+#include "client_myenum.h"
 
 
 class Witch: public Character {
@@ -37,7 +38,7 @@ class Witch: public Character {
 
     void copy(int center,SDL2pp::Renderer* renderer,uint32_t frame);
 
-    void change_action(int code,uint32_t frame);
+    void change_action(myenum::Type_of_action code,uint32_t frame);
 
     void change_position(int x,int y);
 
