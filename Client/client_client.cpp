@@ -10,26 +10,18 @@
 #include "common_liberror.h"
 #include "client_parsing.h"
 
-Client::Client(char* server,char* port): socket(server,port) {}
+Client::Client(char* server,char* port): socket(server,port) {
+    my_id = -1;
+}
     
 
 void Client::process_commands(){
-    bool close = false;
+    bool gaming = false;
     std::string command,word;
-    while (!close){
+    while (!gaming){
         std::getline(std::cin,command);
         std::stringstream com(command);
         com >> word;
-        if (word.compare("read") == 0){
-            int times;
-            com >> times;
-            for (int i = 0; i<times; i++){
-                this->receive_broadcast(&close);
-            }
-        }
-        if (word.compare("leave") == 0){
-                close = true;
-            }
         if (word.compare("create") == 0){
             this->send(command,&close);
             this->receive_create(&close);

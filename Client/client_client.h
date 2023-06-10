@@ -8,7 +8,7 @@
 class Client{
     private:
     Socket socket;
-              
+    int my_id;
 
     public:
     Client(char* server,char* port);

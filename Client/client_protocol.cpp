@@ -56,15 +56,21 @@ void Protocol::receive_read(Socket& skt,bool* close,std::string& broadcasted){
         broadcasted.assign((char*)buff);
     }
 } 
-uint32_t Protocol::receive_create(Socket& skt,bool* close){
+uint32_t Protocol::receive_create(Socket& skt,bool* close,int& id){
     int32_t aux;
     skt.recvall(&aux,4,close);
     aux = ntohl(aux);
+    skt.recvall(&id,4,close);
+    id = ntohl(id);
     return aux;
 }
-uint8_t Protocol::receive_join(Socket& skt,bool* close){
+uint8_t Protocol::receive_join(Socket& skt,bool* close,int& id){
     int8_t aux;
     skt.recvall(&aux,1,close);
+    if(aux == 0){
+        skt.recvall(&id,4,close);
+        id = ntohl(id);
+    }
     return aux;
 }
 
