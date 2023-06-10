@@ -9,19 +9,23 @@ class Protocol {
 private:
     Socket socket;
     bool wasClosed;
-public:
-    Protocol(std::string port);
-    void sendAction(const UserAction& action);
     void sendByte(uint8_t byte);
     void sendFourBytes(int32_t param1);
-
-    void receiveUpdate(GameUpdate& update);
-
     uint8_t recvByte();
-
-    int32_t recvFourBytes();
-
+    uint16_t recvTwoBytes();
+    uint32_t recvFourBytes();
+public:
+    Protocol();
+    Protocol(Socket&& peer);
+    void sendAction(const UserAction& action);
+    void receiveUpdate(GameUpdate& update);
     void closeConection();
+    std::string recibir_inicio_partida();
+    std::string create();
+    std::string recibir_nombre_partida();
+    uint32_t recibir_codigo_partida();
+
+    void enviar_codigo_partida(uint32_t codigoPartida);
 };
 
 

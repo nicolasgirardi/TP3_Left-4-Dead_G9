@@ -1,8 +1,9 @@
 #include <netinet/in.h>
 #include <string>
 #include "protocol.h"
+#include "inicio_partida.h"
 
-Protocol::Protocol(const std::string port) : socket(port.c_str()), wasClosed(false) {}
+Protocol::Protocol(Socket &&peer) : socket(std::move(peer)), wasClosed(false){}
 
 void Protocol::sendAction(const UserAction& action) {
     sendByte(action.getIdAction());
@@ -10,7 +11,7 @@ void Protocol::sendAction(const UserAction& action) {
     sendFourBytes(action.getParam2());
 }
 
-void Protocol::sendByte(const uint8_t byte) {
+private void Protocol::sendByte(const uint8_t byte) {
     this->socket.sendall(&byte, 1, &wasClosed);
 }
 
@@ -34,7 +35,13 @@ uint8_t Protocol::recvByte() {
     return byte;
 }
 
-int32_t Protocol::recvFourBytes() {
+uint16_t Protocol::recvTwoBytes() {
+    uint16_t aux;
+    this->socket.recvall(&aux, 2, &wasClosed);
+    return ntohs(aux);
+}
+
+uint32_t Protocol::recvFourBytes() {
     uint32_t aux;
     this->socket.recvall(&aux, 4, &wasClosed);
     return ntohl(aux);
@@ -43,4 +50,33 @@ int32_t Protocol::recvFourBytes() {
 void Protocol::closeConection() {
     this->socket.shutdown(SHUT_RDWR);
     this->socket.close();
+}
+
+std::string Protocol::recibir_inicio_partida() {
+    switch (recvByte()) {
+        case InicioPartida::crear:
+            return InicioPartida::crearStr;
+        case InicioPartida::join:
+            return InicioPartida::joinStr;
+        default:
+            return InicioPartida::error;
+    }
+}
+
+std::string Protocol::recibir_nombre_partida() {
+    uint16_t lenNombre = recvTwoBytes();
+    std::string nombre(lenNombre, '\0');
+    uint32_t bytesName = recvFourBytes();
+    for (int i = 0; i < lenNombre; ++i) {
+        nombre[i] = (char) (bytesName >> (8 * i));
+    }
+    return nombre;
+}
+
+uint32_t Protocol::recibir_codigo_partida() {
+
+}
+
+void Protocol::enviar_codigo_partida(uint32_t codigoPartida) {
+    sendFourBytes(codigoPartida);
 }

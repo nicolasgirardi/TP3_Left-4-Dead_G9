@@ -18,7 +18,7 @@ class Aceptador : public Thread {
     Socket socket;
     bool running;
     bool keep_running;
-    ListaPartidas* partidas;
+    std::list<Partida*>* partidas;
     std::list<ClienteHandler*> clientes;
 
  public:

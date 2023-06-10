@@ -13,17 +13,21 @@
 
 #include "./../server_modelo/partida.h"
 #include "./server_reciever.h"
+#include "../common_libs/protocol.h"
+#include "../common_libs/inicio_partida.h"
+#include "../server_modelo/lista_partidas.h"
 
 class ClienteHandler : public Thread {
  private:
     bool running;
     bool keep_running;
     int id;
-    Socket socket;
+    //Socket socket;
+    Protocol protocol;
     ListaPartidas* partidas;
     Partida* partida;
-    Reciever reciever;
-    Queue<std::string> mensajes = Queue<std::string>(10);
+    //Reciever reciever;
+    //Queue<std::string> mensajes = Queue<std::string>(10);
 
  public:
     ClienteHandler(Socket socket, ListaPartidas* partidas, int id);
@@ -34,6 +38,11 @@ class ClienteHandler : public Thread {
     void run() override;
     void stop();
     void create_reciever(Queue<Evento*>* queue);
+    uint32_t iniciar_partida();
+
+    uint32_t crearPartida(std::string nombrePartida);
+
+    void joinPartida(uint32_t codigoPartida);
 };
 
 #endif
