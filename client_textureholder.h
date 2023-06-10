@@ -16,7 +16,6 @@
 
 class Texture_holder{
     private:
-
     std::vector<SDL2pp::Texture> textures;
 
     public:

@@ -15,12 +15,19 @@
 #include "client_character.h"
 #include "client_soldier1.h"
 #include "client_soldier2.h"
+#include "client_soldier3.h"
+#include "client_jumper.h"
+#include "client_spear.h"
+#include "client_venom.h"
+#include "client_witch.h"
+#include "client_zombie.h"
 #include "client_center.h"
 #include "client_myrenderer.h"
 #include "client_textureholder.h"
 #include "client_constants.h"
 #include <memory>
 #include <fstream>
+#include "common_queue.h"
 #include "client_message.h"
 
 using namespace SDL2pp;
@@ -32,6 +39,7 @@ MyRenderer::MyRenderer(int width, int height,int map,int ID,Queue<Message>* queu
     this->my_map = map;
     this->my_id = ID;
     this->my_queue = queue;
+	frame = 0;
 }
 
 void MyRenderer::run(){
@@ -72,7 +80,6 @@ void MyRenderer::run(){
 	Texture sprites9(renderer,"../resources/Soldier_1/Run.png");
 	Texture sprites10(renderer,"../resources/Soldier_2/Run.png");
 	*/
-	uint32_t frame = 0;
 	int pos1 = 0;
 	int pos2 = 0;
 	std::vector<std::string> soldier_type_1 = {
@@ -169,18 +176,29 @@ void MyRenderer::run(){
 		Zombie_Run,
 		Zombie_Walk
 	};
-	Texture_holder soldier1_textures(&renderer,soldier_type_1);
-	Texture_holder soldier2_textures(&renderer,soldier_type_2);
-	Texture_holder soldier3_textures(&renderer,soldier_type_3);
-	Texture_holder spear_textures(&renderer,enemy_spear);
 	Texture_holder jumper_textures(&renderer,enemy_jumper);
+	all_textures.push_back(&jumper_textures);
+	Texture_holder soldier1_textures(&renderer,soldier_type_1);
+	all_textures.push_back(&soldier1_textures);
+	Texture_holder soldier2_textures(&renderer,soldier_type_2);
+	all_textures.push_back(&soldier2_textures);
+	Texture_holder soldier3_textures(&renderer,soldier_type_3);
+	all_textures.push_back(&soldier3_textures);
+	Texture_holder spear_textures(&renderer,enemy_spear);
+	all_textures.push_back(&spear_textures);	
 	Texture_holder venom_textures(&renderer,enemy_venom);
+	all_textures.push_back(&venom_textures);
 	Texture_holder witchm_textures(&renderer,enemy_witch);
+	all_textures.push_back(&witchm_textures);
 	Texture_holder zombie_textures(&renderer,enemy_zombie);
+	all_textures.push_back(&zombie_textures);
+	
+	/*
 	std::vector<Texture*> textures_s1 = soldier1_textures.all_textures();
 	std::vector<Texture*> textures_s2 = soldier2_textures.all_textures();
 	std::unique_ptr<Character> soldier1(new Soldier1(pos1,50,960,720,textures_s1,frame,1));
 	std::unique_ptr<Character> soldier2(new Soldier2(pos2,60,960,720,textures_s2,frame,2));
+	*/
 	std::vector<std::string> textures;
 	get_map_paths(textures);
 
@@ -207,54 +225,38 @@ void MyRenderer::run(){
 	std::unique_ptr<Scenario> my_scenario(scenario);
 	dev.Pause(false);
 	int frame_rate = 1000/60;
-	soldier1.get()->change_action(6,frame);
-	soldier2.get()->change_action(9,frame);
-	int speed1 = 8;
-	int speed2 = 4;
+	//soldier1.get()->change_action(6,frame);
+	//soldier2.get()->change_action(9,frame);
+	//int speed1 = 8;
+	//int speed2 = 4;
 	// Render our image, stretching it to the whole window
-	for(int j = 0;j<200;j++){
+	Message message = my_queue->pop();
+	update_characters(message);
+	bool playing = true;
+	while(playing){
 		auto start = std::chrono::high_resolution_clock::now();
-		//time = tiempo_actual(ms)
-		if(j ==  50){
-			speed1 = 0;
-			soldier1.get()->change_action(4,frame);
+		try{
+			while(my_queue->try_pop(message))
+				update_characters(message);
+			Center center;
+			calculate_center(center);
+			renderer.Clear();
+			int num_center = center.center_value();
+			my_scenario.get()->copy(num_center,&renderer);
+			copy_characters(num_center,&renderer);
+			renderer.Present();
+			frame = frame + 1;
+			// Show rendered frame
+			auto end = std::chrono::high_resolution_clock::now();
+			int time = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count());
+			frame = frame + 1 + (time/frame_rate);
+			int delay = frame_rate - (time % frame_rate);
+			SDL_Delay(delay);
+			// Sound plays after this call
 		}
-		if(j == 100){
-			speed1 = 4;
-			soldier1.get()->change_action(9,frame);
+		catch(std::runtime_error& e){
+			playing = false;
 		}
-		if(j == 150){
-			speed1 = -2;
-			speed2 = -2;
-		}
-		pos1 = pos1+speed1;
-		pos2 = pos2+speed2;
-		soldier1.get()->set_position(pos1,0);
-		soldier2.get()->set_position(pos2,200);
-		Center center;
-		soldier1.get()->add_to_center(center);
-		soldier2.get()->add_to_center(center);
-		renderer.Clear();
-		
-		my_scenario.get()->copy(center.center_value(),&renderer);
-		/*
-		int val = 128*(j%8);
-		renderer.Copy(sprites9,Rect(val,64,128,64),Rect(pos1 -i+344,680,96,48));
-		int k =720-72;
-		renderer.Copy(sprites10,Rect(val,64,128,64),Rect(pos2 -i+344,k,128,64));
-		*/
-		soldier1.get()->copy(center.center_value(),&renderer,frame);
-		soldier2.get()->copy(center.center_value(),&renderer,frame);
-		frame = frame + 1;
-		// Show rendered frame
-		renderer.Present();
-		auto end = std::chrono::high_resolution_clock::now();
-		int time = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count());
-		frame = frame + 1 + (time/frame_rate);
-		int delay = frame_rate - (time % frame_rate);
-		// Sound plays after this call
-		report << (time/frame_rate) << "," << (time + delay) << std::endl;
-		SDL_Delay(delay);
 	}
 	// Play for 5 seconds, after which everything is stopped and closed
 	//SDL_Delay(10000);
@@ -343,7 +345,99 @@ void MyRenderer::get_map_paths(std::vector<std::string>& textures){
     }
 
 }
-void MyRenderer::update_characters(Message& message){}
-void MyRenderer::add_character(Message& message){}
-void MyRenderer::update_character(Message& message,Character* character){}
-void MyRenderer::remove_character(Message& message){}
+void MyRenderer::update_characters(Message& message){
+	int abm = message.get_amb();
+	switch(abm){
+		case(0):
+			add_character(message);
+			break;
+		case(1):
+			remove_character(message);
+			break;
+		case(2):
+			modify_character(message);
+			break;
+	}
+}
+void MyRenderer::add_character(Message& message){
+	Character* new_character;
+	std::vector<Texture*> textures;
+	Type_of_character type = message.get_type();
+	switch(type){
+		case(jumper):
+			textures = all_textures[0]->all_textures();
+			new_character = new Jumper(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
+			break;
+		case(soldier1):
+			textures = all_textures[1]->all_textures();
+			new_character = new Soldier1(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
+			break;
+		case(soldier2):
+			textures = all_textures[2]->all_textures();
+			new_character = new Soldier2(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
+			break;
+		case(soldier3):
+			textures = all_textures[3]->all_textures();
+			new_character = new Soldier3(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
+			break;
+		case(spear):
+			textures = all_textures[4]->all_textures();
+			new_character = new Spear(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
+			break;
+		case(venom):
+			textures = all_textures[5]->all_textures();
+			new_character = new Venom(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
+			break;
+		case(witch):
+			textures = all_textures[6]->all_textures();
+			new_character = new Witch(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
+			break;
+		case(zombie):
+			textures = all_textures[7]->all_textures();
+			new_character = new Zombie(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
+			break;
+	}
+	if(new_character != nullptr)
+		all_characters.push_back(new_character);
+}
+void MyRenderer::modify_character(Message& message){
+	bool found = false;
+	int i = 0;
+	while(!found && i< all_characters.size()){
+		if(all_characters[i]->is(message.get_id())){
+			all_characters[i]->set_position(message.get_x(),message.get_y());
+			all_characters[i]->change_action(message.get_action(),frame);
+			found = true;
+		}
+		else
+			i++;
+	}
+}
+void MyRenderer::remove_character(Message& message){
+	bool found = false;
+	int i = 0;
+	while(!found && i< all_characters.size()){
+		if(all_characters[i]->is(message.get_id())){
+			delete all_characters[i];
+			all_characters.erase(all_characters.begin()+i);
+			found = true;
+	}
+		else
+			i++;
+	}
+}
+void MyRenderer::calculate_center(Center& center){
+	for(int i = 0;i<all_characters.size();i++){
+		all_characters[i]->add_to_center(center);
+	}
+}
+void MyRenderer::copy_characters(int& center,Renderer* renderer){
+	for(int i = 0;i<all_characters.size();i++){
+		all_characters[i]->copy(center,renderer,frame);
+	}
+}
+MyRenderer::~MyRenderer(){
+	for(int i = 0;i<all_characters.size();i++){
+		delete all_characters[i];
+	}
+}

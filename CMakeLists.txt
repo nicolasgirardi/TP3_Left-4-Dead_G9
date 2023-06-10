@@ -19,7 +19,7 @@ file(GLOB_RECURSE SOURCES
     client_singleanimation.cpp
     client_center.cpp
     client_textureholder.cpp
-    client_renderer.cpp
+    client_myrenderer.cpp
     client_soldier2.cpp
     client_soldier3.cpp
     client_jumper.cpp
@@ -27,6 +27,7 @@ file(GLOB_RECURSE SOURCES
     client_venom.cpp
     client_witch.cpp
     client_zombie.cpp
+    client_message.cpp
 )
 file(GLOB_RECURSE HEADERS 
     client_scenario.h
@@ -42,9 +43,9 @@ file(GLOB_RECURSE HEADERS
     client_center.h
     client_Textureholder.h
     client_constants.h
-    client_renderer.h
-    client_thread.h
-    client_queue.h
+    client_myrenderer.h
+    common_thread.h
+    common_queue.h
     client_soldier2.h
     client_soldier3.h
     client_jumper.h
@@ -52,6 +53,7 @@ file(GLOB_RECURSE HEADERS
     client_venom.h
     client_witch.h
     client_zombie.h
+    client_message.h
 )
 add_subdirectory(SDL2pp)
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})

@@ -25,3 +25,6 @@ void Character::set_position(int x,int y){
 int Character::get_vertical(){
     return pos_y;
 }
+bool Character::is(int another_id){
+    return my_id == another_id;
+}

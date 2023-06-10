@@ -34,6 +34,7 @@ class Character{
     int get_vertical();
     virtual void add_to_center(Center& center) = 0;
     virtual void change_action(int code,uint32_t frame) = 0;
+    bool is(int another_id);
     virtual ~Character(){};
 
     Character(const Character&) = delete;
