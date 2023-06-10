@@ -2,7 +2,7 @@
 #define EVENTO_H_
 
 // Me incluyo las partidas asi puedo ejecutar los eventos
-#include "../partida.h"
+#include "../personaje.h"
 
 class Evento {
     // Esta clase va a ser va a temer de hijo a todos los eventos
@@ -18,7 +18,8 @@ class Evento {
 
  public:
   virtual ~Evento();
-  void ejecutar(Partida* partida);
+  void ejecutar(Personaje* personaje);
+  int get_id_personaje();
 };
 
 #endif  // EVENTO_H_

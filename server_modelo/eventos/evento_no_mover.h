@@ -7,7 +7,7 @@ class EventoNoMover : public Evento {
  public:
   EventoNoMover(int id_personaje);
   ~EventoNoMover();
-  void ejecutar(Partida* partida);
+  void ejecutar(Personaje* personaje);
 };
 
 #endif // EVENTO_NO_MOVER_H_

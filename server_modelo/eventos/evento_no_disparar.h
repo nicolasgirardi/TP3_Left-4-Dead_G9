@@ -7,7 +7,7 @@ class EventoNoDisparar : public Evento {
  public:
   EventoNoDisparar(int id_personaje);
   ~EventoNoDisparar();
-  void ejecutar(Partida* partida);
+  void ejecutar(Personaje* personaje);
 };
 
 #endif // EVENTO_NO_DISPARAR_H_

@@ -9,7 +9,7 @@ class EventoDisparar : public Evento {
  public:
   EventoDisparar(int id_personaje);
   ~EventoDisparar();
-  void ejecutar(Partida* partida);
+  void ejecutar(Personaje* personaje);
 };
 
 #endif // EVENTO_DISPARAR_H_

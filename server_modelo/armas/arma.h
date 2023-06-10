@@ -7,6 +7,8 @@
 // 1: P90
 // 2: Scout
 
+#include <string>
+
 class Arma {
  protected:
   int tipo_arma;
@@ -25,5 +27,6 @@ class Arma {
   int finalizar_disparo();
   void disparar();
   int recargar();
+  std::string get_estado();
 };
 #endif  // ARMA_H_

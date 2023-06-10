@@ -11,7 +11,7 @@ class EventoMover : public Evento {
     public:
         EventoMover(int id_personaje, int x, int y);
         ~EventoMover();
-        void ejecutar(Partida* partida);
+        void ejecutar(Personaje* personaje);
 };
 
 #endif // EVENTO_MOVER_H_

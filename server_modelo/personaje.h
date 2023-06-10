@@ -7,6 +7,7 @@
 #include "./armas/creador_armas.h"
 
 #include <vector>
+#include <string>
 
 class Personaje {
  private:
@@ -27,6 +28,7 @@ class Personaje {
   int recargar();
   int iniciar_disparo();
   int finalizar_disparo();
+  std::string get_estado();
 };
 
 #endif  // PERSONAJE_H_
