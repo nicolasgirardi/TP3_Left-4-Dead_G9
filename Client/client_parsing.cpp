@@ -26,4 +26,8 @@ void Parsing::parse_command(std::string& command,Protocol& protocol){
         com >> word;
         protocol.broadcast(word);
         }
+    if (word.compare("start") == 0){
+        com >> word;
+        protocol.broadcast(word);
+        }
 }

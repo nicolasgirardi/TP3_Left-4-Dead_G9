@@ -51,11 +51,14 @@ int Reciever::first_communication(){
     uint8_t action = protocol.receive_action(&skt,close);
     std::string print;
     int result = 0;
+     uint32_t my_id = 0;
     switch (action){
         case (1):{
             protocol.receive_name(&skt,close);
             my_game = allgames->create_game(&this->my_queue);
             protocol.send_code(&skt,close,my_game->get_code());
+            my_id = my_game->create_character();
+            protocol.send_code(&skt,close,my_id);
             print.assign("Created match: ");
             print += std::to_string(my_game->get_code());
             break;
@@ -68,6 +71,8 @@ int Reciever::first_communication(){
             protocol.send_result(&skt,close,game_found);
             if (!game_found){
                 print.assign("Joined to match: 0");
+                my_id = my_game->create_character();
+                protocol.send_code(&skt,close,my_id);
             }else{
                 print.assign("Match does not exist: 1");
                 *close = true;

@@ -8,7 +8,7 @@
 class Client{
     private:
     Socket socket;
-    int my_id;
+    uint32_t my_id;
 
     public:
     Client(char* server,char* port);
@@ -23,5 +23,9 @@ class Client{
     void receive_create(bool* close);
 
     void receive_join(bool* close);
+
+    void receive_answer(bool* close);
+
+    void start(bool* close);
 };
 #endif

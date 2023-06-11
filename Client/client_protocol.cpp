@@ -60,8 +60,6 @@ uint32_t Protocol::receive_create(Socket& skt,bool* close,int& id){
     int32_t aux;
     skt.recvall(&aux,4,close);
     aux = ntohl(aux);
-    skt.recvall(&id,4,close);
-    id = ntohl(id);
     return aux;
 }
 uint8_t Protocol::receive_join(Socket& skt,bool* close,int& id){
@@ -73,7 +71,11 @@ uint8_t Protocol::receive_join(Socket& skt,bool* close,int& id){
     }
     return aux;
 }
+void Protocol::start(Socket* skt,bool* close){
+    char start = 4;
+    skt->sendall(&start,1,close);
 
+}
 Protocol::~Protocol(){
     if (buff != nullptr)
         delete[] buff;

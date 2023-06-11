@@ -22,6 +22,8 @@ class Protocol{
 
     void receive_read(Socket& skt,bool* close,std::string& broadcasted);
 
+    void start(Socket* skt,bool* close);
+
     ~Protocol();
 };
 #endif

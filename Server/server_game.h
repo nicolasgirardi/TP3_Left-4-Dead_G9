@@ -13,6 +13,8 @@ class Game{
     uint32_t code;
     Allqueues queues;
     Thread* game_logic;
+    Codes id_generator;
+    std::vector<Characters*> all_characters;
    
     public:
     Game(uint32_t code,Queue<Message>* new_queue);
@@ -26,6 +28,8 @@ class Game{
     void broadcast(Message broadast);
 
     uint32_t get_code();
+
+    uint32_t create_character();
 
     void end();
     Game(const Game&) = delete;

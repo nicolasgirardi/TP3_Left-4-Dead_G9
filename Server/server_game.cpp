@@ -8,7 +8,8 @@
 Game::Game(uint32_t code,Queue<Message>* new_queue): main_queue(2000){
     this->code = code;
     this->queues.add_queue(new_queue);
-    game_logic = new Gamelogic(&this->main_queue,&this->queues);
+    uint32_t code_0= id_generator.new_code();
+    game_logic = new Gamelogic(&this->main_queue,&this->queues,&this->id_generator,&this->all_characters);
     game_logic->start();
 }
 bool Game::is_game(uint32_t code){
@@ -29,6 +30,9 @@ uint32_t Game::get_code(){
 void Game::end(){
     main_queue.close();
     game_logic->join();
+}
+uint32_t Game::create_character(){
+    
 }
 Game::~Game(){
     delete game_logic;
