@@ -25,7 +25,7 @@ bool Partida::addPersonaje(int id, int arma = 0) {
 void Partida::start() {
     // Poner un mutex aca
     Juego juego;
-    juego.launch(this, &clientes, personajes);
+    juego.launch(&clientes, personajes);
 }
 
 Partida::~Partida() {

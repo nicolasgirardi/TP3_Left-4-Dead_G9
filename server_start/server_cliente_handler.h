@@ -23,7 +23,7 @@ class ClienteHandler : public Thread {
     ListaPartidas* partidas;
     Partida* partida;
     Reciever reciever;
-    Queue<std::string> mensajes = Queue<std::string>(10);
+    Queue<std::string> mensajes;
 
  public:
     ClienteHandler(Socket socket, ListaPartidas* partidas, int id);

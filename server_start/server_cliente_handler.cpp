@@ -1,7 +1,8 @@
 #include "server_cliente_handler.h"
 
 ClienteHandler::ClienteHandler(Socket socket, ListaPartidas* partidas, int id) :
-    socket(std::move(socket)), partidas(partidas), running(true), keep_running(true), id(id) {}
+    socket(std::move(socket)), partidas(partidas), running(true), keep_running(true), id(id), mensajes(20) {
+    }
 
 bool ClienteHandler::is_running() {
     return running;
@@ -35,11 +36,9 @@ void ClienteHandler::stop() {
     // Fuerzo a un cierre total del socket
     socket.shutdown(2);
     socket.close();
-    reciever.stop();
 }
 
 void ClienteHandler::create_reciever(Queue<Evento*>* queue) {
-    Reciever reciever(&socket, queue);
-    this->reciever = reciever;
-    this->reciever.start();
+    // Inicializo el reciever
+    reciever = Reciever(&socket, queue);
 }

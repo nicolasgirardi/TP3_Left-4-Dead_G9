@@ -19,6 +19,11 @@ int Personaje::get_id() {
 int Personaje::modificar_velocidad(int x, int y) {
   this->velocidad_x = x;
   this->velocidad_y = y;
+  if (x > 0) {
+    this->direccion_x = 1;
+  } else if (x < 0) {
+    this->direccion_x = -1;
+  }
   return 0;
 }
 

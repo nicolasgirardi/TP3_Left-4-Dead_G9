@@ -16,6 +16,7 @@ class Arma {
   int municion_actual;
   int velocidad_disparo;
   bool disparando;
+  int tiempo_disparo = 0;
 
  public:
   Arma();
@@ -25,7 +26,7 @@ class Arma {
   int get_velocidad_disparo();
   int iniciar_disparo();
   int finalizar_disparo();
-  void disparar();
+  int disparar();
   int recargar();
   std::string get_estado();
 };

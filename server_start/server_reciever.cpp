@@ -1,5 +1,7 @@
 #include "server_reciever.h"
 
+Reciever::Reciever() : socket(nullptr), queue(nullptr), running(false), keep_running(false) {}
+
 Reciever::Reciever(Socket* socket, Queue<Evento*>* queue) :
     socket(socket), queue(queue), running(true), keep_running(true) {}
 

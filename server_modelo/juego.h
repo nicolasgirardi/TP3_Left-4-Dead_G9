@@ -23,14 +23,13 @@ class Juego : public Thread {
     Queue<Evento*> ejecutar;
     std::map<int, Queue<Evento*>*>* clientes;
     std::list<Personaje*> personajes;
-    Partida* partida;
 
  public:
     Juego();
     ~Juego();
     Queue<Evento*>* getQueue();
     Personaje* getPersonaje(int id);
-    void launch(Partida* partida, std::map<int, Queue<Evento*>*>* clientes, std::list<Personaje*> personajes);
+    void launch(std::map<int, Queue<Evento*>*>* clientes, std::list<Personaje*> personajes);
     void run() override;
     void stop();
 };

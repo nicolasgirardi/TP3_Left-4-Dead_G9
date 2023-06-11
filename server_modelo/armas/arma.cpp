@@ -14,9 +14,20 @@ int Arma::finalizar_disparo() {
   return 0;
 }
 
-void Arma::disparar() {
+int Arma::disparar() {
+  // Simulo el paso del tiempo asi disparo velocidad_disparo veces por segundo
   if (this->disparando) {
-    this->municion_actual--;
+    if (this->tiempo_disparo == 0) {
+      this->tiempo_disparo = this->velocidad_disparo;
+      this->municion_actual--;
+      return 1;
+    } else {
+      this->tiempo_disparo--;
+      return 0;
+    }
+  } else {
+    this->tiempo_disparo = 0;
+    return 0;
   }
 }
 

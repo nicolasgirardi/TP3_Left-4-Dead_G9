@@ -23,6 +23,7 @@ class Aceptador : public Thread {
 
  public:
     explicit Aceptador(const char* port);
+    ~Aceptador();
     void run() override;
     void stop();
 };

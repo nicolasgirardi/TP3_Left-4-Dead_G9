@@ -19,9 +19,12 @@ class Reciever : public Thread {
  public:
     Reciever& operator=(Reciever&);
     explicit Reciever(Socket* socket, Queue<Evento*>* queue);
+    Reciever();
+    ~Reciever();
     bool is_running();
     void run() override;
     void stop();
+    int operator=(const Reciever&);
 };
 
 #endif  // SERVER_RECIEVER_H

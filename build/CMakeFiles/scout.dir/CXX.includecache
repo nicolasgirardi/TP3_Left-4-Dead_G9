@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/armas/arma.h
+string
+-
+
+/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/armas/scout.cpp
+scout.h
+/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/armas/scout.h
+
+/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/armas/scout.h
+arma.h
+/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/armas/arma.h
+

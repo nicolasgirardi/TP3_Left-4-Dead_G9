@@ -3,11 +3,9 @@
 Juego::Juego() : ejecutar(MAX_EVENTOS) {
     this->running = true;
     this->keep_running = true;
-    this->partida = nullptr;
 }
 
-void Juego::launch(Partida* partida, std::map<int, Queue<Evento*>*>* clientes, std::list<Personaje*> personajes) {
-    this->partida = partida;
+void Juego::launch(std::map<int, Queue<Evento*>*>* clientes, std::list<Personaje*> personajes) {
     this->clientes = clientes;
     this->personajes = personajes;
     start();
