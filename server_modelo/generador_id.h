@@ -18,6 +18,7 @@ class GeneradorID {
             int digito = rand() % 10;
             id = id * 10 + digito;
         }
+        return id;
     }
 };
 

@@ -50,13 +50,14 @@ ListaPartidas::ListaPartidas() {}
 
 Partida* ListaPartidas::addPartida(std::string nombre) {
     std::lock_guard<std::mutex> lock(m);
+    int id = partidas.size();
     Partida* partida = new Partida(id, nombre);
     partidas[id] = partida;
     // El mutex se libera aca
     return partida;
 }
 
-void ListaPartidas::addClient(Queue<Evento*>* queue, int id) {
+int ListaPartidas::addClient(Queue<Evento*>* queue, int id) {
     std::lock_guard<std::mutex> lock(m);
     for (auto& partida : partidas) {
         if (!partida.second->isFull()) {
@@ -65,6 +66,7 @@ void ListaPartidas::addClient(Queue<Evento*>* queue, int id) {
         }
     }
     partidas[id]->addClient(queue, id);
+    return GeneradorID::get_id();
 }
 
 void ListaPartidas::removeClient(int id) {

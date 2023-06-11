@@ -1,0 +1,2 @@
+/usr/bin/ar qc libServerArmas.a  CMakeFiles/ServerArmas.dir/arma.cpp.o CMakeFiles/ServerArmas.dir/creador_armas.cpp.o CMakeFiles/ServerArmas.dir/idf.cpp.o CMakeFiles/ServerArmas.dir/p90.cpp.o CMakeFiles/ServerArmas.dir/scout.cpp.o
+/usr/bin/ranlib libServerArmas.a

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libCommonLibs.a  CMakeFiles/CommonLibs.dir/common-wrap_socket.cpp.o CMakeFiles/CommonLibs.dir/common_liberror.cpp.o CMakeFiles/CommonLibs.dir/common_resolver.cpp.o CMakeFiles/CommonLibs.dir/common_resolvererror.cpp.o CMakeFiles/CommonLibs.dir/common_socket.cpp.o
+/usr/bin/ranlib libCommonLibs.a

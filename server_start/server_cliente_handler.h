@@ -12,7 +12,10 @@
 #include "./../common_libs/common_socket.h"
 
 #include "./../server_modelo/partida.h"
+#include "./../server_modelo/eventos/evento.h"
+#include "./../server_modelo/eventos/creador_eventos.h"
 #include "./server_reciever.h"
+#include "./server_protocolo.h"
 
 class ClienteHandler : public Thread {
  private:
@@ -20,10 +23,14 @@ class ClienteHandler : public Thread {
     bool keep_running;
     int id;
     Socket socket;
+    Protocolo protocolo;
+
     ListaPartidas* partidas;
     Partida* partida;
     Reciever reciever;
     Queue<std::string> mensajes;
+    Queue<Evento*> eventos;
+    
 
  public:
     ClienteHandler(Socket socket, ListaPartidas* partidas, int id);

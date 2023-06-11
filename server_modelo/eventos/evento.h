@@ -18,7 +18,7 @@ class Evento {
 
  public:
   virtual ~Evento();
-  void ejecutar(Personaje* personaje);
+  virtual void ejecutar(Personaje* personaje);
   int get_id_personaje();
 };
 

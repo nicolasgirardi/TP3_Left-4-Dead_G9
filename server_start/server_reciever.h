@@ -8,17 +8,19 @@
 #include "./../server_modelo/eventos/evento.h"
 #include "./../server_modelo/eventos/creador_eventos.h"
 
+#include "server_protocolo.h"
+
 class Reciever : public Thread {
  private:
     bool running;
     bool keep_running;
+    int id;
     Queue<Evento*>* queue;
-    Socket* socket;
-    // Protocolo para recibir
+    Protocolo* protocolo;
 
  public:
     Reciever& operator=(Reciever&);
-    explicit Reciever(Socket* socket, Queue<Evento*>* queue);
+    explicit Reciever(Socket* socket, Queue<Evento*>* queue, int id);
     Reciever();
     ~Reciever();
     bool is_running();

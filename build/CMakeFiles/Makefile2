@@ -53,585 +53,189 @@ CMAKE_BINARY_DIR = /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/TuEjecutable.dir/all
-all: CMakeFiles/server_main.dir/all
-all: CMakeFiles/server_aceptador.dir/all
-all: CMakeFiles/personaje.dir/all
-all: CMakeFiles/arma.dir/all
-all: CMakeFiles/partida.dir/all
-all: CMakeFiles/idf.dir/all
-all: CMakeFiles/creador_armas.dir/all
-all: CMakeFiles/scout.dir/all
-all: CMakeFiles/server_reciever.dir/all
-all: CMakeFiles/creador_eventos.dir/all
-all: CMakeFiles/evento.dir/all
-all: CMakeFiles/juego.dir/all
-all: CMakeFiles/evento_disparar.dir/all
-all: CMakeFiles/evento_mover.dir/all
-all: CMakeFiles/server_cliente_handler.dir/all
-all: CMakeFiles/evento_no_disparar.dir/all
-all: CMakeFiles/p90.dir/all
-all: CMakeFiles/evento_no_mover.dir/all
+all: CMakeFiles/server.dir/all
+all: common_libs/all
+all: server_modelo/all
+all: server_start/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: common_libs/preinstall
+preinstall: server_modelo/preinstall
+preinstall: server_start/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/TuEjecutable.dir/clean
-clean: CMakeFiles/server_main.dir/clean
-clean: CMakeFiles/server_aceptador.dir/clean
-clean: CMakeFiles/personaje.dir/clean
-clean: CMakeFiles/arma.dir/clean
-clean: CMakeFiles/partida.dir/clean
-clean: CMakeFiles/idf.dir/clean
-clean: CMakeFiles/creador_armas.dir/clean
-clean: CMakeFiles/scout.dir/clean
-clean: CMakeFiles/server_reciever.dir/clean
-clean: CMakeFiles/creador_eventos.dir/clean
-clean: CMakeFiles/evento.dir/clean
-clean: CMakeFiles/juego.dir/clean
-clean: CMakeFiles/evento_disparar.dir/clean
-clean: CMakeFiles/evento_mover.dir/clean
-clean: CMakeFiles/server_cliente_handler.dir/clean
-clean: CMakeFiles/evento_no_disparar.dir/clean
-clean: CMakeFiles/p90.dir/clean
-clean: CMakeFiles/evento_no_mover.dir/clean
+clean: CMakeFiles/server.dir/clean
+clean: common_libs/clean
+clean: server_modelo/clean
+clean: server_start/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/TuEjecutable.dir
+# Directory level rules for directory common_libs
 
-# All Build rule for target.
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/evento_mover.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/server_cliente_handler.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/evento_no_disparar.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/server_main.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/partida.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/idf.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/creador_armas.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/scout.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/server_reciever.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/server_aceptador.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/personaje.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/arma.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/p90.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/evento_no_mover.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/creador_eventos.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/evento.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/juego.dir/all
-CMakeFiles/TuEjecutable.dir/all: CMakeFiles/evento_disparar.dir/all
-	$(MAKE) -f CMakeFiles/TuEjecutable.dir/build.make CMakeFiles/TuEjecutable.dir/depend
-	$(MAKE) -f CMakeFiles/TuEjecutable.dir/build.make CMakeFiles/TuEjecutable.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=1,2 "Built target TuEjecutable"
-.PHONY : CMakeFiles/TuEjecutable.dir/all
+# Recursive "all" directory target.
+common_libs/all: common_libs/CMakeFiles/CommonLibs.dir/all
 
-# Build rule for subdir invocation for target.
-CMakeFiles/TuEjecutable.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 20
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/TuEjecutable.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/TuEjecutable.dir/rule
+.PHONY : common_libs/all
 
-# Convenience name for target.
-TuEjecutable: CMakeFiles/TuEjecutable.dir/rule
+# Recursive "preinstall" directory target.
+common_libs/preinstall:
 
-.PHONY : TuEjecutable
+.PHONY : common_libs/preinstall
 
-# clean rule for target.
-CMakeFiles/TuEjecutable.dir/clean:
-	$(MAKE) -f CMakeFiles/TuEjecutable.dir/build.make CMakeFiles/TuEjecutable.dir/clean
-.PHONY : CMakeFiles/TuEjecutable.dir/clean
+# Recursive "clean" directory target.
+common_libs/clean: common_libs/CMakeFiles/CommonLibs.dir/clean
+
+.PHONY : common_libs/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/server_main.dir
+# Directory level rules for directory server_modelo
 
-# All Build rule for target.
-CMakeFiles/server_main.dir/all:
-	$(MAKE) -f CMakeFiles/server_main.dir/build.make CMakeFiles/server_main.dir/depend
-	$(MAKE) -f CMakeFiles/server_main.dir/build.make CMakeFiles/server_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=19 "Built target server_main"
-.PHONY : CMakeFiles/server_main.dir/all
+# Recursive "all" directory target.
+server_modelo/all: server_modelo/CMakeFiles/SercerModelo.dir/all
 
-# Build rule for subdir invocation for target.
-CMakeFiles/server_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/server_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/server_main.dir/rule
+.PHONY : server_modelo/all
 
-# Convenience name for target.
-server_main: CMakeFiles/server_main.dir/rule
+# Recursive "preinstall" directory target.
+server_modelo/preinstall:
 
-.PHONY : server_main
+.PHONY : server_modelo/preinstall
 
-# clean rule for target.
-CMakeFiles/server_main.dir/clean:
-	$(MAKE) -f CMakeFiles/server_main.dir/build.make CMakeFiles/server_main.dir/clean
-.PHONY : CMakeFiles/server_main.dir/clean
+# Recursive "clean" directory target.
+server_modelo/clean: server_modelo/CMakeFiles/SercerModelo.dir/clean
+
+.PHONY : server_modelo/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/server_aceptador.dir
+# Directory level rules for directory server_start
 
-# All Build rule for target.
-CMakeFiles/server_aceptador.dir/all:
-	$(MAKE) -f CMakeFiles/server_aceptador.dir/build.make CMakeFiles/server_aceptador.dir/depend
-	$(MAKE) -f CMakeFiles/server_aceptador.dir/build.make CMakeFiles/server_aceptador.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=17 "Built target server_aceptador"
-.PHONY : CMakeFiles/server_aceptador.dir/all
+# Recursive "all" directory target.
+server_start/all: server_start/CMakeFiles/SercerStart.dir/all
 
-# Build rule for subdir invocation for target.
-CMakeFiles/server_aceptador.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/server_aceptador.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/server_aceptador.dir/rule
+.PHONY : server_start/all
 
-# Convenience name for target.
-server_aceptador: CMakeFiles/server_aceptador.dir/rule
+# Recursive "preinstall" directory target.
+server_start/preinstall:
 
-.PHONY : server_aceptador
+.PHONY : server_start/preinstall
 
-# clean rule for target.
-CMakeFiles/server_aceptador.dir/clean:
-	$(MAKE) -f CMakeFiles/server_aceptador.dir/build.make CMakeFiles/server_aceptador.dir/clean
-.PHONY : CMakeFiles/server_aceptador.dir/clean
+# Recursive "clean" directory target.
+server_start/clean: server_start/CMakeFiles/SercerStart.dir/clean
+
+.PHONY : server_start/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/personaje.dir
+# Target rules for target CMakeFiles/server.dir
 
 # All Build rule for target.
-CMakeFiles/personaje.dir/all:
-	$(MAKE) -f CMakeFiles/personaje.dir/build.make CMakeFiles/personaje.dir/depend
-	$(MAKE) -f CMakeFiles/personaje.dir/build.make CMakeFiles/personaje.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=15 "Built target personaje"
-.PHONY : CMakeFiles/personaje.dir/all
+CMakeFiles/server.dir/all:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/depend
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=27,28,29,30,31,32,33,34,35,36,37,38,39 "Built target server"
+.PHONY : CMakeFiles/server.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/personaje.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/personaje.dir/all
+CMakeFiles/server.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 13
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/personaje.dir/rule
+.PHONY : CMakeFiles/server.dir/rule
 
 # Convenience name for target.
-personaje: CMakeFiles/personaje.dir/rule
+server: CMakeFiles/server.dir/rule
 
-.PHONY : personaje
+.PHONY : server
 
 # clean rule for target.
-CMakeFiles/personaje.dir/clean:
-	$(MAKE) -f CMakeFiles/personaje.dir/build.make CMakeFiles/personaje.dir/clean
-.PHONY : CMakeFiles/personaje.dir/clean
+CMakeFiles/server.dir/clean:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/clean
+.PHONY : CMakeFiles/server.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/arma.dir
+# Target rules for target common_libs/CMakeFiles/CommonLibs.dir
 
 # All Build rule for target.
-CMakeFiles/arma.dir/all:
-	$(MAKE) -f CMakeFiles/arma.dir/build.make CMakeFiles/arma.dir/depend
-	$(MAKE) -f CMakeFiles/arma.dir/build.make CMakeFiles/arma.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=3 "Built target arma"
-.PHONY : CMakeFiles/arma.dir/all
+common_libs/CMakeFiles/CommonLibs.dir/all:
+	$(MAKE) -f common_libs/CMakeFiles/CommonLibs.dir/build.make common_libs/CMakeFiles/CommonLibs.dir/depend
+	$(MAKE) -f common_libs/CMakeFiles/CommonLibs.dir/build.make common_libs/CMakeFiles/CommonLibs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target CommonLibs"
+.PHONY : common_libs/CMakeFiles/CommonLibs.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/arma.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/arma.dir/all
+common_libs/CMakeFiles/CommonLibs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 6
+	$(MAKE) -f CMakeFiles/Makefile2 common_libs/CMakeFiles/CommonLibs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/arma.dir/rule
+.PHONY : common_libs/CMakeFiles/CommonLibs.dir/rule
 
 # Convenience name for target.
-arma: CMakeFiles/arma.dir/rule
+CommonLibs: common_libs/CMakeFiles/CommonLibs.dir/rule
 
-.PHONY : arma
+.PHONY : CommonLibs
 
 # clean rule for target.
-CMakeFiles/arma.dir/clean:
-	$(MAKE) -f CMakeFiles/arma.dir/build.make CMakeFiles/arma.dir/clean
-.PHONY : CMakeFiles/arma.dir/clean
+common_libs/CMakeFiles/CommonLibs.dir/clean:
+	$(MAKE) -f common_libs/CMakeFiles/CommonLibs.dir/build.make common_libs/CMakeFiles/CommonLibs.dir/clean
+.PHONY : common_libs/CMakeFiles/CommonLibs.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/partida.dir
+# Target rules for target server_modelo/CMakeFiles/SercerModelo.dir
 
 # All Build rule for target.
-CMakeFiles/partida.dir/all:
-	$(MAKE) -f CMakeFiles/partida.dir/build.make CMakeFiles/partida.dir/depend
-	$(MAKE) -f CMakeFiles/partida.dir/build.make CMakeFiles/partida.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=14 "Built target partida"
-.PHONY : CMakeFiles/partida.dir/all
+server_modelo/CMakeFiles/SercerModelo.dir/all:
+	$(MAKE) -f server_modelo/CMakeFiles/SercerModelo.dir/build.make server_modelo/CMakeFiles/SercerModelo.dir/depend
+	$(MAKE) -f server_modelo/CMakeFiles/SercerModelo.dir/build.make server_modelo/CMakeFiles/SercerModelo.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 "Built target SercerModelo"
+.PHONY : server_modelo/CMakeFiles/SercerModelo.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/partida.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/partida.dir/all
+server_modelo/CMakeFiles/SercerModelo.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 15
+	$(MAKE) -f CMakeFiles/Makefile2 server_modelo/CMakeFiles/SercerModelo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/partida.dir/rule
+.PHONY : server_modelo/CMakeFiles/SercerModelo.dir/rule
 
 # Convenience name for target.
-partida: CMakeFiles/partida.dir/rule
+SercerModelo: server_modelo/CMakeFiles/SercerModelo.dir/rule
 
-.PHONY : partida
+.PHONY : SercerModelo
 
 # clean rule for target.
-CMakeFiles/partida.dir/clean:
-	$(MAKE) -f CMakeFiles/partida.dir/build.make CMakeFiles/partida.dir/clean
-.PHONY : CMakeFiles/partida.dir/clean
+server_modelo/CMakeFiles/SercerModelo.dir/clean:
+	$(MAKE) -f server_modelo/CMakeFiles/SercerModelo.dir/build.make server_modelo/CMakeFiles/SercerModelo.dir/clean
+.PHONY : server_modelo/CMakeFiles/SercerModelo.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/idf.dir
+# Target rules for target server_start/CMakeFiles/SercerStart.dir
 
 # All Build rule for target.
-CMakeFiles/idf.dir/all:
-	$(MAKE) -f CMakeFiles/idf.dir/build.make CMakeFiles/idf.dir/depend
-	$(MAKE) -f CMakeFiles/idf.dir/build.make CMakeFiles/idf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=11 "Built target idf"
-.PHONY : CMakeFiles/idf.dir/all
+server_start/CMakeFiles/SercerStart.dir/all:
+	$(MAKE) -f server_start/CMakeFiles/SercerStart.dir/build.make server_start/CMakeFiles/SercerStart.dir/depend
+	$(MAKE) -f server_start/CMakeFiles/SercerStart.dir/build.make server_start/CMakeFiles/SercerStart.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=22,23,24,25,26 "Built target SercerStart"
+.PHONY : server_start/CMakeFiles/SercerStart.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/idf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/idf.dir/all
+server_start/CMakeFiles/SercerStart.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 5
+	$(MAKE) -f CMakeFiles/Makefile2 server_start/CMakeFiles/SercerStart.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/idf.dir/rule
+.PHONY : server_start/CMakeFiles/SercerStart.dir/rule
 
 # Convenience name for target.
-idf: CMakeFiles/idf.dir/rule
+SercerStart: server_start/CMakeFiles/SercerStart.dir/rule
 
-.PHONY : idf
-
-# clean rule for target.
-CMakeFiles/idf.dir/clean:
-	$(MAKE) -f CMakeFiles/idf.dir/build.make CMakeFiles/idf.dir/clean
-.PHONY : CMakeFiles/idf.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/creador_armas.dir
-
-# All Build rule for target.
-CMakeFiles/creador_armas.dir/all:
-	$(MAKE) -f CMakeFiles/creador_armas.dir/build.make CMakeFiles/creador_armas.dir/depend
-	$(MAKE) -f CMakeFiles/creador_armas.dir/build.make CMakeFiles/creador_armas.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=4 "Built target creador_armas"
-.PHONY : CMakeFiles/creador_armas.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/creador_armas.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/creador_armas.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/creador_armas.dir/rule
-
-# Convenience name for target.
-creador_armas: CMakeFiles/creador_armas.dir/rule
-
-.PHONY : creador_armas
+.PHONY : SercerStart
 
 # clean rule for target.
-CMakeFiles/creador_armas.dir/clean:
-	$(MAKE) -f CMakeFiles/creador_armas.dir/build.make CMakeFiles/creador_armas.dir/clean
-.PHONY : CMakeFiles/creador_armas.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/scout.dir
-
-# All Build rule for target.
-CMakeFiles/scout.dir/all:
-	$(MAKE) -f CMakeFiles/scout.dir/build.make CMakeFiles/scout.dir/depend
-	$(MAKE) -f CMakeFiles/scout.dir/build.make CMakeFiles/scout.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=16 "Built target scout"
-.PHONY : CMakeFiles/scout.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/scout.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/scout.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/scout.dir/rule
-
-# Convenience name for target.
-scout: CMakeFiles/scout.dir/rule
-
-.PHONY : scout
-
-# clean rule for target.
-CMakeFiles/scout.dir/clean:
-	$(MAKE) -f CMakeFiles/scout.dir/build.make CMakeFiles/scout.dir/clean
-.PHONY : CMakeFiles/scout.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/server_reciever.dir
-
-# All Build rule for target.
-CMakeFiles/server_reciever.dir/all:
-	$(MAKE) -f CMakeFiles/server_reciever.dir/build.make CMakeFiles/server_reciever.dir/depend
-	$(MAKE) -f CMakeFiles/server_reciever.dir/build.make CMakeFiles/server_reciever.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=20 "Built target server_reciever"
-.PHONY : CMakeFiles/server_reciever.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/server_reciever.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/server_reciever.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/server_reciever.dir/rule
-
-# Convenience name for target.
-server_reciever: CMakeFiles/server_reciever.dir/rule
-
-.PHONY : server_reciever
-
-# clean rule for target.
-CMakeFiles/server_reciever.dir/clean:
-	$(MAKE) -f CMakeFiles/server_reciever.dir/build.make CMakeFiles/server_reciever.dir/clean
-.PHONY : CMakeFiles/server_reciever.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/creador_eventos.dir
-
-# All Build rule for target.
-CMakeFiles/creador_eventos.dir/all:
-	$(MAKE) -f CMakeFiles/creador_eventos.dir/build.make CMakeFiles/creador_eventos.dir/depend
-	$(MAKE) -f CMakeFiles/creador_eventos.dir/build.make CMakeFiles/creador_eventos.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=5 "Built target creador_eventos"
-.PHONY : CMakeFiles/creador_eventos.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/creador_eventos.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/creador_eventos.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/creador_eventos.dir/rule
-
-# Convenience name for target.
-creador_eventos: CMakeFiles/creador_eventos.dir/rule
-
-.PHONY : creador_eventos
-
-# clean rule for target.
-CMakeFiles/creador_eventos.dir/clean:
-	$(MAKE) -f CMakeFiles/creador_eventos.dir/build.make CMakeFiles/creador_eventos.dir/clean
-.PHONY : CMakeFiles/creador_eventos.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/evento.dir
-
-# All Build rule for target.
-CMakeFiles/evento.dir/all:
-	$(MAKE) -f CMakeFiles/evento.dir/build.make CMakeFiles/evento.dir/depend
-	$(MAKE) -f CMakeFiles/evento.dir/build.make CMakeFiles/evento.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=6 "Built target evento"
-.PHONY : CMakeFiles/evento.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/evento.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/evento.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/evento.dir/rule
-
-# Convenience name for target.
-evento: CMakeFiles/evento.dir/rule
-
-.PHONY : evento
-
-# clean rule for target.
-CMakeFiles/evento.dir/clean:
-	$(MAKE) -f CMakeFiles/evento.dir/build.make CMakeFiles/evento.dir/clean
-.PHONY : CMakeFiles/evento.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/juego.dir
-
-# All Build rule for target.
-CMakeFiles/juego.dir/all:
-	$(MAKE) -f CMakeFiles/juego.dir/build.make CMakeFiles/juego.dir/depend
-	$(MAKE) -f CMakeFiles/juego.dir/build.make CMakeFiles/juego.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=12 "Built target juego"
-.PHONY : CMakeFiles/juego.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/juego.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/juego.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/juego.dir/rule
-
-# Convenience name for target.
-juego: CMakeFiles/juego.dir/rule
-
-.PHONY : juego
-
-# clean rule for target.
-CMakeFiles/juego.dir/clean:
-	$(MAKE) -f CMakeFiles/juego.dir/build.make CMakeFiles/juego.dir/clean
-.PHONY : CMakeFiles/juego.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/evento_disparar.dir
-
-# All Build rule for target.
-CMakeFiles/evento_disparar.dir/all:
-	$(MAKE) -f CMakeFiles/evento_disparar.dir/build.make CMakeFiles/evento_disparar.dir/depend
-	$(MAKE) -f CMakeFiles/evento_disparar.dir/build.make CMakeFiles/evento_disparar.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=7 "Built target evento_disparar"
-.PHONY : CMakeFiles/evento_disparar.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/evento_disparar.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/evento_disparar.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/evento_disparar.dir/rule
-
-# Convenience name for target.
-evento_disparar: CMakeFiles/evento_disparar.dir/rule
-
-.PHONY : evento_disparar
-
-# clean rule for target.
-CMakeFiles/evento_disparar.dir/clean:
-	$(MAKE) -f CMakeFiles/evento_disparar.dir/build.make CMakeFiles/evento_disparar.dir/clean
-.PHONY : CMakeFiles/evento_disparar.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/evento_mover.dir
-
-# All Build rule for target.
-CMakeFiles/evento_mover.dir/all:
-	$(MAKE) -f CMakeFiles/evento_mover.dir/build.make CMakeFiles/evento_mover.dir/depend
-	$(MAKE) -f CMakeFiles/evento_mover.dir/build.make CMakeFiles/evento_mover.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=8 "Built target evento_mover"
-.PHONY : CMakeFiles/evento_mover.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/evento_mover.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/evento_mover.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/evento_mover.dir/rule
-
-# Convenience name for target.
-evento_mover: CMakeFiles/evento_mover.dir/rule
-
-.PHONY : evento_mover
-
-# clean rule for target.
-CMakeFiles/evento_mover.dir/clean:
-	$(MAKE) -f CMakeFiles/evento_mover.dir/build.make CMakeFiles/evento_mover.dir/clean
-.PHONY : CMakeFiles/evento_mover.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/server_cliente_handler.dir
-
-# All Build rule for target.
-CMakeFiles/server_cliente_handler.dir/all:
-	$(MAKE) -f CMakeFiles/server_cliente_handler.dir/build.make CMakeFiles/server_cliente_handler.dir/depend
-	$(MAKE) -f CMakeFiles/server_cliente_handler.dir/build.make CMakeFiles/server_cliente_handler.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=18 "Built target server_cliente_handler"
-.PHONY : CMakeFiles/server_cliente_handler.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/server_cliente_handler.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/server_cliente_handler.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/server_cliente_handler.dir/rule
-
-# Convenience name for target.
-server_cliente_handler: CMakeFiles/server_cliente_handler.dir/rule
-
-.PHONY : server_cliente_handler
-
-# clean rule for target.
-CMakeFiles/server_cliente_handler.dir/clean:
-	$(MAKE) -f CMakeFiles/server_cliente_handler.dir/build.make CMakeFiles/server_cliente_handler.dir/clean
-.PHONY : CMakeFiles/server_cliente_handler.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/evento_no_disparar.dir
-
-# All Build rule for target.
-CMakeFiles/evento_no_disparar.dir/all:
-	$(MAKE) -f CMakeFiles/evento_no_disparar.dir/build.make CMakeFiles/evento_no_disparar.dir/depend
-	$(MAKE) -f CMakeFiles/evento_no_disparar.dir/build.make CMakeFiles/evento_no_disparar.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=9 "Built target evento_no_disparar"
-.PHONY : CMakeFiles/evento_no_disparar.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/evento_no_disparar.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/evento_no_disparar.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/evento_no_disparar.dir/rule
-
-# Convenience name for target.
-evento_no_disparar: CMakeFiles/evento_no_disparar.dir/rule
-
-.PHONY : evento_no_disparar
-
-# clean rule for target.
-CMakeFiles/evento_no_disparar.dir/clean:
-	$(MAKE) -f CMakeFiles/evento_no_disparar.dir/build.make CMakeFiles/evento_no_disparar.dir/clean
-.PHONY : CMakeFiles/evento_no_disparar.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/p90.dir
-
-# All Build rule for target.
-CMakeFiles/p90.dir/all:
-	$(MAKE) -f CMakeFiles/p90.dir/build.make CMakeFiles/p90.dir/depend
-	$(MAKE) -f CMakeFiles/p90.dir/build.make CMakeFiles/p90.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=13 "Built target p90"
-.PHONY : CMakeFiles/p90.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/p90.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/p90.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/p90.dir/rule
-
-# Convenience name for target.
-p90: CMakeFiles/p90.dir/rule
-
-.PHONY : p90
-
-# clean rule for target.
-CMakeFiles/p90.dir/clean:
-	$(MAKE) -f CMakeFiles/p90.dir/build.make CMakeFiles/p90.dir/clean
-.PHONY : CMakeFiles/p90.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/evento_no_mover.dir
-
-# All Build rule for target.
-CMakeFiles/evento_no_mover.dir/all:
-	$(MAKE) -f CMakeFiles/evento_no_mover.dir/build.make CMakeFiles/evento_no_mover.dir/depend
-	$(MAKE) -f CMakeFiles/evento_no_mover.dir/build.make CMakeFiles/evento_no_mover.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=10 "Built target evento_no_mover"
-.PHONY : CMakeFiles/evento_no_mover.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/evento_no_mover.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/evento_no_mover.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles 0
-.PHONY : CMakeFiles/evento_no_mover.dir/rule
-
-# Convenience name for target.
-evento_no_mover: CMakeFiles/evento_no_mover.dir/rule
-
-.PHONY : evento_no_mover
-
-# clean rule for target.
-CMakeFiles/evento_no_mover.dir/clean:
-	$(MAKE) -f CMakeFiles/evento_no_mover.dir/build.make CMakeFiles/evento_no_mover.dir/clean
-.PHONY : CMakeFiles/evento_no_mover.dir/clean
+server_start/CMakeFiles/SercerStart.dir/clean:
+	$(MAKE) -f server_start/CMakeFiles/SercerStart.dir/build.make server_start/CMakeFiles/SercerStart.dir/clean
+.PHONY : server_start/CMakeFiles/SercerStart.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

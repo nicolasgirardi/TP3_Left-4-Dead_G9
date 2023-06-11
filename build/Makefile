@@ -111,548 +111,191 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named TuEjecutable
+# Target rules for targets named server
 
 # Build rule for target.
-TuEjecutable: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TuEjecutable
-.PHONY : TuEjecutable
+server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 server
+.PHONY : server
 
 # fast build rule for target.
-TuEjecutable/fast:
-	$(MAKE) -f CMakeFiles/TuEjecutable.dir/build.make CMakeFiles/TuEjecutable.dir/build
-.PHONY : TuEjecutable/fast
+server/fast:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
+.PHONY : server/fast
 
 #=============================================================================
-# Target rules for targets named server_main
+# Target rules for targets named CommonLibs
 
 # Build rule for target.
-server_main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 server_main
-.PHONY : server_main
+CommonLibs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 CommonLibs
+.PHONY : CommonLibs
 
 # fast build rule for target.
-server_main/fast:
-	$(MAKE) -f CMakeFiles/server_main.dir/build.make CMakeFiles/server_main.dir/build
-.PHONY : server_main/fast
+CommonLibs/fast:
+	$(MAKE) -f common_libs/CMakeFiles/CommonLibs.dir/build.make common_libs/CMakeFiles/CommonLibs.dir/build
+.PHONY : CommonLibs/fast
 
 #=============================================================================
-# Target rules for targets named server_aceptador
+# Target rules for targets named SercerModelo
 
 # Build rule for target.
-server_aceptador: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 server_aceptador
-.PHONY : server_aceptador
+SercerModelo: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 SercerModelo
+.PHONY : SercerModelo
 
 # fast build rule for target.
-server_aceptador/fast:
-	$(MAKE) -f CMakeFiles/server_aceptador.dir/build.make CMakeFiles/server_aceptador.dir/build
-.PHONY : server_aceptador/fast
+SercerModelo/fast:
+	$(MAKE) -f server_modelo/CMakeFiles/SercerModelo.dir/build.make server_modelo/CMakeFiles/SercerModelo.dir/build
+.PHONY : SercerModelo/fast
 
 #=============================================================================
-# Target rules for targets named personaje
+# Target rules for targets named SercerStart
 
 # Build rule for target.
-personaje: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 personaje
-.PHONY : personaje
+SercerStart: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 SercerStart
+.PHONY : SercerStart
 
 # fast build rule for target.
-personaje/fast:
-	$(MAKE) -f CMakeFiles/personaje.dir/build.make CMakeFiles/personaje.dir/build
-.PHONY : personaje/fast
+SercerStart/fast:
+	$(MAKE) -f server_start/CMakeFiles/SercerStart.dir/build.make server_start/CMakeFiles/SercerStart.dir/build
+.PHONY : SercerStart/fast
 
-#=============================================================================
-# Target rules for targets named arma
+common_libs/common-wrap_socket.o: common_libs/common-wrap_socket.cpp.o
 
-# Build rule for target.
-arma: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 arma
-.PHONY : arma
-
-# fast build rule for target.
-arma/fast:
-	$(MAKE) -f CMakeFiles/arma.dir/build.make CMakeFiles/arma.dir/build
-.PHONY : arma/fast
-
-#=============================================================================
-# Target rules for targets named partida
-
-# Build rule for target.
-partida: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 partida
-.PHONY : partida
-
-# fast build rule for target.
-partida/fast:
-	$(MAKE) -f CMakeFiles/partida.dir/build.make CMakeFiles/partida.dir/build
-.PHONY : partida/fast
-
-#=============================================================================
-# Target rules for targets named idf
-
-# Build rule for target.
-idf: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 idf
-.PHONY : idf
-
-# fast build rule for target.
-idf/fast:
-	$(MAKE) -f CMakeFiles/idf.dir/build.make CMakeFiles/idf.dir/build
-.PHONY : idf/fast
-
-#=============================================================================
-# Target rules for targets named creador_armas
-
-# Build rule for target.
-creador_armas: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 creador_armas
-.PHONY : creador_armas
-
-# fast build rule for target.
-creador_armas/fast:
-	$(MAKE) -f CMakeFiles/creador_armas.dir/build.make CMakeFiles/creador_armas.dir/build
-.PHONY : creador_armas/fast
-
-#=============================================================================
-# Target rules for targets named scout
-
-# Build rule for target.
-scout: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 scout
-.PHONY : scout
-
-# fast build rule for target.
-scout/fast:
-	$(MAKE) -f CMakeFiles/scout.dir/build.make CMakeFiles/scout.dir/build
-.PHONY : scout/fast
-
-#=============================================================================
-# Target rules for targets named server_reciever
-
-# Build rule for target.
-server_reciever: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 server_reciever
-.PHONY : server_reciever
-
-# fast build rule for target.
-server_reciever/fast:
-	$(MAKE) -f CMakeFiles/server_reciever.dir/build.make CMakeFiles/server_reciever.dir/build
-.PHONY : server_reciever/fast
-
-#=============================================================================
-# Target rules for targets named creador_eventos
-
-# Build rule for target.
-creador_eventos: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 creador_eventos
-.PHONY : creador_eventos
-
-# fast build rule for target.
-creador_eventos/fast:
-	$(MAKE) -f CMakeFiles/creador_eventos.dir/build.make CMakeFiles/creador_eventos.dir/build
-.PHONY : creador_eventos/fast
-
-#=============================================================================
-# Target rules for targets named evento
-
-# Build rule for target.
-evento: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 evento
-.PHONY : evento
-
-# fast build rule for target.
-evento/fast:
-	$(MAKE) -f CMakeFiles/evento.dir/build.make CMakeFiles/evento.dir/build
-.PHONY : evento/fast
-
-#=============================================================================
-# Target rules for targets named juego
-
-# Build rule for target.
-juego: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 juego
-.PHONY : juego
-
-# fast build rule for target.
-juego/fast:
-	$(MAKE) -f CMakeFiles/juego.dir/build.make CMakeFiles/juego.dir/build
-.PHONY : juego/fast
-
-#=============================================================================
-# Target rules for targets named evento_disparar
-
-# Build rule for target.
-evento_disparar: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 evento_disparar
-.PHONY : evento_disparar
-
-# fast build rule for target.
-evento_disparar/fast:
-	$(MAKE) -f CMakeFiles/evento_disparar.dir/build.make CMakeFiles/evento_disparar.dir/build
-.PHONY : evento_disparar/fast
-
-#=============================================================================
-# Target rules for targets named evento_mover
-
-# Build rule for target.
-evento_mover: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 evento_mover
-.PHONY : evento_mover
-
-# fast build rule for target.
-evento_mover/fast:
-	$(MAKE) -f CMakeFiles/evento_mover.dir/build.make CMakeFiles/evento_mover.dir/build
-.PHONY : evento_mover/fast
-
-#=============================================================================
-# Target rules for targets named server_cliente_handler
-
-# Build rule for target.
-server_cliente_handler: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 server_cliente_handler
-.PHONY : server_cliente_handler
-
-# fast build rule for target.
-server_cliente_handler/fast:
-	$(MAKE) -f CMakeFiles/server_cliente_handler.dir/build.make CMakeFiles/server_cliente_handler.dir/build
-.PHONY : server_cliente_handler/fast
-
-#=============================================================================
-# Target rules for targets named evento_no_disparar
-
-# Build rule for target.
-evento_no_disparar: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 evento_no_disparar
-.PHONY : evento_no_disparar
-
-# fast build rule for target.
-evento_no_disparar/fast:
-	$(MAKE) -f CMakeFiles/evento_no_disparar.dir/build.make CMakeFiles/evento_no_disparar.dir/build
-.PHONY : evento_no_disparar/fast
-
-#=============================================================================
-# Target rules for targets named p90
-
-# Build rule for target.
-p90: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 p90
-.PHONY : p90
-
-# fast build rule for target.
-p90/fast:
-	$(MAKE) -f CMakeFiles/p90.dir/build.make CMakeFiles/p90.dir/build
-.PHONY : p90/fast
-
-#=============================================================================
-# Target rules for targets named evento_no_mover
-
-# Build rule for target.
-evento_no_mover: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 evento_no_mover
-.PHONY : evento_no_mover
-
-# fast build rule for target.
-evento_no_mover/fast:
-	$(MAKE) -f CMakeFiles/evento_no_mover.dir/build.make CMakeFiles/evento_no_mover.dir/build
-.PHONY : evento_no_mover/fast
-
-server_modelo/armas/arma.o: server_modelo/armas/arma.cpp.o
-
-.PHONY : server_modelo/armas/arma.o
+.PHONY : common_libs/common-wrap_socket.o
 
 # target to build an object file
-server_modelo/armas/arma.cpp.o:
-	$(MAKE) -f CMakeFiles/arma.dir/build.make CMakeFiles/arma.dir/server_modelo/armas/arma.cpp.o
-.PHONY : server_modelo/armas/arma.cpp.o
+common_libs/common-wrap_socket.cpp.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/common_libs/common-wrap_socket.cpp.o
+.PHONY : common_libs/common-wrap_socket.cpp.o
 
-server_modelo/armas/arma.i: server_modelo/armas/arma.cpp.i
+common_libs/common-wrap_socket.i: common_libs/common-wrap_socket.cpp.i
 
-.PHONY : server_modelo/armas/arma.i
+.PHONY : common_libs/common-wrap_socket.i
 
 # target to preprocess a source file
-server_modelo/armas/arma.cpp.i:
-	$(MAKE) -f CMakeFiles/arma.dir/build.make CMakeFiles/arma.dir/server_modelo/armas/arma.cpp.i
-.PHONY : server_modelo/armas/arma.cpp.i
+common_libs/common-wrap_socket.cpp.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/common_libs/common-wrap_socket.cpp.i
+.PHONY : common_libs/common-wrap_socket.cpp.i
 
-server_modelo/armas/arma.s: server_modelo/armas/arma.cpp.s
+common_libs/common-wrap_socket.s: common_libs/common-wrap_socket.cpp.s
 
-.PHONY : server_modelo/armas/arma.s
+.PHONY : common_libs/common-wrap_socket.s
 
 # target to generate assembly for a file
-server_modelo/armas/arma.cpp.s:
-	$(MAKE) -f CMakeFiles/arma.dir/build.make CMakeFiles/arma.dir/server_modelo/armas/arma.cpp.s
-.PHONY : server_modelo/armas/arma.cpp.s
+common_libs/common-wrap_socket.cpp.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/common_libs/common-wrap_socket.cpp.s
+.PHONY : common_libs/common-wrap_socket.cpp.s
 
-server_modelo/armas/creador_armas.o: server_modelo/armas/creador_armas.cpp.o
+common_libs/common_liberror.o: common_libs/common_liberror.cpp.o
 
-.PHONY : server_modelo/armas/creador_armas.o
+.PHONY : common_libs/common_liberror.o
 
 # target to build an object file
-server_modelo/armas/creador_armas.cpp.o:
-	$(MAKE) -f CMakeFiles/creador_armas.dir/build.make CMakeFiles/creador_armas.dir/server_modelo/armas/creador_armas.cpp.o
-.PHONY : server_modelo/armas/creador_armas.cpp.o
+common_libs/common_liberror.cpp.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/common_libs/common_liberror.cpp.o
+.PHONY : common_libs/common_liberror.cpp.o
 
-server_modelo/armas/creador_armas.i: server_modelo/armas/creador_armas.cpp.i
+common_libs/common_liberror.i: common_libs/common_liberror.cpp.i
 
-.PHONY : server_modelo/armas/creador_armas.i
+.PHONY : common_libs/common_liberror.i
 
 # target to preprocess a source file
-server_modelo/armas/creador_armas.cpp.i:
-	$(MAKE) -f CMakeFiles/creador_armas.dir/build.make CMakeFiles/creador_armas.dir/server_modelo/armas/creador_armas.cpp.i
-.PHONY : server_modelo/armas/creador_armas.cpp.i
+common_libs/common_liberror.cpp.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/common_libs/common_liberror.cpp.i
+.PHONY : common_libs/common_liberror.cpp.i
 
-server_modelo/armas/creador_armas.s: server_modelo/armas/creador_armas.cpp.s
+common_libs/common_liberror.s: common_libs/common_liberror.cpp.s
 
-.PHONY : server_modelo/armas/creador_armas.s
+.PHONY : common_libs/common_liberror.s
 
 # target to generate assembly for a file
-server_modelo/armas/creador_armas.cpp.s:
-	$(MAKE) -f CMakeFiles/creador_armas.dir/build.make CMakeFiles/creador_armas.dir/server_modelo/armas/creador_armas.cpp.s
-.PHONY : server_modelo/armas/creador_armas.cpp.s
+common_libs/common_liberror.cpp.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/common_libs/common_liberror.cpp.s
+.PHONY : common_libs/common_liberror.cpp.s
 
-server_modelo/armas/idf.o: server_modelo/armas/idf.cpp.o
+common_libs/common_resolver.o: common_libs/common_resolver.cpp.o
 
-.PHONY : server_modelo/armas/idf.o
+.PHONY : common_libs/common_resolver.o
 
 # target to build an object file
-server_modelo/armas/idf.cpp.o:
-	$(MAKE) -f CMakeFiles/idf.dir/build.make CMakeFiles/idf.dir/server_modelo/armas/idf.cpp.o
-.PHONY : server_modelo/armas/idf.cpp.o
+common_libs/common_resolver.cpp.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/common_libs/common_resolver.cpp.o
+.PHONY : common_libs/common_resolver.cpp.o
 
-server_modelo/armas/idf.i: server_modelo/armas/idf.cpp.i
+common_libs/common_resolver.i: common_libs/common_resolver.cpp.i
 
-.PHONY : server_modelo/armas/idf.i
+.PHONY : common_libs/common_resolver.i
 
 # target to preprocess a source file
-server_modelo/armas/idf.cpp.i:
-	$(MAKE) -f CMakeFiles/idf.dir/build.make CMakeFiles/idf.dir/server_modelo/armas/idf.cpp.i
-.PHONY : server_modelo/armas/idf.cpp.i
+common_libs/common_resolver.cpp.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/common_libs/common_resolver.cpp.i
+.PHONY : common_libs/common_resolver.cpp.i
 
-server_modelo/armas/idf.s: server_modelo/armas/idf.cpp.s
+common_libs/common_resolver.s: common_libs/common_resolver.cpp.s
 
-.PHONY : server_modelo/armas/idf.s
+.PHONY : common_libs/common_resolver.s
 
 # target to generate assembly for a file
-server_modelo/armas/idf.cpp.s:
-	$(MAKE) -f CMakeFiles/idf.dir/build.make CMakeFiles/idf.dir/server_modelo/armas/idf.cpp.s
-.PHONY : server_modelo/armas/idf.cpp.s
+common_libs/common_resolver.cpp.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/common_libs/common_resolver.cpp.s
+.PHONY : common_libs/common_resolver.cpp.s
 
-server_modelo/armas/p90.o: server_modelo/armas/p90.cpp.o
+common_libs/common_resolvererror.o: common_libs/common_resolvererror.cpp.o
 
-.PHONY : server_modelo/armas/p90.o
+.PHONY : common_libs/common_resolvererror.o
 
 # target to build an object file
-server_modelo/armas/p90.cpp.o:
-	$(MAKE) -f CMakeFiles/p90.dir/build.make CMakeFiles/p90.dir/server_modelo/armas/p90.cpp.o
-.PHONY : server_modelo/armas/p90.cpp.o
+common_libs/common_resolvererror.cpp.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/common_libs/common_resolvererror.cpp.o
+.PHONY : common_libs/common_resolvererror.cpp.o
 
-server_modelo/armas/p90.i: server_modelo/armas/p90.cpp.i
+common_libs/common_resolvererror.i: common_libs/common_resolvererror.cpp.i
 
-.PHONY : server_modelo/armas/p90.i
+.PHONY : common_libs/common_resolvererror.i
 
 # target to preprocess a source file
-server_modelo/armas/p90.cpp.i:
-	$(MAKE) -f CMakeFiles/p90.dir/build.make CMakeFiles/p90.dir/server_modelo/armas/p90.cpp.i
-.PHONY : server_modelo/armas/p90.cpp.i
+common_libs/common_resolvererror.cpp.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/common_libs/common_resolvererror.cpp.i
+.PHONY : common_libs/common_resolvererror.cpp.i
 
-server_modelo/armas/p90.s: server_modelo/armas/p90.cpp.s
+common_libs/common_resolvererror.s: common_libs/common_resolvererror.cpp.s
 
-.PHONY : server_modelo/armas/p90.s
+.PHONY : common_libs/common_resolvererror.s
 
 # target to generate assembly for a file
-server_modelo/armas/p90.cpp.s:
-	$(MAKE) -f CMakeFiles/p90.dir/build.make CMakeFiles/p90.dir/server_modelo/armas/p90.cpp.s
-.PHONY : server_modelo/armas/p90.cpp.s
+common_libs/common_resolvererror.cpp.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/common_libs/common_resolvererror.cpp.s
+.PHONY : common_libs/common_resolvererror.cpp.s
 
-server_modelo/armas/scout.o: server_modelo/armas/scout.cpp.o
+common_libs/common_socket.o: common_libs/common_socket.cpp.o
 
-.PHONY : server_modelo/armas/scout.o
+.PHONY : common_libs/common_socket.o
 
 # target to build an object file
-server_modelo/armas/scout.cpp.o:
-	$(MAKE) -f CMakeFiles/scout.dir/build.make CMakeFiles/scout.dir/server_modelo/armas/scout.cpp.o
-.PHONY : server_modelo/armas/scout.cpp.o
+common_libs/common_socket.cpp.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/common_libs/common_socket.cpp.o
+.PHONY : common_libs/common_socket.cpp.o
 
-server_modelo/armas/scout.i: server_modelo/armas/scout.cpp.i
+common_libs/common_socket.i: common_libs/common_socket.cpp.i
 
-.PHONY : server_modelo/armas/scout.i
-
-# target to preprocess a source file
-server_modelo/armas/scout.cpp.i:
-	$(MAKE) -f CMakeFiles/scout.dir/build.make CMakeFiles/scout.dir/server_modelo/armas/scout.cpp.i
-.PHONY : server_modelo/armas/scout.cpp.i
-
-server_modelo/armas/scout.s: server_modelo/armas/scout.cpp.s
-
-.PHONY : server_modelo/armas/scout.s
-
-# target to generate assembly for a file
-server_modelo/armas/scout.cpp.s:
-	$(MAKE) -f CMakeFiles/scout.dir/build.make CMakeFiles/scout.dir/server_modelo/armas/scout.cpp.s
-.PHONY : server_modelo/armas/scout.cpp.s
-
-server_modelo/eventos/creador_eventos.o: server_modelo/eventos/creador_eventos.cpp.o
-
-.PHONY : server_modelo/eventos/creador_eventos.o
-
-# target to build an object file
-server_modelo/eventos/creador_eventos.cpp.o:
-	$(MAKE) -f CMakeFiles/creador_eventos.dir/build.make CMakeFiles/creador_eventos.dir/server_modelo/eventos/creador_eventos.cpp.o
-.PHONY : server_modelo/eventos/creador_eventos.cpp.o
-
-server_modelo/eventos/creador_eventos.i: server_modelo/eventos/creador_eventos.cpp.i
-
-.PHONY : server_modelo/eventos/creador_eventos.i
+.PHONY : common_libs/common_socket.i
 
 # target to preprocess a source file
-server_modelo/eventos/creador_eventos.cpp.i:
-	$(MAKE) -f CMakeFiles/creador_eventos.dir/build.make CMakeFiles/creador_eventos.dir/server_modelo/eventos/creador_eventos.cpp.i
-.PHONY : server_modelo/eventos/creador_eventos.cpp.i
+common_libs/common_socket.cpp.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/common_libs/common_socket.cpp.i
+.PHONY : common_libs/common_socket.cpp.i
 
-server_modelo/eventos/creador_eventos.s: server_modelo/eventos/creador_eventos.cpp.s
+common_libs/common_socket.s: common_libs/common_socket.cpp.s
 
-.PHONY : server_modelo/eventos/creador_eventos.s
-
-# target to generate assembly for a file
-server_modelo/eventos/creador_eventos.cpp.s:
-	$(MAKE) -f CMakeFiles/creador_eventos.dir/build.make CMakeFiles/creador_eventos.dir/server_modelo/eventos/creador_eventos.cpp.s
-.PHONY : server_modelo/eventos/creador_eventos.cpp.s
-
-server_modelo/eventos/evento.o: server_modelo/eventos/evento.cpp.o
-
-.PHONY : server_modelo/eventos/evento.o
-
-# target to build an object file
-server_modelo/eventos/evento.cpp.o:
-	$(MAKE) -f CMakeFiles/evento.dir/build.make CMakeFiles/evento.dir/server_modelo/eventos/evento.cpp.o
-.PHONY : server_modelo/eventos/evento.cpp.o
-
-server_modelo/eventos/evento.i: server_modelo/eventos/evento.cpp.i
-
-.PHONY : server_modelo/eventos/evento.i
-
-# target to preprocess a source file
-server_modelo/eventos/evento.cpp.i:
-	$(MAKE) -f CMakeFiles/evento.dir/build.make CMakeFiles/evento.dir/server_modelo/eventos/evento.cpp.i
-.PHONY : server_modelo/eventos/evento.cpp.i
-
-server_modelo/eventos/evento.s: server_modelo/eventos/evento.cpp.s
-
-.PHONY : server_modelo/eventos/evento.s
+.PHONY : common_libs/common_socket.s
 
 # target to generate assembly for a file
-server_modelo/eventos/evento.cpp.s:
-	$(MAKE) -f CMakeFiles/evento.dir/build.make CMakeFiles/evento.dir/server_modelo/eventos/evento.cpp.s
-.PHONY : server_modelo/eventos/evento.cpp.s
-
-server_modelo/eventos/evento_disparar.o: server_modelo/eventos/evento_disparar.cpp.o
-
-.PHONY : server_modelo/eventos/evento_disparar.o
-
-# target to build an object file
-server_modelo/eventos/evento_disparar.cpp.o:
-	$(MAKE) -f CMakeFiles/evento_disparar.dir/build.make CMakeFiles/evento_disparar.dir/server_modelo/eventos/evento_disparar.cpp.o
-.PHONY : server_modelo/eventos/evento_disparar.cpp.o
-
-server_modelo/eventos/evento_disparar.i: server_modelo/eventos/evento_disparar.cpp.i
-
-.PHONY : server_modelo/eventos/evento_disparar.i
-
-# target to preprocess a source file
-server_modelo/eventos/evento_disparar.cpp.i:
-	$(MAKE) -f CMakeFiles/evento_disparar.dir/build.make CMakeFiles/evento_disparar.dir/server_modelo/eventos/evento_disparar.cpp.i
-.PHONY : server_modelo/eventos/evento_disparar.cpp.i
-
-server_modelo/eventos/evento_disparar.s: server_modelo/eventos/evento_disparar.cpp.s
-
-.PHONY : server_modelo/eventos/evento_disparar.s
-
-# target to generate assembly for a file
-server_modelo/eventos/evento_disparar.cpp.s:
-	$(MAKE) -f CMakeFiles/evento_disparar.dir/build.make CMakeFiles/evento_disparar.dir/server_modelo/eventos/evento_disparar.cpp.s
-.PHONY : server_modelo/eventos/evento_disparar.cpp.s
-
-server_modelo/eventos/evento_mover.o: server_modelo/eventos/evento_mover.cpp.o
-
-.PHONY : server_modelo/eventos/evento_mover.o
-
-# target to build an object file
-server_modelo/eventos/evento_mover.cpp.o:
-	$(MAKE) -f CMakeFiles/evento_mover.dir/build.make CMakeFiles/evento_mover.dir/server_modelo/eventos/evento_mover.cpp.o
-.PHONY : server_modelo/eventos/evento_mover.cpp.o
-
-server_modelo/eventos/evento_mover.i: server_modelo/eventos/evento_mover.cpp.i
-
-.PHONY : server_modelo/eventos/evento_mover.i
-
-# target to preprocess a source file
-server_modelo/eventos/evento_mover.cpp.i:
-	$(MAKE) -f CMakeFiles/evento_mover.dir/build.make CMakeFiles/evento_mover.dir/server_modelo/eventos/evento_mover.cpp.i
-.PHONY : server_modelo/eventos/evento_mover.cpp.i
-
-server_modelo/eventos/evento_mover.s: server_modelo/eventos/evento_mover.cpp.s
-
-.PHONY : server_modelo/eventos/evento_mover.s
-
-# target to generate assembly for a file
-server_modelo/eventos/evento_mover.cpp.s:
-	$(MAKE) -f CMakeFiles/evento_mover.dir/build.make CMakeFiles/evento_mover.dir/server_modelo/eventos/evento_mover.cpp.s
-.PHONY : server_modelo/eventos/evento_mover.cpp.s
-
-server_modelo/eventos/evento_no_disparar.o: server_modelo/eventos/evento_no_disparar.cpp.o
-
-.PHONY : server_modelo/eventos/evento_no_disparar.o
-
-# target to build an object file
-server_modelo/eventos/evento_no_disparar.cpp.o:
-	$(MAKE) -f CMakeFiles/evento_no_disparar.dir/build.make CMakeFiles/evento_no_disparar.dir/server_modelo/eventos/evento_no_disparar.cpp.o
-.PHONY : server_modelo/eventos/evento_no_disparar.cpp.o
-
-server_modelo/eventos/evento_no_disparar.i: server_modelo/eventos/evento_no_disparar.cpp.i
-
-.PHONY : server_modelo/eventos/evento_no_disparar.i
-
-# target to preprocess a source file
-server_modelo/eventos/evento_no_disparar.cpp.i:
-	$(MAKE) -f CMakeFiles/evento_no_disparar.dir/build.make CMakeFiles/evento_no_disparar.dir/server_modelo/eventos/evento_no_disparar.cpp.i
-.PHONY : server_modelo/eventos/evento_no_disparar.cpp.i
-
-server_modelo/eventos/evento_no_disparar.s: server_modelo/eventos/evento_no_disparar.cpp.s
-
-.PHONY : server_modelo/eventos/evento_no_disparar.s
-
-# target to generate assembly for a file
-server_modelo/eventos/evento_no_disparar.cpp.s:
-	$(MAKE) -f CMakeFiles/evento_no_disparar.dir/build.make CMakeFiles/evento_no_disparar.dir/server_modelo/eventos/evento_no_disparar.cpp.s
-.PHONY : server_modelo/eventos/evento_no_disparar.cpp.s
-
-server_modelo/eventos/evento_no_mover.o: server_modelo/eventos/evento_no_mover.cpp.o
-
-.PHONY : server_modelo/eventos/evento_no_mover.o
-
-# target to build an object file
-server_modelo/eventos/evento_no_mover.cpp.o:
-	$(MAKE) -f CMakeFiles/evento_no_mover.dir/build.make CMakeFiles/evento_no_mover.dir/server_modelo/eventos/evento_no_mover.cpp.o
-.PHONY : server_modelo/eventos/evento_no_mover.cpp.o
-
-server_modelo/eventos/evento_no_mover.i: server_modelo/eventos/evento_no_mover.cpp.i
-
-.PHONY : server_modelo/eventos/evento_no_mover.i
-
-# target to preprocess a source file
-server_modelo/eventos/evento_no_mover.cpp.i:
-	$(MAKE) -f CMakeFiles/evento_no_mover.dir/build.make CMakeFiles/evento_no_mover.dir/server_modelo/eventos/evento_no_mover.cpp.i
-.PHONY : server_modelo/eventos/evento_no_mover.cpp.i
-
-server_modelo/eventos/evento_no_mover.s: server_modelo/eventos/evento_no_mover.cpp.s
-
-.PHONY : server_modelo/eventos/evento_no_mover.s
-
-# target to generate assembly for a file
-server_modelo/eventos/evento_no_mover.cpp.s:
-	$(MAKE) -f CMakeFiles/evento_no_mover.dir/build.make CMakeFiles/evento_no_mover.dir/server_modelo/eventos/evento_no_mover.cpp.s
-.PHONY : server_modelo/eventos/evento_no_mover.cpp.s
+common_libs/common_socket.cpp.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/common_libs/common_socket.cpp.s
+.PHONY : common_libs/common_socket.cpp.s
 
 server_modelo/juego.o: server_modelo/juego.cpp.o
 
@@ -660,7 +303,7 @@ server_modelo/juego.o: server_modelo/juego.cpp.o
 
 # target to build an object file
 server_modelo/juego.cpp.o:
-	$(MAKE) -f CMakeFiles/juego.dir/build.make CMakeFiles/juego.dir/server_modelo/juego.cpp.o
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_modelo/juego.cpp.o
 .PHONY : server_modelo/juego.cpp.o
 
 server_modelo/juego.i: server_modelo/juego.cpp.i
@@ -669,7 +312,7 @@ server_modelo/juego.i: server_modelo/juego.cpp.i
 
 # target to preprocess a source file
 server_modelo/juego.cpp.i:
-	$(MAKE) -f CMakeFiles/juego.dir/build.make CMakeFiles/juego.dir/server_modelo/juego.cpp.i
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_modelo/juego.cpp.i
 .PHONY : server_modelo/juego.cpp.i
 
 server_modelo/juego.s: server_modelo/juego.cpp.s
@@ -678,7 +321,7 @@ server_modelo/juego.s: server_modelo/juego.cpp.s
 
 # target to generate assembly for a file
 server_modelo/juego.cpp.s:
-	$(MAKE) -f CMakeFiles/juego.dir/build.make CMakeFiles/juego.dir/server_modelo/juego.cpp.s
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_modelo/juego.cpp.s
 .PHONY : server_modelo/juego.cpp.s
 
 server_modelo/partida.o: server_modelo/partida.cpp.o
@@ -687,7 +330,7 @@ server_modelo/partida.o: server_modelo/partida.cpp.o
 
 # target to build an object file
 server_modelo/partida.cpp.o:
-	$(MAKE) -f CMakeFiles/partida.dir/build.make CMakeFiles/partida.dir/server_modelo/partida.cpp.o
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_modelo/partida.cpp.o
 .PHONY : server_modelo/partida.cpp.o
 
 server_modelo/partida.i: server_modelo/partida.cpp.i
@@ -696,7 +339,7 @@ server_modelo/partida.i: server_modelo/partida.cpp.i
 
 # target to preprocess a source file
 server_modelo/partida.cpp.i:
-	$(MAKE) -f CMakeFiles/partida.dir/build.make CMakeFiles/partida.dir/server_modelo/partida.cpp.i
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_modelo/partida.cpp.i
 .PHONY : server_modelo/partida.cpp.i
 
 server_modelo/partida.s: server_modelo/partida.cpp.s
@@ -705,7 +348,7 @@ server_modelo/partida.s: server_modelo/partida.cpp.s
 
 # target to generate assembly for a file
 server_modelo/partida.cpp.s:
-	$(MAKE) -f CMakeFiles/partida.dir/build.make CMakeFiles/partida.dir/server_modelo/partida.cpp.s
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_modelo/partida.cpp.s
 .PHONY : server_modelo/partida.cpp.s
 
 server_modelo/personaje.o: server_modelo/personaje.cpp.o
@@ -714,7 +357,7 @@ server_modelo/personaje.o: server_modelo/personaje.cpp.o
 
 # target to build an object file
 server_modelo/personaje.cpp.o:
-	$(MAKE) -f CMakeFiles/personaje.dir/build.make CMakeFiles/personaje.dir/server_modelo/personaje.cpp.o
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_modelo/personaje.cpp.o
 .PHONY : server_modelo/personaje.cpp.o
 
 server_modelo/personaje.i: server_modelo/personaje.cpp.i
@@ -723,7 +366,7 @@ server_modelo/personaje.i: server_modelo/personaje.cpp.i
 
 # target to preprocess a source file
 server_modelo/personaje.cpp.i:
-	$(MAKE) -f CMakeFiles/personaje.dir/build.make CMakeFiles/personaje.dir/server_modelo/personaje.cpp.i
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_modelo/personaje.cpp.i
 .PHONY : server_modelo/personaje.cpp.i
 
 server_modelo/personaje.s: server_modelo/personaje.cpp.s
@@ -732,7 +375,7 @@ server_modelo/personaje.s: server_modelo/personaje.cpp.s
 
 # target to generate assembly for a file
 server_modelo/personaje.cpp.s:
-	$(MAKE) -f CMakeFiles/personaje.dir/build.make CMakeFiles/personaje.dir/server_modelo/personaje.cpp.s
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_modelo/personaje.cpp.s
 .PHONY : server_modelo/personaje.cpp.s
 
 server_start/server_aceptador.o: server_start/server_aceptador.cpp.o
@@ -741,7 +384,7 @@ server_start/server_aceptador.o: server_start/server_aceptador.cpp.o
 
 # target to build an object file
 server_start/server_aceptador.cpp.o:
-	$(MAKE) -f CMakeFiles/server_aceptador.dir/build.make CMakeFiles/server_aceptador.dir/server_start/server_aceptador.cpp.o
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_start/server_aceptador.cpp.o
 .PHONY : server_start/server_aceptador.cpp.o
 
 server_start/server_aceptador.i: server_start/server_aceptador.cpp.i
@@ -750,7 +393,7 @@ server_start/server_aceptador.i: server_start/server_aceptador.cpp.i
 
 # target to preprocess a source file
 server_start/server_aceptador.cpp.i:
-	$(MAKE) -f CMakeFiles/server_aceptador.dir/build.make CMakeFiles/server_aceptador.dir/server_start/server_aceptador.cpp.i
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_start/server_aceptador.cpp.i
 .PHONY : server_start/server_aceptador.cpp.i
 
 server_start/server_aceptador.s: server_start/server_aceptador.cpp.s
@@ -759,7 +402,7 @@ server_start/server_aceptador.s: server_start/server_aceptador.cpp.s
 
 # target to generate assembly for a file
 server_start/server_aceptador.cpp.s:
-	$(MAKE) -f CMakeFiles/server_aceptador.dir/build.make CMakeFiles/server_aceptador.dir/server_start/server_aceptador.cpp.s
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_start/server_aceptador.cpp.s
 .PHONY : server_start/server_aceptador.cpp.s
 
 server_start/server_cliente_handler.o: server_start/server_cliente_handler.cpp.o
@@ -768,7 +411,7 @@ server_start/server_cliente_handler.o: server_start/server_cliente_handler.cpp.o
 
 # target to build an object file
 server_start/server_cliente_handler.cpp.o:
-	$(MAKE) -f CMakeFiles/server_cliente_handler.dir/build.make CMakeFiles/server_cliente_handler.dir/server_start/server_cliente_handler.cpp.o
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o
 .PHONY : server_start/server_cliente_handler.cpp.o
 
 server_start/server_cliente_handler.i: server_start/server_cliente_handler.cpp.i
@@ -777,7 +420,7 @@ server_start/server_cliente_handler.i: server_start/server_cliente_handler.cpp.i
 
 # target to preprocess a source file
 server_start/server_cliente_handler.cpp.i:
-	$(MAKE) -f CMakeFiles/server_cliente_handler.dir/build.make CMakeFiles/server_cliente_handler.dir/server_start/server_cliente_handler.cpp.i
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.i
 .PHONY : server_start/server_cliente_handler.cpp.i
 
 server_start/server_cliente_handler.s: server_start/server_cliente_handler.cpp.s
@@ -786,7 +429,7 @@ server_start/server_cliente_handler.s: server_start/server_cliente_handler.cpp.s
 
 # target to generate assembly for a file
 server_start/server_cliente_handler.cpp.s:
-	$(MAKE) -f CMakeFiles/server_cliente_handler.dir/build.make CMakeFiles/server_cliente_handler.dir/server_start/server_cliente_handler.cpp.s
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.s
 .PHONY : server_start/server_cliente_handler.cpp.s
 
 server_start/server_main.o: server_start/server_main.cpp.o
@@ -795,8 +438,7 @@ server_start/server_main.o: server_start/server_main.cpp.o
 
 # target to build an object file
 server_start/server_main.cpp.o:
-	$(MAKE) -f CMakeFiles/TuEjecutable.dir/build.make CMakeFiles/TuEjecutable.dir/server_start/server_main.cpp.o
-	$(MAKE) -f CMakeFiles/server_main.dir/build.make CMakeFiles/server_main.dir/server_start/server_main.cpp.o
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_start/server_main.cpp.o
 .PHONY : server_start/server_main.cpp.o
 
 server_start/server_main.i: server_start/server_main.cpp.i
@@ -805,8 +447,7 @@ server_start/server_main.i: server_start/server_main.cpp.i
 
 # target to preprocess a source file
 server_start/server_main.cpp.i:
-	$(MAKE) -f CMakeFiles/TuEjecutable.dir/build.make CMakeFiles/TuEjecutable.dir/server_start/server_main.cpp.i
-	$(MAKE) -f CMakeFiles/server_main.dir/build.make CMakeFiles/server_main.dir/server_start/server_main.cpp.i
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_start/server_main.cpp.i
 .PHONY : server_start/server_main.cpp.i
 
 server_start/server_main.s: server_start/server_main.cpp.s
@@ -815,8 +456,7 @@ server_start/server_main.s: server_start/server_main.cpp.s
 
 # target to generate assembly for a file
 server_start/server_main.cpp.s:
-	$(MAKE) -f CMakeFiles/TuEjecutable.dir/build.make CMakeFiles/TuEjecutable.dir/server_start/server_main.cpp.s
-	$(MAKE) -f CMakeFiles/server_main.dir/build.make CMakeFiles/server_main.dir/server_start/server_main.cpp.s
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_start/server_main.cpp.s
 .PHONY : server_start/server_main.cpp.s
 
 server_start/server_reciever.o: server_start/server_reciever.cpp.o
@@ -825,7 +465,7 @@ server_start/server_reciever.o: server_start/server_reciever.cpp.o
 
 # target to build an object file
 server_start/server_reciever.cpp.o:
-	$(MAKE) -f CMakeFiles/server_reciever.dir/build.make CMakeFiles/server_reciever.dir/server_start/server_reciever.cpp.o
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_start/server_reciever.cpp.o
 .PHONY : server_start/server_reciever.cpp.o
 
 server_start/server_reciever.i: server_start/server_reciever.cpp.i
@@ -834,7 +474,7 @@ server_start/server_reciever.i: server_start/server_reciever.cpp.i
 
 # target to preprocess a source file
 server_start/server_reciever.cpp.i:
-	$(MAKE) -f CMakeFiles/server_reciever.dir/build.make CMakeFiles/server_reciever.dir/server_start/server_reciever.cpp.i
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_start/server_reciever.cpp.i
 .PHONY : server_start/server_reciever.cpp.i
 
 server_start/server_reciever.s: server_start/server_reciever.cpp.s
@@ -843,7 +483,7 @@ server_start/server_reciever.s: server_start/server_reciever.cpp.s
 
 # target to generate assembly for a file
 server_start/server_reciever.cpp.s:
-	$(MAKE) -f CMakeFiles/server_reciever.dir/build.make CMakeFiles/server_reciever.dir/server_start/server_reciever.cpp.s
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_start/server_reciever.cpp.s
 .PHONY : server_start/server_reciever.cpp.s
 
 # Help Target
@@ -854,58 +494,25 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... TuEjecutable"
-	@echo "... server_main"
-	@echo "... server_aceptador"
-	@echo "... personaje"
-	@echo "... arma"
-	@echo "... partida"
-	@echo "... idf"
-	@echo "... creador_armas"
-	@echo "... scout"
-	@echo "... server_reciever"
-	@echo "... creador_eventos"
-	@echo "... evento"
-	@echo "... juego"
-	@echo "... evento_disparar"
-	@echo "... evento_mover"
-	@echo "... server_cliente_handler"
-	@echo "... evento_no_disparar"
-	@echo "... p90"
-	@echo "... evento_no_mover"
-	@echo "... server_modelo/armas/arma.o"
-	@echo "... server_modelo/armas/arma.i"
-	@echo "... server_modelo/armas/arma.s"
-	@echo "... server_modelo/armas/creador_armas.o"
-	@echo "... server_modelo/armas/creador_armas.i"
-	@echo "... server_modelo/armas/creador_armas.s"
-	@echo "... server_modelo/armas/idf.o"
-	@echo "... server_modelo/armas/idf.i"
-	@echo "... server_modelo/armas/idf.s"
-	@echo "... server_modelo/armas/p90.o"
-	@echo "... server_modelo/armas/p90.i"
-	@echo "... server_modelo/armas/p90.s"
-	@echo "... server_modelo/armas/scout.o"
-	@echo "... server_modelo/armas/scout.i"
-	@echo "... server_modelo/armas/scout.s"
-	@echo "... server_modelo/eventos/creador_eventos.o"
-	@echo "... server_modelo/eventos/creador_eventos.i"
-	@echo "... server_modelo/eventos/creador_eventos.s"
-	@echo "... server_modelo/eventos/evento.o"
-	@echo "... server_modelo/eventos/evento.i"
-	@echo "... server_modelo/eventos/evento.s"
-	@echo "... server_modelo/eventos/evento_disparar.o"
-	@echo "... server_modelo/eventos/evento_disparar.i"
-	@echo "... server_modelo/eventos/evento_disparar.s"
-	@echo "... server_modelo/eventos/evento_mover.o"
-	@echo "... server_modelo/eventos/evento_mover.i"
-	@echo "... server_modelo/eventos/evento_mover.s"
-	@echo "... server_modelo/eventos/evento_no_disparar.o"
-	@echo "... server_modelo/eventos/evento_no_disparar.i"
-	@echo "... server_modelo/eventos/evento_no_disparar.s"
-	@echo "... server_modelo/eventos/evento_no_mover.o"
-	@echo "... server_modelo/eventos/evento_no_mover.i"
-	@echo "... server_modelo/eventos/evento_no_mover.s"
+	@echo "... server"
+	@echo "... CommonLibs"
+	@echo "... SercerModelo"
+	@echo "... SercerStart"
+	@echo "... common_libs/common-wrap_socket.o"
+	@echo "... common_libs/common-wrap_socket.i"
+	@echo "... common_libs/common-wrap_socket.s"
+	@echo "... common_libs/common_liberror.o"
+	@echo "... common_libs/common_liberror.i"
+	@echo "... common_libs/common_liberror.s"
+	@echo "... common_libs/common_resolver.o"
+	@echo "... common_libs/common_resolver.i"
+	@echo "... common_libs/common_resolver.s"
+	@echo "... common_libs/common_resolvererror.o"
+	@echo "... common_libs/common_resolvererror.i"
+	@echo "... common_libs/common_resolvererror.s"
+	@echo "... common_libs/common_socket.o"
+	@echo "... common_libs/common_socket.i"
+	@echo "... common_libs/common_socket.s"
 	@echo "... server_modelo/juego.o"
 	@echo "... server_modelo/juego.i"
 	@echo "... server_modelo/juego.s"

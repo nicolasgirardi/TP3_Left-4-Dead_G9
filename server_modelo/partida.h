@@ -13,6 +13,7 @@
 #include "./personaje.h"
 #include "./juego.h"
 #include "./personaje.h"
+#include "./generador_id.h"
 
 #define MAX_CLIENTES 3
 
@@ -59,12 +60,11 @@ class ListaPartidas {
     private:
         std::mutex m;
         std::map<int, Partida*> partidas;
-        int id = 0;
     
     public:
         ListaPartidas();
         Partida* addPartida(std::string nombre);
-        void addClient(Queue<Evento*>* queue, int id);
+        int addClient(Queue<Evento*>* queue, int id);
         void removeClient(int id);
         bool addPersonaje(int id, int arma);
         ~ListaPartidas();
