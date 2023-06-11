@@ -52,7 +52,7 @@ int main(int, char*[]){
 		queue.push(message);
 		message = Message(2,action2,pos2,125,soldier2,modificacion);
 		queue.push(message);
-		SDL_Delay(40);
+		SDL_Delay(33);
 	}
 	queue.close();
 	my_renderer->join();

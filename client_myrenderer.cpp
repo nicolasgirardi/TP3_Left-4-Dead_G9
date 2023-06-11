@@ -225,7 +225,7 @@ void MyRenderer::run(){
     }
 	std::unique_ptr<Scenario> my_scenario(scenario);
 	dev.Pause(false);
-	int frame_rate = 1000/60;
+	int frame_rate = 1000/30;
 	//soldier1.get()->change_action(6,frame);
 	//soldier2.get()->change_action(9,frame);
 	//int speed1 = 8;

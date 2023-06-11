@@ -18,16 +18,16 @@
 #include "client_myenum.h"
 
 Soldier2::Soldier2(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID):
-    attack(frame,texture[0],1,4),
-    dead(frame,texture[1],1,4),
-    grenade(frame,texture[2],1,16),
-    hurt(frame,texture[3],1,3),
-    idle(frame,texture[4],1,9),
-    Recharge(frame,texture[5],1,7),
-    run(frame,texture[6],1,8),
-    shot_1(frame,texture[7],1,4),
-    shot_2(frame,texture[81],1,4),
-    walk(frame,texture[9],1,8)
+    attack(frame,texture[0],2,4),
+    dead(frame,texture[1],2,4),
+    grenade(frame,texture[2],2,16),
+    hurt(frame,texture[3],2,3),
+    idle(frame,texture[4],2,9),
+    Recharge(frame,texture[5],2,7),
+    run(frame,texture[6],2,8),
+    shot_1(frame,texture[7],2,4),
+    shot_2(frame,texture[8],1,4),
+    walk(frame,texture[9],2,8)
 {
     this->pos_x = pos_x;
     this->pos_y = (height * ((7*200) + pos_y )) / (200*8);
