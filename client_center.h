@@ -11,9 +11,9 @@ class Center{
     public:
     Center();
     
-    void add_participation(int value);
+    void add_participation(int& value);
 
-    void add_participation(int value,int weight);
+    void add_participation(int& value,int& weight);
 
     int center_value();
 

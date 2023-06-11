@@ -36,11 +36,11 @@ Soldier1::Soldier1(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::
     current_animation = &idle;
     my_id = ID;
 }
-void Soldier1::copy(int center,SDL2pp::Renderer* renderer,uint32_t frame){
+void Soldier1::copy(int& center,SDL2pp::Renderer* renderer,uint32_t& frame){
     int new_x = pos_x - center + (width/2); //el 64 hay que definirlo de alguna forma mejor
     current_animation->copy(frame,new_x,pos_y,renderer,invert);
 }
-void Soldier1::change_action(myenum::Type_of_action code,uint32_t frame){
+void Soldier1::change_action(myenum::Type_of_action& code,uint32_t& frame){
     Animation* next_animation = current_animation;
     switch(code){
         case(myenum::attack):

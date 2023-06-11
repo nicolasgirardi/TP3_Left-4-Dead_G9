@@ -12,7 +12,7 @@
 #include "client_character.h"
 #include "client_center.h"
 
-void Character::set_position(int x,int y){
+void Character::set_position(int& x,int& y){
     if (x < pos_x)
         invert = SDL_FLIP_HORIZONTAL;
     if (x > pos_x)
@@ -25,6 +25,6 @@ void Character::set_position(int x,int y){
 int Character::get_vertical(){
     return pos_y;
 }
-bool Character::is(int another_id){
+bool Character::is(int& another_id){
     return my_id == another_id;
 }

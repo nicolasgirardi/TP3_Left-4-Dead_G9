@@ -36,11 +36,11 @@ class Jumper: public Character {
     public:
     Jumper(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID);
 
-    void copy(int center,SDL2pp::Renderer* renderer,uint32_t frame);
+    void copy(int& center,SDL2pp::Renderer* renderer,uint32_t& frame);
 
-    void change_action(myenum::Type_of_action code,uint32_t frame);
+    void change_action(myenum::Type_of_action& code,uint32_t& frame);
 
-    void change_position(int x,int y);
+    void change_position(int& x,int& y);
 
     void add_to_center(Center& center);
     

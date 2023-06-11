@@ -24,7 +24,7 @@ NoLoopAnimation::NoLoopAnimation (uint32_t frame,SDL2pp::Texture* texture1,
     frame_rate2 = time_between_frames2;
 
 }
-void NoLoopAnimation::copy(uint32_t frame,int x,int y,SDL2pp::Renderer* renderer,int invert){
+void NoLoopAnimation::copy(uint32_t& frame,int& x,int& y,SDL2pp::Renderer* renderer,SDL_RendererFlip& invert){
     uint32_t local_frame = (frame - global_frame) / frame_rate;
     if  (local_frame < total_frames) {
     //global_frame = frame;

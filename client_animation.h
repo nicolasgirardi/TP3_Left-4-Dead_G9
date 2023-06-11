@@ -23,9 +23,9 @@ class Animation{
     public:
     Animation(){};
 
-    virtual void copy(uint32_t frame,int x,int y,SDL2pp::Renderer* renderer,int invert) = 0; 
+    virtual void copy(uint32_t& frame,int& x,int& y,SDL2pp::Renderer* renderer,SDL_RendererFlip& invert) = 0; 
 
-    void reset_local_frame(uint32_t frame);
+    void reset_local_frame(uint32_t& frame);
 
 };
 #endif

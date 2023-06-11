@@ -36,11 +36,11 @@ Jumper::Jumper(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Text
     current_animation = &idle;
     my_id = ID;
 }
-void Jumper::copy(int center,SDL2pp::Renderer* renderer,uint32_t frame){
+void Jumper::copy(int& center,SDL2pp::Renderer* renderer,uint32_t& frame){
     int new_x = pos_x - center + (width/2) - 64; //el 64 hay que definirlo de alguna forma mejor
     current_animation->copy(frame,new_x,pos_y,renderer,invert);
 }
-void Jumper::change_action(myenum::Type_of_action code,uint32_t frame){
+void Jumper::change_action(myenum::Type_of_action& code,uint32_t& frame){
     Animation* next_animation = current_animation;
     switch(code){
         case(myenum::attack_1):
@@ -81,5 +81,5 @@ void Jumper::change_action(myenum::Type_of_action code,uint32_t frame){
         
 }
 void Jumper::add_to_center(Center& center){
-    center.add_participation(0,0);
+    //center.add_participation(0,0);
 }

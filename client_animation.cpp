@@ -11,6 +11,6 @@
 #include <SDL2pp/SDL2pp.hh>
 #include "client_animation.h"
 
-void Animation::reset_local_frame(uint32_t frame){
+void Animation::reset_local_frame(uint32_t& frame){
     global_frame = frame;
 }

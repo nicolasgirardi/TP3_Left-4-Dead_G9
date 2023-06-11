@@ -18,7 +18,7 @@ SingleAnimation::SingleAnimation(uint32_t frame,SDL2pp::Texture* texture,uint32_
     total_frames = number_of_frames;
     frame_rate = time_between_frames;
 }
-void SingleAnimation::copy(uint32_t frame,int x,int y,SDL2pp::Renderer* renderer,int invert){
+void SingleAnimation::copy(uint32_t& frame,int& x,int& y,SDL2pp::Renderer* renderer,SDL_RendererFlip& invert){
     uint32_t local_frame = (frame - global_frame) / frame_rate;
     if  (local_frame < total_frames) {
         int val = 128 *(local_frame % total_frames);

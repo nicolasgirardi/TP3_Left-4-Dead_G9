@@ -22,7 +22,7 @@ class Message{
 
     myenum::Type_of_action get_action();
 
-    void update(Character* character,uint32_t frame);
+    void update(Character* character,uint32_t& frame);
 
     Type_of_AMB get_amb();
 

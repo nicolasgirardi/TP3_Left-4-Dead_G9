@@ -16,7 +16,7 @@ int Message::get_id(){
 myenum::Type_of_action Message::get_action(){
     return action;
 }
-void Message::update(Character* character,uint32_t frame){
+void Message::update(Character* character,uint32_t& frame){
     character->change_action(action,frame);
     character->set_position(pos_x,pos_y);
 }

@@ -239,19 +239,32 @@ void MyRenderer::run(){
 		try{
 			while(my_queue->try_pop(message))
 				update_characters(message);
+			auto t1 = std::chrono::high_resolution_clock::now();
 			Center center;
 			calculate_center(center);
-			renderer.Clear();
 			int num_center = center.center_value();
+			auto t2 = std::chrono::high_resolution_clock::now();
+			renderer.Clear();
+			auto t3 = std::chrono::high_resolution_clock::now();
 			my_scenario.get()->copy(num_center,&renderer);
+			auto t4 = std::chrono::high_resolution_clock::now();
 			copy_characters(num_center,&renderer);
+			auto t5 = std::chrono::high_resolution_clock::now();
 			renderer.Present();
+			auto t6 = std::chrono::high_resolution_clock::now();
 			frame = frame + 1;
 			// Show rendered frame
+			int time1 = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(t1-start).count());
+			int time2 = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count());
+			int time3 = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(t3-t2).count());
+			int time4 = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(t4-t3).count());
+			int time5 = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(t5-t4).count());
+			int time6 = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(t6-t5).count());
 			auto end = std::chrono::high_resolution_clock::now();
 			int time = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count());
 			frame = frame + 1 + (time/frame_rate);
 			int delay = frame_rate - (time % frame_rate);
+			report << time1 << "," << time2 << "," << time3 << "," << time4 << "," << time5 << "," << time6 << std::endl;
 			SDL_Delay(delay);
 			// Sound plays after this call
 		}
@@ -404,10 +417,14 @@ void MyRenderer::add_character(Message& message){
 void MyRenderer::modify_character(Message& message){
 	bool found = false;
 	int i = 0;
+	int id = message.get_id();
 	while(!found && i< all_characters.size()){
-		if(all_characters[i]->is(message.get_id())){
-			all_characters[i]->set_position(message.get_x(),message.get_y());
-			all_characters[i]->change_action(message.get_action(),frame);
+		if(all_characters[i]->is(id)){
+			int x = message.get_x();
+			int y = message.get_y();
+			myenum::Type_of_action action = message.get_action();
+			all_characters[i]->set_position(x,y);
+			all_characters[i]->change_action(action,frame);
 			found = true;
 		}
 		else
@@ -417,8 +434,9 @@ void MyRenderer::modify_character(Message& message){
 void MyRenderer::remove_character(Message& message){
 	bool found = false;
 	int i = 0;
+	int id = message.get_id();
 	while(!found && i< all_characters.size()){
-		if(all_characters[i]->is(message.get_id())){
+		if(all_characters[i]->is(id)){
 			delete all_characters[i];
 			all_characters.erase(all_characters.begin()+i);
 			found = true;

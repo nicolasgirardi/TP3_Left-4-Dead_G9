@@ -29,12 +29,12 @@ class Character{
     public:
     Character(){};
 
-    virtual void copy(int center,SDL2pp::Renderer* renderer,uint32_t frame) = 0;
-    void set_position(int horizontal,int vertical);
+    virtual void copy(int& center,SDL2pp::Renderer* renderer,uint32_t& frame) = 0;
+    void set_position(int& horizontal,int& vertical);
     int get_vertical();
     virtual void add_to_center(Center& center) = 0;
-    virtual void change_action(myenum::Type_of_action code,uint32_t frame) = 0;
-    bool is(int another_id);
+    virtual void change_action(myenum::Type_of_action& code,uint32_t& frame) = 0;
+    bool is(int& another_id);
     virtual ~Character(){};
 
     Character(const Character&) = delete;
