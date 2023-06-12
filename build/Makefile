@@ -297,6 +297,33 @@ common_libs/common_socket.cpp.s:
 	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/common_libs/common_socket.cpp.s
 .PHONY : common_libs/common_socket.cpp.s
 
+server_modelo/estado_jugador.o: server_modelo/estado_jugador.cpp.o
+
+.PHONY : server_modelo/estado_jugador.o
+
+# target to build an object file
+server_modelo/estado_jugador.cpp.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.o
+.PHONY : server_modelo/estado_jugador.cpp.o
+
+server_modelo/estado_jugador.i: server_modelo/estado_jugador.cpp.i
+
+.PHONY : server_modelo/estado_jugador.i
+
+# target to preprocess a source file
+server_modelo/estado_jugador.cpp.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.i
+.PHONY : server_modelo/estado_jugador.cpp.i
+
+server_modelo/estado_jugador.s: server_modelo/estado_jugador.cpp.s
+
+.PHONY : server_modelo/estado_jugador.s
+
+# target to generate assembly for a file
+server_modelo/estado_jugador.cpp.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.s
+.PHONY : server_modelo/estado_jugador.cpp.s
+
 server_modelo/juego.o: server_modelo/juego.cpp.o
 
 .PHONY : server_modelo/juego.o
@@ -459,6 +486,33 @@ server_start/server_main.cpp.s:
 	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_start/server_main.cpp.s
 .PHONY : server_start/server_main.cpp.s
 
+server_start/server_protocolo.o: server_start/server_protocolo.cpp.o
+
+.PHONY : server_start/server_protocolo.o
+
+# target to build an object file
+server_start/server_protocolo.cpp.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_start/server_protocolo.cpp.o
+.PHONY : server_start/server_protocolo.cpp.o
+
+server_start/server_protocolo.i: server_start/server_protocolo.cpp.i
+
+.PHONY : server_start/server_protocolo.i
+
+# target to preprocess a source file
+server_start/server_protocolo.cpp.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_start/server_protocolo.cpp.i
+.PHONY : server_start/server_protocolo.cpp.i
+
+server_start/server_protocolo.s: server_start/server_protocolo.cpp.s
+
+.PHONY : server_start/server_protocolo.s
+
+# target to generate assembly for a file
+server_start/server_protocolo.cpp.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/server_start/server_protocolo.cpp.s
+.PHONY : server_start/server_protocolo.cpp.s
+
 server_start/server_reciever.o: server_start/server_reciever.cpp.o
 
 .PHONY : server_start/server_reciever.o
@@ -513,6 +567,9 @@ help:
 	@echo "... common_libs/common_socket.o"
 	@echo "... common_libs/common_socket.i"
 	@echo "... common_libs/common_socket.s"
+	@echo "... server_modelo/estado_jugador.o"
+	@echo "... server_modelo/estado_jugador.i"
+	@echo "... server_modelo/estado_jugador.s"
 	@echo "... server_modelo/juego.o"
 	@echo "... server_modelo/juego.i"
 	@echo "... server_modelo/juego.s"
@@ -531,6 +588,9 @@ help:
 	@echo "... server_start/server_main.o"
 	@echo "... server_start/server_main.i"
 	@echo "... server_start/server_main.s"
+	@echo "... server_start/server_protocolo.o"
+	@echo "... server_start/server_protocolo.i"
+	@echo "... server_start/server_protocolo.s"
 	@echo "... server_start/server_reciever.o"
 	@echo "... server_start/server_reciever.i"
 	@echo "... server_start/server_reciever.s"

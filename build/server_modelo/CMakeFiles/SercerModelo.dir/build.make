@@ -122,9 +122,22 @@ server_modelo/CMakeFiles/SercerModelo.dir/armas/scout.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SercerModelo.dir/armas/scout.cpp.s"
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/armas/scout.cpp -o CMakeFiles/SercerModelo.dir/armas/scout.cpp.s
 
+server_modelo/CMakeFiles/SercerModelo.dir/estado_jugador.cpp.o: server_modelo/CMakeFiles/SercerModelo.dir/flags.make
+server_modelo/CMakeFiles/SercerModelo.dir/estado_jugador.cpp.o: ../server_modelo/estado_jugador.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/estado_jugador.cpp.o"
+	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SercerModelo.dir/estado_jugador.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/estado_jugador.cpp
+
+server_modelo/CMakeFiles/SercerModelo.dir/estado_jugador.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SercerModelo.dir/estado_jugador.cpp.i"
+	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/estado_jugador.cpp > CMakeFiles/SercerModelo.dir/estado_jugador.cpp.i
+
+server_modelo/CMakeFiles/SercerModelo.dir/estado_jugador.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SercerModelo.dir/estado_jugador.cpp.s"
+	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/estado_jugador.cpp -o CMakeFiles/SercerModelo.dir/estado_jugador.cpp.s
+
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/creador_eventos.cpp.o: server_modelo/CMakeFiles/SercerModelo.dir/flags.make
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/creador_eventos.cpp.o: ../server_modelo/eventos/creador_eventos.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/eventos/creador_eventos.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/eventos/creador_eventos.cpp.o"
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SercerModelo.dir/eventos/creador_eventos.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/eventos/creador_eventos.cpp
 
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/creador_eventos.cpp.i: cmake_force
@@ -137,7 +150,7 @@ server_modelo/CMakeFiles/SercerModelo.dir/eventos/creador_eventos.cpp.s: cmake_f
 
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento.cpp.o: server_modelo/CMakeFiles/SercerModelo.dir/flags.make
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento.cpp.o: ../server_modelo/eventos/evento.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento.cpp.o"
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SercerModelo.dir/eventos/evento.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/eventos/evento.cpp
 
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento.cpp.i: cmake_force
@@ -150,7 +163,7 @@ server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento.cpp.s: cmake_force
 
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_disparar.cpp.o: server_modelo/CMakeFiles/SercerModelo.dir/flags.make
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_disparar.cpp.o: ../server_modelo/eventos/evento_disparar.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_disparar.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_disparar.cpp.o"
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SercerModelo.dir/eventos/evento_disparar.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/eventos/evento_disparar.cpp
 
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_disparar.cpp.i: cmake_force
@@ -163,7 +176,7 @@ server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_disparar.cpp.s: cmake_f
 
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_mover.cpp.o: server_modelo/CMakeFiles/SercerModelo.dir/flags.make
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_mover.cpp.o: ../server_modelo/eventos/evento_mover.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_mover.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_mover.cpp.o"
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SercerModelo.dir/eventos/evento_mover.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/eventos/evento_mover.cpp
 
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_mover.cpp.i: cmake_force
@@ -176,7 +189,7 @@ server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_mover.cpp.s: cmake_forc
 
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_no_disparar.cpp.o: server_modelo/CMakeFiles/SercerModelo.dir/flags.make
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_no_disparar.cpp.o: ../server_modelo/eventos/evento_no_disparar.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_no_disparar.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_no_disparar.cpp.o"
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SercerModelo.dir/eventos/evento_no_disparar.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/eventos/evento_no_disparar.cpp
 
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_no_disparar.cpp.i: cmake_force
@@ -189,7 +202,7 @@ server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_no_disparar.cpp.s: cmak
 
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_no_mover.cpp.o: server_modelo/CMakeFiles/SercerModelo.dir/flags.make
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_no_mover.cpp.o: ../server_modelo/eventos/evento_no_mover.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_no_mover.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_no_mover.cpp.o"
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SercerModelo.dir/eventos/evento_no_mover.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/eventos/evento_no_mover.cpp
 
 server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_no_mover.cpp.i: cmake_force
@@ -202,7 +215,7 @@ server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_no_mover.cpp.s: cmake_f
 
 server_modelo/CMakeFiles/SercerModelo.dir/juego.cpp.o: server_modelo/CMakeFiles/SercerModelo.dir/flags.make
 server_modelo/CMakeFiles/SercerModelo.dir/juego.cpp.o: ../server_modelo/juego.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/juego.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/juego.cpp.o"
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SercerModelo.dir/juego.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/juego.cpp
 
 server_modelo/CMakeFiles/SercerModelo.dir/juego.cpp.i: cmake_force
@@ -215,7 +228,7 @@ server_modelo/CMakeFiles/SercerModelo.dir/juego.cpp.s: cmake_force
 
 server_modelo/CMakeFiles/SercerModelo.dir/partida.cpp.o: server_modelo/CMakeFiles/SercerModelo.dir/flags.make
 server_modelo/CMakeFiles/SercerModelo.dir/partida.cpp.o: ../server_modelo/partida.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/partida.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/partida.cpp.o"
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SercerModelo.dir/partida.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/partida.cpp
 
 server_modelo/CMakeFiles/SercerModelo.dir/partida.cpp.i: cmake_force
@@ -228,7 +241,7 @@ server_modelo/CMakeFiles/SercerModelo.dir/partida.cpp.s: cmake_force
 
 server_modelo/CMakeFiles/SercerModelo.dir/personaje.cpp.o: server_modelo/CMakeFiles/SercerModelo.dir/flags.make
 server_modelo/CMakeFiles/SercerModelo.dir/personaje.cpp.o: ../server_modelo/personaje.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/personaje.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object server_modelo/CMakeFiles/SercerModelo.dir/personaje.cpp.o"
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SercerModelo.dir/personaje.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/personaje.cpp
 
 server_modelo/CMakeFiles/SercerModelo.dir/personaje.cpp.i: cmake_force
@@ -246,6 +259,7 @@ SercerModelo_OBJECTS = \
 "CMakeFiles/SercerModelo.dir/armas/idf.cpp.o" \
 "CMakeFiles/SercerModelo.dir/armas/p90.cpp.o" \
 "CMakeFiles/SercerModelo.dir/armas/scout.cpp.o" \
+"CMakeFiles/SercerModelo.dir/estado_jugador.cpp.o" \
 "CMakeFiles/SercerModelo.dir/eventos/creador_eventos.cpp.o" \
 "CMakeFiles/SercerModelo.dir/eventos/evento.cpp.o" \
 "CMakeFiles/SercerModelo.dir/eventos/evento_disparar.cpp.o" \
@@ -264,6 +278,7 @@ server_modelo/libSercerModelo.a: server_modelo/CMakeFiles/SercerModelo.dir/armas
 server_modelo/libSercerModelo.a: server_modelo/CMakeFiles/SercerModelo.dir/armas/idf.cpp.o
 server_modelo/libSercerModelo.a: server_modelo/CMakeFiles/SercerModelo.dir/armas/p90.cpp.o
 server_modelo/libSercerModelo.a: server_modelo/CMakeFiles/SercerModelo.dir/armas/scout.cpp.o
+server_modelo/libSercerModelo.a: server_modelo/CMakeFiles/SercerModelo.dir/estado_jugador.cpp.o
 server_modelo/libSercerModelo.a: server_modelo/CMakeFiles/SercerModelo.dir/eventos/creador_eventos.cpp.o
 server_modelo/libSercerModelo.a: server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento.cpp.o
 server_modelo/libSercerModelo.a: server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_disparar.cpp.o
@@ -275,7 +290,7 @@ server_modelo/libSercerModelo.a: server_modelo/CMakeFiles/SercerModelo.dir/parti
 server_modelo/libSercerModelo.a: server_modelo/CMakeFiles/SercerModelo.dir/personaje.cpp.o
 server_modelo/libSercerModelo.a: server_modelo/CMakeFiles/SercerModelo.dir/build.make
 server_modelo/libSercerModelo.a: server_modelo/CMakeFiles/SercerModelo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX static library libSercerModelo.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX static library libSercerModelo.a"
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo && $(CMAKE_COMMAND) -P CMakeFiles/SercerModelo.dir/cmake_clean_target.cmake
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SercerModelo.dir/link.txt --verbose=$(VERBOSE)
 

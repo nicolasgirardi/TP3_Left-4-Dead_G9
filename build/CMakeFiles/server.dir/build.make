@@ -122,9 +122,22 @@ CMakeFiles/server.dir/common_libs/common_socket.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/common_libs/common_socket.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/common_libs/common_socket.cpp -o CMakeFiles/server.dir/common_libs/common_socket.cpp.s
 
+CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.o: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.o: ../server_modelo/estado_jugador.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/estado_jugador.cpp
+
+CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/estado_jugador.cpp > CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.i
+
+CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/estado_jugador.cpp -o CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.s
+
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../server_modelo/juego.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/server.dir/server_modelo/juego.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/server.dir/server_modelo/juego.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/server_modelo/juego.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/juego.cpp
 
 CMakeFiles/server.dir/server_modelo/juego.cpp.i: cmake_force
@@ -137,7 +150,7 @@ CMakeFiles/server.dir/server_modelo/juego.cpp.s: cmake_force
 
 CMakeFiles/server.dir/server_modelo/partida.cpp.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/server_modelo/partida.cpp.o: ../server_modelo/partida.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/server.dir/server_modelo/partida.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/server.dir/server_modelo/partida.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/server_modelo/partida.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/partida.cpp
 
 CMakeFiles/server.dir/server_modelo/partida.cpp.i: cmake_force
@@ -150,7 +163,7 @@ CMakeFiles/server.dir/server_modelo/partida.cpp.s: cmake_force
 
 CMakeFiles/server.dir/server_modelo/personaje.cpp.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/server_modelo/personaje.cpp.o: ../server_modelo/personaje.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/server.dir/server_modelo/personaje.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/server.dir/server_modelo/personaje.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/server_modelo/personaje.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/personaje.cpp
 
 CMakeFiles/server.dir/server_modelo/personaje.cpp.i: cmake_force
@@ -163,7 +176,7 @@ CMakeFiles/server.dir/server_modelo/personaje.cpp.s: cmake_force
 
 CMakeFiles/server.dir/server_start/server_aceptador.cpp.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/server_start/server_aceptador.cpp.o: ../server_start/server_aceptador.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/server.dir/server_start/server_aceptador.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/server.dir/server_start/server_aceptador.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/server_start/server_aceptador.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_aceptador.cpp
 
 CMakeFiles/server.dir/server_start/server_aceptador.cpp.i: cmake_force
@@ -176,7 +189,7 @@ CMakeFiles/server.dir/server_start/server_aceptador.cpp.s: cmake_force
 
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_start/server_cliente_handler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_cliente_handler.cpp
 
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.i: cmake_force
@@ -189,7 +202,7 @@ CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.s: cmake_force
 
 CMakeFiles/server.dir/server_start/server_main.cpp.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/server_start/server_main.cpp.o: ../server_start/server_main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/server.dir/server_start/server_main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/server.dir/server_start/server_main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/server_start/server_main.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_main.cpp
 
 CMakeFiles/server.dir/server_start/server_main.cpp.i: cmake_force
@@ -200,9 +213,22 @@ CMakeFiles/server.dir/server_start/server_main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/server_start/server_main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_main.cpp -o CMakeFiles/server.dir/server_start/server_main.cpp.s
 
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_start/server_protocolo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/server.dir/server_start/server_protocolo.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/server_start/server_protocolo.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_protocolo.cpp
+
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/server.dir/server_start/server_protocolo.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_protocolo.cpp > CMakeFiles/server.dir/server_start/server_protocolo.cpp.i
+
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/server.dir/server_start/server_protocolo.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_protocolo.cpp -o CMakeFiles/server.dir/server_start/server_protocolo.cpp.s
+
 CMakeFiles/server.dir/server_start/server_reciever.cpp.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_start/server_reciever.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/server.dir/server_start/server_reciever.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/server.dir/server_start/server_reciever.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/server.dir/server_start/server_reciever.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_reciever.cpp
 
 CMakeFiles/server.dir/server_start/server_reciever.cpp.i: cmake_force
@@ -220,12 +246,14 @@ server_OBJECTS = \
 "CMakeFiles/server.dir/common_libs/common_resolver.cpp.o" \
 "CMakeFiles/server.dir/common_libs/common_resolvererror.cpp.o" \
 "CMakeFiles/server.dir/common_libs/common_socket.cpp.o" \
+"CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.o" \
 "CMakeFiles/server.dir/server_modelo/juego.cpp.o" \
 "CMakeFiles/server.dir/server_modelo/partida.cpp.o" \
 "CMakeFiles/server.dir/server_modelo/personaje.cpp.o" \
 "CMakeFiles/server.dir/server_start/server_aceptador.cpp.o" \
 "CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o" \
 "CMakeFiles/server.dir/server_start/server_main.cpp.o" \
+"CMakeFiles/server.dir/server_start/server_protocolo.cpp.o" \
 "CMakeFiles/server.dir/server_start/server_reciever.cpp.o"
 
 # External object files for target server
@@ -236,16 +264,18 @@ server: CMakeFiles/server.dir/common_libs/common_liberror.cpp.o
 server: CMakeFiles/server.dir/common_libs/common_resolver.cpp.o
 server: CMakeFiles/server.dir/common_libs/common_resolvererror.cpp.o
 server: CMakeFiles/server.dir/common_libs/common_socket.cpp.o
+server: CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.o
 server: CMakeFiles/server.dir/server_modelo/juego.cpp.o
 server: CMakeFiles/server.dir/server_modelo/partida.cpp.o
 server: CMakeFiles/server.dir/server_modelo/personaje.cpp.o
 server: CMakeFiles/server.dir/server_start/server_aceptador.cpp.o
 server: CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o
 server: CMakeFiles/server.dir/server_start/server_main.cpp.o
+server: CMakeFiles/server.dir/server_start/server_protocolo.cpp.o
 server: CMakeFiles/server.dir/server_start/server_reciever.cpp.o
 server: CMakeFiles/server.dir/build.make
 server: CMakeFiles/server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

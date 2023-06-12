@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_aceptador.cpp" "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_start/CMakeFiles/SercerStart.dir/server_aceptador.cpp.o"
   "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_cliente_handler.cpp" "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_start/CMakeFiles/SercerStart.dir/server_cliente_handler.cpp.o"
   "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_main.cpp" "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_start/CMakeFiles/SercerStart.dir/server_main.cpp.o"
+  "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_protocolo.cpp" "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_start/CMakeFiles/SercerStart.dir/server_protocolo.cpp.o"
   "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_reciever.cpp" "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_start/CMakeFiles/SercerStart.dir/server_reciever.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

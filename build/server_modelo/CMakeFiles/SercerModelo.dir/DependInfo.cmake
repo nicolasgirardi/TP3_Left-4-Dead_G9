@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/armas/idf.cpp" "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo/CMakeFiles/SercerModelo.dir/armas/idf.cpp.o"
   "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/armas/p90.cpp" "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo/CMakeFiles/SercerModelo.dir/armas/p90.cpp.o"
   "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/armas/scout.cpp" "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo/CMakeFiles/SercerModelo.dir/armas/scout.cpp.o"
+  "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/estado_jugador.cpp" "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo/CMakeFiles/SercerModelo.dir/estado_jugador.cpp.o"
   "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/eventos/creador_eventos.cpp" "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo/CMakeFiles/SercerModelo.dir/eventos/creador_eventos.cpp.o"
   "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/eventos/evento.cpp" "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento.cpp.o"
   "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_modelo/eventos/evento_disparar.cpp" "/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_modelo/CMakeFiles/SercerModelo.dir/eventos/evento_disparar.cpp.o"

@@ -19,6 +19,15 @@ CMakeFiles/server.dir/common_libs/common_socket.cpp.o: ../common_libs/common_res
 CMakeFiles/server.dir/common_libs/common_socket.cpp.o: ../common_libs/common_socket.cpp
 CMakeFiles/server.dir/common_libs/common_socket.cpp.o: ../common_libs/common_socket.h
 
+CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.o: ../server_modelo/armas/arma.h
+CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.o: ../server_modelo/armas/creador_armas.h
+CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.o: ../server_modelo/armas/idf.h
+CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.o: ../server_modelo/armas/p90.h
+CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.o: ../server_modelo/armas/scout.h
+CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.o: ../server_modelo/estado_jugador.cpp
+CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.o: ../server_modelo/estado_jugador.h
+CMakeFiles/server.dir/server_modelo/estado_jugador.cpp.o: ../server_modelo/personaje.h
+
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../common_libs/common_queue.h
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../common_libs/common_socket.h
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../common_libs/common_thread.h
@@ -27,12 +36,14 @@ CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../server_modelo/armas/creador_
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../server_modelo/armas/idf.h
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../server_modelo/armas/p90.h
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../server_modelo/armas/scout.h
+CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../server_modelo/estado_jugador.h
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../server_modelo/eventos/creador_eventos.h
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../server_modelo/eventos/evento.h
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../server_modelo/eventos/evento_disparar.h
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../server_modelo/eventos/evento_mover.h
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../server_modelo/eventos/evento_no_disparar.h
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../server_modelo/eventos/evento_no_mover.h
+CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../server_modelo/generador_id.h
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../server_modelo/juego.cpp
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../server_modelo/juego.h
 CMakeFiles/server.dir/server_modelo/juego.cpp.o: ../server_modelo/partida.h
@@ -46,12 +57,14 @@ CMakeFiles/server.dir/server_modelo/partida.cpp.o: ../server_modelo/armas/creado
 CMakeFiles/server.dir/server_modelo/partida.cpp.o: ../server_modelo/armas/idf.h
 CMakeFiles/server.dir/server_modelo/partida.cpp.o: ../server_modelo/armas/p90.h
 CMakeFiles/server.dir/server_modelo/partida.cpp.o: ../server_modelo/armas/scout.h
+CMakeFiles/server.dir/server_modelo/partida.cpp.o: ../server_modelo/estado_jugador.h
 CMakeFiles/server.dir/server_modelo/partida.cpp.o: ../server_modelo/eventos/creador_eventos.h
 CMakeFiles/server.dir/server_modelo/partida.cpp.o: ../server_modelo/eventos/evento.h
 CMakeFiles/server.dir/server_modelo/partida.cpp.o: ../server_modelo/eventos/evento_disparar.h
 CMakeFiles/server.dir/server_modelo/partida.cpp.o: ../server_modelo/eventos/evento_mover.h
 CMakeFiles/server.dir/server_modelo/partida.cpp.o: ../server_modelo/eventos/evento_no_disparar.h
 CMakeFiles/server.dir/server_modelo/partida.cpp.o: ../server_modelo/eventos/evento_no_mover.h
+CMakeFiles/server.dir/server_modelo/partida.cpp.o: ../server_modelo/generador_id.h
 CMakeFiles/server.dir/server_modelo/partida.cpp.o: ../server_modelo/juego.h
 CMakeFiles/server.dir/server_modelo/partida.cpp.o: ../server_modelo/partida.cpp
 CMakeFiles/server.dir/server_modelo/partida.cpp.o: ../server_modelo/partida.h
@@ -73,6 +86,7 @@ CMakeFiles/server.dir/server_start/server_aceptador.cpp.o: ../server_modelo/arma
 CMakeFiles/server.dir/server_start/server_aceptador.cpp.o: ../server_modelo/armas/idf.h
 CMakeFiles/server.dir/server_start/server_aceptador.cpp.o: ../server_modelo/armas/p90.h
 CMakeFiles/server.dir/server_start/server_aceptador.cpp.o: ../server_modelo/armas/scout.h
+CMakeFiles/server.dir/server_start/server_aceptador.cpp.o: ../server_modelo/estado_jugador.h
 CMakeFiles/server.dir/server_start/server_aceptador.cpp.o: ../server_modelo/eventos/creador_eventos.h
 CMakeFiles/server.dir/server_start/server_aceptador.cpp.o: ../server_modelo/eventos/evento.h
 CMakeFiles/server.dir/server_start/server_aceptador.cpp.o: ../server_modelo/eventos/evento_disparar.h
@@ -86,6 +100,7 @@ CMakeFiles/server.dir/server_start/server_aceptador.cpp.o: ../server_modelo/pers
 CMakeFiles/server.dir/server_start/server_aceptador.cpp.o: ../server_start/server_aceptador.cpp
 CMakeFiles/server.dir/server_start/server_aceptador.cpp.o: ../server_start/server_aceptador.h
 CMakeFiles/server.dir/server_start/server_aceptador.cpp.o: ../server_start/server_cliente_handler.h
+CMakeFiles/server.dir/server_start/server_aceptador.cpp.o: ../server_start/server_protocolo.h
 CMakeFiles/server.dir/server_start/server_aceptador.cpp.o: ../server_start/server_reciever.h
 
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../common_libs/common_queue.h
@@ -96,17 +111,20 @@ CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_model
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_modelo/armas/idf.h
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_modelo/armas/p90.h
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_modelo/armas/scout.h
+CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_modelo/estado_jugador.h
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_modelo/eventos/creador_eventos.h
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_modelo/eventos/evento.h
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_modelo/eventos/evento_disparar.h
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_modelo/eventos/evento_mover.h
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_modelo/eventos/evento_no_disparar.h
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_modelo/eventos/evento_no_mover.h
+CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_modelo/generador_id.h
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_modelo/juego.h
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_modelo/partida.h
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_modelo/personaje.h
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_start/server_cliente_handler.cpp
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_start/server_cliente_handler.h
+CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_start/server_protocolo.h
 CMakeFiles/server.dir/server_start/server_cliente_handler.cpp.o: ../server_start/server_reciever.h
 
 CMakeFiles/server.dir/server_start/server_main.cpp.o: ../common_libs/common_queue.h
@@ -117,6 +135,7 @@ CMakeFiles/server.dir/server_start/server_main.cpp.o: ../server_modelo/armas/cre
 CMakeFiles/server.dir/server_start/server_main.cpp.o: ../server_modelo/armas/idf.h
 CMakeFiles/server.dir/server_start/server_main.cpp.o: ../server_modelo/armas/p90.h
 CMakeFiles/server.dir/server_start/server_main.cpp.o: ../server_modelo/armas/scout.h
+CMakeFiles/server.dir/server_start/server_main.cpp.o: ../server_modelo/estado_jugador.h
 CMakeFiles/server.dir/server_start/server_main.cpp.o: ../server_modelo/eventos/creador_eventos.h
 CMakeFiles/server.dir/server_start/server_main.cpp.o: ../server_modelo/eventos/evento.h
 CMakeFiles/server.dir/server_start/server_main.cpp.o: ../server_modelo/eventos/evento_disparar.h
@@ -130,7 +149,30 @@ CMakeFiles/server.dir/server_start/server_main.cpp.o: ../server_modelo/personaje
 CMakeFiles/server.dir/server_start/server_main.cpp.o: ../server_start/server_aceptador.h
 CMakeFiles/server.dir/server_start/server_main.cpp.o: ../server_start/server_cliente_handler.h
 CMakeFiles/server.dir/server_start/server_main.cpp.o: ../server_start/server_main.cpp
+CMakeFiles/server.dir/server_start/server_main.cpp.o: ../server_start/server_protocolo.h
 CMakeFiles/server.dir/server_start/server_main.cpp.o: ../server_start/server_reciever.h
+
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../common_libs/common_queue.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../common_libs/common_socket.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../common_libs/common_thread.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_modelo/armas/arma.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_modelo/armas/creador_armas.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_modelo/armas/idf.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_modelo/armas/p90.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_modelo/armas/scout.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_modelo/estado_jugador.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_modelo/eventos/creador_eventos.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_modelo/eventos/evento.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_modelo/eventos/evento_disparar.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_modelo/eventos/evento_mover.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_modelo/eventos/evento_no_disparar.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_modelo/eventos/evento_no_mover.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_modelo/generador_id.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_modelo/juego.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_modelo/partida.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_modelo/personaje.h
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_start/server_protocolo.cpp
+CMakeFiles/server.dir/server_start/server_protocolo.cpp.o: ../server_start/server_protocolo.h
 
 CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../common_libs/common_queue.h
 CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../common_libs/common_socket.h
@@ -140,13 +182,18 @@ CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_modelo/armas
 CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_modelo/armas/idf.h
 CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_modelo/armas/p90.h
 CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_modelo/armas/scout.h
+CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_modelo/estado_jugador.h
 CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_modelo/eventos/creador_eventos.h
 CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_modelo/eventos/evento.h
 CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_modelo/eventos/evento_disparar.h
 CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_modelo/eventos/evento_mover.h
 CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_modelo/eventos/evento_no_disparar.h
 CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_modelo/eventos/evento_no_mover.h
+CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_modelo/generador_id.h
+CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_modelo/juego.h
+CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_modelo/partida.h
 CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_modelo/personaje.h
+CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_start/server_protocolo.h
 CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_start/server_reciever.cpp
 CMakeFiles/server.dir/server_start/server_reciever.cpp.o: ../server_start/server_reciever.h
 

@@ -206,6 +206,33 @@ server_main.cpp.s:
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build && $(MAKE) -f server_start/CMakeFiles/SercerStart.dir/build.make server_start/CMakeFiles/SercerStart.dir/server_main.cpp.s
 .PHONY : server_main.cpp.s
 
+server_protocolo.o: server_protocolo.cpp.o
+
+.PHONY : server_protocolo.o
+
+# target to build an object file
+server_protocolo.cpp.o:
+	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build && $(MAKE) -f server_start/CMakeFiles/SercerStart.dir/build.make server_start/CMakeFiles/SercerStart.dir/server_protocolo.cpp.o
+.PHONY : server_protocolo.cpp.o
+
+server_protocolo.i: server_protocolo.cpp.i
+
+.PHONY : server_protocolo.i
+
+# target to preprocess a source file
+server_protocolo.cpp.i:
+	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build && $(MAKE) -f server_start/CMakeFiles/SercerStart.dir/build.make server_start/CMakeFiles/SercerStart.dir/server_protocolo.cpp.i
+.PHONY : server_protocolo.cpp.i
+
+server_protocolo.s: server_protocolo.cpp.s
+
+.PHONY : server_protocolo.s
+
+# target to generate assembly for a file
+server_protocolo.cpp.s:
+	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build && $(MAKE) -f server_start/CMakeFiles/SercerStart.dir/build.make server_start/CMakeFiles/SercerStart.dir/server_protocolo.cpp.s
+.PHONY : server_protocolo.cpp.s
+
 server_reciever.o: server_reciever.cpp.o
 
 .PHONY : server_reciever.o
@@ -251,6 +278,9 @@ help:
 	@echo "... server_main.o"
 	@echo "... server_main.i"
 	@echo "... server_main.s"
+	@echo "... server_protocolo.o"
+	@echo "... server_protocolo.i"
+	@echo "... server_protocolo.s"
 	@echo "... server_reciever.o"
 	@echo "... server_reciever.i"
 	@echo "... server_reciever.s"

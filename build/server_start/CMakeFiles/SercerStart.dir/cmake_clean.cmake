@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/SercerStart.dir/server_aceptador.cpp.o"
   "CMakeFiles/SercerStart.dir/server_cliente_handler.cpp.o"
   "CMakeFiles/SercerStart.dir/server_main.cpp.o"
+  "CMakeFiles/SercerStart.dir/server_protocolo.cpp.o"
   "CMakeFiles/SercerStart.dir/server_reciever.cpp.o"
   "libSercerStart.a"
   "libSercerStart.pdb"

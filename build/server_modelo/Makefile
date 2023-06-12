@@ -260,6 +260,33 @@ armas/scout.cpp.s:
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build && $(MAKE) -f server_modelo/CMakeFiles/SercerModelo.dir/build.make server_modelo/CMakeFiles/SercerModelo.dir/armas/scout.cpp.s
 .PHONY : armas/scout.cpp.s
 
+estado_jugador.o: estado_jugador.cpp.o
+
+.PHONY : estado_jugador.o
+
+# target to build an object file
+estado_jugador.cpp.o:
+	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build && $(MAKE) -f server_modelo/CMakeFiles/SercerModelo.dir/build.make server_modelo/CMakeFiles/SercerModelo.dir/estado_jugador.cpp.o
+.PHONY : estado_jugador.cpp.o
+
+estado_jugador.i: estado_jugador.cpp.i
+
+.PHONY : estado_jugador.i
+
+# target to preprocess a source file
+estado_jugador.cpp.i:
+	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build && $(MAKE) -f server_modelo/CMakeFiles/SercerModelo.dir/build.make server_modelo/CMakeFiles/SercerModelo.dir/estado_jugador.cpp.i
+.PHONY : estado_jugador.cpp.i
+
+estado_jugador.s: estado_jugador.cpp.s
+
+.PHONY : estado_jugador.s
+
+# target to generate assembly for a file
+estado_jugador.cpp.s:
+	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build && $(MAKE) -f server_modelo/CMakeFiles/SercerModelo.dir/build.make server_modelo/CMakeFiles/SercerModelo.dir/estado_jugador.cpp.s
+.PHONY : estado_jugador.cpp.s
+
 eventos/creador_eventos.o: eventos/creador_eventos.cpp.o
 
 .PHONY : eventos/creador_eventos.o
@@ -527,6 +554,9 @@ help:
 	@echo "... armas/scout.o"
 	@echo "... armas/scout.i"
 	@echo "... armas/scout.s"
+	@echo "... estado_jugador.o"
+	@echo "... estado_jugador.i"
+	@echo "... estado_jugador.s"
 	@echo "... eventos/creador_eventos.o"
 	@echo "... eventos/creador_eventos.i"
 	@echo "... eventos/creador_eventos.s"

@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/SercerModelo.dir/armas/idf.cpp.o"
   "CMakeFiles/SercerModelo.dir/armas/p90.cpp.o"
   "CMakeFiles/SercerModelo.dir/armas/scout.cpp.o"
+  "CMakeFiles/SercerModelo.dir/estado_jugador.cpp.o"
   "CMakeFiles/SercerModelo.dir/eventos/creador_eventos.cpp.o"
   "CMakeFiles/SercerModelo.dir/eventos/evento.cpp.o"
   "CMakeFiles/SercerModelo.dir/eventos/evento_disparar.cpp.o"

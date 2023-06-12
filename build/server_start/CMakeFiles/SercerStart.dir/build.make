@@ -96,9 +96,22 @@ server_start/CMakeFiles/SercerStart.dir/server_main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SercerStart.dir/server_main.cpp.s"
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_start && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_main.cpp -o CMakeFiles/SercerStart.dir/server_main.cpp.s
 
+server_start/CMakeFiles/SercerStart.dir/server_protocolo.cpp.o: server_start/CMakeFiles/SercerStart.dir/flags.make
+server_start/CMakeFiles/SercerStart.dir/server_protocolo.cpp.o: ../server_start/server_protocolo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object server_start/CMakeFiles/SercerStart.dir/server_protocolo.cpp.o"
+	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_start && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SercerStart.dir/server_protocolo.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_protocolo.cpp
+
+server_start/CMakeFiles/SercerStart.dir/server_protocolo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SercerStart.dir/server_protocolo.cpp.i"
+	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_start && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_protocolo.cpp > CMakeFiles/SercerStart.dir/server_protocolo.cpp.i
+
+server_start/CMakeFiles/SercerStart.dir/server_protocolo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SercerStart.dir/server_protocolo.cpp.s"
+	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_start && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_protocolo.cpp -o CMakeFiles/SercerStart.dir/server_protocolo.cpp.s
+
 server_start/CMakeFiles/SercerStart.dir/server_reciever.cpp.o: server_start/CMakeFiles/SercerStart.dir/flags.make
 server_start/CMakeFiles/SercerStart.dir/server_reciever.cpp.o: ../server_start/server_reciever.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object server_start/CMakeFiles/SercerStart.dir/server_reciever.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object server_start/CMakeFiles/SercerStart.dir/server_reciever.cpp.o"
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_start && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SercerStart.dir/server_reciever.cpp.o -c /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/server_start/server_reciever.cpp
 
 server_start/CMakeFiles/SercerStart.dir/server_reciever.cpp.i: cmake_force
@@ -114,6 +127,7 @@ SercerStart_OBJECTS = \
 "CMakeFiles/SercerStart.dir/server_aceptador.cpp.o" \
 "CMakeFiles/SercerStart.dir/server_cliente_handler.cpp.o" \
 "CMakeFiles/SercerStart.dir/server_main.cpp.o" \
+"CMakeFiles/SercerStart.dir/server_protocolo.cpp.o" \
 "CMakeFiles/SercerStart.dir/server_reciever.cpp.o"
 
 # External object files for target SercerStart
@@ -122,10 +136,11 @@ SercerStart_EXTERNAL_OBJECTS =
 server_start/libSercerStart.a: server_start/CMakeFiles/SercerStart.dir/server_aceptador.cpp.o
 server_start/libSercerStart.a: server_start/CMakeFiles/SercerStart.dir/server_cliente_handler.cpp.o
 server_start/libSercerStart.a: server_start/CMakeFiles/SercerStart.dir/server_main.cpp.o
+server_start/libSercerStart.a: server_start/CMakeFiles/SercerStart.dir/server_protocolo.cpp.o
 server_start/libSercerStart.a: server_start/CMakeFiles/SercerStart.dir/server_reciever.cpp.o
 server_start/libSercerStart.a: server_start/CMakeFiles/SercerStart.dir/build.make
 server_start/libSercerStart.a: server_start/CMakeFiles/SercerStart.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libSercerStart.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libSercerStart.a"
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_start && $(CMAKE_COMMAND) -P CMakeFiles/SercerStart.dir/cmake_clean_target.cmake
 	cd /home/fede/Desktop/Facultad/Taller/TP3_Left-4-Dead_G9/build/server_start && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SercerStart.dir/link.txt --verbose=$(VERBOSE)
 
