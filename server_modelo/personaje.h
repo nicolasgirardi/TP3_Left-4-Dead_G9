@@ -31,6 +31,7 @@ class Personaje {
   int iniciar_disparo();
   int finalizar_disparo();
   int recibir_danio(int danio);
+  int get_danio();
   int get_vida();
   int get_vidas();
   int get_tipo_arma();

@@ -13,6 +13,7 @@
 #include "./eventos/creador_eventos.h"
 #include "./partida.h"
 #include "./personaje.h"
+#include "./zombies/zombie.h"
 #include "./estado_jugador.h"
 
 #define MAX_EVENTOS 100
@@ -25,9 +26,11 @@ class Juego : public Thread {
     bool running;
     bool keep_running;
     int modo;
+    int cantidad_zombies = 10;
     Queue<Evento*> ejecutar;
     std::map<int, Queue<std::string>*>* clientes;
     std::list<Personaje*> personajes;
+    std::list<Zombie*> zombies;
 
  public:
     Juego();

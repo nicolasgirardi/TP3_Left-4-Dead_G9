@@ -44,6 +44,10 @@ int Arma::get_municiones() {
   return this->municion_actual;
 }
 
+int Arma::get_danio() {
+  return this->danio;
+}
+
 int Arma::get_velocidad_disparo() {
   return this->velocidad_disparo;
 }

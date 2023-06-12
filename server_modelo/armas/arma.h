@@ -11,6 +11,7 @@
 
 class Arma {
  protected:
+  int danio = 10;
   int tipo_arma;
   int municion_maxima;
   int municion_actual;
@@ -22,6 +23,7 @@ class Arma {
   Arma();
   virtual ~Arma();
   int get_tipo_arma();
+  int get_danio();
   int get_municiones();
   int get_velocidad_disparo();
   int iniciar_disparo();

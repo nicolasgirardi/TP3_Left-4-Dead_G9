@@ -96,6 +96,10 @@ int Personaje::get_disparando() {
   return this->disparando;
 }
 
+int Personaje::get_danio() {
+  return this->arma->get_danio();
+}
+
 int Personaje::get_estado_movimiento() {
   if (this->velocidad_x == 0 && this->velocidad_y == 0) {
     return 0;
