@@ -70,3 +70,40 @@ std::string Personaje::get_estado() {
   estado += this->arma->get_estado();
   return estado;
 }
+
+int Personaje::recibir_danio(int danio) {
+  this->vida -= danio;
+  if (this->vida <= 0) {
+    this->vidas -= 1;
+    this->vida = 100;
+  }
+  return 0;
+}
+
+int Personaje::get_vida() {
+  return this->vida;
+}
+
+int Personaje::get_vidas() {
+  return this->vidas;
+}
+
+int Personaje::get_tipo_arma() {
+  return this->arma->get_tipo_arma();
+}
+
+int Personaje::get_disparando() {
+  return this->disparando;
+}
+
+int Personaje::get_estado_movimiento() {
+  if (this->velocidad_x == 0 && this->velocidad_y == 0) {
+    return 0;
+  } else if (this->velocidad_x == 0 && this->velocidad_y != 0) {
+    return 1;
+  } else if (this->velocidad_x != 0 && this->velocidad_y == 0) {
+    return 2;
+  } else {
+    return 3;
+  }
+}

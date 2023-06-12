@@ -33,6 +33,9 @@ class Personaje {
   int recibir_danio(int danio);
   int get_vida();
   int get_vidas();
+  int get_tipo_arma();
+  int get_disparando();
+  int get_estado_movimiento();
   std::string get_estado();
 };
 

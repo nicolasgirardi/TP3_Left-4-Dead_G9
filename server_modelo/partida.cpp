@@ -2,7 +2,7 @@
 
 Partida::Partida(int id, std::string nombre) : id(id), nombre(nombre) {}
 
-void Partida::addClient(Queue<Evento*>* queue, int id) {
+void Partida::addClient(Queue<std::string>* queue, int id) {
     clientes[id] = queue;
 }
 
@@ -25,7 +25,7 @@ bool Partida::addPersonaje(int id, int arma = 0) {
 void Partida::start() {
     // Poner un mutex aca
     Juego juego;
-    juego.launch(&clientes, personajes);
+    juego.launch(&clientes, personajes, modo);
 }
 
 Partida::~Partida() {
@@ -48,7 +48,7 @@ int Partida::getId() {
 
 ListaPartidas::ListaPartidas() {}
 
-Partida* ListaPartidas::addPartida(std::string nombre) {
+Partida* ListaPartidas::addPartida(std::string nombre, int modo = 0) {
     std::lock_guard<std::mutex> lock(m);
     int id = partidas.size();
     Partida* partida = new Partida(id, nombre);
@@ -57,12 +57,12 @@ Partida* ListaPartidas::addPartida(std::string nombre) {
     return partida;
 }
 
-int ListaPartidas::addClient(Queue<Evento*>* queue, int id) {
+int ListaPartidas::addClient(Queue<std::string>* queue, int id) {
     std::lock_guard<std::mutex> lock(m);
     for (auto& partida : partidas) {
         if (!partida.second->isFull()) {
             partida.second->addClient(queue, id);
-            return;
+            return partida.second->getId();
         }
     }
     partidas[id]->addClient(queue, id);

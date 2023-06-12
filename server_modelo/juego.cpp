@@ -5,9 +5,10 @@ Juego::Juego() : ejecutar(MAX_EVENTOS) {
     this->keep_running = true;
 }
 
-void Juego::launch(std::map<int, Queue<Evento*>*>* clientes, std::list<Personaje*> personajes) {
+void Juego::launch(std::map<int, Queue<std::string>*>* clientes, std::list<Personaje*> personajes, int modo) {
     this->clientes = clientes;
     this->personajes = personajes;
+    this->modo = modo;
     start();
 }
 
@@ -23,9 +24,16 @@ void Juego::run() {
             evento->ejecutar(personaje);
         }
 
+        // Me fijo el modo de juego
+
         // Mando el estado del juego a todos los clientes
+        std::string estado = "";
+        for (auto it = personajes.begin(); it != personajes.end(); ++it) {
+            EstadoJugador estado_jugador(*it);
+            estado += estado_jugador.serializar();
+        }
         for (auto& cliente : *clientes) {
-            // cliente.second->push(partida->getEstado());
+            cliente.second->push(estado);
         }
 
         // Simulo el paso del tiempo

@@ -34,3 +34,13 @@ std::pair<int32_t, int32_t> Protocolo::recibir_coordenadas() {
     socket->recvall(&y, 4, 0);
     return std::make_pair(x, y);
 }
+
+void Protocolo::enviar_codigo_partida(uint32_t codigo) {
+    socket->sendall(&codigo, 4, 0);
+}
+
+void Protocolo::enviar_estado_juego(std::string estado) {
+    uint32_t largo = estado.length();
+    socket->sendall(&largo, 4, 0);
+    socket->sendall(estado.c_str(), largo, 0);
+}

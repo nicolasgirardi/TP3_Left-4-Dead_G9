@@ -10,33 +10,37 @@ Reciever::Reciever(Socket* socket, Queue<Evento*>* queue, int id) :
 void Reciever::run() {
     while (keep_running) {
         uint8_t codigo = protocolo->recibir_codigo();
-            switch (codigo) {
-                case 0x03: {
-                    // move
-                    std::pair<int32_t, int32_t> coordenadas = protocolo->move();
-                    Evento* evento = CreadorEventos::crearEvento(0, id, coordenadas.first, coordenadas.second);
-                    queue->push(evento);
-                    break;
-                }
-                case 0x04: {
-                    // stop move
-                    Evento* evento = CreadorEventos::crearEvento(1, id, 0, 0);
-                    queue->push(evento);
-                    break;
-                }
-                case 0x05: {
-                    // shoot
-                    Evento* evento = CreadorEventos::crearEvento(2, id);
-                    queue->push(evento);
-                    break;
-                }
-                case 0x06: {
-                    // stop shoot
-                    Evento* evento = CreadorEventos::crearEvento(3, id);
-                    queue->push(evento);
-                    break;
-                }
+        switch (codigo) {
+            case 0x03: {
+                // move
+                std::pair<int32_t, int32_t> coordenadas = protocolo->move();
+                Evento* evento = CreadorEventos::crearEvento(0, id, coordenadas.first, coordenadas.second);
+                queue->push(evento);
+                break;
             }
+            case 0x04: {
+                // stop move
+                Evento* evento = CreadorEventos::crearEvento(1, id, 0, 0);
+                queue->push(evento);
+                break;
+            }
+            case 0x05: {
+                // shoot
+                Evento* evento = CreadorEventos::crearEvento(2, id);
+                queue->push(evento);
+                break;
+            }
+            case 0x06: {
+                // stop shoot
+                Evento* evento = CreadorEventos::crearEvento(3, id);
+                queue->push(evento);
+                break;
+            }
+            default: {
+                // no deberia llegar aca
+                break;
+            }
+        }
     }
     running = false;
 }

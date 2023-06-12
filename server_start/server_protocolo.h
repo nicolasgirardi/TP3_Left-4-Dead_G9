@@ -9,6 +9,7 @@
 #include "./../common_libs/common_queue.h"
 #include "./../server_modelo/eventos/evento.h"
 #include "./../server_modelo/partida.h"
+#include "./../server_modelo/estado_jugador.h"
 
 //0x01 create + 8bits con largo del nombre + string
 //0x02 join + 32bits del codigo
@@ -34,6 +35,7 @@ class Protocolo{
     uint32_t recibir_codigo_partida();
     std::pair<int32_t, int32_t> recibir_coordenadas();
     void enviar_codigo_partida(uint32_t codigo);
+    void enviar_estado_juego(std::string estado);
 
     std::string create();
     uint32_t join();

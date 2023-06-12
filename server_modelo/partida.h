@@ -38,15 +38,16 @@ class Match  {
 
 class Partida {
  private:
-    std::map<int, Queue<Evento*>*> clientes;
+    std::map<int, Queue<std::string>*> clientes;
     int id;
+    int modo;
     std::string nombre;
     int maxClientes = MAX_CLIENTES;
     std::list<Personaje*> personajes;
 
  public:
     Partida(int id, std::string nombre);
-    void addClient(Queue<Evento*>* queue, int id);
+    void addClient(Queue<std::string>* queue, int id);
     bool addPersonaje(int id, int arma);
     void removeClient(int id);
     bool isFull();
@@ -63,8 +64,8 @@ class ListaPartidas {
     
     public:
         ListaPartidas();
-        Partida* addPartida(std::string nombre);
-        int addClient(Queue<Evento*>* queue, int id);
+        Partida* addPartida(std::string nombre, int modo);
+        int addClient(Queue<std::string>* queue, int id);
         void removeClient(int id);
         bool addPersonaje(int id, int arma);
         ~ListaPartidas();

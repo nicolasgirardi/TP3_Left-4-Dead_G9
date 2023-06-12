@@ -20,20 +20,20 @@ void ClienteHandler::run() {
     while(keep_running) {
         if (reciever.is_running()) {
             std::string mensaje = mensajes.pop();
-            // protocolo.send(mensaje);
+            protocolo.enviar_estado_juego(mensaje);
         } else {
             uint8_t codigo = protocolo.recibir_codigo();
             switch (codigo) {
                 case 0x01: {
                     std::string nombre = protocolo.create();
                     Partida* partida = partidas->addPartida(nombre);
-                    id = partidas->addClient(&eventos, partida->getId());
+                    id = partidas->addClient(&mensajes, partida->getId());
                     create_reciever(&eventos);
                     break;
                 }
                 case 0x02: {
                     uint32_t codigo = protocolo.join();
-                    id = partidas->addClient(&eventos, codigo);
+                    id = partidas->addClient(&mensajes, codigo);
                     create_reciever(&eventos);
                     break;
                 }

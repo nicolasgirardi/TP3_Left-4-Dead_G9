@@ -6,5 +6,5 @@ file(GLOB SERVER_START_SRC
     "*.cpp"
 )
 
-# Crea una biblioteca a partir de los archivos de código fuente
+# Crea una biblioteca a partir de los archivos de código fuente=
 add_library(SercerStart ${SERVER_START_SRC})

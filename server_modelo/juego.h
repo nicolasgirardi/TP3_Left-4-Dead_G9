@@ -1,6 +1,9 @@
 #ifndef JUEGO_H_
 #define JUEGO_H_
 
+// 0 = modo normal
+// 1 = modo supervivencia
+
 #include <list>
 
 #include "./../common_libs/common_thread.h"
@@ -10,6 +13,7 @@
 #include "./eventos/creador_eventos.h"
 #include "./partida.h"
 #include "./personaje.h"
+#include "./estado_jugador.h"
 
 #define MAX_EVENTOS 100
 #define MAX_X 1000
@@ -20,8 +24,9 @@ class Juego : public Thread {
  private:
     bool running;
     bool keep_running;
+    int modo;
     Queue<Evento*> ejecutar;
-    std::map<int, Queue<Evento*>*>* clientes;
+    std::map<int, Queue<std::string>*>* clientes;
     std::list<Personaje*> personajes;
 
  public:
@@ -29,7 +34,8 @@ class Juego : public Thread {
     ~Juego();
     Queue<Evento*>* getQueue();
     Personaje* getPersonaje(int id);
-    void launch(std::map<int, Queue<Evento*>*>* clientes, std::list<Personaje*> personajes);
+    std::list<Personaje*> getPersonajes();
+    void launch(std::map<int, Queue<std::string>*>* clientes, std::list<Personaje*> personajes, int modo);
     void run() override;
     void stop();
 };
