@@ -14,6 +14,8 @@
 #include "./partida.h"
 #include "./personaje.h"
 #include "./zombies/zombie.h"
+#include "./zombies/witch.h"
+#include "./zombies/generador_zombies.h"
 #include "./estado_jugador.h"
 
 #define MAX_EVENTOS 100
@@ -31,6 +33,7 @@ class Juego : public Thread {
     std::map<int, Queue<std::string>*>* clientes;
     std::list<Personaje*> personajes;
     std::list<Zombie*> zombies;
+    std::list<Witch*> witches;
 
  public:
     Juego();

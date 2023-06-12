@@ -73,3 +73,9 @@ bool Zombie::choco_con_personaje(Personaje* personaje) {
                          pow(posicion_personaje[1] - y, 2));
     return distancia <= 1;
 }
+
+std::string Zombie::serializar() {
+    std::string serializacion = "Z " + std::to_string(x) + " " +
+                                std::to_string(y) + " "  ;
+    return serializacion;
+}

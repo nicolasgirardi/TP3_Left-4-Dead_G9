@@ -60,14 +60,10 @@ int Personaje::finalizar_disparo() {
 
 std::string Personaje::get_estado() {
   std::string estado = "";
-  estado += std::to_string(this->id) + " ";
+  estado += std::to_string(this->get_tipo_arma()) + " ";
   estado += std::to_string(this->x) + " ";
   estado += std::to_string(this->y) + " ";
-  estado += std::to_string(this->velocidad_x) + " ";
-  estado += std::to_string(this->velocidad_y) + " ";
   estado += std::to_string(this->disparando) + " ";
-  estado += std::to_string(this->vidas) + " ";
-  estado += this->arma->get_estado();
   return estado;
 }
 

@@ -2,6 +2,7 @@
 #define ZOMBIE_H_
 
 #include <list>
+#include <string>
 #include "./../personaje.h"
 
 class Zombie {
@@ -24,6 +25,7 @@ class Zombie {
         bool esta_vivo();
         void recibir_danio(int danio);
         bool choco_con_personaje(Personaje* personaje);
+        std::string serializar();
 };
 
 #endif  // ZOMBIE_H_

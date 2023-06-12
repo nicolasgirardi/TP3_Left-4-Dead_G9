@@ -16,6 +16,9 @@ void Juego::launch(std::map<int, Queue<std::string>*>* clientes, std::list<Perso
 
 void Juego::run() {
     int contador_zombies = 0;
+    // Creo el generador de zombies
+    GeneradorZombies generador_zombies(cantidad_zombies, &zombies, &witches, &personajes, MAX_X, MAX_Y, modo);
+    generador_zombies.start();
     while (keep_running) {
         // Me fijo de ejecutar eventos
         // Le mando a todos los clientes el estado del juego
@@ -25,43 +28,6 @@ void Juego::run() {
             int id = evento->get_id_personaje();
             Personaje* personaje = getPersonaje(id);
             evento->ejecutar(personaje);
-        }
-
-        // Me fijo el modo de juego
-        // Si es supervivencia, genero zombies cada 5 segundos
-        if (modo == 1) {
-            // Genero un zombie cada 5 segundos
-            std::chrono::steady_clock::time_point start_time = std::chrono::steady_clock::now();
-            
-            // Espero hasta que pase 5 segundos
-            std::chrono::steady_clock::time_point end_time = start_time;
-            std::chrono::duration<double> elapsed_seconds = end_time - start_time;
-            double target_frame_time = 5.0;  // 5 segundos
-            while (elapsed_seconds.count() < target_frame_time) {
-                end_time = std::chrono::steady_clock::now();
-                elapsed_seconds = end_time - start_time;
-            }
-
-            // Genero un zombie
-            Zombie* zombie = new Zombie(MAX_X, MAX_Y);
-            zombies.push_back(zombie);
-        } else if (modo == 0 && contador_zombies < cantidad_zombies) {
-            // Genero un zombie cada 5 segundos
-            std::chrono::steady_clock::time_point start_time = std::chrono::steady_clock::now();
-            
-            // Espero hasta que pase 5 segundos
-            std::chrono::steady_clock::time_point end_time = start_time;
-            std::chrono::duration<double> elapsed_seconds = end_time - start_time;
-            double target_frame_time = 5.0;  // 5 segundos
-            while (elapsed_seconds.count() < target_frame_time) {
-                end_time = std::chrono::steady_clock::now();
-                elapsed_seconds = end_time - start_time;
-            }
-
-            // Genero un zombie
-            Zombie* zombie = new Zombie(MAX_X, MAX_Y);
-            zombies.push_back(zombie);
-            contador_zombies++;
         }
 
         // Veo si los zombies siguen vivos
@@ -106,6 +72,20 @@ void Juego::run() {
             }
         }
 
+        // Muevo a los zombies
+        for (auto it = zombies.begin(); it != zombies.end(); ++it) {
+            Zombie* zombie = *it;
+            zombie->mover(personajes);
+        }
+
+        // Veo si hay witches vivas
+        if (witches.size() > 0) {
+            if (generador_zombies.isApurado())
+                generador_zombies.apurar();
+        } else {
+            generador_zombies.desapurar();
+        }
+
         // Mando el estado del juego a todos los clientes
         std::string estado = "";
         for (auto it = personajes.begin(); it != personajes.end(); ++it) {
@@ -128,6 +108,8 @@ void Juego::run() {
             elapsed_seconds = end_time - start_time;
         }
     }
+    generador_zombies.stop();
+    generador_zombies.join();
 }
 
 void Juego::stop() {
