@@ -18,13 +18,14 @@ class Aceptador : public Thread {
     Socket socket;
     bool running;
     bool keep_running;
-    std::list<Partida*>* partidas;
+    ListaPartidas* partidas;
     std::list<ClienteHandler*> clientes;
 
  public:
     explicit Aceptador(const char* port);
     void run() override;
     void stop();
+    ~Aceptador();
 };
 
 #endif  // SERVER_ACEPTADOR_H

@@ -1,5 +1,4 @@
 #include "evento_no_mover.h"
-#include "../partida.h"
 
 EventoNoMover::EventoNoMover(int id_personaje) {
     this->id_personaje = id_personaje;

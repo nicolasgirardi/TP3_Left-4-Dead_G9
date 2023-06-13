@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_LISTA_PARTIDAS_H
-#define LEFT4DEAD_LISTA_PARTIDAS_H
+#ifndef LISTA_PARTIDAS_H
+#define LISTA_PARTIDAS_H
 
 #include <map>
 #include <unordered_map>
@@ -8,14 +8,17 @@
 class ListaPartidas {
 private:
     std::mutex m;
-    std::unordered_map<int, Partida*> partidas;
-public:
-    ListaPartidas() {}
-    void agregarPartida(Partida* partida);
-    void eliminarPartida(int id);
-    Partida* obtenerPartida(int id);
+    std::unordered_map<uint32_t, Partida*> partidas;
+    int id = 0;
 
+public:
+    ListaPartidas();
+    uint32_t crearPartida(std::string nombre);
+    void addClient(int id);
+    void removeClient(int id);
+    bool addPersonaje(int id, int arma);
+    ~ListaPartidas();
     Partida *getPartida(uint32_t codigoPartida);
 };
 
-#endif // LEFT4DEAD_LISTA_PARTIDAS_H
+#endif // LISTA_PARTIDAS_H

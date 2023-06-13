@@ -11,7 +11,7 @@ void Protocol::sendAction(const UserAction& action) {
     sendFourBytes(action.getParam2());
 }
 
-private void Protocol::sendByte(const uint8_t byte) {
+void Protocol::sendByte(const uint8_t byte) {
     this->socket.sendall(&byte, 1, &wasClosed);
 }
 
@@ -74,7 +74,7 @@ std::string Protocol::recibir_nombre_partida() {
 }
 
 uint32_t Protocol::recibir_codigo_partida() {
-
+    return 0x01010101;
 }
 
 void Protocol::enviar_codigo_partida(uint32_t codigoPartida) {

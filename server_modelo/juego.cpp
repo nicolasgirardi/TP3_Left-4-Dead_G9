@@ -1,12 +1,13 @@
 #include "juego.h"
 
-Juego::Juego() : ejecutar(MAX_EVENTOS) {
+Juego::Juego() {
+    this->ejecutar = new Queue<Evento*>(MAX_EVENTOS);
     this->running = true;
     this->keep_running = true;
     this->partida = nullptr;
 }
 
-void Juego::launch(Partida* partida, std::map<int, Queue<Evento*>*>* clientes, std::list<Personaje*> personajes) {
+void Juego::launch(Partida* partida, std::unordered_map<int, Queue<Evento*>*>* clientes, std::list<Personaje*> personajes) {
     this->partida = partida;
     this->clientes = clientes;
     this->personajes = personajes;
@@ -19,7 +20,7 @@ void Juego::run() {
         // Le mando a todos los clientes el estado del juego
         // Espero para poder mandarlo más o menos cada 1/60 segundos
         Evento* evento;
-        while (ejecutar.try_pop(evento)) {
+        while (ejecutar->try_pop(evento)) {
             int id = evento->get_id_personaje();
             Personaje* personaje = getPersonaje(id);
             evento->ejecutar(personaje);
@@ -53,7 +54,7 @@ Juego::~Juego() {
 }
 
 Queue<Evento*>* Juego::getQueue() {
-    return &ejecutar;
+    return ejecutar;
 }
 
 Personaje* Juego::getPersonaje(int id) {

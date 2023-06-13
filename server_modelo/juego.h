@@ -20,8 +20,8 @@ class Juego : public Thread {
  private:
     bool running;
     bool keep_running;
-    Queue<Evento*> ejecutar;
-    std::map<int, Queue<Evento*>*>* clientes;
+    Queue<Evento*>* ejecutar;
+    std::unordered_map<int, Queue<Evento*>*>* clientes;
     std::list<Personaje*> personajes;
     Partida* partida;
 
@@ -30,7 +30,7 @@ class Juego : public Thread {
     ~Juego();
     Queue<Evento*>* getQueue();
     Personaje* getPersonaje(int id);
-    void launch(Partida* partida, std::map<int, Queue<Evento*>*>* clientes, std::list<Personaje*> personajes);
+    void launch(Partida* partida, std::unordered_map<int, Queue<Evento*>*>* clientes, std::list<Personaje*> personajes);
     void run() override;
     void stop();
 };

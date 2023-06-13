@@ -7,6 +7,7 @@
 #ifndef SERVER_CLIENTE_HANDLER_H
 #define SERVER_CLIENTE_HANDLER_H
 
+#include <atomic>
 #include "./../common_libs/common_thread.h"
 #include "./../common_libs/common_queue.h"
 #include "./../common_libs/common_socket.h"
@@ -21,13 +22,12 @@ class ClienteHandler : public Thread {
  private:
     bool running;
     bool keep_running;
+    std::atomic<bool> recieverOn;
     int id;
-    //Socket socket;
     Protocol protocol;
     ListaPartidas* partidas;
+    //Partida tiene que tener una cola de eventos que pushea al juego.
     Partida* partida;
-    //Reciever reciever;
-    //Queue<std::string> mensajes = Queue<std::string>(10);
 
  public:
     ClienteHandler(Socket socket, ListaPartidas* partidas, int id);
@@ -37,7 +37,6 @@ class ClienteHandler : public Thread {
     void start();
     void run() override;
     void stop();
-    void create_reciever(Queue<Evento*>* queue);
     uint32_t iniciar_partida();
 
     uint32_t crearPartida(std::string nombrePartida);

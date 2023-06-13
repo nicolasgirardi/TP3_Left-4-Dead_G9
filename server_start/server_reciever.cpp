@@ -1,7 +1,8 @@
 #include "server_reciever.h"
+#include "../common_libs/protocol.h"
 
-Reciever::Reciever(Socket* socket, Queue<Evento*>* queue) :
-    socket(socket), queue(queue), running(true), keep_running(true) {}
+Reciever::Reciever(Protocol& protocol, Queue<Evento*>* queue) :
+    protocol(protocol), queue(queue), running(true), keep_running(true) {}
 
 void Reciever::run() {
     while (keep_running) {
@@ -23,7 +24,7 @@ Reciever::~Reciever() {
 }
 
 // Genero el = borrando el viejo asi no se genera una copia
-Reciever& Reciever::operator=(Reciever& other) {
+/*Reciever& Reciever::operator=(Reciever& other) {
     this->socket = other.socket;
     this->queue = other.queue;
     this->running = other.running;
@@ -31,4 +32,4 @@ Reciever& Reciever::operator=(Reciever& other) {
     other.socket = nullptr;
     other.queue = nullptr;
     return *this;
-}
+}*/

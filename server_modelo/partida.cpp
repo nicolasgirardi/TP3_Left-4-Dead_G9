@@ -1,18 +1,20 @@
 #include "partida.h"
+#include "juego.h"
 
-Partida::Partida(int id, std::string nombre) : id(id), nombre(nombre) {}
+Partida::Partida(uint32_t id) : id(id), eventos(2000) {}
 
-void Partida::addClient(Queue<Evento*>* queue, int id) {
-    clientes[id] = queue;
+void Partida::addClient(int idCliente) {
+    Queue<Evento*>* queueSender = new Queue<Evento*>(2000);
+    clientesSender[idCliente] = queueSender;
 }
 
 void Partida::removeClient(int id) {
-    clientes.erase(id);
+    clientesSender.erase(id);
 }
 
 bool Partida::isFull() {
     // Poner un mutex aca
-    return clientes.size() == maxClientes;
+    return clientesSender.size() == maxClientes;
 }
 
 bool Partida::addPersonaje(int id, int arma = 0) {
@@ -25,11 +27,11 @@ bool Partida::addPersonaje(int id, int arma = 0) {
 void Partida::start() {
     // Poner un mutex aca
     Juego juego;
-    juego.launch(this, &clientes, personajes);
+    juego.launch(this, &clientesSender, personajes);
 }
 
 Partida::~Partida() {
-    for (auto& cliente : clientes) {
+    for (auto& cliente : clientesSender) {
         delete cliente.second;
     }
 }
@@ -46,46 +48,11 @@ int Partida::getId() {
     return id;
 }
 
-ListaPartidas::ListaPartidas() {}
-
-Partida* ListaPartidas::addPartida(std::string nombre) {
-    std::lock_guard<std::mutex> lock(m);
-    Partida* partida = new Partida(id, nombre);
-    partidas[id] = partida;
-    // El mutex se libera aca
-    return partida;
+Queue<Evento *> *Partida::getEventos() {
+    return &eventos;
 }
 
-void ListaPartidas::addClient(Queue<Evento*>* queue, int id) {
-    std::lock_guard<std::mutex> lock(m);
-    for (auto& partida : partidas) {
-        if (!partida.second->isFull()) {
-            partida.second->addClient(queue, id);
-            return;
-        }
-    }
-    partidas[id]->addClient(queue, id);
+uint32_t Partida::getCodigoPartida() {
+    return id;
 }
 
-void ListaPartidas::removeClient(int id) {
-    std::lock_guard<std::mutex> lock(m);
-    for (auto& partida : partidas) {
-        partida.second->removeClient(id);
-    }
-}
-
-bool ListaPartidas::addPersonaje(int id, int arma) {
-    std::lock_guard<std::mutex> lock(m);
-    for (auto& partida : partidas) {
-        if (partida.second->addPersonaje(id, arma)) {
-            return true;
-        }
-    }
-    return false;
-}
-
-ListaPartidas::~ListaPartidas() {
-    for (auto& partida : partidas) {
-        delete partida.second;
-    }
-}
