@@ -6,3 +6,5 @@ P90::P90() {
     this->municion_actual = 50;
     this->velocidad_disparo = 1;
 }
+
+P90::~P90() {}

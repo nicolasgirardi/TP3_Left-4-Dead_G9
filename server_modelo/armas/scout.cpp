@@ -6,3 +6,5 @@ Scout::Scout() {
     this->municion_actual = 10;
     this->velocidad_disparo = 1;
 }
+
+Scout::~Scout() {}
