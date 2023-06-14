@@ -1,2 +1,0 @@
-/usr/bin/ar qc libServerEventos.a  CMakeFiles/ServerEventos.dir/creador_eventos.cpp.o CMakeFiles/ServerEventos.dir/evento.cpp.o CMakeFiles/ServerEventos.dir/evento_disparar.cpp.o CMakeFiles/ServerEventos.dir/evento_mover.cpp.o CMakeFiles/ServerEventos.dir/evento_no_disparar.cpp.o CMakeFiles/ServerEventos.dir/evento_no_mover.cpp.o
-/usr/bin/ranlib libServerEventos.a
