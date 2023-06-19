@@ -25,6 +25,8 @@ class Character{
     int my_id;
     SDL_RendererFlip invert;
     Animation* current_animation;
+    uint32_t hp;
+    uint32_t ammo;
 
     public:
     Character(){};
@@ -35,6 +37,10 @@ class Character{
     virtual void add_to_center(Center& center) = 0;
     virtual void change_action(myenum::Type_of_action& code,uint32_t& frame) = 0;
     bool is(int& another_id);
+    void set_hp(uint32_t hp);
+    void set_ammo(uint32_t ammo);
+    uint32_t get_hp();
+    uint32_t get_ammo();
     virtual ~Character(){};
 
     Character(const Character&) = delete;

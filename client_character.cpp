@@ -28,3 +28,15 @@ int Character::get_vertical(){
 bool Character::is(int& another_id){
     return my_id == another_id;
 }
+void Character::set_ammo(uint32_t ammo){
+    this->ammo = ammo;
+}
+void Character::set_hp(uint32_t hp){
+    this->hp = hp;
+}
+uint32_t Character::get_ammo(){
+    return ammo;
+}
+uint32_t Character::get_hp(){
+    return hp;
+}

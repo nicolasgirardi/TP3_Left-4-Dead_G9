@@ -2,13 +2,15 @@
 #include "client_message.h"
 #include "client_myenum.h"
 
-Message::Message(int id,myenum::Type_of_action action,int pos_x,int pos_y,Type_of_character type,Type_of_AMB ABM){
+Message::Message(int id,myenum::Type_of_action action,int pos_x,int pos_y,Type_of_character type,Type_of_AMB ABM,uint32_t ammo,uint32_t hp){
     this->id = id;
     this->action = action;
     this->pos_x = pos_x;
     this->pos_y = pos_y;
     this->type = type;
     this->ABM = ABM;
+    this->ammo = ammo;
+    this->hp = hp;
 }
 int Message::get_id(){
     return id;
@@ -19,6 +21,8 @@ myenum::Type_of_action Message::get_action(){
 void Message::update(Character* character,uint32_t& frame){
     character->change_action(action,frame);
     character->set_position(pos_x,pos_y);
+    character->set_ammo(ammo);
+    character->set_hp(hp);
 }
 Type_of_AMB Message::get_amb(){
     return ABM;
@@ -50,4 +54,10 @@ Message& Message::operator=(const Message& other){
     this->pos_y = other.pos_y;
     this->type = other.type;
     return *this;
+}
+uint32_t Message::get_ammo(){
+    return ammo;
+}
+uint32_t Message::get_hp(){
+    return hp;
 }

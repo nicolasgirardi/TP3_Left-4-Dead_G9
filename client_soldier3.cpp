@@ -18,7 +18,7 @@
 #include "client_center.h"
 #include "client_myenum.h"
 
-Soldier3::Soldier3(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID):
+Soldier3::Soldier3(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID,uint32_t ammo,uint32_t hp):
     attack(frame,texture[0],4,5,128),
     dead(frame,texture[1],5,5,128),
     grenade(frame,texture[2],3,8,128,texture[4],3,7,128),
@@ -37,6 +37,8 @@ Soldier3::Soldier3(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::
     current_animation = &idle;
     this->invert = SDL_FLIP_NONE;
     my_id = ID;
+    this->ammo = ammo;
+    this->hp = hp;
 }
 void Soldier3::copy(int& center,SDL2pp::Renderer* renderer,uint32_t& frame){
     int new_x = pos_x - center + (width/2) - 64; //el 64 hay que definirlo de alguna forma mejor

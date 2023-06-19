@@ -14,9 +14,11 @@ class Message{
     int pos_y;
     Type_of_character type;
     Type_of_AMB ABM;
+    uint32_t ammo;
+    uint32_t hp;
 
     public:
-    Message(int id,myenum::Type_of_action action,int pos_x,int pos_y,Type_of_character type,Type_of_AMB ABM);
+    Message(int id,myenum::Type_of_action action,int pos_x,int pos_y,Type_of_character type,Type_of_AMB ABM,uint32_t ammo,uint32_t hp);
 
     int get_id();
 
@@ -31,6 +33,10 @@ class Message{
     int get_x();
 
     int get_y();
+
+    uint32_t get_ammo();
+
+    uint32_t get_hp();
 
     Message(const Message&);
     Message& operator=(const Message&);

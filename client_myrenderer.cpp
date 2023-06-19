@@ -384,15 +384,15 @@ void MyRenderer::add_character(Message& message){
 			break;
 		case(soldier1):
 			textures = all_textures[1]->all_textures();
-			new_character = new Soldier1(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
+			new_character = new Soldier1(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id(),message.get_ammo(),message.get_hp());
 			break;
 		case(soldier2):
 			textures = all_textures[2]->all_textures();
-			new_character = new Soldier2(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
+			new_character = new Soldier2(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id(),message.get_ammo(),message.get_hp());
 			break;
 		case(soldier3):
 			textures = all_textures[3]->all_textures();
-			new_character = new Soldier3(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
+			new_character = new Soldier3(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id(),message.get_ammo(),message.get_hp());
 			break;
 		case(spear):
 			textures = all_textures[4]->all_textures();

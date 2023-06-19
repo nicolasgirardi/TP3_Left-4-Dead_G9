@@ -25,78 +25,78 @@ int main(int, char*[]){
 	my_renderer->start();
 	myenum::Type_of_action action1 = myenum::walk;
 	Type_of_character type = soldier3;
-	Message message(1,myenum::idle,400,75,type,alta);
+	Message message(1,myenum::idle,400,75,type,alta,50,200);
 	queue.push(message);
-	Message message2(2,myenum::idle,200,100,soldier1,alta);
+	Message message2(2,myenum::idle,200,100,soldier1,alta,50,200);
 	queue.push(message2);
 	for(int i = 0;i<2000;i++){
 		if(i == 100){
-			Message message(1,myenum::attack,400,75,type,modificacion);
+			Message message(1,myenum::attack,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		if(i == 200){
-			Message message(1,myenum::attack_1,400,75,type,modificacion);
+			Message message(1,myenum::attack_1,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		if(i == 300){
-			Message message(1,myenum::attack_2,400,75,type,modificacion);
+			Message message(1,myenum::attack_2,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		if(i == 400){
-			Message message(1,myenum::attack_3,400,75,type,modificacion);
+			Message message(1,myenum::attack_3,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		if(i == 500){
-			Message message(1,myenum::bite,400,75,type,modificacion);
+			Message message(1,myenum::bite,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		if(i == 600){
-			Message message(1,myenum::dead,400,75,type,modificacion);
+			Message message(1,myenum::dead,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		if(i == 700){
-			Message message(1,myenum::eating,400,75,type,modificacion);
+			Message message(1,myenum::eating,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		if(i == 800){
-			Message message(1,myenum::fall,400,75,type,modificacion);
+			Message message(1,myenum::fall,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		if(i == 900){
-			Message message(1,myenum::grenade,400,75,type,modificacion);
+			Message message(1,myenum::grenade,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		
 		if(i == 1200){
-			Message message(1,myenum::protect,400,75,type,modificacion);
+			Message message(1,myenum::protect,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		if(i == 1300){
-			Message message(1,myenum::recharge,400,75,type,modificacion);
+			Message message(1,myenum::recharge,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		if(i == 1400){
-			Message message(1,myenum::run,400,75,type,modificacion);
+			Message message(1,myenum::run,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		if(i == 1500){
-			Message message(1,myenum::run_attack,400,75,type,modificacion);
+			Message message(1,myenum::run_attack,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		if(i == 1600){
-			Message message(1,myenum::scream,400,75,type,modificacion);
+			Message message(1,myenum::scream,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		if(i == 1700){
-			Message message(1,myenum::shot_1,400,75,type,modificacion);
+			Message message(1,myenum::shot_1,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		if(i == 1800){
-			Message message(1,myenum::shot_2,400,75,type,modificacion);
+			Message message(1,myenum::shot_2,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		if(i == 1900){
-			Message message(1,myenum::walk,400,75,type,modificacion);
+			Message message(1,myenum::walk,400,75,type,modificacion,50,200);
 			queue.push(message);
 		}
 		SDL_Delay(20);

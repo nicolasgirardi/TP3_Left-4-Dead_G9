@@ -34,7 +34,7 @@ class Soldier2: public Character {
     LoopAnimation walk;
 
     public:
-    Soldier2(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID);
+    Soldier2(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID,uint32_t ammo,uint32_t hp);
 
     void copy(int& center,SDL2pp::Renderer* renderer,uint32_t& frame);
 
