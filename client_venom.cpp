@@ -18,20 +18,21 @@
 #include "client_myenum.h"
 
 Venom::Venom(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID):
-    attack_1(frame,texture[0],1,8),
-    attack_2(frame,texture[1],1,14),
-    dead(frame,texture[2],1,6),
-    hurt(frame,texture[3],1,3),
-    idle(frame,texture[4],1,7),
-    jump(frame,texture[5],1,9),
-    run(frame,texture[6],1,8),
-    walk(frame,texture[7],1,6)
+    attack_1(frame,texture[0],3,8,128),
+    attack_2(frame,texture[1],3,14,128),
+    dead(frame,texture[2],4,6,128),
+    hurt(frame,texture[3],3,3,128),
+    idle(frame,texture[4],3,7,128),
+    jump(frame,texture[5],2,9,128),
+    run(frame,texture[6],2,8,128),
+    walk(frame,texture[7],3,6,128)
 {
     this->pos_x = pos_x;
     this->pos_y = (height * ((7*200) + pos_y )) / (200*8);
     this->width = width;
     this->height = height;
     current_animation = &idle;
+    this->invert = SDL_FLIP_NONE;
     my_id = ID;
 }
 void Venom::copy(int& center,SDL2pp::Renderer* renderer,uint32_t& frame){

@@ -13,21 +13,22 @@
 #include "client_animation.h"
 #include "client_loopanimation.h"
 #include "client_singleanimation.h"
+#include "client_noloopanimation.h"
 #include "client_witch.h"
 #include "client_center.h"
 #include "client_myenum.h"
 
 Witch::Witch(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID):
-    attack_1(frame,texture[0],1,4),
-    attack_2(frame,texture[1],1,4),
-    attack_3(frame,texture[2],1,4),
-    dead(frame,texture[3],1,5),
-    hurt(frame,texture[4],1,3),
-    idle(frame,texture[5],1,5),
-    jump(frame,texture[6],1,6),
-    run(frame,texture[7],1,7),
-    scream(frame,texture[8],1,5),
-    walk(frame,texture[9],1,7)
+    attack_1(frame,texture[0],3,4,96),
+    attack_2(frame,texture[1],3,4,96),
+    attack_3(frame,texture[2],3,4,96),
+    dead(frame,texture[3],3,5,96),
+    hurt(frame,texture[4],3,3,96),
+    idle(frame,texture[5],3,5,96),
+    jump(frame,texture[6],2,6,96),
+    run(frame,texture[7],2,7,96),
+    scream(frame,texture[8],3,5,96,texture[5],3,5,96),
+    walk(frame,texture[9],3,7,96)
 
 {
     this->pos_x = pos_x;
@@ -35,6 +36,7 @@ Witch::Witch(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Textur
     this->width = width;
     this->height = height;
     current_animation = &idle;
+    this->invert = SDL_FLIP_NONE;
     my_id = ID;
 }
 void Witch::copy(int& center,SDL2pp::Renderer* renderer,uint32_t& frame){

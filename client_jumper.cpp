@@ -18,21 +18,22 @@
 #include "client_myenum.h"
 
 Jumper::Jumper(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID):
-    attack_1(frame,texture[0],1,4),
-    attack_2(frame,texture[1],1,4),
-    attack_3(frame,texture[2],1,4),
-    dead(frame,texture[3],1,5),
-    eating(frame,texture[4],1,11),
-    hurt(frame,texture[5],1,5),
-    idle(frame,texture[6],1,9),
-    jump(frame,texture[7],1,6),
-    run(frame,texture[81],1,8),
-    walk(frame,texture[9],1,10)
+    attack_1(frame,texture[0],4,4,96),
+    attack_2(frame,texture[1],4,4,96),
+    attack_3(frame,texture[2],4,4,96),
+    dead(frame,texture[3],4,5,96),
+    eating(frame,texture[4],3,11,96),
+    hurt(frame,texture[5],3,5,96),
+    idle(frame,texture[6],2,9,96),
+    jump(frame,texture[7],3,6,96),
+    run(frame,texture[81],2,8,96),
+    walk(frame,texture[9],3,10,96)
 {
     this->pos_x = pos_x;
     this->pos_y = (height * ((7*200) + pos_y )) / (200*8);
     this->width = width;
     this->height = height;
+    this->invert = SDL_FLIP_NONE;
     current_animation = &idle;
     my_id = ID;
 }

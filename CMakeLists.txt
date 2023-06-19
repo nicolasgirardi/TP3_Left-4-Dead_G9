@@ -17,6 +17,7 @@ file(GLOB_RECURSE SOURCES
     client_animation.cpp
     client_loopanimation.cpp
     client_singleanimation.cpp
+    client_noloopanimation.cpp
     client_center.cpp
     client_textureholder.cpp
     client_myrenderer.cpp
@@ -40,6 +41,7 @@ file(GLOB_RECURSE HEADERS
     client_animation.h
     client_loopanimation.h
     client_singleanimation.h
+    client_noloopanimation.h
     client_center.h
     client_Textureholder.h
     client_constants.h

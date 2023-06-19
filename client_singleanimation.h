@@ -16,7 +16,7 @@
 
 class SingleAnimation: public Animation{
     public:
-    SingleAnimation(uint32_t frame,SDL2pp::Texture* texture,uint32_t time_between_frames,uint32_t number_of_frames);
+    SingleAnimation(uint32_t frame,SDL2pp::Texture* texture,uint32_t time_between_frames,uint32_t number_of_frames,uint32_t size);
 
     void copy(uint32_t& frame,int& x,int& y,SDL2pp::Renderer* renderer,SDL_RendererFlip& invert);
 

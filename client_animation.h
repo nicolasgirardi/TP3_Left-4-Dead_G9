@@ -19,6 +19,7 @@ class Animation{
     uint32_t global_frame;
     uint32_t total_frames;
     uint32_t frame_rate;
+    uint32_t size;
 
     public:
     Animation(){};

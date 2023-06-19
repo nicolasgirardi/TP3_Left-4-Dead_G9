@@ -18,22 +18,23 @@
 #include "client_myenum.h"
 
 Spear::Spear(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID):
-    attack_1(frame,texture[0],1,4),
-    attack_2(frame,texture[1],1,4),
-    dead(frame,texture[2],1,5),
-    fall(frame,texture[3],1,6),
-    hurt(frame,texture[4],1,3),
-    idle(frame,texture[5],1,7),
-    protect(frame,texture[6],1,2),
-    run(frame,texture[7],1,6),
-    run_attack(frame,texture[81],1,5),
-    walk(frame,texture[9],1,7)
+    attack_1(frame,texture[0],4,4,128),
+    attack_2(frame,texture[1],4,4,128),
+    dead(frame,texture[2],4,5,128),
+    fall(frame,texture[3],4,6,128),
+    hurt(frame,texture[4],3,3,128),
+    idle(frame,texture[5],3,7,128),
+    protect(frame,texture[6],4,2,128),
+    run(frame,texture[7],2,6,128),
+    run_attack(frame,texture[81],2,5,128),
+    walk(frame,texture[9],3,7,128)
 {
     this->pos_x = pos_x;
     this->pos_y = (height * ((7*200) + pos_y )) / (200*8);
     this->width = width;
     this->height = height;
     current_animation = &idle;
+    this->invert = SDL_FLIP_NONE;
     my_id = ID;
 }
 void Spear::copy(int& center,SDL2pp::Renderer* renderer,uint32_t& frame){

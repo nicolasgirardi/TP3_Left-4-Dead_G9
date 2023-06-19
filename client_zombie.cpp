@@ -16,16 +16,16 @@
 #include "client_myenum.h"
 
 Zombie::Zombie(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID):
-    attack_1(frame,texture[0],1,5),
-    attack_2(frame,texture[1],1,4),
-    attack_3(frame,texture[2],1,5),
-    bite(frame,texture[3],1,11),
-    dead(frame,texture[4],1,5),
-    hurt(frame,texture[5],1,3),
-    idle(frame,texture[6],1,8),
-    jump(frame,texture[7],1,8),
-    run(frame,texture[8],1,7),
-    walk(frame,texture[9],1,8)
+    attack_1(frame,texture[0],4,5,96),
+    attack_2(frame,texture[1],4,4,96),
+    attack_3(frame,texture[2],4,5,96),
+    bite(frame,texture[3],3,11,96),
+    dead(frame,texture[4],4,5,96),
+    hurt(frame,texture[5],3,3,96),
+    idle(frame,texture[6],3,8,96),
+    jump(frame,texture[7],2,8,96),
+    run(frame,texture[8],2,7,96),
+    walk(frame,texture[9],3,8,96)
 
 {
     this->pos_x = pos_x;
@@ -33,6 +33,7 @@ Zombie::Zombie(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Text
     this->width = width;
     this->height = height;
     current_animation = &idle;
+    this->invert = SDL_FLIP_NONE;
     my_id = ID;
 }
 void Zombie::copy(int& center,SDL2pp::Renderer* renderer,uint32_t& frame){

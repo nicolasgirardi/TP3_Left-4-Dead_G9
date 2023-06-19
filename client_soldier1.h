@@ -16,6 +16,7 @@
 #include "client_animation.h"
 #include "client_loopanimation.h"
 #include "client_singleanimation.h"
+#include "client_noloopanimation.h"
 #include "client_center.h"
 #include "client_myenum.h"
 
@@ -24,10 +25,10 @@ class Soldier1: public Character {
     private:
     LoopAnimation attack;
     SingleAnimation dead;
-    LoopAnimation grenade;
+    NoLoopAnimation grenade;
     LoopAnimation hurt;
     LoopAnimation idle;
-    LoopAnimation Recharge;
+    NoLoopAnimation Recharge;
     LoopAnimation run;
     LoopAnimation shot_1;
     LoopAnimation shot_2;

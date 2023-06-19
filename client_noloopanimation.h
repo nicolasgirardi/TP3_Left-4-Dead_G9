@@ -19,11 +19,12 @@ class NoLoopAnimation: public Animation{
     SDL2pp::Texture* second_animation;
     uint32_t total_frames2;
     uint32_t frame_rate2;
+    uint32_t size2;
     public:
     NoLoopAnimation (uint32_t frame,SDL2pp::Texture* texture1,
-                    uint32_t time_between_frames1,uint32_t number_of_frames1,
+                    uint32_t time_between_frames1,uint32_t number_of_frames1,uint32_t size1,
                     SDL2pp::Texture* texture2,
-                    uint32_t time_between_frames2,uint32_t number_of_frames2);
+                    uint32_t time_between_frames2,uint32_t number_of_frames2,uint32_t size2);
 
     void copy(uint32_t& frame,int& x,int& y,SDL2pp::Renderer* renderer,SDL_RendererFlip& invert);
 

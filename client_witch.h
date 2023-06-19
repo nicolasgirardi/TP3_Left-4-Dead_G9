@@ -16,6 +16,7 @@
 #include "client_animation.h"
 #include "client_loopanimation.h"
 #include "client_singleanimation.h"
+#include "client_noloopanimation.h"
 #include "client_center.h"
 #include "client_myenum.h"
 
@@ -30,7 +31,7 @@ class Witch: public Character {
     LoopAnimation idle;
     LoopAnimation jump;
     LoopAnimation run;
-    LoopAnimation scream;
+    NoLoopAnimation scream;
     LoopAnimation walk;
 
     public:

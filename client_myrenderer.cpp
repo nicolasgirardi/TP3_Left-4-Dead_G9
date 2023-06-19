@@ -252,7 +252,7 @@ void MyRenderer::run(){
 			auto t5 = std::chrono::high_resolution_clock::now();
 			renderer.Present();
 			auto t6 = std::chrono::high_resolution_clock::now();
-			frame = frame + 1;
+			//frame = frame + 1;
 			// Show rendered frame
 			int time1 = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(t1-start).count());
 			int time2 = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count());

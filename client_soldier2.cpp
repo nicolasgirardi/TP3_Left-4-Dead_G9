@@ -13,27 +13,29 @@
 #include "client_animation.h"
 #include "client_loopanimation.h"
 #include "client_singleanimation.h"
+#include "client_noloopanimation.h"
 #include "client_soldier2.h"
 #include "client_center.h"
 #include "client_myenum.h"
 
 Soldier2::Soldier2(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID):
-    attack(frame,texture[0],2,4),
-    dead(frame,texture[1],2,4),
-    grenade(frame,texture[2],2,16),
-    hurt(frame,texture[3],2,3),
-    idle(frame,texture[4],2,9),
-    Recharge(frame,texture[5],2,7),
-    run(frame,texture[6],2,8),
-    shot_1(frame,texture[7],2,4),
-    shot_2(frame,texture[8],1,4),
-    walk(frame,texture[9],2,8)
+    attack(frame,texture[0],4,4,128),
+    dead(frame,texture[1],5,4,128),
+    grenade(frame,texture[2],3,16,128,texture[4],3,9,128),
+    hurt(frame,texture[3],3,3,128),
+    idle(frame,texture[4],3,9,128),
+    Recharge(frame,texture[5],2,7,128,texture[4],3,9,128),
+    run(frame,texture[6],2,8,128),
+    shot_1(frame,texture[7],2,4,128),
+    shot_2(frame,texture[8],2,4,128),
+    walk(frame,texture[9],3,8,128)
 {
     this->pos_x = pos_x;
     this->pos_y = (height * ((7*200) + pos_y )) / (200*8);
     this->width = width;
     this->height = height;
     current_animation = &idle;
+    this->invert = SDL_FLIP_NONE;
     my_id = ID;
 }
 void Soldier2::copy(int& center,SDL2pp::Renderer* renderer,uint32_t& frame){
