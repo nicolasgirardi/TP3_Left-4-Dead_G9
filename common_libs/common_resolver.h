@@ -10,7 +10,7 @@
  *
  * Por simplificación este TDA se enfocara solamente
  * en direcciones IPv4 para TCP.
- * */
+ *  */
 class Resolver {
     private:
     struct addrinfo *result;
