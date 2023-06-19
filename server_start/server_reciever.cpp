@@ -1,12 +1,9 @@
 #include "server_reciever.h"
 
-Reciever::Reciever() : queue(nullptr), running(false), keep_running(false) {}
+Reciever::Reciever(Protocolo* protocol, Queue<Evento*>* queue) :
+        protocolo(protocol), queue(queue), running(true), keep_running(true) {}
 
-Reciever::Reciever(Socket* socket, Queue<Evento*>* queue, int id) :
-    running(false), keep_running(false), id(id), queue(queue) {
-    protocolo = new Protocolo(socket, queue, id);
-}
-
+        //TODO : REVISAR RECIEVER
 void Reciever::run() {
     while (keep_running) {
         uint8_t codigo = protocolo->recibir_codigo();

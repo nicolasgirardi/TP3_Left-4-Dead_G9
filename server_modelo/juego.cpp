@@ -7,7 +7,7 @@ Juego::Juego() : ejecutar(MAX_EVENTOS) {
     this->keep_running = true;
 }
 
-void Juego::launch(std::map<int, Queue<std::string>*>* clientes, std::list<Personaje*> personajes, int modo) {
+void Juego::launch(std::unordered_map<int, Queue<Evento*>* clientesSender, std::list<Personaje*> personajes, int modo) {
     this->clientes = clientes;
     this->personajes = personajes;
     this->modo = modo;

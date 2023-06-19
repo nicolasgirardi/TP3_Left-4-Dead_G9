@@ -23,19 +23,37 @@
 
 class Protocolo{
  private:
-    Socket* socket;
-    Queue<Evento*>* queue;
-    int id;
+    Socket socket;
+    bool wasClosed;
+    void sendByte(uint8_t byte);
+    void sendCuatroBytes(int32_t param1);
+    uint8_t recvByte();
+    uint16_t recvDosBytes();
+    uint32_t recvCuatroBytes();
+    std::string recvData(std::vector<char>& buff);
 
  public:
-    explicit Protocolo(Socket* socket, Queue<Evento*>* queue, int id);
+    Protocolo(Socket&& peer);
     ~Protocolo();
-    uint8_t recibir_codigo();
+    //void sendEvento(const EventoUsuario& evento);
+    //void recieveUpdate(JuegoUpdate& update);
+    //void cerrarConexion();
+
+    /*Agus
+     * uint8_t recibir_codigo();
     std::string recibir_nombre();
     uint32_t recibir_codigo_partida();
+     */
+    std::string recibir_inicio_partida();
+    std::string recibir_nombre_partida();
+    uint32_t recibir_codigo_partida();
+    void enviar_codigo_partida(uint32_t codigoPartida);
+    void enviar_evento(Evento *evento);
+
+    //Agus
     std::pair<int32_t, int32_t> recibir_coordenadas();
-    void enviar_codigo_partida(uint32_t codigo);
     void enviar_estado_juego(std::string estado);
+    //void enviar_codigo_partida(uint32_t codigo);
 
     std::string create();
     uint32_t join();

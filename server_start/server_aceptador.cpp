@@ -8,8 +8,8 @@ void Aceptador::run() {
     while (keep_running) {
         Socket peer = socket.accept();
         ClienteHandler* cliente = new ClienteHandler(std::move(peer), partidas, GeneradorID::get_id());
-        cliente->start();
         clientes.push_back(cliente);
+        cliente->start();
         clientes.remove_if([](ClienteHandler* cliente) { return !cliente->is_running(); });
     }
     running = false;

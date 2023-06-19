@@ -17,30 +17,34 @@
 #include "./server_reciever.h"
 #include "./server_protocolo.h"
 
+#define CREAR "crear"
+#define JOIN "join"
+#define PARTIDA_INVALIDA 0xFFFFFFFF
+
 class ClienteHandler : public Thread {
  private:
     bool running;
     bool keep_running;
     int id;
-    Socket socket;
     Protocolo protocolo;
-
     ListaPartidas* partidas;
-    Partida* partida;
+    //Partida* partida;
     Reciever reciever;
-    Queue<std::string> mensajes;
-    Queue<Evento*> eventos;
-    
+    //Queue<std::string> mensajes;
+    Queue<Evento*> eventosSender;
+    uint32_t iniciar_partida();
+    uint32_t crearPartida(std::string nombrePartida);
+    uint32_t joinPartida(uint32_t codigoPartida);
 
  public:
     ClienteHandler(Socket socket, ListaPartidas* partidas, int id);
-    ~ClienteHandler();
+    ~ClienteHandler() override;
     Queue<std::string>* get_mensajes();
     bool is_running();
     void start();
     void run() override;
     void stop();
-    void create_reciever(Queue<Evento*>* queue);
+
 };
 
 #endif

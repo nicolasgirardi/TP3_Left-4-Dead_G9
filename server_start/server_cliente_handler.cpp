@@ -1,9 +1,8 @@
 #include "server_cliente_handler.h"
 
-ClienteHandler::ClienteHandler(Socket socket, ListaPartidas* partidas, int id) :
-    socket(std::move(socket)), partidas(partidas), running(true), keep_running(true), id(id), mensajes(20), eventos(20)
-    ,protocolo(&this->socket, &eventos, id) {
-    }
+ClienteHandler::ClienteHandler(Socket socket, ListaPartidas* pPartidas, int i) :
+        protocolo(std::move(socket)), partidas(pPartidas), running(true), keep_running(true), id(i),
+        eventosSender(2000) {}
 
 ClienteHandler::~ClienteHandler() {}
 
@@ -16,48 +15,63 @@ void ClienteHandler::start() {
 }
 
 void ClienteHandler::run() {
-    // Creo el protocolo
-    while(keep_running) {
-        if (reciever.is_running()) {
-            std::string mensaje = mensajes.pop();
-            protocolo.enviar_estado_juego(mensaje);
-        } else {
-            uint8_t codigo = protocolo.recibir_codigo();
-            switch (codigo) {
-                case 0x01: {
-                    std::string nombre = protocolo.create();
-                    Partida* partida = partidas->addPartida(nombre);
-                    id = partidas->addClient(&mensajes, partida->getId());
-                    create_reciever(&eventos);
-                    break;
-                }
-                case 0x02: {
-                    uint32_t codigo = protocolo.join();
-                    id = partidas->addClient(&mensajes, codigo);
-                    create_reciever(&eventos);
-                    break;
-                }
-                default: {
-                    break;
-                }
-            }
-
+    uint32_t codigoPartida = PARTIDA_INVALIDA;
+    while (codigoPartida == PARTIDA_INVALIDA) {
+        codigoPartida = iniciar_partida();
+        protocolo.enviar_codigo_partida(codigoPartida);
+    }
+    Partida* partida = partidas->getPartida(codigoPartida);
+    while(!partida->isFull()) {
+    }
+    Reciever reciever(&protocolo, partida->getEventos());
+    reciever.start();
+    while (keep_running) {
+        Evento* evento;
+        if (eventosSender.try_pop(evento)) {
+            protocolo.enviar_evento(evento);
         }
     }
+    reciever.stop();
     running = false;
 }
 
 void ClienteHandler::stop() {
+    //TODO: Revisar este stop
     keep_running = false;
     // Fuerzo a un cierre total del socket
-    socket.shutdown(2);
-    socket.close();
+    //socket.shutdown(2);
+    //socket.close();
     reciever.stop();
     reciever.join();
 }
 
-void ClienteHandler::create_reciever(Queue<Evento*>* queue) {
-    // Inicializo el reciever
-    reciever = Reciever(&socket, queue, id);
-    reciever.start();
+uint32_t ClienteHandler::iniciar_partida() {
+    uint32_t codigoPartida;
+    std::string inicio_partida = protocolo.recibir_inicio_partida();
+    if (inicio_partida == CREAR) {
+        std::string nombrePartida = protocolo.recibir_nombre_partida();
+        codigoPartida = crearPartida(nombrePartida);
+    } else if (inicio_partida == JOIN) {
+        codigoPartida = protocolo.recibir_codigo_partida();
+        joinPartida(codigoPartida);
+    } else {
+    }
+    return codigoPartida;
+}
+
+uint32_t ClienteHandler::crearPartida(std::string nombrePartida) {
+    Partida* partida = partidas->crearPartida(std::move(nombrePartida));
+    partida->addClient(id, &eventosSender);
+    partidas->addPartida(partida);
+    return partida->getCodigoPartida();
+}
+
+uint32_t ClienteHandler::joinPartida(uint32_t codigoPartida) {
+    Partida* partida = partidas->getPartida(codigoPartida);
+    if (partida == nullptr) {
+        return PARTIDA_INVALIDA;
+    } else {
+        partida->addClient(id, &eventosSender);
+        return partida->getCodigoPartida();
+    }
 }

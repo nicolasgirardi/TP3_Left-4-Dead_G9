@@ -14,13 +14,12 @@ class Reciever : public Thread {
  private:
     bool running;
     bool keep_running;
-    int id;
     Queue<Evento*>* queue;
     Protocolo* protocolo;
 
  public:
     Reciever& operator=(Reciever&);
-    explicit Reciever(Socket* socket, Queue<Evento*>* queue, int id);
+    explicit Reciever(Protocolo* protocolo, Queue<Evento*>* queue);
     Reciever();
     ~Reciever();
     bool is_running();
