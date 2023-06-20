@@ -12,6 +12,7 @@ class Zombie {
     int vida = 50;
     float velocidad = 0.5;
     int danio = 10;
+    int tipo_zombie = 0;
 
     public:
         Zombie(int x, int y);
@@ -20,6 +21,7 @@ class Zombie {
         int get_vida();
         int get_velocidad();
         int get_danio();
+        int get_tipo_zombie();
         ~Zombie();
         void mover(std::list<Personaje*> personajes);
         bool esta_vivo();

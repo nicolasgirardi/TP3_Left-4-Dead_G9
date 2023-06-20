@@ -17,6 +17,7 @@
 #include "./zombies/witch.h"
 #include "./zombies/generador_zombies.h"
 #include "./estado_jugador.h"
+#include "./estado_zombie.h"
 
 #define MAX_EVENTOS 100
 #define MAX_X 1000

@@ -11,3 +11,13 @@ EstadoJugador::EstadoJugador(Personaje* personaje) {
 
 EstadoJugador::~EstadoJugador() {}
 
+std::string EstadoJugador::serializar(){
+    std::string estado = "";
+    estado += this->id_soldado;
+    estado += this->x;
+    estado += this->y;
+    estado += this->actualmente_disparando;
+    estado += this->actualmente_moviendo;
+    estado += " ";
+    return estado;
+}

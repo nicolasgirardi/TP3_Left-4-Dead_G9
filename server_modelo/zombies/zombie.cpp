@@ -24,6 +24,10 @@ int Zombie::get_danio() {
     return danio;
 }
 
+int Zombie::get_tipo_zombie() {
+    return tipo_zombie;
+}
+
 Zombie::~Zombie() {}
 
 void Zombie::mover(std::list<Personaje*> personajes) {

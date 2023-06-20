@@ -92,6 +92,10 @@ void Juego::run() {
             EstadoJugador estado_jugador(*it);
             estado += estado_jugador.serializar();
         }
+        for (auto it = zombies.begin(); it != zombies.end(); ++it) {
+            EstadoZombie estado_zombie(*it);
+            estado += estado_zombie.serializar();
+        }
         for (auto& cliente : *clientes) {
             cliente.second->push(estado);
         }
