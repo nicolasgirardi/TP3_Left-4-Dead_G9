@@ -35,8 +35,8 @@ void Juego::run() {
             Zombie* zombie = *it;
             if (zombie->get_vida() <= 0) {
                 zombies.erase(it);
+                delete zombie;
             }
-            delete zombie;
         }
 
         // Veo si los zombies chocaron con algun personaje

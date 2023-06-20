@@ -1,2 +1,0 @@
-/usr/bin/ar qc libSercerEventos.a  CMakeFiles/SercerEventos.dir/juego.cpp.o CMakeFiles/SercerEventos.dir/partida.cpp.o CMakeFiles/SercerEventos.dir/personaje.cpp.o
-/usr/bin/ranlib libSercerEventos.a

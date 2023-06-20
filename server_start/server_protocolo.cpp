@@ -44,3 +44,13 @@ void Protocolo::enviar_estado_juego(std::string estado) {
     socket->sendall(&largo, 4, 0);
     socket->sendall(estado.c_str(), largo, 0);
 }
+
+std::string Protocolo::recibir_estado_juego(){
+    uint32_t largo;
+    socket->recvall(&largo, 4, 0);
+    char estado[largo + 1];
+    socket->recvall(estado, largo, 0);
+    estado[largo] = '\0';
+    std::string estado_str(estado);
+    return estado_str;
+}

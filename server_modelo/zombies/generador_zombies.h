@@ -3,7 +3,7 @@
 
 #include <list>
 
-#include "./../common_libs/common_thread.h"
+#include "./../../common_libs/common_thread.h"
 #include "./zombie.h"
 #include "./witch.h"
 

@@ -26,7 +26,7 @@ void ClienteHandler::run() {
             switch (codigo) {
                 case 0x01: {
                     std::string nombre = protocolo.create();
-                    Partida* partida = partidas->addPartida(nombre);
+                    Partida* partida = partidas->addPartida(nombre, 0);
                     id = partidas->addClient(&mensajes, partida->getId());
                     create_reciever(&eventos);
                     break;

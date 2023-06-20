@@ -36,6 +36,7 @@ class Protocolo{
     std::pair<int32_t, int32_t> recibir_coordenadas();
     void enviar_codigo_partida(uint32_t codigo);
     void enviar_estado_juego(std::string estado);
+    std::string recibir_estado_juego();
 
     std::string create();
     uint32_t join();
