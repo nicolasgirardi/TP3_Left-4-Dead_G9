@@ -1,22 +1,23 @@
-#ifndef RESOLVER_H
-#define RESOLVER_H
+#ifndef LEFT4DEAD_COMMON_RESOLVER_H
+#define LEFT4DEAD_COMMON_RESOLVER_H
 
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <netdb.h>
+#include <sys/socket.h>
+#include <netdb.h>
+#include <cstring>
+#include <cerrno>
 
-/*
- * "Resolvedor" de hostnames y service names.
- *
- * Por simplificación este TDA se enfocara solamente
- * en direcciones IPv4 para TCP.
- * */
+#include "common_resolvererror.h"
+#include "common_liberror.h"
+
 class Resolver {
-    private:
+private:
     struct addrinfo *result;
     struct addrinfo *_next;
 
-    public:
+public:
 /* Crea el objeto y resuelve el dado nombre del host y servicio.
  *
  * Si `is_passive` es `true` y `hostname` es `nullptr`,
@@ -25,10 +26,10 @@ class Resolver {
  *
  * En caso de error se lanza una excepción.
  * */
-Resolver(
-        const char* hostname,
-        const char* servname,
-        bool is_passive);
+    Resolver(
+            const char* hostname,
+            const char* servname,
+            bool is_passive);
 
 /*
  * Deshabilitamos el constructor por copia y operador asignación por copia
@@ -37,32 +38,33 @@ Resolver(
  * Se podrían copiar?, sí, pero no le veo mucha utilidad y prefiero
  * evitarlo.
  * */
-Resolver(const Resolver&) = delete;
-Resolver& operator=(const Resolver&) = delete;
+    Resolver(const Resolver&) = delete;
+    Resolver& operator=(const Resolver&) = delete;
 
 /*
  * Hacemos que el `Resolver` sea movible.
  * */
-Resolver(Resolver&&);
-Resolver& operator=(Resolver&&);
+    Resolver(Resolver&&);
+    Resolver& operator=(Resolver&&);
 
 /* Retorna si hay o no una dirección siguiente para testear.
  * Si la hay, se deberá llamar a `Resolver::next()` para obtenerla.
  *
  * Si no la hay se puede asumir que el resolver está extinguido.
  * */
-bool has_next();
+    bool has_next();
 
 /* Retorna la siguiente dirección para testear e internamente
  * mueve el iterador a la siguiente dirección.
  *
  * Si no existe una siguiente dirección el resultado es indefinido.
  * */
-struct addrinfo* next();
+    struct addrinfo* next();
 
 /*
  * Libera los recursos.
  * */
-~Resolver();
+    ~Resolver();
 };
-#endif
+
+#endif //LEFT4DEAD_COMMON_RESOLVER_H

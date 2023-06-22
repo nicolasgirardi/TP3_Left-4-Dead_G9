@@ -1,14 +1,12 @@
-#include <stdio.h>
+#include "common_socket.h"
+#include "./common_resolver.h"
+#include "./common_liberror.h"
+
 #include <assert.h>
 #include <errno.h>
-
 #include <sys/socket.h>
 #include <netdb.h>
 #include <unistd.h>
-
-#include "./common_socket.h"
-#include "./common_resolver.h"
-#include "./common_liberror.h"
 
 Socket::Socket(
         const char *hostname,

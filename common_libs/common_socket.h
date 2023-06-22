@@ -1,13 +1,9 @@
-#ifndef SOCKET_H
-#define SOCKET_H
+#ifndef LEFT4DEAD_COMMON_SOCKET_H
+#define LEFT4DEAD_COMMON_SOCKET_H
 
-/*
- * TDA Socket.
- * Por simplificación este TDA se enfocará solamente
- * en sockets IPv4 para TCP.
- * */
+
 class Socket {
-    private:
+private:
     int skt;
     bool closed;
 
@@ -16,7 +12,7 @@ class Socket {
      * */
     explicit Socket(int skt);
 
-    public:
+public:
 /*
  * Constructores para `Socket` tanto para conectarse a un servidor
  * (`Socket::Socket(const char*, const char*)`) como para ser usado
@@ -39,11 +35,11 @@ class Socket {
  *
  * En caso de error los constructores lanzaran una excepción.
  * */
-Socket(
-        const char *hostname,
-        const char *servname);
+    Socket(
+            const char *hostname,
+            const char *servname);
 
-explicit Socket(const char *servname);
+    explicit Socket(const char *servname);
 
 /*
  * Deshabilitamos el constructor por copia y operador asignación por copia
@@ -66,14 +62,14 @@ explicit Socket(const char *servname);
  *
  * Por eso deshabilitamos la copia. No tiene sentido.
  * */
-Socket(const Socket&) = delete;
-Socket& operator=(const Socket&) = delete;
+    Socket(const Socket&) = delete;
+    Socket& operator=(const Socket&) = delete;
 
 /*
  * Hacemos que el `Socket` sea movible.
  * */
-Socket(Socket&&);
-Socket& operator=(Socket&&);
+    Socket(Socket&&);
+    Socket& operator=(Socket&&);
 
 /* `Socket::sendsome` lee hasta `sz` bytes del buffer y los envía. La función
  * puede enviar menos bytes sin embargo.
@@ -92,14 +88,14 @@ Socket& operator=(Socket&&);
  *
  * Lease manpage de `send` y `recv`
  * */
-int sendsome(
-        const void *data,
-        unsigned int sz,
-        bool *was_closed);
-int recvsome(
-        void *data,
-        unsigned int sz,
-        bool *was_closed);
+    int sendsome(
+            const void *data,
+            unsigned int sz,
+            bool *was_closed);
+    int recvsome(
+            void *data,
+            unsigned int sz,
+            bool *was_closed);
 
 /*
  * `Socket::sendall` envía exactamente `sz` bytes leídos del buffer, ni más,
@@ -119,14 +115,14 @@ int recvsome(
  * para envio/recibo, lease `sz`.
  *
  * */
-int sendall(
-        const void *data,
-        unsigned int sz,
-        bool *was_closed);
-int recvall(
-        void *data,
-        unsigned int sz,
-        bool *was_closed);
+    int sendall(
+            const void *data,
+            unsigned int sz,
+            bool *was_closed);
+    int recvall(
+            void *data,
+            unsigned int sz,
+            bool *was_closed);
 
 /*
  * Acepta una conexión entrante y retorna un nuevo socket
@@ -134,25 +130,27 @@ int recvall(
  *
  * En caso de error, se lanza una excepción.
  * */
-Socket accept();
+    Socket accept();
 
 /*
  * Cierra la conexión ya sea parcial o completamente.
  * Lease manpage de `shutdown`
  * */
-void shutdown(int how);
+    void shutdown(int how);
 
 /*
  * Cierra el socket. El cierre no implica un `shutdown`
  * que debe ser llamado explícitamente.
  * */
-int close();
+    int close();
 
 /*
  * Destruye el socket. Si aun esta conectado,
  * se llamara a `Socket::shutdown` y `Socket::close`
  * automáticamente.
  * */
-~Socket();
+    ~Socket();
 };
-#endif
+
+
+#endif //LEFT4DEAD_COMMON_SOCKET_H

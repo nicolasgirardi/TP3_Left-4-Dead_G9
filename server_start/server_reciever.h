@@ -1,5 +1,5 @@
-#ifndef SERVER_RECIEVER_H
-#define SERVER_RECIEVER_H
+#ifndef LEFT4DEAD_SERVER_RECIEVER_H
+#define LEFT4DEAD_SERVER_RECIEVER_H
 
 #include "./../common_libs/common_thread.h"
 #include "./../common_libs/common_queue.h"
@@ -7,23 +7,27 @@
 
 #include "./../server_modelo/eventos/evento.h"
 #include "./../server_modelo/eventos/creador_eventos.h"
-#include "../common_libs/protocol.h"
+
+#include "server_protocolo.h"
 
 class Reciever : public Thread {
- private:
+private:
     bool running;
     bool keep_running;
+    int id;
     Queue<Evento*>* queue;
-    Protocol& protocol;
-    // Protocolo para recibir
+    Protocolo* protocolo;
 
- public:
-    Reciever& operator=(Reciever&) = delete;
-    explicit Reciever(Protocol& socket, Queue<Evento*>* queue);
+public:
+    Reciever& operator=(Reciever&);
+    explicit Reciever(Socket* socket, Queue<Evento*>* queue, int id);
+    Reciever();
+    ~Reciever() override;
     bool is_running();
     void run() override;
     void stop();
-    virtual ~Reciever();
+    Reciever& operator=(const Reciever&);
 };
 
-#endif  // SERVER_RECIEVER_H
+
+#endif //LEFT4DEAD_SERVER_RECIEVER_H

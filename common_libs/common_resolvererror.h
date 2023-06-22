@@ -1,16 +1,14 @@
-#ifndef RESOLVER_ERROR_H
-#define RESOLVER_ERROR_H
+#ifndef LEFT4DEAD_COMMON_RESOLVERERROR_H
+#define LEFT4DEAD_COMMON_RESOLVERERROR_H
+
 
 #include <exception>
 
-/*
- * Clase que encapsula un "gai" error. Vease getaddrinfo()
- * */
 class ResolverError : public std::exception {
-    private:
+private:
     int gai_errno;
 
-    public:
+public:
     explicit ResolverError(int gai_errno);
 
     /*
@@ -21,4 +19,6 @@ class ResolverError : public std::exception {
      * */
     virtual ~ResolverError();
 };
-#endif
+
+
+#endif //LEFT4DEAD_COMMON_RESOLVERERROR_H

@@ -1,12 +1,16 @@
 #include "server_reciever.h"
-#include "../common_libs/protocol.h"
 
-Reciever::Reciever(Protocol& protocol, Queue<Evento*>* queue) :
-    protocol(protocol), queue(queue), running(true), keep_running(true) {}
+Reciever::Reciever() : queue(nullptr), running(false), keep_running(false) {}
+
+Reciever::Reciever(Socket* socket, Queue<Evento*>* queue, int id) :
+        running(true), keep_running(false), id(id), queue(queue) {
+    protocolo = new Protocolo(socket, queue, id);
+}
 
 void Reciever::run() {
     while (keep_running) {
-        // Leo del protocolo y lo mando a la queue
+        Evento* evt = protocolo->recibir_evento(std::ref(id));
+        queue->push(evt);
     }
     running = false;
 }
@@ -24,12 +28,15 @@ Reciever::~Reciever() {
 }
 
 // Genero el = borrando el viejo asi no se genera una copia
-/*Reciever& Reciever::operator=(Reciever& other) {
-    this->socket = other.socket;
+Reciever& Reciever::operator=(Reciever& other) {
     this->queue = other.queue;
     this->running = other.running;
     this->keep_running = other.keep_running;
-    other.socket = nullptr;
     other.queue = nullptr;
     return *this;
-}*/
+}
+
+Reciever& Reciever::operator=(const Reciever &) {
+    return *this;
+}
+

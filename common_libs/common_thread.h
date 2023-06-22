@@ -1,42 +1,41 @@
-#ifndef THREAD_H_
-#define THREAD_H_
 
+#ifndef LEFT4DEAD_COMMON_THREAD_H
+#define LEFT4DEAD_COMMON_THREAD_H
 #include <thread>
 #include <iostream>
 
 class Thread {
-    private:
-        std::thread thread;
+private:
+    std::thread thread;
 
-    public:
-        Thread() {}
+public:
+    Thread() {}
 
-        void start() {
-            thread = std::thread(&Thread::main, this);
+    virtual void start() {
+        thread = std::thread(&Thread::main, this);
+    }
+
+    void join() {
+        thread.join();
+    }
+
+    void main() {
+        try {
+            this->run();
+        } catch(const std::exception &err) {
+            std::cerr << "Unexpected exception: " << err.what() << "\n";
+        } catch(...) {
+            std::cerr << "Unexpected exception: <unknown>\n";
         }
+    }
 
-        void join() {
-            thread.join();
-        }
+    virtual void run() = 0;
+    virtual ~Thread() {}
 
-        void main() {
-            try {
-                this->run();
-            } catch(const std::exception &err) {
-                std::cerr << "Unexpected exception: " << err.what() << "\n";
-            } catch(...) {
-                std::cerr << "Unexpected exception: <unknown>\n";
-            }
-        }
+    Thread(const Thread&) = delete;
+    Thread& operator=(const Thread&) = delete;
 
-        virtual void run() = 0;
-        virtual ~Thread() {}
-
-        Thread(const Thread&) = delete;
-        Thread& operator=(const Thread&) = delete;
-
-        Thread(Thread&& other) = delete;
-        Thread& operator=(Thread&& other) = delete;
+    Thread(Thread&& other) = delete;
+    Thread& operator=(Thread&& other) = delete;
 };
-
-#endif
+#endif //LEFT4DEAD_COMMON_THREAD_H

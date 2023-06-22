@@ -1,35 +1,46 @@
-// Se encarga de la comunicacion con el cliente.
-// Recibe los create y los join.
+#ifndef LEFT4DEAD_SERVER_CLIENTE_HANDLER_H
+#define LEFT4DEAD_SERVER_CLIENTE_HANDLER_H
 
-// En un principio es el encargado de recibir los create/join y devolver los mensajes correspondientes
-// Cuando arranca el juego se convierte en el reciever
-
-#ifndef SERVER_CLIENTE_HANDLER_H
-#define SERVER_CLIENTE_HANDLER_H
 
 #include <atomic>
+#include "../common_libs/common_thread.h"
+#include "../common_libs/common_socket.h"
+#include "../common_libs/common_queue.h"
+#include "../server_modelo/partida.h"
+#include "server_reciever.h"
+#include "../server_modelo/lista_partida.h"
+#include "../common_libs/protocol.h"
+
 #include "./../common_libs/common_thread.h"
 #include "./../common_libs/common_queue.h"
 #include "./../common_libs/common_socket.h"
 
 #include "./../server_modelo/partida.h"
+#include "./../server_modelo/eventos/evento.h"
+#include "./../server_modelo/eventos/creador_eventos.h"
 #include "./server_reciever.h"
-#include "../common_libs/protocol.h"
-#include "../common_libs/inicio_partida.h"
-#include "../server_modelo/lista_partidas.h"
+#include "./server_protocolo.h"
+
+#define PARTIDA_INVALIDA 0xFFFFFFFF
+#define CREAR "crear"
+#define JOIN "join"
 
 class ClienteHandler : public Thread {
- private:
+private:
     bool running;
     bool keep_running;
-    std::atomic<bool> recieverOn;
     int id;
-    Protocol protocol;
-    ListaPartidas* partidas;
-    //Partida tiene que tener una cola de eventos que pushea al juego.
-    Partida* partida;
+    Socket socket;
+    Protocolo protocolo;
 
- public:
+    ListaPartidas* partidas;
+    Partida* partida;
+    Reciever reciever;
+    Queue<std::string> mensajes;
+    Queue<Evento*> eventos;
+
+
+public:
     ClienteHandler(Socket socket, ListaPartidas* partidas, int id);
     ~ClienteHandler();
     Queue<std::string>* get_mensajes();
@@ -37,11 +48,10 @@ class ClienteHandler : public Thread {
     void start();
     void run() override;
     void stop();
+    void create_reciever(Queue<Evento*>* queue);
     uint32_t iniciar_partida();
-
     uint32_t crearPartida(std::string nombrePartida);
-
-    void joinPartida(uint32_t codigoPartida);
+    uint32_t joinPartida(uint32_t codigoPartida);
 };
 
-#endif
+#endif //LEFT4DEAD_SERVER_CLIENTE_HANDLER_H

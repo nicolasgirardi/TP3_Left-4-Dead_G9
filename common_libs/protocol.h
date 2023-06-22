@@ -1,32 +1,34 @@
-#ifndef LEFT4DEADUI_PROTOCOL_H
-#define LEFT4DEADUI_PROTOCOL_H
+#ifndef LEFT4DEAD_PROTOCOL_H
+#define LEFT4DEAD_PROTOCOL_H
 
-#include "../client/include/user_action.h"
+#include <thread>
+#include <cstdint>
+#include <vector>
+#include <string>
+#include <netinet/in.h>
 #include "common_socket.h"
-#include "../client/include/game_update.h"
+#include "evento_usuario.h"
+#include "../server_modelo/eventos/evento.h"
 
 class Protocol {
 private:
     Socket socket;
     bool wasClosed;
     void sendByte(uint8_t byte);
-    void sendFourBytes(int32_t param1);
+    void sendCuatroBytes(int32_t param1);
     uint8_t recvByte();
-    uint16_t recvTwoBytes();
-    uint32_t recvFourBytes();
+    uint16_t recvDosBytes();
+    uint32_t recvCuatroBytes();
+    std::string recvData(std::vector<char>& buff);
 public:
-    Protocol();
     Protocol(Socket&& peer);
-    void sendAction(const UserAction& action);
-    void receiveUpdate(GameUpdate& update);
-    void closeConection();
+    void sendEvento(const EventoUsuario& evento);
+    void cerrarConexion();
     std::string recibir_inicio_partida();
-    std::string create();
     std::string recibir_nombre_partida();
     uint32_t recibir_codigo_partida();
-
     void enviar_codigo_partida(uint32_t codigoPartida);
+    void enviar_evento(Evento *evento);
 };
 
-
-#endif // LEFT4DEADUI_PROTOCOL_H
+#endif //LEFT4DEAD_PROTOCOL_H

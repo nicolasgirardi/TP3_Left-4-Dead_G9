@@ -1,8 +1,6 @@
-// El main levanta este thread que levanta el socket y espera a que se conecte un cliente.
-// Guarda en la lista del protocolo el socket del cliente.
+#ifndef LEFT4DEAD_SERVER_ACEPTADOR_H
+#define LEFT4DEAD_SERVER_ACEPTADOR_H
 
-#ifndef SERVER_ACEPTADOR_H
-#define SERVER_ACEPTADOR_H
 
 #include <string.h>
 #include <list>
@@ -14,18 +12,19 @@
 #include "./../server_modelo/generador_id.h"
 
 class Aceptador : public Thread {
- private:
+private:
     Socket socket;
     bool running;
     bool keep_running;
     ListaPartidas* partidas;
     std::list<ClienteHandler*> clientes;
 
- public:
+public:
     explicit Aceptador(const char* port);
+    ~Aceptador();
     void run() override;
     void stop();
-    ~Aceptador();
 };
 
-#endif  // SERVER_ACEPTADOR_H
+
+#endif //LEFT4DEAD_SERVER_ACEPTADOR_H

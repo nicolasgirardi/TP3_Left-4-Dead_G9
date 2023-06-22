@@ -36,3 +36,4 @@ Aceptador::~Aceptador() {
     delete partidas;
     stop();
 }
+
