@@ -45,7 +45,7 @@ class MyRenderer: public Thread {
     std::vector<std::string> smoke_effect;
 
     public:
-    MyRenderer(int width, int height,int map,int ID,Queue<Message>* queue);
+    MyRenderer(int width, int height,Type_of_map map,int ID,Queue<Message>* queue);
 
     void run();
 

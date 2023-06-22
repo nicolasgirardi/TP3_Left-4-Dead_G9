@@ -21,7 +21,7 @@
 int main(int, char*[]){
 	Thread* my_renderer;
 	Queue<Message> queue(2000);
-	my_renderer = new MyRenderer(960,720,1,1,&queue);
+	my_renderer = new MyRenderer(960,720,war1_pale,1,&queue);
 	my_renderer->start();
 	myenum::Type_of_action action1 = myenum::walk;
 	Type_of_character type = soldier3;
