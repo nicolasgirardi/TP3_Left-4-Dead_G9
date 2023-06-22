@@ -32,6 +32,16 @@ class MyRenderer: public Thread {
     Queue<Message>* my_queue;
     std::vector<Character*> all_characters;
     std::vector<Texture_holder*> all_textures;
+    std::vector<std::string> soldier_type_1;
+	std::vector<std::string> soldier_type_2;
+	std::vector<std::string> soldier_type_3;
+	std::vector<std::string> enemy_jumper;
+	std::vector<std::string> enemy_spear;
+	std::vector<std::string> enemy_venom;
+	std::vector<std::string> enemy_witch;
+	std::vector<std::string> enemy_zombie;
+    std::vector<std::string> explotion_effect;
+    std::vector<std::string> smoke_effect;
 
     public:
     MyRenderer(int width, int height,int map,int ID,Queue<Message>* queue);
@@ -48,6 +58,7 @@ class MyRenderer: public Thread {
     void modify_character(Message& message);
     void remove_character(Message& message);
     void calculate_center(Center& center);
+    void texture_paths();
     void copy_characters(int& center,SDL2pp::Renderer* renderer);
 
 };

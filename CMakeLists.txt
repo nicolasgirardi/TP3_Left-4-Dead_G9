@@ -28,6 +28,8 @@ file(GLOB_RECURSE SOURCES
     client_venom.cpp
     client_witch.cpp
     client_zombie.cpp
+    client_explotion.cpp
+    client_smoke.cpp
     client_message.cpp
 )
 file(GLOB_RECURSE HEADERS 
@@ -55,6 +57,8 @@ file(GLOB_RECURSE HEADERS
     client_venom.h
     client_witch.h
     client_zombie.h
+    client_explotion.h
+    client_smoke.h
     client_message.h
     client_myenum.h
 )

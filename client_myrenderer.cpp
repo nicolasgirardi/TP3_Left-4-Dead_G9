@@ -21,6 +21,8 @@
 #include "client_venom.h"
 #include "client_witch.h"
 #include "client_zombie.h"
+#include "client_explotion.h"
+#include "client_smoke.h"
 #include "client_center.h"
 #include "client_myrenderer.h"
 #include "client_textureholder.h"
@@ -77,106 +79,8 @@ void MyRenderer::run(){
 
 	// Create accelerated video renderer with default driver
 	Renderer renderer(window, -1, SDL_RENDERER_ACCELERATED);
-	/*
-	Texture sprites9(renderer,"../resources/Soldier_1/Run.png");
-	Texture sprites10(renderer,"../resources/Soldier_2/Run.png");
-	*/
-	int pos1 = 0;
-	int pos2 = 0;
-	std::vector<std::string> soldier_type_1 = {
-		Soldier_1_Attack,
-		Soldier_1_Dead,
-		Soldier_1_Grenade,
-		Soldier_1_Hurt,
-		Soldier_1_Idle,
-		Soldier_1_Recharge,
-		Soldier_1_Run,
-		Soldier_1_Shot_1,
-		Soldier_1_Shot_2,
-		Soldier_1_Walk
-	};
-	std::vector<std::string> soldier_type_2 = {
-		Soldier_2_Attack,
-		Soldier_2_Dead,
-		Soldier_2_Grenade,
-		Soldier_2_Hurt,
-		Soldier_2_Idle,
-		Soldier_2_Recharge,
-		Soldier_2_Run,
-		Soldier_2_Shot_1,
-		Soldier_2_Shot_2,
-		Soldier_2_Walk
-	};
-	std::vector<std::string> soldier_type_3 = {
-		Soldier_3_Attack,
-		Soldier_3_Dead,
-		Soldier_3_Grenade,
-		Soldier_3_Hurt,
-		Soldier_3_Idle,
-		Soldier_3_Recharge,
-		Soldier_3_Run,
-		Soldier_3_Shot_1,
-		Soldier_3_Shot_2,
-		Soldier_3_Walk
-	};
-	std::vector<std::string> enemy_jumper = {
-		Jumper_Attack_1,
-		Jumper_Attack_2,
-		Jumper_Attack_3,
-		Jumper_Dead,
-		Jumper_Eating,
-		Jumper_Hurt,
-		Jumper_Idle,
-		Jumper_Jump,
-		Jumper_Run,
-		Jumper_Walk
-	};
-	std::vector<std::string> enemy_spear = {
-		Spear_Attack_1,
-		Spear_Attack_2,
-		Spear_Dead,
-		Spear_Fall,
-		Spear_Hurt,
-		Spear_Idle,
-		Spear_Protect,
-		Spear_Run,
-		Spear_Run_attack,
-		Spear_Walk
-	};
-	std::vector<std::string> enemy_venom = {
-		Venom_Attack1,
-		Venom_Attack2,
-		Venom_Dead,
-		Venom_Hurt,
-		Venom_Idle,
-		Venom_Jump,
-		Venom_Run,
-		Venom_Walk
-	};
-	std::vector<std::string> enemy_witch = {
-		Witch_Attack_1,
-		Witch_Attack_2,
-		Witch_Attack_3,
-		Witch_Dead,
-		Witch_Hurt,
-		Witch_Idle,
-		Witch_Jump,
-		Witch_Run,
-		Witch_Scream,
-		Witch_Walk
-	};
-	std::vector<std::string> enemy_zombie = {
-		Zombie_Attack_1,
-		Zombie_Attack_2,
-		Zombie_Attack_3,
-		Zombie_Bite,
-		Zombie_Dead,
-		Zombie_Hurt,
-		Zombie_Idle,
-		Zombie_Jump,
-		Zombie_Run,
-		Zombie_Walk
-	};
+	texture_paths();
+
 	Texture_holder jumper_textures(&renderer,enemy_jumper);
 	all_textures.push_back(&jumper_textures);
 	Texture_holder soldier1_textures(&renderer,soldier_type_1);
@@ -193,13 +97,11 @@ void MyRenderer::run(){
 	all_textures.push_back(&witchm_textures);
 	Texture_holder zombie_textures(&renderer,enemy_zombie);
 	all_textures.push_back(&zombie_textures);
-	
-	/*
-	std::vector<Texture*> textures_s1 = soldier1_textures.all_textures();
-	std::vector<Texture*> textures_s2 = soldier2_textures.all_textures();
-	std::unique_ptr<Character> soldier1(new Soldier1(pos1,50,960,720,textures_s1,frame,1));
-	std::unique_ptr<Character> soldier2(new Soldier2(pos2,60,960,720,textures_s2,frame,2));
-	*/
+	Texture_holder explotion_textures(&renderer,explotion_effect);
+	all_textures.push_back(&explotion_textures);
+	Texture_holder smoke_textures(&renderer,smoke_effect);
+	all_textures.push_back(&smoke_textures);
+
 	std::vector<std::string> textures;
 	get_map_paths(textures);
 
@@ -239,41 +141,23 @@ void MyRenderer::run(){
 		try{
 			while(my_queue->try_pop(message))
 				update_characters(message);
-			auto t1 = std::chrono::high_resolution_clock::now();
 			Center center;
 			calculate_center(center);
 			int num_center = center.center_value();
-			auto t2 = std::chrono::high_resolution_clock::now();
 			renderer.Clear();
-			auto t3 = std::chrono::high_resolution_clock::now();
 			my_scenario.get()->copy(num_center,&renderer);
-			auto t4 = std::chrono::high_resolution_clock::now();
 			copy_characters(num_center,&renderer);
-			auto t5 = std::chrono::high_resolution_clock::now();
 			renderer.Present();
-			auto t6 = std::chrono::high_resolution_clock::now();
-			//frame = frame + 1;
-			// Show rendered frame
-			int time1 = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(t1-start).count());
-			int time2 = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count());
-			int time3 = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(t3-t2).count());
-			int time4 = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(t4-t3).count());
-			int time5 = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(t5-t4).count());
-			int time6 = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(t6-t5).count());
 			auto end = std::chrono::high_resolution_clock::now();
 			int time = static_cast<int>(std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count());
 			frame = frame + 1 + (time/frame_rate);
 			int delay = frame_rate - (time % frame_rate);
-			report << time1 << "," << time2 << "," << time3 << "," << time4 << "," << time5 << "," << time6 << std::endl;
 			SDL_Delay(delay);
-			// Sound plays after this call
 		}
 		catch(std::runtime_error& e){
 			playing = false;
 		}
 	}
-	// Play for 5 seconds, after which everything is stopped and closed
-	//SDL_Delay(10000);
 } catch (std::exception& e) {
 	std::cerr << "Error: " << e.what() << std::endl;
 }
@@ -362,13 +246,13 @@ void MyRenderer::get_map_paths(std::vector<std::string>& textures){
 void MyRenderer::update_characters(Message& message){
 	Type_of_AMB abm = message.get_amb();
 	switch(abm){
-		case(0):
+		case(alta):
 			add_character(message);
 			break;
-		case(1):
+		case(baja):
 			remove_character(message);
 			break;
-		case(2):
+		case(modificacion):
 			modify_character(message);
 			break;
 	}
@@ -409,6 +293,14 @@ void MyRenderer::add_character(Message& message){
 		case(zombie):
 			textures = all_textures[7]->all_textures();
 			new_character = new Zombie(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
+			break;
+		case(explotion):
+			textures = all_textures[8]->all_textures();
+			new_character = new Explotion(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
+			break;
+		case(smoke):
+			textures = all_textures[9]->all_textures();
+			new_character = new Smoke(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
 			break;
 	}
 	if(new_character != nullptr)
@@ -454,6 +346,97 @@ void MyRenderer::copy_characters(int& center,Renderer* renderer){
 	for(int i = 0;i<all_characters.size();i++){
 		all_characters[i]->copy(center,renderer,frame);
 	}
+}
+void MyRenderer::texture_paths(){
+	soldier_type_1.push_back(Soldier_1_Attack);
+	soldier_type_1.push_back(Soldier_1_Dead);
+	soldier_type_1.push_back(Soldier_1_Grenade);
+	soldier_type_1.push_back(Soldier_1_Hurt);
+	soldier_type_1.push_back(Soldier_1_Idle);
+	soldier_type_1.push_back(Soldier_1_Recharge);
+	soldier_type_1.push_back(Soldier_1_Run);
+	soldier_type_1.push_back(Soldier_1_Shot_1);
+	soldier_type_1.push_back(Soldier_1_Shot_2);
+	soldier_type_1.push_back(Soldier_1_Walk);
+	
+	soldier_type_2.push_back(Soldier_2_Attack);
+	soldier_type_2.push_back(Soldier_2_Dead);
+	soldier_type_2.push_back(Soldier_2_Grenade);
+	soldier_type_2.push_back(Soldier_2_Hurt);
+	soldier_type_2.push_back(Soldier_2_Idle);
+	soldier_type_2.push_back(Soldier_2_Recharge);
+	soldier_type_2.push_back(Soldier_2_Run);
+	soldier_type_2.push_back(Soldier_2_Shot_1);
+	soldier_type_2.push_back(Soldier_2_Shot_2);
+	soldier_type_2.push_back(Soldier_2_Walk);
+	
+	soldier_type_3.push_back(Soldier_3_Attack);
+	soldier_type_3.push_back(Soldier_3_Dead);
+	soldier_type_3.push_back(Soldier_3_Grenade);
+	soldier_type_3.push_back(Soldier_3_Hurt);
+	soldier_type_3.push_back(Soldier_3_Idle);
+	soldier_type_3.push_back(Soldier_3_Recharge);
+	soldier_type_3.push_back(Soldier_3_Run);
+	soldier_type_3.push_back(Soldier_3_Shot_1);
+	soldier_type_3.push_back(Soldier_3_Shot_2);
+	soldier_type_3.push_back(Soldier_3_Walk);
+	
+	enemy_jumper.push_back(Jumper_Attack_1);
+	enemy_jumper.push_back(Jumper_Attack_2);
+	enemy_jumper.push_back(Jumper_Attack_3);
+	enemy_jumper.push_back(Jumper_Dead);
+	enemy_jumper.push_back(Jumper_Eating);
+	enemy_jumper.push_back(Jumper_Hurt);
+	enemy_jumper.push_back(Jumper_Idle);
+	enemy_jumper.push_back(Jumper_Jump);
+	enemy_jumper.push_back(Jumper_Run);
+	enemy_jumper.push_back(Jumper_Walk);
+	
+	enemy_spear.push_back(Spear_Attack_1);
+	enemy_spear.push_back(Spear_Attack_2);
+	enemy_spear.push_back(Spear_Dead);
+	enemy_spear.push_back(Spear_Fall);
+	enemy_spear.push_back(Spear_Hurt);
+	enemy_spear.push_back(Spear_Idle);
+	enemy_spear.push_back(Spear_Protect);
+	enemy_spear.push_back(Spear_Run);
+	enemy_spear.push_back(Spear_Run_attack);
+	enemy_spear.push_back(Spear_Walk);
+	
+	enemy_venom.push_back(Venom_Attack1);
+	enemy_venom.push_back(Venom_Attack2);
+	enemy_venom.push_back(Venom_Dead);
+	enemy_venom.push_back(Venom_Hurt);
+	enemy_venom.push_back(Venom_Idle);
+	enemy_venom.push_back(Venom_Jump);
+	enemy_venom.push_back(Venom_Run);
+	enemy_venom.push_back(Venom_Walk);
+	
+	enemy_witch.push_back(Witch_Attack_1);
+	enemy_witch.push_back(Witch_Attack_2);
+	enemy_witch.push_back(Witch_Attack_3);
+	enemy_witch.push_back(Witch_Dead);
+	enemy_witch.push_back(Witch_Hurt);
+	enemy_witch.push_back(Witch_Idle);
+	enemy_witch.push_back(Witch_Jump);
+	enemy_witch.push_back(Witch_Run);
+	enemy_witch.push_back(Witch_Scream);
+	enemy_witch.push_back(Witch_Walk);
+	
+	enemy_zombie.push_back(Zombie_Attack_1);
+	enemy_zombie.push_back(Zombie_Attack_2);
+	enemy_zombie.push_back(Zombie_Attack_3);
+	enemy_zombie.push_back(Zombie_Bite);
+	enemy_zombie.push_back(Zombie_Dead);
+	enemy_zombie.push_back(Zombie_Hurt);
+	enemy_zombie.push_back(Zombie_Idle);
+	enemy_zombie.push_back(Zombie_Jump);
+	enemy_zombie.push_back(Zombie_Run);
+	enemy_zombie.push_back(Zombie_Walk);
+
+	explotion_effect.push_back(Soldier_1_Explosion);
+
+	smoke_effect.push_back(Soldier_3_Smoke);
 }
 MyRenderer::~MyRenderer(){
 	for(int i = 0;i<all_characters.size();i++){
