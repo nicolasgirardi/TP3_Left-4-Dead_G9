@@ -13,10 +13,107 @@
     <generated />
   </component>
   <component name="CMakeSettings">
-    <configurations />
+    <configurations>
+      <configuration PROFILE_NAME="Left4Dead" ENABLED="true" GENERATION_OPTIONS="-G Ninja" />
+      <configuration PROFILE_NAME="Release" ENABLED="false" CONFIG_NAME="Release" />
+    </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e071eb73-ebee-44e2-acaa-d2a3c27de146" name="Changes" comment="" />
+    <list default="true" id="e071eb73-ebee-44e2-acaa-d2a3c27de146" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/include/client.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/include/game_update.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/include/protocol_actions.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/include/receiver_update.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/include/sender_server.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/include/state_types.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/include/user_action.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/client.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/game_update.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/receiver_update.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/sender_server.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/user_action.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/client_message.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/src/common_message.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/client_message.h" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/include/common_message.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cliente/client_myenum.h" beforeDir="false" afterPath="$PROJECT_DIR$/cliente/include/client_myenum.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/common-wrap_socket.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/src/common-wrap_socket.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/common_liberror.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/src/common_liberror.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/common_liberror.h" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/include/common_liberror.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/common_queue.h" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/include/common_queue.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/common_resolver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/src/common_resolver.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/common_resolver.h" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/include/common_resolver.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/common_resolvererror.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/src/common_resolvererror.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/common_resolvererror.h" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/include/common_resolvererror.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/common_socket.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/src/common_socket.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/common_socket.h" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/include/common_socket.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/common_thread.h" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/include/common_thread.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/evento_usuario.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/src/evento_usuario.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/evento_usuario.h" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/include/evento_usuario.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/inicio_partida.h" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/include/inicio_partida.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/protocol.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/protocol.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common_libs/tipos_estado_enum.h" beforeDir="false" afterPath="$PROJECT_DIR$/common_libs/include/tipos_estado_enum.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/armas/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/armas/arma.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/armas/arma.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/armas/arma.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/armas/arma.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/armas/creador_armas.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/armas/creador_armas.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/armas/creador_armas.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/armas/creador_armas.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/armas/idf.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/armas/idf.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/armas/idf.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/armas/idf.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/armas/p90.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/armas/p90.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/armas/p90.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/armas/p90.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/armas/scout.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/armas/scout.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/armas/scout.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/armas/scout.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/estado_jugador.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/estado_jugador.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/estado_jugador.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/estado_jugador.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/estado_zombie.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/estado_zombie.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/estado_zombie.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/estado_zombie.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/eventos/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/eventos/creador_eventos.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/eventos/creador_eventos.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/eventos/creador_eventos.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/eventos/creador_eventos.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/eventos/evento.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/eventos/evento.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/eventos/evento.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/eventos/evento.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/eventos/evento_disparar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/eventos/evento_disparar.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/eventos/evento_disparar.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/eventos/evento_disparar.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/eventos/evento_mover.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/eventos/evento_mover.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/eventos/evento_mover.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/eventos/evento_mover.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/eventos/evento_no_disparar.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/eventos/evento_no_disparar.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/eventos/evento_no_disparar.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/eventos/evento_no_disparar.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/eventos/evento_no_mover.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/eventos/evento_no_mover.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/eventos/evento_no_mover.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/eventos/evento_no_mover.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/generador_id.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/generador_id.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/juego.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/juego.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/juego.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/juego.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/lista_partida.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lista_partida.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/lista_partida.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/lista_partida.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/partida.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/partida.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/partida.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/partida.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/personaje.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/personaje.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/personaje.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/personaje.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/zombies/generador_zombies.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/zombies/generador_zombies.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/zombies/generador_zombies.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/zombies/generador_zombies.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/zombies/jumper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/zombies/jumper.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/zombies/jumper.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/zombies/jumper.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/zombies/witch.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/zombies/witch.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/zombies/witch.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/zombies/witch.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/zombies/zombie.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/zombies/zombie.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_modelo/zombies/zombie.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/zombies/zombie.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_start/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_start/server_aceptador.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server_aceptador.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_start/server_aceptador.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/server_aceptador.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_start/server_cliente_enum.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/server_cliente_enum.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_start/server_cliente_handler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server_cliente_handler.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_start/server_cliente_handler.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/server_cliente_handler.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_start/server_main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_start/server_protocolo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server_protocolo.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_start/server_protocolo.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/server_protocolo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_start/server_reciever.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server_reciever.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_start/server_reciever.h" beforeDir="false" afterPath="$PROJECT_DIR$/server/include/server_reciever.h" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +128,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2023" />
+    <option name="minorVersion" value="1.3" />
+  </component>
   <component name="ProjectId" id="2RRR9yPsicOm9zXuDZfCFfsDC3R" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -44,19 +146,64 @@
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "feature/server",
+    "last_opened_file_path": "/home/santipira/CLionProjects/TPMERGE/TP3_Left-4-Dead_G9",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CMakeSettings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/cliente/include" />
+      <recent name="$PROJECT_DIR$/common_libs/src" />
+      <recent name="$PROJECT_DIR$/common_libs/include" />
+      <recent name="$PROJECT_DIR$/cliente/src" />
+      <recent name="$PROJECT_DIR$/server/include" />
+    </key>
+  </component>
+  <component name="RunManager" selected="CMake Application.left4dead-server">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="left4dead-cliente" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="left4dead" TARGET_NAME="left4dead-cliente" CONFIG_NAME="Left4Dead" RUN_TARGET_PROJECT_NAME="left4dead" RUN_TARGET_NAME="left4dead-cliente">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="left4dead-server" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="8082" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="left4dead" TARGET_NAME="left4dead-server" CONFIG_NAME="Left4Dead" RUN_TARGET_PROJECT_NAME="left4dead" RUN_TARGET_NAME="left4dead-server">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="libcliente" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="left4dead" TARGET_NAME="libcliente" CONFIG_NAME="Left4Dead">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="libcommon" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="left4dead" TARGET_NAME="libcommon" CONFIG_NAME="Left4Dead">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="libserver" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="left4dead" TARGET_NAME="libserver" CONFIG_NAME="Left4Dead">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.left4dead-cliente" />
+      <item itemvalue="CMake Application.left4dead-server" />
+      <item itemvalue="CMake Application.libcliente" />
+      <item itemvalue="CMake Application.libcommon" />
+      <item itemvalue="CMake Application.libserver" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -68,6 +215,7 @@
       <updated>1687210587037</updated>
       <workItem from="1687210588550" duration="169000" />
       <workItem from="1687210760988" duration="799000" />
+      <workItem from="1687472977562" duration="4560000" />
     </task>
     <servers />
   </component>

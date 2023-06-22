@@ -1,21 +1,32 @@
-cmake_minimum_required(VERSION 3.16.3) 
+cmake_minimum_required(VERSION 3.10.2)
+project(left4dead)
 
-project(LEFT4DEAD)
+set (CMAKE_CXX_STANDARD 11)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
-# Agrega los directorios de las carpetas que contienen los archivos de código fuente
-add_subdirectory(common_libs)
-add_subdirectory(server_modelo)
-add_subdirectory(server_start)
+#set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O0 -Werror -pedantic")
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ggdb -DDEBUG -fno-inline ")
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
-# Agrega todos los archivos de código fuente de las carpetas especificadas
-file(GLOB COMMON_LIBS_SRC "common_libs/*.cpp" "common_libs/*.h")
-file(GLOB SERVER_MODELO_SRC "server_modelo/*.cpp" "server_modelo/*.h")
-file(GLOB SERVER_START_SRC "server_start/*.cpp" "server_start/*.h")
-file(GLOB SERVER_EVENTOS_SRC "server_eventos/*.cpp" "server_eventos/*.h")
-# Agrega los archivos de código fuente a tu ejecutable
-add_executable(server
-    ${COMMON_LIBS_SRC}
-    ${SERVER_MODELO_SRC}
-    ${SERVER_START_SRC}
-    ${SERVER_EVENTOS_SRC}
-)
+file(GLOB_RECURSE COMMON_SRCS ./common_libs/src/*.cpp)
+file(GLOB_RECURSE CLIENTE_SRCS ./cliente/src/*.cpp)
+file(GLOB_RECURSE SERVER_SRCS ./server/src/*.cpp)
+list(FILTER CLIENTE_SRCS EXCLUDE REGEX "main.cpp")
+list(FILTER SERVER_SRCS EXCLUDE REGEX "main.cpp")
+
+add_library(libcommon STATIC ${COMMON_SRCS})
+add_library(libserver STATIC ${SERVER_SRCS})
+add_library(libcliente STATIC ${CLIENTE_SRCS})
+TARGET_LINK_LIBRARIES(libserver libcommon)
+target_link_libraries(libcliente libcommon)
+
+add_executable(left4dead-cliente "cliente/src/main.cpp")
+TARGET_LINK_LIBRARIES(left4dead-cliente libcliente)
+
+add_executable(left4dead-server "server/src/main.cpp")
+TARGET_LINK_LIBRARIES(left4dead-server libserver)
+
+install(TARGETS left4dead-server left4dead-cliente libcliente libserver libcommon
+        ARCHIVE DESTINATION "lib"
+        RUNTIME DESTINATION "bin"
+        INCLUDES DESTINATION "include")
