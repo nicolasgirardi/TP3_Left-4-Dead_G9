@@ -128,11 +128,6 @@ void MyRenderer::run(){
 	std::unique_ptr<Scenario> my_scenario(scenario);
 	dev.Pause(false);
 	int frame_rate = 1000/30;
-	//soldier1.get()->change_action(6,frame);
-	//soldier2.get()->change_action(9,frame);
-	//int speed1 = 8;
-	//int speed2 = 4;
-	// Render our image, stretching it to the whole window
 	Message message = my_queue->pop();
 	update_characters(message);
 	bool playing = true;
