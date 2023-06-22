@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_INICIO_PARTIDA_H
-#define LEFT4DEAD_INICIO_PARTIDA_H
+#ifndef INICIO_PARTIDA_H
+#define INICIO_PARTIDA_H
 
 #include <cstdint>
 #include <string>
@@ -17,4 +17,4 @@ const std::string InicioPartida::crearStr = "crear";
 const std::string InicioPartida::joinStr = "join";
 const std::string InicioPartida::error = "error";
 
-#endif // LEFT4DEAD_INICIO_PARTIDA_H
+#endif // INICIO_PARTIDA_H

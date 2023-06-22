@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_EVENTO_H_
-#define LEFT4DEAD_EVENTO_H_
+#ifndef EVENTO_H_
+#define EVENTO_H_
 
 // Me incluyo las partidas asi puedo ejecutar los eventos
 #include "../personaje.h"
@@ -22,4 +22,4 @@ class Evento {
   int get_id_personaje();
 };
 
-#endif  // LEFT4DEAD_EVENTO_H_
+#endif  // EVENTO_H_

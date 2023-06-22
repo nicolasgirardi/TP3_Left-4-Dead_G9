@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_SERVER_RECIEVER_H
-#define LEFT4DEAD_SERVER_RECIEVER_H
+#ifndef SERVER_RECIEVER_H
+#define SERVER_RECIEVER_H
 
 #include "./../common_libs/common_thread.h"
 #include "./../common_libs/common_queue.h"
@@ -30,4 +30,4 @@ public:
 };
 
 
-#endif //LEFT4DEAD_SERVER_RECIEVER_H
+#endif // SERVER_RECIEVER_H

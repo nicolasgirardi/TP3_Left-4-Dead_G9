@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_P90_H_
-#define LEFT4DEAD_P90_H_
+#ifndef P90_H_
+#define P90_H_
 
 #include "arma.h"
 
@@ -9,4 +9,4 @@ class P90 : public Arma {
   ~P90();
 };
 
-#endif  // LEFT4DEAD_P90_H_
+#endif  // P90_H_

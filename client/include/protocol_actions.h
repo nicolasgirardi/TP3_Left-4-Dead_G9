@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_PROTOCOL_ACTIONS_H
-#define LEFT4DEAD_PROTOCOL_ACTIONS_H
+#ifndef PROTOCOL_ACTIONS_H
+#define PROTOCOL_ACTIONS_H
 
 #include <cstdint>
 
@@ -24,4 +24,4 @@ enum ACTION: uint8_t {
     STRIKE
 };
 
-#endif // LEFT4DEAD_PROTOCOL_ACTIONS_H
+#endif // PROTOCOL_ACTIONS_H

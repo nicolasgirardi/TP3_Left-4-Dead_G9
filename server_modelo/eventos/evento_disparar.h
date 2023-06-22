@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_EVENTO_DISPARAR_H_
-#define LEFT4DEAD_EVENTO_DISPARAR_H_
+#ifndef EVENTO_DISPARAR_H_
+#define EVENTO_DISPARAR_H_
 
 #include "evento.h"
 
@@ -12,4 +12,4 @@ class EventoDisparar : public Evento {
   void ejecutar(Personaje* personaje) override;
 };
 
-#endif // LEFT4DEAD_EVENTO_DISPARAR_H_
+#endif // EVENTO_DISPARAR_H_

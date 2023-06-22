@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_GENERADOR_ID_H
-#define LEFT4DEAD_GENERADOR_ID_H
+#ifndef GENERADOR_ID_H
+#define GENERADOR_ID_H
 
 #include <iostream>
 #include <ctime>
@@ -22,4 +22,4 @@ public:
     }
 };
 
-#endif //LEFT4DEAD_GENERADOR_ID_H
+#endif // GENERADOR_ID_H

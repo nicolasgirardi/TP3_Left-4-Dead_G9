@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_EVENTO_USUARIO_H
-#define LEFT4DEAD_EVENTO_USUARIO_H
+#ifndef EVENTO_USUARIO_H
+#define EVENTO_USUARIO_H
 
 
 #include <cstdint>
@@ -30,4 +30,4 @@ class EventoUsuario {
 };
 
 
-#endif //LEFT4DEAD_EVENTO_USUARIO_H
+#endif // EVENTO_USUARIO_H

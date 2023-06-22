@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_COMMON_QUEUE_H
-#define LEFT4DEAD_COMMON_QUEUE_H
+#ifndef COMMON_QUEUE_H
+#define COMMON_QUEUE_H
 
 
 #include <mutex>
@@ -274,4 +274,4 @@ private:
 };
 
 
-#endif //LEFT4DEAD_COMMON_QUEUE_H
+#endif // COMMON_QUEUE_H

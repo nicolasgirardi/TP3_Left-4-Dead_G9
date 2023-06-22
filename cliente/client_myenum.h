@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_CLIENT_MYENUM_H
-#define LEFT4DEAD_CLIENT_MYENUM_H
+#ifndef CLIENT_MYENUM_H
+#define CLIENT_MYENUM_H
 
 enum Type_of_character {jumper, soldier1,soldier2,soldier3,spear,venom,witch,zombie};
 
@@ -29,4 +29,4 @@ namespace myenum{
         walk};
 }
 
-#endif // LEFT4DEAD_CLIENT_MYENUM_H
+#endif // CLIENT_MYENUM_H

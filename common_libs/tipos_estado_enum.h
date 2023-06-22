@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_TIPOS_ESTADO_ENUM_H
-#define LEFT4DEAD_TIPOS_ESTADO_ENUM_H
+#ifndef TIPOS_ESTADO_ENUM_H
+#define TIPOS_ESTADO_ENUM_H
 
 #include <cstdint>
 
@@ -35,4 +35,4 @@ enum PERSONAJE : uint8_t {
     NONE_CHARACTER = 0x08
 };
 
-#endif //LEFT4DEAD_TIPOS_ESTADO_ENUM_H
+#endif // TIPOS_ESTADO_ENUM_H

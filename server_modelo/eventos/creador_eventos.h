@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_CREAR_EVENTOS_H_
-#define LEFT4DEAD_CREAR_EVENTOS_H_
+#ifndef CREAR_EVENTOS_H_
+#define CREAR_EVENTOS_H_
 
 #include "evento.h"
 #include "evento_disparar.h"
@@ -13,4 +13,4 @@ class CreadorEventos {
   static Evento* crearEvento(int id, int id_personaje, int x, int y);
 };
 
-#endif // LEFT4DEAD_CREAR_EVENTOS_H_
+#endif // CREAR_EVENTOS_H_

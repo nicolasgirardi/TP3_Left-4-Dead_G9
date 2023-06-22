@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_ARMA_H
-#define LEFT4DEAD_ARMA_H
+#ifndef ARMA_H
+#define ARMA_H
 
 // las armas tienen un tipo de arma, una cantidad de municiones y una velocidad de disparo
 // el tipo de arma es un entero que representa el tipo de arma
@@ -34,4 +34,4 @@ class Arma {
 };
 
 
-#endif //LEFT4DEAD_ARMA_H
+#endif // ARMA_H

@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_EVENTO_NO_MOVER_H_
-#define LEFT4DEAD_EVENTO_NO_MOVER_H_
+#ifndef EVENTO_NO_MOVER_H_
+#define EVENTO_NO_MOVER_H_
 
 #include "evento.h"
 
@@ -10,4 +10,4 @@ class EventoNoMover : public Evento {
   void ejecutar(Personaje* personaje) override;
 };
 
-#endif // LEFT4DEAD_EVENTO_NO_MOVER_H_
+#endif // EVENTO_NO_MOVER_H_

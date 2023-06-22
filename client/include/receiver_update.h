@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_RECEIVER_UPDATE_H
-#define LEFT4DEAD_RECEIVER_UPDATE_H
+#ifndef RECEIVER_UPDATE_H
+#define RECEIVER_UPDATE_H
 
 
 #include "../../common/include/Thread.h"
@@ -23,4 +23,4 @@ public:
 };
 
 
-#endif //LEFT4DEAD_RECEIVER_UPDATE_H
+#endif // RECEIVER_UPDATE_H

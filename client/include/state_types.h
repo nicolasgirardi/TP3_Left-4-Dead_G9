@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_STATE_TYPES_H
-#define LEFT4DEAD_STATE_TYPES_H
+#ifndef STATE_TYPES_H
+#define STATE_TYPES_H
 
 #include <cstdint>
 
@@ -35,4 +35,4 @@ enum CHARACTER : uint8_t {
     NONE_CHARACTER = 0x08
 };
 
-#endif // LEFT4DEAD_STATE_TYPES_H
+#endif // STATE_TYPES_H

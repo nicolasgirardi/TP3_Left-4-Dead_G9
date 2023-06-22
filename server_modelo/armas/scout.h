@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_SCOUT_H_
-#define LEFT4DEAD_SCOUT_H_
+#ifndef SCOUT_H_
+#define SCOUT_H_
 
 #include "arma.h"
 
@@ -9,4 +9,4 @@ class Scout : public Arma {
   ~Scout();
 };
 
-#endif  // LEFT4DEAD_SCOUT_H_
+#endif  // SCOUT_H_

@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_PROTOCOL_H
-#define LEFT4DEAD_PROTOCOL_H
+#ifndef PROTOCOL_H
+#define PROTOCOL_H
 
 #include <thread>
 #include <cstdint>
@@ -31,4 +31,4 @@ public:
     void enviar_evento(Evento *evento);
 };
 
-#endif //LEFT4DEAD_PROTOCOL_H
+#endif // PROTOCOL_H

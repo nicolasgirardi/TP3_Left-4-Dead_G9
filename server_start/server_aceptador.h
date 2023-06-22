@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_SERVER_ACEPTADOR_H
-#define LEFT4DEAD_SERVER_ACEPTADOR_H
+#ifndef SERVER_ACEPTADOR_H
+#define SERVER_ACEPTADOR_H
 
 
 #include <string.h>
@@ -27,4 +27,4 @@ public:
 };
 
 
-#endif //LEFT4DEAD_SERVER_ACEPTADOR_H
+#endif //SERVER_ACEPTADOR_H

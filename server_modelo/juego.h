@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_JUEGO_H
-#define LEFT4DEAD_JUEGO_H
+#ifndef JUEGO_H
+#define JUEGO_H
 
 
 #include <map>
@@ -58,4 +58,4 @@ public:
     void stop();
 };
 
-#endif //LEFT4DEAD_JUEGO_H
+#endif // JUEGO_H

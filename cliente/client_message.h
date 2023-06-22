@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_CLIENT_MESSAGE_H
-#define LEFT4DEAD_CLIENT_MESSAGE_H
+#ifndef CLIENT_MESSAGE_H
+#define CLIENT_MESSAGE_H
 
 
 #include <string>
@@ -39,4 +39,4 @@ class Message {
 };
 
 
-#endif // LEFT4DEAD_CLIENT_MESSAGE_H
+#endif // CLIENT_MESSAGE_H

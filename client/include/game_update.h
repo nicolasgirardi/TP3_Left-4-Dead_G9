@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_GAME_UPDATE_H
-#define LEFT4DEAD_GAME_UPDATE_H
+#ifndef GAME_UPDATE_H
+#define GAME_UPDATE_H
 
 #include <cstdint>
 #include "state_types.h"
@@ -32,4 +32,4 @@ class GameUpdate {
     ~GameUpdate();
 };
 
-#endif //LEFT4DEAD_GAME_UPDATE_H
+#endif // GAME_UPDATE_H

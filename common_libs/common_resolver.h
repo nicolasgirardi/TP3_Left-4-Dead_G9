@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_COMMON_RESOLVER_H
-#define LEFT4DEAD_COMMON_RESOLVER_H
+#ifndef COMMON_RESOLVER_H
+#define COMMON_RESOLVER_H
 
 #include <sys/socket.h>
 #include <sys/types.h>
@@ -73,4 +73,4 @@ public:
     ~Resolver();
 };
 
-#endif //LEFT4DEAD_COMMON_RESOLVER_H
+#endif // COMMON_RESOLVER_H

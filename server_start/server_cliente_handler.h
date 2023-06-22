@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_SERVER_CLIENTE_HANDLER_H
-#define LEFT4DEAD_SERVER_CLIENTE_HANDLER_H
+#ifndef SERVER_CLIENTE_HANDLER_H
+#define SERVER_CLIENTE_HANDLER_H
 
 
 #include <atomic>
@@ -54,4 +54,4 @@ public:
     uint32_t joinPartida(uint32_t codigoPartida);
 };
 
-#endif //LEFT4DEAD_SERVER_CLIENTE_HANDLER_H
+#endif // SERVER_CLIENTE_HANDLER_H

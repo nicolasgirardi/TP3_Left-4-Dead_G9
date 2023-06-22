@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_PARTIDA_H
-#define LEFT4DEAD_PARTIDA_H
+#ifndef PARTIDA_H
+#define PARTIDA_H
 
 #include <string>
 #include "./../common_libs/common_queue.h"
@@ -35,4 +35,4 @@ class Partida {
     ~Partida();
 };
 
-#endif //LEFT4DEAD_PARTIDA_H
+#endif // PARTIDA_H

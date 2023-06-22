@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_PERSONAJE_H
-#define LEFT4DEAD_PERSONAJE_H
+#ifndef PERSONAJE_H
+#define PERSONAJE_H
 
 
 #include "./armas/arma.h"
@@ -40,4 +40,4 @@ class Personaje {
 };
 
 
-#endif //LEFT4DEAD_PERSONAJE_H
+#endif // PERSONAJE_H

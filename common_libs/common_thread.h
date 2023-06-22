@@ -1,6 +1,6 @@
 
-#ifndef LEFT4DEAD_COMMON_THREAD_H
-#define LEFT4DEAD_COMMON_THREAD_H
+#ifndef COMMON_THREAD_H
+#define COMMON_THREAD_H
 #include <thread>
 #include <iostream>
 
@@ -38,4 +38,4 @@ public:
     Thread(Thread&& other) = delete;
     Thread& operator=(Thread&& other) = delete;
 };
-#endif //LEFT4DEAD_COMMON_THREAD_H
+#endif // COMMON_THREAD_H

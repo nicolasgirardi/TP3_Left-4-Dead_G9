@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_SENDER_SERVER_H
-#define LEFT4DEAD_SENDER_SERVER_H
+#ifndef SENDER_SERVER_H
+#define SENDER_SERVER_H
 
 
 #include <atomic>
@@ -30,4 +30,4 @@ public:
 };
 
 
-#endif // LEFT4DEAD_SENDER_SERVER_H
+#endif // SENDER_SERVER_H

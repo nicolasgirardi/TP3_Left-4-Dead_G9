@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_LISTA_PARTIDA_H
-#define LEFT4DEAD_LISTA_PARTIDA_H
+#ifndef LISTA_PARTIDA_H
+#define LISTA_PARTIDA_H
 
 #include <unordered_map>
 #include <map>
@@ -25,4 +25,4 @@ public:
 };
 
 
-#endif //LEFT4DEAD_LISTA_PARTIDA_H
+#endif // LISTA_PARTIDA_H

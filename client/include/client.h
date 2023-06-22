@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_CLIENT_H
-#define LEFT4DEAD_CLIENT_H
+#ifndef CLIENT_H
+#define CLIENT_H
 
 
 #include <atomic>
@@ -26,4 +26,4 @@ class Client {
 };
 
 
-#endif //LEFT4DEAD_CLIENT_H
+#endif // CLIENT_H
