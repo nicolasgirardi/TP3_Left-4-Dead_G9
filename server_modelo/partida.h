@@ -2,18 +2,19 @@
 #define LEFT4DEAD_PARTIDA_H
 
 #include <string>
-#include <list>
-#include <unordered_map>
-#include <map>
-#include "personaje.h"
-#include "eventos/evento.h"
-#include "../common_libs/common_queue.h"
-//#include "juego.h"
+#include "./../common_libs/common_queue.h"
+#include "./../common_libs/common_socket.h"
+
+#include "./eventos/evento.h"
+#include "./personaje.h"
+#include "./juego.h"
+#include "./personaje.h"
+#include "./generador_id.h"
 
 #define MAX_CLIENTES 3
 
 class Partida {
-private:
+ private:
     std::map<int, Queue<std::string>*> clientes;
     int id;
     int modo;
@@ -22,7 +23,7 @@ private:
     std::list<Personaje*> personajes;
     std::mutex m;
 
-public:
+ public:
     Partida(int id, std::string nombre);
     void addClient(Queue<std::string>* queue, int id);
     bool addPersonaje(int id, int arma);
@@ -33,6 +34,5 @@ public:
     int getId();
     ~Partida();
 };
-
 
 #endif //LEFT4DEAD_PARTIDA_H

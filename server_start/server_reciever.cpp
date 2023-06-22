@@ -39,4 +39,3 @@ Reciever& Reciever::operator=(Reciever& other) {
 Reciever& Reciever::operator=(const Reciever &) {
     return *this;
 }
-

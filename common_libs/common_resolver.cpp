@@ -1,4 +1,16 @@
 #include "common_resolver.h"
+#include "common_resolvererror.h"
+#include "common_liberror.h"
+
+#include <stdio.h>
+#include <string.h>
+#include <errno.h>
+
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <arpa/inet.h>
+#include <netdb.h>
+#include <unistd.h>
 
 Resolver::Resolver(
         const char* hostname,
@@ -141,3 +153,4 @@ Resolver::~Resolver() {
     if (this->result)
         freeaddrinfo(this->result);
 }
+

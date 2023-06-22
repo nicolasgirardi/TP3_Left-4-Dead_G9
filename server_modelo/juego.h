@@ -12,6 +12,9 @@
 // 0 = modo normal
 // 1 = modo supervivencia
 
+// 0 = modo normal
+// 1 = modo supervivencia
+
 #include <list>
 
 #include "./../common_libs/common_thread.h"

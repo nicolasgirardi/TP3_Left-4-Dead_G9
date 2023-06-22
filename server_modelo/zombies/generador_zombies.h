@@ -1,5 +1,5 @@
-#ifndef LEFT4DEAD_GENERADOR_ZOMBIES_H
-#define LEFT4DEAD_GENERADOR_ZOMBIES_H
+#ifndef GENERADOR_ZOMBIES_H_
+#define GENERADOR_ZOMBIES_H_
 
 #include <list>
 
@@ -8,7 +8,7 @@
 #include "./witch.h"
 
 class GeneradorZombies : public Thread {
-private:
+ private:
     bool running;
     bool keep_running;
     int cantidad_zombies;
@@ -22,7 +22,7 @@ private:
     int max_y;
     bool apurado = false;
 
-public:
+ public:
     GeneradorZombies(int cantidad_zombies, std::list<Zombie*>* zombies, std::list<Witch*>* witches,
                      std::list<Personaje*>* personajes, int max_x, int max_y, int modo);
     ~GeneradorZombies();
@@ -33,5 +33,4 @@ public:
     bool isApurado();
 };
 
-
-#endif //LEFT4DEAD_GENERADOR_ZOMBIES_H
+#endif // GENERADOR_ZOMBIES_H_

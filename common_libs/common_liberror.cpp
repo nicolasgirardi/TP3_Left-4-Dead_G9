@@ -1,14 +1,29 @@
-#include "common_liberror.h"
-
+/*
+ * Este es un hack alrededor de un bug de G++ que, a pesar de decirle
+ * que use un estándar (véase el Makefile), igualmente usa código
+ * que es especifico de GNU (y no POSIX).
+ *
+ * En particular esto afecta a la funcion `strerror_r`.
+ * Cuando se usa el estándar POSIX y `GNU_SOURCE` no esta definido, `strerror_r`
+ * retorna un `int`.
+ *
+ * En cambio, con `GNU_SOURCE`, la función retornar un `char*` y no
+ * necesariamente podrán el mensaje de error en el buffer sino como retorno.
+ * (véase más abajo), lo cual esta claramente mal.
+ *
+ * Estos "un-define" están para forzar el uso de POSIX y sacar `GNU_SOURCE`
+ * al menos en este `.cpp`.
+ * */
 #undef _GNU_SOURCE
 #undef GNU_SOURCE
 
+#include <errno.h>
 #include <cstdio>
 #include <cstdarg>
 #include <cstring>
+#include "common_liberror.h"
 
 LibError::LibError(int error_code, const char* fmt, ...) noexcept {
-    this->error_code = error_code;
     /* Aquí empieza la magia arcana proveniente de C.
      *
      * En C (y en C++) las funciones y métodos pueden recibir un número
@@ -96,14 +111,6 @@ LibError::LibError(int error_code, const char* fmt, ...) noexcept {
      * realmente hay un `\0` al final.
      * */
     msg_error[sizeof(msg_error)-1] = 0;
-}
-
-const char* LibError::what() const noexcept {
-    return msg_error;
-}
-
-const int LibError::code() const noexcept {
-    return error_code;
 }
 
 LibError::~LibError() {}

@@ -15,6 +15,5 @@ std::string EstadoZombie::serializar(){
     estado += this->x;
     estado += ",";
     estado += this->y;
-    //
     return estado;
 }
