@@ -1,5 +1,16 @@
-#ifndef JUEGO_H_
-#define JUEGO_H_
+#ifndef LEFT4DEAD_JUEGO_H
+#define LEFT4DEAD_JUEGO_H
+
+
+#include <map>
+#include <list>
+#include "../common_libs/common_thread.h"
+#include "eventos/evento.h"
+#include "../common_libs/common_queue.h"
+#include "partida.h"
+
+// 0 = modo normal
+// 1 = modo supervivencia
 
 #include <list>
 
@@ -10,6 +21,11 @@
 #include "./eventos/creador_eventos.h"
 #include "./partida.h"
 #include "./personaje.h"
+#include "./zombies/zombie.h"
+#include "./zombies/witch.h"
+#include "./zombies/generador_zombies.h"
+#include "./estado_jugador.h"
+#include "./estado_zombie.h"
 
 #define MAX_EVENTOS 100
 #define MAX_X 1000
@@ -17,22 +33,26 @@
 
 // La partida va a levantar a un juego
 class Juego : public Thread {
- private:
+private:
     bool running;
     bool keep_running;
-    Queue<Evento*>* ejecutar;
-    std::unordered_map<int, Queue<Evento*>*>* clientes;
+    int modo;
+    int cantidad_zombies = 10;
+    Queue<Evento*> ejecutar;
+    std::map<int, Queue<std::string>*>* clientes;
     std::list<Personaje*> personajes;
-    Partida* partida;
+    std::list<Zombie*> zombies;
+    std::list<Witch*> witches;
 
- public:
+public:
     Juego();
     ~Juego();
     Queue<Evento*>* getQueue();
     Personaje* getPersonaje(int id);
-    void launch(Partida* partida, std::unordered_map<int, Queue<Evento*>*>* clientes, std::list<Personaje*> personajes);
+    std::list<Personaje*> getPersonajes();
+    void launch(std::map<int, Queue<std::string>*>* clientes, std::list<Personaje*> personajes, int modo);
     void run() override;
     void stop();
 };
 
-#endif  // JUEGO_H_
+#endif //LEFT4DEAD_JUEGO_H

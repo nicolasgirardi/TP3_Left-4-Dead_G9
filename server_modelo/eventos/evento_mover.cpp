@@ -6,7 +6,7 @@ EventoMover::EventoMover(int id_personaje, int x, int y) {
     this->y = y;
 }
 
-EventoMover::~EventoMover() {}
+EventoMover::~EventoMover() = default;
 
 void EventoMover::ejecutar(Personaje* personaje) {
     personaje->modificar_velocidad(x, y);

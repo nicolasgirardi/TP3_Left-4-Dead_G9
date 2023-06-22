@@ -1,5 +1,5 @@
-#ifndef CREADOR_ARMAS_H_
-#define CREADOR_ARMAS_H_
+#ifndef LEFT4DEAD_CREADOR_ARMAS_H_
+#define LEFT4DEAD_CREADOR_ARMAS_H_
 
 // 0: IDF
 // 1: P90
@@ -16,4 +16,4 @@ class CreadorArmas {
   static Arma* crear_arma(int tipo_arma);
 };
 
-#endif  // CREADOR_ARMAS_H_
+#endif  // LEFT4DEAD_CREADOR_ARMAS_H_

@@ -1,14 +1,14 @@
-#ifndef GENERADOR_ID_H
-#define GENERADOR_ID_H
+#ifndef LEFT4DEAD_GENERADOR_ID_H
+#define LEFT4DEAD_GENERADOR_ID_H
 
 #include <iostream>
-#include <cstdlib>
 #include <ctime>
+#include <cstdlib>
 
 class GeneradorID {
- private:
+private:
 
- public:
+public:
     static int get_id() {
         int id = 0;
         srand(time(0)); // Semilla para generar números aleatorios basados en la hora actual
@@ -18,7 +18,8 @@ class GeneradorID {
             int digito = rand() % 10;
             id = id * 10 + digito;
         }
+        return id;
     }
 };
 
-#endif  // GENERADOR_ID_H
+#endif //LEFT4DEAD_GENERADOR_ID_H

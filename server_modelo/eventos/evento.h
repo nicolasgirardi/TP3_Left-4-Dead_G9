@@ -1,5 +1,5 @@
-#ifndef EVENTO_H_
-#define EVENTO_H_
+#ifndef LEFT4DEAD_EVENTO_H_
+#define LEFT4DEAD_EVENTO_H_
 
 // Me incluyo las partidas asi puedo ejecutar los eventos
 #include "../personaje.h"
@@ -14,12 +14,12 @@ class Evento {
     // 3 = dejar de disparar
 
  protected:
-  int id_personaje;
+  int id_personaje{};
 
  public:
   virtual ~Evento();
-  void ejecutar(Personaje* personaje);
+  virtual void ejecutar(Personaje* personaje);
   int get_id_personaje();
 };
 
-#endif  // EVENTO_H_
+#endif  // LEFT4DEAD_EVENTO_H_

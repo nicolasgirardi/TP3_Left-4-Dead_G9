@@ -3,3 +3,9 @@
 int Evento::get_id_personaje() {
     return this->id_personaje;
 }
+
+void Evento::ejecutar(Personaje *personaje) {
+
+}
+
+Evento::~Evento() = default;

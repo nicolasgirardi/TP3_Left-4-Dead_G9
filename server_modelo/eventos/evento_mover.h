@@ -1,5 +1,5 @@
-#ifndef EVENTO_MOVER_H_
-#define EVENTO_MOVER_H_
+#ifndef LEFT4DEAD_EVENTO_MOVER_H_
+#define LEFT4DEAD_EVENTO_MOVER_H_
 
 #include "evento.h"
 
@@ -10,8 +10,8 @@ class EventoMover : public Evento {
 
     public:
         EventoMover(int id_personaje, int x, int y);
-        ~EventoMover();
-        void ejecutar(Personaje* personaje);
+        ~EventoMover() override;
+        void ejecutar(Personaje* personaje) override;
 };
 
-#endif // EVENTO_MOVER_H_
+#endif // LEFT4DEAD_EVENTO_MOVER_H_

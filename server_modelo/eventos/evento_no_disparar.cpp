@@ -4,7 +4,7 @@ EventoNoDisparar::EventoNoDisparar(int id_personaje) {
     this->id_personaje = id_personaje;
 }
 
-EventoNoDisparar::~EventoNoDisparar() {}
+EventoNoDisparar::~EventoNoDisparar() = default;
 
 void EventoNoDisparar::ejecutar(Personaje* personaje) {
     personaje->finalizar_disparo();

@@ -1,5 +1,5 @@
-#ifndef ARMA_H_
-#define ARMA_H_
+#ifndef LEFT4DEAD_ARMA_H
+#define LEFT4DEAD_ARMA_H
 
 // las armas tienen un tipo de arma, una cantidad de municiones y una velocidad de disparo
 // el tipo de arma es un entero que representa el tipo de arma
@@ -11,22 +11,27 @@
 
 class Arma {
  protected:
+  int danio = 10;
   int tipo_arma;
   int municion_maxima;
   int municion_actual;
   int velocidad_disparo;
   bool disparando;
+  int tiempo_disparo = 0;
 
  public:
   Arma();
   virtual ~Arma();
   int get_tipo_arma();
+  int get_danio();
   int get_municiones();
   int get_velocidad_disparo();
   int iniciar_disparo();
   int finalizar_disparo();
-  void disparar();
+  int disparar();
   int recargar();
   std::string get_estado();
 };
-#endif  // ARMA_H_
+
+
+#endif //LEFT4DEAD_ARMA_H

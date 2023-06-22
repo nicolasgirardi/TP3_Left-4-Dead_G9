@@ -1,20 +1,19 @@
 #include "partida.h"
 #include "juego.h"
 
-Partida::Partida(uint32_t id) : id(id), eventos(2000) {}
+Partida::Partida(int id, std::string nombre) : id(id), nombre(nombre) {}
 
-void Partida::addClient(int idCliente) {
-    Queue<Evento*>* queueSender = new Queue<Evento*>(2000);
-    clientesSender[idCliente] = queueSender;
+void Partida::addClient(Queue<std::string>* queue, int id) {
+    clientes[id] = queue;
 }
 
 void Partida::removeClient(int id) {
-    clientesSender.erase(id);
+    clientes.erase(id);
 }
 
 bool Partida::isFull() {
-    // Poner un mutex aca
-    return clientesSender.size() == maxClientes;
+    std::lock_guard<std::mutex> lock(m);
+    return clientes.size() == maxClientes;
 }
 
 bool Partida::addPersonaje(int id, int arma = 0) {
@@ -25,13 +24,12 @@ bool Partida::addPersonaje(int id, int arma = 0) {
 }
 
 void Partida::start() {
-    // Poner un mutex aca
     Juego juego;
-    juego.launch(this, &clientesSender, personajes);
+    juego.launch(&clientes, personajes, modo);
 }
 
 Partida::~Partida() {
-    for (auto& cliente : clientesSender) {
+    for (auto& cliente : clientes) {
         delete cliente.second;
     }
 }
@@ -47,12 +45,3 @@ std::string Partida::getEstado() {
 int Partida::getId() {
     return id;
 }
-
-Queue<Evento *> *Partida::getEventos() {
-    return &eventos;
-}
-
-uint32_t Partida::getCodigoPartida() {
-    return id;
-}
-
