@@ -5,6 +5,8 @@ enum Type_of_character {jumper, soldier1,soldier2,soldier3,spear,venom,witch,zom
 
 enum Type_of_AMB {alta,baja,modificacion};
 
+enum Type_of_map {war1_bright,war1_pale,war2_bright,war2_pale,war3_bright,war3_pale,war4_bright,war4_pale}
+
 namespace myenum{
 
 enum Type_of_action {attack,

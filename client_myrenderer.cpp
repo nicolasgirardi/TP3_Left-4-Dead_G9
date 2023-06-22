@@ -36,7 +36,7 @@
 using namespace SDL2pp;
 using namespace paths;
 
-MyRenderer::MyRenderer(int width, int height,int map,int ID,Queue<Message>* queue){
+MyRenderer::MyRenderer(int width, int height,Type_of_map map,int ID,Queue<Message>* queue){
     this->width = width;
     this->height = height;
     this->my_map = map;
@@ -109,16 +109,16 @@ void MyRenderer::run(){
     
 	Scenario* scenario;
     switch(my_map){
-        case(2):
-        case(3):
+        case(war2_bright):
+        case(war2_pale):
             scenario =new War2(width,height,textures,&renderer);
             break;
-        case(4):
-        case(5):
+        case(war3_bright):
+        case(war3_pale):
             scenario =new War3(width,height,textures,&renderer);
             break;
-        case(6):
-        case(7):
+        case(war4_bright):
+        case(war4_pale):
             scenario =new War4(width,height,textures,&renderer);
             break;
         default:
@@ -159,7 +159,7 @@ void MyRenderer::run(){
 }
 void MyRenderer::get_map_paths(std::vector<std::string>& textures){
     switch(my_map){
-        case(1):
+        case(war1_pale):
 	        textures.push_back(backgrounds_War1_Pale_sky);
 	        textures.push_back(backgrounds_War1_Pale_sun);
 	        textures.push_back(backgrounds_War1_Pale_ruins);
@@ -169,7 +169,7 @@ void MyRenderer::get_map_paths(std::vector<std::string>& textures){
 	        textures.push_back(backgrounds_War1_Pale_fence);
 	        textures.push_back(backgrounds_War1_Pale_road);
             break;
-        case(2):
+        case(war2_bright):
 	        textures.push_back(backgrounds_War2_Bright_sky);
 	        textures.push_back(backgrounds_War2_Bright_houses4);
 	        textures.push_back(backgrounds_War2_Bright_houses3);
@@ -178,7 +178,7 @@ void MyRenderer::get_map_paths(std::vector<std::string>& textures){
 	        textures.push_back(backgrounds_War2_Bright_wall);
 	        textures.push_back(backgrounds_War2_Bright_road);
             break;
-        case(3):
+        case(war2_pale):
 	        textures.push_back(backgrounds_War2_Pale_sky);
 	        textures.push_back(backgrounds_War2_Pale_houses4);
 	        textures.push_back(backgrounds_War2_Pale_houses3);
@@ -187,7 +187,7 @@ void MyRenderer::get_map_paths(std::vector<std::string>& textures){
 	        textures.push_back(backgrounds_War2_Pale_wall);
 	        textures.push_back(backgrounds_War2_Pale_road);
             break;
-        case(4):
+        case(war3_bright):
 	        textures.push_back(backgrounds_War3_Bright_sky_sun);
 	        textures.push_back(backgrounds_War3_Bright_houses3);
 	        textures.push_back(backgrounds_War3_Bright_houses2);
@@ -196,7 +196,7 @@ void MyRenderer::get_map_paths(std::vector<std::string>& textures){
 	        textures.push_back(backgrounds_War3_Bright_fence);
 	        textures.push_back(backgrounds_War3_Bright_road);
             break;
-        case(5):
+        case(war3_pale):
 	        textures.push_back(backgrounds_War3_Pale_sky_sun);
 	        textures.push_back(backgrounds_War3_Pale_houses3);
 	        textures.push_back(backgrounds_War3_Pale_houses2);
@@ -205,7 +205,7 @@ void MyRenderer::get_map_paths(std::vector<std::string>& textures){
 	        textures.push_back(backgrounds_War3_Pale_fence);
 	        textures.push_back(backgrounds_War3_Pale_road);
             break;
-        case(6):
+        case(war4_bright):
 	        textures.push_back(backgrounds_War4_Bright_sky);
 	        textures.push_back(backgrounds_War4_Bright_moon);
 	        textures.push_back(backgrounds_War4_Bright_houses4);
@@ -215,7 +215,7 @@ void MyRenderer::get_map_paths(std::vector<std::string>& textures){
 	        textures.push_back(backgrounds_War4_Bright_wall);
 	        textures.push_back(backgrounds_War4_Bright_road);
             break;
-        case(7):
+        case(war4_pale):
 	        textures.push_back(backgrounds_War4_Pale_sky);
 	        textures.push_back(backgrounds_War4_Pale_moon);
 	        textures.push_back(backgrounds_War4_Pale_houses4);

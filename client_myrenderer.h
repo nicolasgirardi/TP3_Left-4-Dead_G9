@@ -18,6 +18,7 @@
 #include "common_queue.h"
 #include "client_message.h"
 #include "client_textureholder.h"
+#include "client_myenum.h"
 #include <memory>
 
 
@@ -26,7 +27,7 @@ class MyRenderer: public Thread {
     private:
     int width;
     int height;
-    int my_map;
+    Type_of_map my_map;
     int my_id;
     uint32_t frame;
     Queue<Message>* my_queue;
