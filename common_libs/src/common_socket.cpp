@@ -360,12 +360,12 @@ Socket::Socket(int skt) {
 
 Socket Socket::accept() {
     /*
-     * `accept` nos bloqueara hasta que algún cliente se conecte a nosotros
+     * `accept` nos bloqueara hasta que algún client se conecte a nosotros
      * y la conexión se establezca.
      *
      * Una vez que eso suceda, `accept` retornara el file descriptor
      * de un *nuevo* socket (`peer_skt`) que representara a la
-     * conexión establecida con *ese* cliente.
+     * conexión establecida con *ese* client.
      *
      * En todo momento podemos seguir usando *nuestro* file descriptor
      * (`this->skt`) para seguir haciendo más llamadas a `accept`
@@ -377,7 +377,7 @@ Socket Socket::accept() {
 
     /*
      * `peer_skt` es un file descriptor crudo y no queremos
-     * que nuestro cliente manipule recursos crudos sino que
+     * que nuestro client manipule recursos crudos sino que
      * los use a través de un TDA.
      *
      * Por eso creamos un `Socket` y lo pasamos por movimiento

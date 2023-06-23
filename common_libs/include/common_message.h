@@ -3,7 +3,7 @@
 
 
 #include <string>
-#include "../../cliente/include/client_myenum.h"
+#include "../../client/include/client_myenum.h"
 
 class Message {
  private:

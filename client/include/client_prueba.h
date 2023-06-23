@@ -1,5 +1,5 @@
-#ifndef CLIENTE_PRUEBA_H
-#define CLIENTE_PRUEBA_H
+#ifndef CLIENT_PRUEBA_H
+#define CLIENT_PRUEBA_H
 
 #include <iostream>
 
@@ -9,4 +9,4 @@ class Prueba {
     ~Prueba() = default;
 };
 
-#endif // CLIENTE_PRUEBA_H
+#endif // CLIENT_PRUEBA_H

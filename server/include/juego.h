@@ -18,7 +18,7 @@
 #include <list>
 
 #include "../../common_libs/include/common_thread.h"
-// El cliente va a tener una queue para recibir y una para mandar
+// El client va a tener una queue para recibir y una para mandar
 #include "../../common_libs/include/common_queue.h"
 #include "eventos/evento.h"
 #include "eventos/creador_eventos.h"
