@@ -1,5 +1,9 @@
 #include "../include/personaje.h"
 
+#define largo 400
+#define ancho 800
+#define velocidad_disparo 10
+
 Personaje::Personaje(int id, int arma): id(id) {
     this->x = 0;
     this->y = 0;
@@ -27,7 +31,7 @@ int Personaje::modificar_velocidad(int x, int y) {
   return 0;
 }
 
-std::vector<int> Personaje::mover(int largo, int ancho) {
+std::vector<int> Personaje::mover() {
     int x = this->x + this->velocidad_x;
     int y = this->y + this->velocidad_y;
     if (x > 0 && x < largo) {
@@ -42,6 +46,24 @@ std::vector<int> Personaje::mover(int largo, int ancho) {
     }
     std::vector<int> pos = {this->x, this->y};
     return pos;
+}
+
+int Personaje::disparar() {
+  // Como va a estar en el estado disparando por 60 frames por segundo
+  if (this->disparando) {
+    this->tiempo_disparo += 1;
+    if (this->tiempo_disparo == velocidad_disparo) {
+      if(this->arma->disparar()) {
+        this->tiempo_disparo = 0;
+        this->disparo = 1;
+      } else {
+        this->disparo = 0;
+      }
+    }
+  } else {
+    this->tiempo_disparo = 0;
+    this->disparo = 0;
+  }
 }
 
 int Personaje::recargar() {
@@ -89,11 +111,16 @@ int Personaje::get_tipo_arma() {
 }
 
 int Personaje::get_disparando() {
-  return this->disparando;
+  return this->disparo;
 }
 
 int Personaje::get_danio() {
   return this->arma->get_danio();
+}
+
+std::vector<int> Personaje::get_posicion() {
+  std::vector<int> pos = {this->x, this->y};
+  return pos;
 }
 
 int Personaje::get_estado_movimiento() {
