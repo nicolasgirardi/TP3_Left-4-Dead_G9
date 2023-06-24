@@ -140,6 +140,9 @@ void MyRenderer::run(){
 			calculate_center(center);
 			int num_center = center.center_value();
 			renderer.Clear();
+			std::sort(all_characters.begin(),all_characters.end(),[](Character* a,Character* b){
+				return a->get_vertical() < b->get_vertical();
+			});
 			my_scenario.get()->copy(num_center,&renderer);
 			copy_characters(num_center,&renderer);
 			renderer.Present();
