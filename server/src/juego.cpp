@@ -17,7 +17,6 @@ void Juego::launch(std::map<int, Queue<std::string>*>* clientes, std::list<Perso
 void Juego::run() {
     // Creo el generador de zombies
     GeneradorZombies generador_zombies(cantidad_zombies, &zombies, &witches, &personajes, MAX_X, MAX_Y, modo);
-    generador_zombies.start();
     while (keep_running) {
         // Me fijo de ejecutar eventos
         // Le mando a todos los clientes el estado del juego
@@ -58,7 +57,7 @@ void Juego::run() {
         for (auto it = personajes.begin(); it != personajes.end(); ++it) {
             Personaje* personaje = *it;
             if (personaje->get_disparando()) {
-                std::vector<int> posicion = personaje->mover(0, 0);
+                std::vector<int> posicion = personaje->get_posicion();
                 for (auto it2 = zombies.begin(); it2 != zombies.end(); ++it2) {
                     Zombie* zombie = *it2;
                     int x_zombie = zombie->get_x();
@@ -84,6 +83,9 @@ void Juego::run() {
         } else {
             generador_zombies.desapurar();
         }
+
+        // Genero zombies
+        generador_zombies.generar_zombie();
 
         // Mando el estado del juego a todos los clientes
         std::string estado = "";
@@ -111,8 +113,6 @@ void Juego::run() {
             elapsed_seconds = end_time - start_time;
         }
     }
-    generador_zombies.stop();
-    generador_zombies.join();
 }
 
 void Juego::stop() {
