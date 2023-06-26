@@ -110,7 +110,7 @@ int Personaje::get_tipo_arma() {
   return this->arma->get_tipo_arma();
 }
 
-int Personaje::get_disparando() {
+bool Personaje::get_disparando() {
   return this->disparo;
 }
 
