@@ -32,12 +32,12 @@ int Personaje::modificar_velocidad(int x, int y) {
 }
 
 std::vector<int> Personaje::mover() {
-    int x = this->x + this->velocidad_x;
+    this->x = this->x + this->velocidad_x;
     int y = this->y + this->velocidad_y;
-    if (x > 0 && x < largo) {
-        this->x = x;
-    } else {
-        this->velocidad_x = 0;
+    if (this->x < 0) {
+        this->x = largo-1;
+    } else if (this->x > largo) {
+        this->x = 0;
     }
     if (y > 0 && y < ancho) {
         this->y = y;
