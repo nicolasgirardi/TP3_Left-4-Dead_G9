@@ -1,6 +1,6 @@
 #include "../include/juego.h"
 
-#define PIXELES_PARA_HIT 10
+#define MARGEN_PARA_HIT 10
 
 Juego::Juego() : ejecutar(MAX_EVENTOS) {
     this->running = true;
@@ -53,7 +53,7 @@ void Juego::run() {
             }
         }
 
-        // Veo si los personajes le dispararon a algun zombie o PIXELES_PARA_HIT pixeles alrededor
+        // Veo si los personajes le dispararon a algun zombie o MARGEN_PARA_HIT pixeles alrededor
         for (auto it = personajes.begin(); it != personajes.end(); ++it) {
             Personaje* personaje = *it;
             if (personaje->get_disparando()) {
@@ -62,8 +62,8 @@ void Juego::run() {
                     Zombie* zombie = *it2;
                     int x_zombie = zombie->get_x();
                     int y_zombie = zombie->get_y();
-                    if (x_zombie >= posicion[0] - PIXELES_PARA_HIT && x_zombie <= posicion[0] + PIXELES_PARA_HIT &&
-                        y_zombie >= posicion[1] - PIXELES_PARA_HIT && y_zombie <= posicion[1] + PIXELES_PARA_HIT) {
+                    if (x_zombie >= posicion[0] - MARGEN_PARA_HIT && x_zombie <= posicion[0] + MARGEN_PARA_HIT &&
+                        y_zombie >= posicion[1] - MARGEN_PARA_HIT && y_zombie <= posicion[1] + MARGEN_PARA_HIT) {
                         zombie->recibir_danio(personaje->get_danio());
                     }
                 }

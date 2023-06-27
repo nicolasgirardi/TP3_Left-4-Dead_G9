@@ -73,6 +73,8 @@ uint32_t ClienteHandler::joinPartida(uint32_t codigoPartida) {
     if (partida == nullptr) {
         return PARTIDA_INVALIDA;
     } else {
+        if (partida->isFull())
+            return PARTIDA_INVALIDA;
         partida->addClient(&mensajes, id);
         if (partida->isFull()) {
             partida->start();
