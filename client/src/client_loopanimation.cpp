@@ -9,7 +9,7 @@
 #include <SDL2pp/AudioSpec.hh>
 #include <SDL2pp/Wav.hh>
 #include <SDL2pp/SDL2pp.hh>
-#include "../include/client_animation.h"
+#include "../../common_libs/include/common_animation.h"
 #include "../include/client_loopanimation.h"
 
 LoopAnimation::LoopAnimation(uint32_t frame,SDL2pp::Texture* texture,uint32_t time_between_frames,uint32_t number_of_frames,uint size){

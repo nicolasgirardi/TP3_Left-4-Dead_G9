@@ -12,7 +12,7 @@
 #include <SDL2pp/AudioSpec.hh>
 #include <SDL2pp/Wav.hh>
 #include <SDL2pp/SDL2pp.hh>
-#include "client_animation.h"
+#include "../../common_libs/include/common_animation.h"
 
 class NoLoopAnimation: public Animation{
     private:

@@ -1,7 +1,7 @@
 #ifndef ESTADO_JUGADOR_H_
 #define ESTADO_JUGADOR_H_
 
-#include "personaje.h"
+#include "../../common_libs/include/common_personaje.h"
 
 class EstadoJugador {
     private:

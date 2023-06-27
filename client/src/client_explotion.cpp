@@ -9,13 +9,13 @@
 #include <SDL2pp/AudioSpec.hh>
 #include <SDL2pp/Wav.hh>
 #include <SDL2pp/SDL2pp.hh>
-#include "../include/client_character.h"
-#include "../include/client_animation.h"
+#include "../../common_libs/include/common_character.h"
+#include "../../common_libs/include/common_animation.h"
 #include "../include/client_loopanimation.h"
 #include "../include/client_singleanimation.h"
 #include "../include/client_explotion.h"
-#include "../include/client_center.h"
-#include "../include/client_myenum.h"
+#include "../../common_libs/include/common_center.h"
+#include "../../common_libs/include/common_myenum.h"
 
 Explotion::Explotion(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID):
     idle(frame,texture[0],1,1,128),

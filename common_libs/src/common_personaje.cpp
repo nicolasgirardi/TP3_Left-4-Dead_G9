@@ -1,4 +1,4 @@
-#include "../include/personaje.h"
+#include "../include/common_personaje.h"
 
 Personaje::Personaje(int id, int arma): id(id) {
     this->x = 0;

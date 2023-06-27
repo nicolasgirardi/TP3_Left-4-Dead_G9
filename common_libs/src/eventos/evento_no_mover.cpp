@@ -1,5 +1,5 @@
 #include "../../include/eventos/evento_no_mover.h"
-#include "../../include/partida.h"
+#include "../../../server/include/partida.h"
 
 EventoNoMover::EventoNoMover(int id_personaje) {
     this->id_personaje = id_personaje;

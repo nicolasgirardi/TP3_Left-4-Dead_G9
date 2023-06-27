@@ -9,14 +9,14 @@
 #include <SDL2pp/AudioSpec.hh>
 #include <SDL2pp/Wav.hh>
 #include <SDL2pp/SDL2pp.hh>
-#include "../include/client_character.h"
-#include "../include/client_animation.h"
+#include "../../common_libs/include/common_character.h"
+#include "../../common_libs/include/common_animation.h"
 #include "../include/client_loopanimation.h"
 #include "../include/client_singleanimation.h"
 #include "../include/client_noloopanimation.h"
 #include "../include/client_witch.h"
-#include "../include/client_center.h"
-#include "../include/client_myenum.h"
+#include "../../common_libs/include/common_center.h"
+#include "../../common_libs/include/common_myenum.h"
 
 Witch::Witch(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID):
     attack_1(frame,texture[0],3,4,96),

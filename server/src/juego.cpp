@@ -2,28 +2,13 @@
 
 #define PIXELES_PARA_HIT 10
 
-Juego::Juego() : ejecutar(MAX_EVENTOS) {
-    this->running = true;
-    this->keep_running = true;
-}
-
-void Juego::launch(std::map<int, Queue<std::string>*>* clientes, std::list<Personaje*> personajes, int modo) {
-    this->clientes = clientes;
-    this->personajes = personajes;
-    this->modo = modo;
-    start();
-}
+Juego::Juego(std::map<int, Queue<std::string>&>& clientes, std::list<Personaje>& personajes, int modo,
+             Queue<Evento*>* queueJuego) : ejecutar(queueJuego), clientes(clientes), personajes(personajes), keep_running(true), kpPartida(true) {}
 
 void Juego::run() {
-    // Creo el generador de zombies
-    GeneradorZombies generador_zombies(cantidad_zombies, &zombies, &witches, &personajes, MAX_X, MAX_Y, modo);
-    generador_zombies.start();
-    while (keep_running) {
-        // Me fijo de ejecutar eventos
-        // Le mando a todos los clientes el estado del juego
-        // Espero para poder mandarlo más o menos cada 1/60 segundos
+    while (kpPartida) {
         Evento* evento;
-        while (ejecutar.try_pop(evento)) {
+        while (ejecutar->try_pop(evento)) {
             int id = evento->get_id_personaje();
             Personaje* personaje = getPersonaje(id);
             evento->ejecutar(personaje);
@@ -42,12 +27,11 @@ void Juego::run() {
         for (auto it = zombies.begin(); it != zombies.end(); ++it) {
             Zombie* zombie = *it;
             for (auto it2 = personajes.begin(); it2 != personajes.end(); ++it2) {
-                Personaje* personaje = *it2;
-                if (zombie->choco_con_personaje(personaje)) {
+                if (zombie->choco_con_personaje(*it2)) {
                     // Si chocaron, le saco vida al personaje
-                    personaje->recibir_danio(zombie->get_danio());
+                    it2->recibir_danio(zombie->get_danio());
                     // Si el personaje se quedo sin vida, lo saco del juego
-                    if (personaje->get_vida() <= 0) {
+                    if (it2->get_vida() <= 0) {
                         personajes.erase(it2);
                     }
                 }
@@ -56,16 +40,15 @@ void Juego::run() {
 
         // Veo si los personajes le dispararon a algun zombie o PIXELES_PARA_HIT pixeles alrededor
         for (auto it = personajes.begin(); it != personajes.end(); ++it) {
-            Personaje* personaje = *it;
-            if (personaje->get_disparando()) {
-                std::vector<int> posicion = personaje->mover(0, 0);
+            if (it->get_disparando()) {
+                std::vector<int> posicion = it->mover(0, 0);
                 for (auto it2 = zombies.begin(); it2 != zombies.end(); ++it2) {
                     Zombie* zombie = *it2;
                     int x_zombie = zombie->get_x();
                     int y_zombie = zombie->get_y();
                     if (x_zombie >= posicion[0] - PIXELES_PARA_HIT && x_zombie <= posicion[0] + PIXELES_PARA_HIT &&
                         y_zombie >= posicion[1] - PIXELES_PARA_HIT && y_zombie <= posicion[1] + PIXELES_PARA_HIT) {
-                        zombie->recibir_danio(personaje->get_danio());
+                        zombie->recibir_danio(it->get_danio());
                     }
                 }
             }
@@ -78,25 +61,25 @@ void Juego::run() {
         }
 
         // Veo si hay witches vivas
-        if (witches.size() > 0) {
-            if (generador_zombies.isApurado())
-                generador_zombies.apurar();
-        } else {
-            generador_zombies.desapurar();
-        }
+        //if (witches.size() > 0) {
+            //if (generador_zombies.isApurado())
+          //  generador_zombies.apurar();
+       // } else {
+        //    generador_zombies.desapurar();
+      //  }
 
         // Mando el estado del juego a todos los clientes
         std::string estado = "";
         for (auto it = personajes.begin(); it != personajes.end(); ++it) {
-            EstadoJugador estado_jugador(*it);
+            EstadoJugador estado_jugador(it.operator->());
             estado += estado_jugador.serializar();
         }
         for (auto it = zombies.begin(); it != zombies.end(); ++it) {
             EstadoZombie estado_zombie(*it);
             estado += estado_zombie.serializar();
         }
-        for (auto& cliente : *clientes) {
-            cliente.second->push(estado);
+        for (auto& cliente : clientes) {
+            cliente.second.push(estado);
         }
 
         // Simulo el paso del tiempo
@@ -111,12 +94,12 @@ void Juego::run() {
             elapsed_seconds = end_time - start_time;
         }
     }
-    generador_zombies.stop();
-    generador_zombies.join();
+    //generador_zombies.stop();
+    //generador_zombies.join();
 }
 
 void Juego::stop() {
-    keep_running = false;
+    kpPartida.store(false);
 }
 
 Juego::~Juego() {
@@ -124,14 +107,22 @@ Juego::~Juego() {
 }
 
 Queue<Evento*>* Juego::getQueue() {
-    return &ejecutar;
+    return ejecutar;
 }
 
 Personaje* Juego::getPersonaje(int id) {
-    for (auto& personaje : personajes) {
+    for (auto it = personajes.begin(); it != personajes.end(); ++it) {
+        Personaje* personaje = &(*it);
         if (personaje->get_id() == id) {
             return personaje;
         }
     }
     return nullptr;
 }
+
+bool Juego::gameRunning() {
+    std::lock_guard<std::mutex> lock(m);
+    //return isRunning.load();
+    return true;
+}
+

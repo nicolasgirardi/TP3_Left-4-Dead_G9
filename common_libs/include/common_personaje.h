@@ -2,8 +2,8 @@
 #define PERSONAJE_H
 
 
-#include "armas/arma.h"
-#include "armas/creador_armas.h"
+#include "./armas/arma.h"
+#include "./armas/creador_armas.h"
 
 #include <vector>
 #include <string>

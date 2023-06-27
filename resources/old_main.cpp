@@ -30,8 +30,8 @@
 #include <SDL2pp/AudioSpec.hh>
 #include <SDL2pp/Wav.hh>
 #include <SDL2pp/SDL2pp.hh>
-#include "client_scenario.h"
-#include "client_war1.h"
+#include "../../common_libs/include/common_character.h"
+#include "../include/client_war1.h"
 #include "client_character.h"
 #include "client_soldier1.h"
 #include "client_textureholder.h"

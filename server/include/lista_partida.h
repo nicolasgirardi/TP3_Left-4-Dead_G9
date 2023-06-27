@@ -9,19 +9,21 @@
 class ListaPartidas {
 private:
     std::mutex m;
-    std::map<int, Partida*> partidas;
+    std::map<int, Partida> partidas;
 
 public:
     ListaPartidas();
-    Partida* addPartida(std::string nombre, int modo);
-    int addClient(Queue<std::string>* queue, int id);
+    int addPartida(std::string nombre, int modo);
+    //int addClient(Queue<std::string>* queue, int id, Personaje personaje);
     void removeClient(int id);
     bool addPersonaje(int id, int arma);
     ~ListaPartidas();
 
-    Partida *getPartida(uint32_t codigoPartida);
+    Partida& getPartida(uint32_t codigoPartida);
 
-    std::map<int, Partida*> getPartidas();
+    std::map<int, Partida>& getPartidas();
+
+    void iniciarPartida(uint32_t codigoPartida);
 };
 
 

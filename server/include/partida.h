@@ -2,36 +2,44 @@
 #define PARTIDA_H
 
 #include <string>
+#include <atomic>
 #include "../../common_libs/include/common_queue.h"
 #include "../../common_libs/include/common_socket.h"
-
-#include "eventos/evento.h"
-#include "./personaje.h"
+#include "../../common_libs/include/eventos/evento.h"
+#include "../../common_libs/include/common_personaje.h"
 #include "./juego.h"
-#include "./personaje.h"
+#include "../../common_libs/include/common_personaje.h"
 #include "./generador_id.h"
 
-#define MAX_CLIENTES 3
+#define MAX_CLIENTES 2
 
 class Partida {
  private:
-    std::map<int, Queue<std::string>*> clientes;
+    std::map<int, Queue<std::string>&> clientes;
     int id;
     int modo;
     std::string nombre;
     int maxClientes = MAX_CLIENTES;
-    std::list<Personaje*> personajes;
+    std::list<Personaje> personajes;
+    std::atomic<bool> isRunning;
+    Queue<Evento*>* queueJuego;
     std::mutex m;
 
  public:
     Partida(int id, std::string nombre);
-    void addClient(Queue<std::string>* queue, int id);
+    void addClient(Queue<std::string>& mensajes, int id, Personaje& personaje);
     bool addPersonaje(int id, int arma);
     void removeClient(int id);
     bool isFull();
-    void start();
+    std::map<int, Queue<std::string>&>& getClientes();
+    std::list<Personaje>& getPersonajes();
     std::string getEstado();
     int getId();
+    int getModo();
+    std::atomic<bool> &getRunning();
+    Queue<Evento*>* getQueueJuego();
+
+    Partida(Partida&& other);
     ~Partida();
 };
 

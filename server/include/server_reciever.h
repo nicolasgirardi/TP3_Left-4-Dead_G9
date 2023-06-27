@@ -4,29 +4,33 @@
 #include "../../common_libs/include/common_thread.h"
 #include "../../common_libs/include/common_queue.h"
 #include "../../common_libs/include/common_socket.h"
-
-#include "eventos/evento.h"
-#include "eventos/creador_eventos.h"
-
-#include "server_protocolo.h"
+#include "../../common_libs/include/eventos/evento.h"
+#include "../../common_libs/include/eventos/creador_eventos.h"
+#include "../../common_libs/include/common_protocolo.h"
 
 class Reciever : public Thread {
 private:
     bool running;
     bool keep_running;
     int id;
-    Queue<Evento*>* queue;
-    Protocolo* protocolo;
+    Queue<Evento*>* queueJuego;
+    Protocolo& protocolo;
 
 public:
     Reciever& operator=(Reciever&);
-    explicit Reciever(Socket* socket, Queue<Evento*>* queue, int id);
+    explicit Reciever(Protocolo& protocolo, Queue<Evento*>* queueJuego, int id);
     Reciever();
     ~Reciever() override;
     bool is_running();
     void run() override;
     void stop();
-    Reciever& operator=(const Reciever&);
+    //copy delete
+    //move delete
+    //copy assignment delete
+    //move assignment delete
+    Reciever (const Reciever&) = delete;
+    Reciever (Reciever&&) = delete;
+    Reciever& operator=(const Reciever&) = delete;
 };
 
 

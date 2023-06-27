@@ -11,14 +11,14 @@
 #include <SDL2pp/SDL2pp.hh>
 #include "client_scenario.h"
 #include "client_war1.h"
-#include "client_character.h"
+#include "../../common_libs/include/common_character.h"
 #include "client_soldier1.h"
-#include "client_center.h"
+#include "../../common_libs/include/common_center.h"
 #include "../../common_libs/include/common_thread.h"
 #include "../../common_libs/include/common_queue.h"
-#include "client_message.h"
+#include "../../common_libs/include/common_message.h"
 #include "client_textureholder.h"
-#include "client_myenum.h"
+#include "../../common_libs/include/common_myenum.h"
 #include <memory>
 
 

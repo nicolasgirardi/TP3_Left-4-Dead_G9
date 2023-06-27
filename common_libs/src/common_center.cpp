@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/client_center.h"
+#include "../include/common_center.h"
 
 Center::Center(){
     sum = 0;

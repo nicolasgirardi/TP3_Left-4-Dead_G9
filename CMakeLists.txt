@@ -21,6 +21,7 @@ add_subdirectory(SDL2pp)
 add_library(libcommon STATIC ${COMMON_SRCS})
 add_library(libserver STATIC ${SERVER_SRCS})
 add_library(libclient STATIC ${CLIENT_SRCS})
+target_link_libraries(libcommon SDL2pp)
 TARGET_LINK_LIBRARIES(libserver libcommon)
 target_link_libraries(libclient libcommon SDL2pp)
 

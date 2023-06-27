@@ -5,7 +5,7 @@
 #include <map>
 #include <list>
 #include "../../common_libs/include/common_thread.h"
-#include "eventos/evento.h"
+#include "../../common_libs/include/eventos/evento.h"
 #include "../../common_libs/include/common_queue.h"
 #include "partida.h"
 
@@ -16,14 +16,13 @@
 // 1 = modo supervivencia
 
 #include <list>
-
+#include <atomic>
 #include "../../common_libs/include/common_thread.h"
-// El client va a tener una queue para recibir y una para mandar
 #include "../../common_libs/include/common_queue.h"
-#include "eventos/evento.h"
-#include "eventos/creador_eventos.h"
+#include "../../common_libs/include/eventos/evento.h"
+#include "../../common_libs/include/eventos/creador_eventos.h"
 #include "./partida.h"
-#include "./personaje.h"
+#include "../../common_libs/include/common_personaje.h"
 #include "zombies/zombie.h"
 #include "zombies/witch.h"
 #include "zombies/generador_zombies.h"
@@ -37,25 +36,28 @@
 // La partida va a levantar a un juego
 class Juego : public Thread {
 private:
-    bool running;
     bool keep_running;
+    std::atomic<bool> kpPartida;
     int modo;
     int cantidad_zombies = 10;
-    Queue<Evento*> ejecutar;
-    std::map<int, Queue<std::string>*>* clientes;
-    std::list<Personaje*> personajes;
+    Queue<Evento*>* ejecutar;
+    std::map<int, Queue<std::string>&>& clientes;
+    std::list<Personaje>& personajes;
     std::list<Zombie*> zombies;
     std::list<Witch*> witches;
+    std::mutex m;
 
 public:
-    Juego();
+    //Juego(Partida& partida);
+    Juego(std::map<int, Queue<std::string>&>& clientes, std::list<Personaje>& personajes, int modo,
+          Queue<Evento*>* queueJuego);
     ~Juego();
     Queue<Evento*>* getQueue();
     Personaje* getPersonaje(int id);
     std::list<Personaje*> getPersonajes();
-    void launch(std::map<int, Queue<std::string>*>* clientes, std::list<Personaje*> personajes, int modo);
     void run() override;
     void stop();
+    bool gameRunning();
 };
 
 #endif // JUEGO_H

@@ -2,7 +2,7 @@
 #define EVENTO_H_
 
 // Me incluyo las partidas asi puedo ejecutar los eventos
-#include "../personaje.h"
+#include "../common_personaje.h"
 
 class Evento {
     // Esta clase va a ser va a temer de hijo a todos los eventos

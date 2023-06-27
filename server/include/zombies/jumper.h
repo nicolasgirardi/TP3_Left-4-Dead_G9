@@ -2,7 +2,7 @@
 #define JUMPER_H_
 
 #include <list>
-#include "../personaje.h"
+#include "../../../common_libs/include/common_personaje.h"
 
 class Jumper {
     private:

@@ -7,11 +7,11 @@
 
 #include <SDL.h>
 
-#include <SDL2pp/SDL.hh>
-#include <SDL2pp/AudioDevice.hh>
-#include <SDL2pp/AudioSpec.hh>
-#include <SDL2pp/Wav.hh>
-#include <SDL2pp/SDL2pp.hh>
+#include "SDL2pp/SDL.hh"
+#include "SDL2pp/AudioDevice.hh"
+#include "SDL2pp/AudioSpec.hh"
+#include "SDL2pp/Wav.hh"
+#include "SDL2pp/SDL2pp.hh"
 
 class Animation{
     protected:

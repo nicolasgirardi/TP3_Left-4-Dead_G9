@@ -12,12 +12,12 @@
 #include <SDL2pp/AudioSpec.hh>
 #include <SDL2pp/Wav.hh>
 #include <SDL2pp/SDL2pp.hh>
-#include "client_character.h"
-#include "client_animation.h"
+#include "../../common_libs/include/common_character.h"
+#include "../../common_libs/include/common_animation.h"
 #include "client_loopanimation.h"
 #include "client_singleanimation.h"
-#include "client_center.h"
-#include "client_myenum.h"
+#include "../../common_libs/include/common_center.h"
+#include "../../common_libs/include/common_myenum.h"
 
 
 class Zombie: public Character {

@@ -12,7 +12,7 @@
 #include "../include/client_war2.h"
 #include "../include/client_war3.h"
 #include "../include/client_war4.h"
-#include "../include/client_character.h"
+#include "../../common_libs/include/common_character.h"
 #include "../include/client_soldier1.h"
 #include "../include/client_soldier2.h"
 #include "../include/client_soldier3.h"
@@ -23,15 +23,15 @@
 #include "../include/client_zombie.h"
 #include "../include/client_explotion.h"
 #include "../include/client_smoke.h"
-#include "../include/client_center.h"
+#include "../../common_libs/include/common_center.h"
 #include "../include/client_myrenderer.h"
 #include "../include/client_textureholder.h"
 #include "../include/client_constants.h"
 #include <memory>
 #include <fstream>
 #include "../../common_libs/include/common_queue.h"
-#include "../include/client_message.h"
-#include "../include/client_myenum.h"
+#include "../../common_libs/include/common_message.h"
+#include "../../common_libs/include/common_myenum.h"
 
 using namespace SDL2pp;
 using namespace paths;

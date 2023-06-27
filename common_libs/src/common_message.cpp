@@ -1,17 +1,18 @@
 #include "../include/common_message.h"
 
-Message::Message(int id,myenum::Type_of_action action,int pos_x,int pos_y,Type_of_character type,Type_of_AMB ABM){
+Message::Message(int id, myenum::Type_of_action action, int pos_x, int pos_y, Type_of_character type, Type_of_AMB ABM,
+                 uint32_t ammo, uint32_t hp){
     this->id = id;
     this->action = action;
     this->pos_x = pos_x;
     this->pos_y = pos_y;
     this->type = type;
     this->ABM = ABM;
+    this->ammo = ammo;
+    this->hp = hp;
 }
 
-Message::Message() {
-
-}
+Message::Message() = default;
 
 int Message::get_id(){
     return id;
@@ -19,10 +20,12 @@ int Message::get_id(){
 myenum::Type_of_action Message::get_action(){
     return action;
 }
-/*void Message::update(Character* character,uint32_t& frame){
+void Message::update(Character* character,uint32_t& frame){
     character->change_action(action,frame);
     character->set_position(pos_x,pos_y);
-}*/
+    character->set_ammo(ammo);
+    character->set_hp(hp);
+}
 Type_of_AMB Message::get_amb(){
     return ABM;
 }
@@ -54,30 +57,10 @@ Message& Message::operator=(const Message& other){
     this->type = other.type;
     return *this;
 }
-
-void Message::ParseFromString(std::string &estadoJuego) {
-    std::string delimiter = ",";
-    std::string token = estadoJuego.substr(0, estadoJuego.find(delimiter));
-    this->id = std::stoi(token);
-    estadoJuego.erase(0, estadoJuego.find(delimiter) + delimiter.length());
-
-    token = estadoJuego.substr(0, estadoJuego.find(delimiter));
-    this->action = (myenum::Type_of_action) std::stoi(token);
-    estadoJuego.erase(0, estadoJuego.find(delimiter) + delimiter.length());
-
-    token = estadoJuego.substr(0, estadoJuego.find(delimiter));
-    this->pos_x = std::stoi(token);
-    estadoJuego.erase(0, estadoJuego.find(delimiter) + delimiter.length());
-
-    token = estadoJuego.substr(0, estadoJuego.find(delimiter));
-    this->pos_y = std::stoi(token);
-    estadoJuego.erase(0, estadoJuego.find(delimiter) + delimiter.length());
-
-    token = estadoJuego.substr(0, estadoJuego.find(delimiter));
-    this->type = (Type_of_character) std::stoi(token);
-    estadoJuego.erase(0, estadoJuego.find(delimiter) + delimiter.length());
-
-    token = estadoJuego.substr(0, estadoJuego.find(delimiter));
-    this->ABM = (Type_of_AMB) std::stoi(token);
-    estadoJuego.erase(0, estadoJuego.find(delimiter) + delimiter.length());
+uint32_t Message::get_ammo(){
+    return ammo;
 }
+uint32_t Message::get_hp(){
+    return hp;
+}
+

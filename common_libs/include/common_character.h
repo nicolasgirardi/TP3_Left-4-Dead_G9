@@ -7,14 +7,14 @@
 
 #include <SDL.h>
 
-#include <SDL2pp/SDL.hh>
-#include <SDL2pp/AudioDevice.hh>
-#include <SDL2pp/AudioSpec.hh>
-#include <SDL2pp/Wav.hh>
-#include <SDL2pp/SDL2pp.hh>
-#include "client_animation.h"
-#include "client_center.h"
-#include "client_myenum.h"
+#include "SDL2pp/SDL.hh"
+#include "SDL2pp/AudioDevice.hh"
+#include "SDL2pp/AudioSpec.hh"
+#include "SDL2pp/Wav.hh"
+#include "SDL2pp/SDL2pp.hh"
+#include "common_animation.h"
+#include "common_center.h"
+#include "common_myenum.h"
 
 class Character{
     protected:

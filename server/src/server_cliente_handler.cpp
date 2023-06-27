@@ -1,9 +1,8 @@
 #include "../include/server_cliente_handler.h"
 
 ClienteHandler::ClienteHandler(Socket socket, ListaPartidas* partidas, int id) :
-        socket(std::move(socket)), partidas(partidas), running(true), keep_running(true), id(id), mensajes(20), eventos(20)
-        ,protocolo(&this->socket, &eventos, id) {
-}
+        protocolo(std::move(socket)), partidas(partidas), running(true), keep_running(true), id(id),
+        mensajes(20), esDuenio(false), juego(nullptr) {}
 
 ClienteHandler::~ClienteHandler() {}
 
@@ -11,23 +10,32 @@ bool ClienteHandler::is_running() {
     return running;
 }
 
-void ClienteHandler::start() {
-    run();
-}
-
 void ClienteHandler::run() {
-    uint32_t codigoPartida = PARTIDA_INVALIDA;
-    while (codigoPartida == PARTIDA_INVALIDA) {
+    uint32_t codigoPartida = CODIGO_INVALIDO;
+    while (codigoPartida == CODIGO_INVALIDO) {
         codigoPartida = iniciar_partida();
         protocolo.enviar_codigo_partida(codigoPartida);
     }
-    create_reciever(&eventos);
-    std::string mensaje = "2,1,0,0,1,0";
-    protocolo.enviar_estado_juego(mensaje);
-    while(keep_running) {
+    Partida& partida = partidas->getPartida(codigoPartida);
+    Reciever reciever(std::ref(protocolo), partida.getQueueJuego(), idPersonajeElegido);
+    reciever.start();
+    if (esDuenio) {
+        while (!partida.isFull()){}
+        juego = new Juego(partida.getClientes(), partida.getPersonajes(), partida.getModo(),
+                          partida.getQueueJuego());
+        juego->start();
+    }
+    while(partida.getRunning()) {
         std::string msg = mensajes.pop();
         protocolo.enviar_estado_juego(msg);
     }
+    if (juego != nullptr) {
+        protocolo.enviar_estado_juego("FIN");
+        juego->stop();
+        juego->join();
+        delete juego;
+    }
+    reciever.join();
     running = false;
 }
 
@@ -35,13 +43,12 @@ uint32_t ClienteHandler::iniciar_partida() {
     uint32_t codigoPartida;
     std::string inicio_partida = protocolo.recibir_inicio_partida();
     if (inicio_partida == CREAR) {
-        std::string nombrePartida = protocolo.recibir_nombre();
-        codigoPartida = crearPartida(nombrePartida);
+        codigoPartida = crearPartida();
     } else if (inicio_partida == JOIN) {
         codigoPartida = protocolo.recibir_codigo_partida();
         joinPartida(codigoPartida);
     } else {
-        return PARTIDA_INVALIDA;
+        return CODIGO_INVALIDO;
     }
     return codigoPartida;
 }
@@ -49,31 +56,34 @@ uint32_t ClienteHandler::iniciar_partida() {
 void ClienteHandler::stop() {
     keep_running = false;
     // Fuerzo a un cierre total del socket
-    socket.shutdown(2);
-    socket.close();
-    reciever.stop();
-    reciever.join();
+    //socketshutdown(2);
+    //socket.close();
+    //reciever.stop();
+    //reciever.join();
 }
 
-void ClienteHandler::create_reciever(Queue<Evento*>* queue) {
-    // Inicializo el reciever
-    reciever = Reciever(&socket, queue, id);
-    reciever.start();
-}
 
-uint32_t ClienteHandler::crearPartida(std::string nombrePartida) {
-    Partida* partida = partidas->addPartida(nombrePartida, 0);
-    id = partidas->addClient(&mensajes, partida->getId());
-    return partida->getId();
+uint32_t ClienteHandler::crearPartida() {
+    std::string nombrePartida = protocolo.recibir_nombre();
+    uint8_t modo = protocolo.recibir_modo();
+    Personaje personaje = protocolo.recibir_personaje();
+
+    int idPartida = partidas->addPartida(nombrePartida, modo);
+    Partida& partida = partidas->getPartida(idPartida);
+    partida.addClient(std::ref(mensajes), id, personaje);
+    esDuenio = true;
+    idPersonajeElegido = personaje.get_id();
+    return idPartida;
 }
 
 uint32_t ClienteHandler::joinPartida(uint32_t codigoPartida) {
-    id = partidas->addClient(&mensajes, codigoPartida);
-    Partida* partida = partidas->getPartida(codigoPartida);
-    if (partida == nullptr) {
-        return PARTIDA_INVALIDA;
-    } else {
-        partida->addClient(&mensajes, id);
-        return partida->getId();
+    try {
+        Partida &partida = partidas->getPartida(codigoPartida);
+        Personaje personaje = protocolo.recibir_personaje();
+        idPersonajeElegido = personaje.get_id();
+        partida.addClient(std::ref(mensajes), id, personaje);
+        return partida.getId();
+    } catch (std::exception& e) {
+        return CODIGO_INVALIDO;
     }
 }

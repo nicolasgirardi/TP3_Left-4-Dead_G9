@@ -30,18 +30,18 @@ int Zombie::get_tipo_zombie() {
 
 Zombie::~Zombie() {}
 
-void Zombie::mover(std::list<Personaje*> personajes) {
+void Zombie::mover(std::list<Personaje>& personajes) {
     // Busco el personaje mas cercano
     Personaje* personaje_mas_cercano = nullptr;
     int distancia_personaje_mas_cercano = 0;
     for (auto it = personajes.begin(); it != personajes.end(); ++it) {
-        Personaje* personaje = *it;
-        std::vector<int> posicion_personaje = personaje->mover(0, 0);
+        //Personaje* personaje = *it;
+        std::vector<int> posicion_personaje = it->mover(0, 0);
         int distancia = sqrt(pow(posicion_personaje[0] - x, 2) +
                              pow(posicion_personaje[1] - y, 2));
         if (personaje_mas_cercano == nullptr ||
             distancia < distancia_personaje_mas_cercano) {
-            personaje_mas_cercano = personaje;
+            personaje_mas_cercano = it.operator->();
             distancia_personaje_mas_cercano = distancia;
         }
     }
@@ -71,8 +71,8 @@ void Zombie::recibir_danio(int danio) {
     vida -= danio;
 }
 
-bool Zombie::choco_con_personaje(Personaje* personaje) {
-    std::vector<int> posicion_personaje = personaje->mover(0, 0);
+bool Zombie::choco_con_personaje(Personaje& personaje) {
+    std::vector<int> posicion_personaje = personaje.mover(0, 0);
     int distancia = sqrt(pow(posicion_personaje[0] - x, 2) +
                          pow(posicion_personaje[1] - y, 2));
     return distancia <= 1;

@@ -3,37 +3,25 @@
 
 ListaPartidas::ListaPartidas() {}
 
-Partida* ListaPartidas::addPartida(std::string nombre, int modo = 0) {
+int ListaPartidas::addPartida(std::string nombre, int modo = 0) {
     std::lock_guard<std::mutex> lock(m);
     int id = partidas.size();
-    Partida* partida = new Partida(id, nombre);
-    partidas[id] = partida;
-    return partida;
-}
-//Esta mal
-int ListaPartidas::addClient(Queue<std::string>* queue, int id) {
-    std::lock_guard<std::mutex> lock(m);
-    for (auto& partida : partidas) {
-        if (!partida.second->isFull()) {
-            partida.second->addClient(queue, id);
-            return partida.second->getId();
-        }
-    }
-    partidas[id]->addClient(queue, id);
-    return GeneradorID::get_id();
+    Partida partida(id, nombre);
+    partidas.emplace(id, std::move(partida));
+    return id;
 }
 
 void ListaPartidas::removeClient(int id) {
     std::lock_guard<std::mutex> lock(m);
     for (auto& partida : partidas) {
-        partida.second->removeClient(id);
+        partida.second.removeClient(id);
     }
 }
 
 bool ListaPartidas::addPersonaje(int id, int arma) {
     std::lock_guard<std::mutex> lock(m);
     for (auto& partida : partidas) {
-        if (partida.second->addPersonaje(id, arma)) {
+        if (partida.second.addPersonaje(id, arma)) {
             return true;
         }
     }
@@ -42,20 +30,31 @@ bool ListaPartidas::addPersonaje(int id, int arma) {
 
 ListaPartidas::~ListaPartidas() {
     for (auto& partida : partidas) {
-        delete partida.second;
+        //delete partida.second;
     }
 }
 
-Partida *ListaPartidas::getPartida(uint32_t codigoPartida) {
+Partida& ListaPartidas::getPartida(uint32_t codigoPartida) {
     std::lock_guard<std::mutex> lock(m);
     for (auto& partida : partidas) {
-        if (partida.second->getId() == codigoPartida) {
+        if (partida.second.getId() == codigoPartida) {
             return partida.second;
         }
     }
-    return nullptr;
+    throw std::runtime_error("Partida no encontrada");
 }
 
-std::map<int, Partida*> ListaPartidas::getPartidas() {
+std::map<int, Partida>& ListaPartidas::getPartidas() {
     return partidas;
+}
+
+void ListaPartidas::iniciarPartida(uint32_t codigoPartida) {
+    std::lock_guard<std::mutex> lock(m);
+    for (auto& partida : partidas) {
+        if (partida.second.getId() == codigoPartida) {
+            //partida.second.iniciar();
+            return;
+        }
+    }
+
 }

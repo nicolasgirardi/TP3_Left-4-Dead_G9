@@ -4,13 +4,13 @@
 
 #include <SDL.h>
 
-#include <SDL2pp/SDL.hh>
-#include <SDL2pp/AudioDevice.hh>
-#include <SDL2pp/AudioSpec.hh>
-#include <SDL2pp/Wav.hh>
-#include <SDL2pp/SDL2pp.hh>
-#include "../include/client_character.h"
-#include "../include/client_center.h"
+#include "SDL2pp/SDL.hh"
+#include "SDL2pp/AudioDevice.hh"
+#include "SDL2pp/AudioSpec.hh"
+#include "SDL2pp/Wav.hh"
+#include "SDL2pp/SDL2pp.hh"
+#include "../include/common_character.h"
+#include "../include/common_center.h"
 
 void Character::set_position(int& x,int& y){
     if (x < pos_x)
