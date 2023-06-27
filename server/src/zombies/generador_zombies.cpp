@@ -22,7 +22,7 @@ void GeneradorZombies::generar_zombie() {
     int contador_zombies = 0;
         // Me fijo el modo de juego
         // Si es supervivencia, genero zombies cada 5 segundos
-    if (frames_creacion == tiempo_creacion) {
+    if (frames_creacion >= tiempo_creacion) {
         if (modo == 1) {
             // Genero un zombie
             int x = rand() % max_x;
