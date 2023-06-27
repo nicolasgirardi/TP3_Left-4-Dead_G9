@@ -64,25 +64,15 @@ int main(int argc, char *argv[]){
 	my_renderer->start();
 	/*myenum::Type_of_action action1 = myenum::walk;
 	Type_of_character type = soldier3;
-	Message message(3,myenum::idle,300,75,soldier1,alta,50,200);
+	Message message(3,myenum::idle,400,0,soldier3,alta,50,200);
 	queue.push(message);
-	Message message1(1,myenum::idle,400,75,explotion,alta,50,200);
+	Message message1(1,myenum::idle,400,100,soldier3,alta,50,200);
 	queue.push(message1);
-	Message message2(2,myenum::idle,200,100,smoke,alta,50,200);
-	queue.push(message2);
+	//Message message2(2,myenum::idle,200,100,smoke,alta,50,200);
+	//queue.push(message2);
 	for(int i = 0;i<400;i++){
-		if(i == 100){
-			Message message1(1,myenum::explotion,400,75,explotion,modificacion,50,200);
-			queue.push(message1);
-			Message message2(2,myenum::smoke,200,100,smoke,modificacion,50,200);
-			queue.push(message2);
-		}
-		if(i == 200){
-			Message message1(1,myenum::explotion,400,75,explotion,baja,50,200);
-			queue.push(message1);
-			Message message2(2,myenum::smoke,200,100,smoke,baja,50,200);
-			queue.push(message2);
-		}
+		Message message2(3,myenum::idle,400,i/2,soldier3,modificacion,50,200);
+		queue.push(message2);
 		SDL_Delay(20);
 	}
 	queue.close();*/
