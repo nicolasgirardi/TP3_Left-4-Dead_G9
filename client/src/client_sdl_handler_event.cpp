@@ -16,6 +16,9 @@ void SDLHandlerEvent::run() {
             evento.set_tecla(event.key.keysym.sym);
             eventosUsuario.push(evento);
         }*/
+        //Preguntar prioridad de eventos (apagar sonidos, brillo) no enviar al server.
+        // 1 colas, ewventos a servidor.
+        // 1 cola, eventos locales pusheas sin blocking. Comunica con gameloop/renderer
         EventoUsuario evento(0x01, 0x01010101, 0x01010101);
         eventosUsuario.push(evento);
     }

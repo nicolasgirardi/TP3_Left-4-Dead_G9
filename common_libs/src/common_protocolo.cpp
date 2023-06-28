@@ -42,7 +42,7 @@ uint8_t Protocolo::recvByte() {
 }
 
 void Protocolo::enviar_codigo_partida(uint32_t codigo) {
-    socket.sendall(&codigo, 4, &wasClosed);
+    sendCuatroBytes(codigo);
 }
 
 void Protocolo::enviar_estado_juego(std::string estado) {
@@ -66,6 +66,17 @@ std::string Protocolo::recibir_inicio_partida() {
 uint32_t Protocolo::recibir_codigo_partida() {
     return recvCuatroBytes();
 }
+//TODO: DEBERIA QUEDAR ASI
+/*std::vector<Message> Protocolo::recibir_estado_juego(){
+    uint32_t largo;
+    socket.recvall(&largo, 4, &wasClosed);
+    char estado[largo + 1];
+    socket.recvall(estado, largo, &wasClosed);
+    estado[largo] = '\0';
+    std::string estado_str(estado);
+
+    return getMessage(std::ref(estado_str));
+}*/
 
 Message Protocolo::recibir_estado_juego(){
     uint32_t largo;
@@ -140,19 +151,16 @@ void Protocolo::enviar_inicio_partida(std::vector<std::string> inicioPartida) {
     }
 }
 
-void Protocolo::enviar_info(std::string info, std::string inicio) {
+void Protocolo::enviar_info(std::string info) {
     if(info == "soldier1") {
         sendByte(0x01);
-        //ID ARMA
         sendByte(0x00);
 
     } else if (info == "soldier2") {
         sendByte(0x02);
-        ///ID ARMA
         sendByte(0x00);
     } else if (info == "soldier3") {
         sendByte(0x03);
-        //ID ARMA
         sendByte(0x00);
     } else {std::cout << "Error en el envio de info" << std::endl;}
 }
@@ -162,8 +170,50 @@ void Protocolo::enviar_evento(const EventoUsuario &eventoUsuario) {
     sendCuatroBytes(eventoUsuario.getParam1());
     sendCuatroBytes(eventoUsuario.getParam2());
 }
+//TODO: DEBERIA QUEDAR ASI
+/*
+std::vector<Message> Protocolo::getMessage(std::string &estadoJuego) {
+
+    //separar por /n
+    std::string delimiter = ",";
+    std::string token = estadoJuego.substr(0, estadoJuego.find(delimiter));
+    int id = std::stoi(token);
+    estadoJuego.erase(0, estadoJuego.find(delimiter) + delimiter.length());
+
+    token = estadoJuego.substr(0, estadoJuego.find(delimiter));
+    myenum::Type_of_action action = (myenum::Type_of_action) std::stoi(token);
+    estadoJuego.erase(0, estadoJuego.find(delimiter) + delimiter.length());
+
+    token = estadoJuego.substr(0, estadoJuego.find(delimiter));
+    int pos_x = std::stoi(token);
+    estadoJuego.erase(0, estadoJuego.find(delimiter) + delimiter.length());
+
+    token = estadoJuego.substr(0, estadoJuego.find(delimiter));
+    int pos_y = std::stoi(token);
+    estadoJuego.erase(0, estadoJuego.find(delimiter) + delimiter.length());
+
+    token = estadoJuego.substr(0, estadoJuego.find(delimiter));
+    Type_of_character type = (Type_of_character) std::stoi(token);
+    estadoJuego.erase(0, estadoJuego.find(delimiter) + delimiter.length());
+
+    token = estadoJuego.substr(0, estadoJuego.find(delimiter));
+    Type_of_AMB ABM = (Type_of_AMB) std::stoi(token);
+    estadoJuego.erase(0, estadoJuego.find(delimiter) + delimiter.length());
+
+    token = estadoJuego.substr(0, estadoJuego.find(delimiter));
+    uint32_t ammo = std::stoi(token);
+    estadoJuego.erase(0, estadoJuego.find(delimiter) + delimiter.length());
+
+    token = estadoJuego.substr(0, estadoJuego.find(delimiter));
+    uint32_t hp = std::stoi(token);
+    estadoJuego.erase(0, estadoJuego.find(delimiter) + delimiter.length());
+    //Problemas con el endiannes por mandar en String
+    return {id, action, pos_x, pos_y, type, ABM, ammo, hp};
+}*/
 
 Message Protocolo::getMessage(std::string &estadoJuego) {
+
+    //separar por /n
     std::string delimiter = ",";
     std::string token = estadoJuego.substr(0, estadoJuego.find(delimiter));
     int id = std::stoi(token);
@@ -199,5 +249,4 @@ Message Protocolo::getMessage(std::string &estadoJuego) {
     //Problemas con el endiannes por mandar en String
     return {id, action, pos_x, pos_y, type, ABM, ammo, hp};
 }
-
 

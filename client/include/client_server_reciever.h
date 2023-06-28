@@ -11,9 +11,9 @@ private:
     Protocolo& protocolo;
     Queue<Message>& estadosDelJuego; //Esta queue la crea el cliente renderer... el que se encarga de popear mensajes para dibujar
     std::atomic<bool> running;
-    virtual void run() override;
 
 public:
+    virtual void run() override;
     ServerReciever(Protocolo& protocolo, Queue<Message>& estadosDelJuego);
     void stop();
     ~ServerReciever() override = default; //TODO: ver si hay que hacer delete de algo

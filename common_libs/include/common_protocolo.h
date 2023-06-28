@@ -37,7 +37,7 @@ class Protocolo {
     void enviar_codigo_partida(uint32_t codigoPartida);
     void enviar_estado_juego(std::string estado);
     void enviar_inicio_partida(std::vector<std::string> inicioPartida);
-    void enviar_info(std::string info, std::string inicio);
+    void enviar_info(std::string info);
     void enviar_evento(const EventoUsuario &eventoUsuario);
 
     Message recibir_estado_juego();

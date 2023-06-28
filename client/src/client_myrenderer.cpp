@@ -134,8 +134,8 @@ void MyRenderer::run(){
 	while(playing){
 		auto start = std::chrono::high_resolution_clock::now();
 		try{
-			while(my_queue->try_pop(message))
-				update_characters(message);
+			while(my_queue->try_pop(message)) //TODO: Popeas hasta que no haya nada, revisar en caso de cliente lento.
+				update_characters(message); //TODO: Hablar con nico sobre array messages
 			Center center;
 			calculate_center(center);
 			int num_center = center.center_value();
