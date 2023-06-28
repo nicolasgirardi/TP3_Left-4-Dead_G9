@@ -9,8 +9,6 @@ GeneradorZombies::GeneradorZombies(int cantidad_zombies,
                                    std::list<Witch*>* witches,
                                    std::list<Personaje*>* personajes,
                                    int max_x, int max_y, int modo) :
-                                   running(false),
-                                   keep_running(true),
                                    cantidad_zombies(cantidad_zombies),
                                    modo(modo),
                                    zombies(zombies),
@@ -20,24 +18,12 @@ GeneradorZombies::GeneradorZombies(int cantidad_zombies,
 
 GeneradorZombies::~GeneradorZombies() {}
 
-void GeneradorZombies::run() {
-    running = true;
+void GeneradorZombies::generar_zombie() {
     int contador_zombies = 0;
-    while (keep_running) {
         // Me fijo el modo de juego
         // Si es supervivencia, genero zombies cada 5 segundos
+    if (frames_creacion >= tiempo_creacion) {
         if (modo == 1) {
-            // Genero un zombie cada 5 segundos
-            std::chrono::steady_clock::time_point start_time = std::chrono::steady_clock::now();
-            // Espero hasta que pase 5 segundos
-            std::chrono::steady_clock::time_point end_time = start_time;
-            std::chrono::duration<double> elapsed_seconds = end_time - start_time;
-            double target_frame_time = tiempo_creacion;  // 5 segundos
-            while (elapsed_seconds.count() < target_frame_time) {
-                end_time = std::chrono::steady_clock::now();
-                elapsed_seconds = end_time - start_time;
-            }
-
             // Genero un zombie
             int x = rand() % max_x;
             int y = rand() % max_y;
@@ -49,17 +35,6 @@ void GeneradorZombies::run() {
                 Witch* witch = new Witch(x, y);
             }
         } else if (modo == 0 && contador_zombies < cantidad_zombies) {
-            // Genero un zombie cada 5 segundos
-            std::chrono::steady_clock::time_point start_time = std::chrono::steady_clock::now();
-            // Espero hasta que pase 5 segundos
-            std::chrono::steady_clock::time_point end_time = start_time;
-            std::chrono::duration<double> elapsed_seconds = end_time - start_time;
-            double target_frame_time = 5.0;  // 5 segundos
-            while (elapsed_seconds.count() < target_frame_time) {
-                end_time = std::chrono::steady_clock::now();
-                elapsed_seconds = end_time - start_time;
-            }
-
             // Genero un zombie
             int x = rand() % max_x;
             int y = rand() % max_y;
@@ -72,12 +47,10 @@ void GeneradorZombies::run() {
                 Witch* witch = new Witch(x, y);
             }
         }
+        frames_creacion = 0;
+    } else {
+        frames_creacion++;
     }
-    running = false;
-}
-
-void GeneradorZombies::stop() {
-    keep_running = false;
 }
 
 void GeneradorZombies::apurar() {

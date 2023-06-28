@@ -16,6 +16,8 @@ class Personaje {
   int velocidad_y;
   int direccion_x;
   bool disparando = false;
+  int disparo = false;
+  int tiempo_disparo = 0;
   int vida = 100;
   int vidas = 3;
   Arma* arma;
@@ -25,7 +27,8 @@ class Personaje {
   ~Personaje();
   int get_id();
   int modificar_velocidad(int x, int y);
-  std::vector<int> mover(int largo, int ancho);
+  std::vector<int> mover();
+  int disparar();
   int recargar();
   int iniciar_disparo();
   int finalizar_disparo();
@@ -34,8 +37,9 @@ class Personaje {
   int get_vida();
   int get_vidas();
   int get_tipo_arma();
-  int get_disparando();
+  bool get_disparando();
   int get_estado_movimiento();
+  std::vector<int> get_posicion();
   std::string get_estado();
 };
 

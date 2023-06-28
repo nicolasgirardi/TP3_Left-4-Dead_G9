@@ -1,12 +1,17 @@
 #include "../include/juego.h"
 
-#define PIXELES_PARA_HIT 10
+#define MARGEN_PARA_HIT 10
 
 Juego::Juego(std::map<int, Queue<std::string>&>& clientes, std::list<Personaje>& personajes, int modo,
              Queue<Evento*>* queueJuego) : ejecutar(queueJuego), clientes(clientes), personajes(personajes), keep_running(true), kpPartida(true) {}
 
 void Juego::run() {
+    // Creo el generador de zombies
+    GeneradorZombies generador_zombies(cantidad_zombies, &zombies, &witches, &personajes, MAX_X, MAX_Y, modo);
     while (kpPartida) {
+        // Me fijo de ejecutar eventos
+        // Le mando a todos los clientes el estado del juego
+        // Espero para poder mandarlo más o menos cada 1/60 segundos
         Evento* evento;
         while (ejecutar->try_pop(evento)) {
             int id = evento->get_id_personaje();
@@ -38,7 +43,7 @@ void Juego::run() {
             }
         }
 
-        // Veo si los personajes le dispararon a algun zombie o PIXELES_PARA_HIT pixeles alrededor
+        // Veo si los personajes le dispararon a algun zombie o MARGEN_PARA_HIT pixeles alrededor
         for (auto it = personajes.begin(); it != personajes.end(); ++it) {
             if (it->get_disparando()) {
                 std::vector<int> posicion = it->mover(0, 0);
@@ -46,9 +51,9 @@ void Juego::run() {
                     Zombie* zombie = *it2;
                     int x_zombie = zombie->get_x();
                     int y_zombie = zombie->get_y();
-                    if (x_zombie >= posicion[0] - PIXELES_PARA_HIT && x_zombie <= posicion[0] + PIXELES_PARA_HIT &&
-                        y_zombie >= posicion[1] - PIXELES_PARA_HIT && y_zombie <= posicion[1] + PIXELES_PARA_HIT) {
-                        zombie->recibir_danio(it->get_danio());
+                    if (x_zombie >= posicion[0] - MARGEN_PARA_HIT && x_zombie <= posicion[0] + MARGEN_PARA_HIT &&
+                        y_zombie >= posicion[1] - MARGEN_PARA_HIT && y_zombie <= posicion[1] + MARGEN_PARA_HIT) {
+                        zombie->recibir_danio(personaje->get_danio());
                     }
                 }
             }
@@ -67,6 +72,9 @@ void Juego::run() {
        // } else {
         //    generador_zombies.desapurar();
       //  }
+
+        // Genero zombies
+        generador_zombies.generar_zombie();
 
         // Mando el estado del juego a todos los clientes
         std::string estado = "";
@@ -94,8 +102,6 @@ void Juego::run() {
             elapsed_seconds = end_time - start_time;
         }
     }
-    //generador_zombies.stop();
-    //generador_zombies.join();
 }
 
 void Juego::stop() {

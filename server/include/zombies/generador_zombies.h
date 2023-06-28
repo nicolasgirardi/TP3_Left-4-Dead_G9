@@ -7,13 +7,12 @@
 #include "./zombie.h"
 #include "./witch.h"
 
-class GeneradorZombies : public Thread {
+class GeneradorZombies {
  private:
-    bool running;
-    bool keep_running;
+    int frames_creacion = 0;
     int cantidad_zombies;
     int modo;
-    int tiempo_creacion = 5;
+    int tiempo_creacion = 10;
     std::list<Zombie*>* zombies;
     std::list<Witch*>* witches;
     int contador_witches = 0;
@@ -26,7 +25,7 @@ class GeneradorZombies : public Thread {
     GeneradorZombies(int cantidad_zombies, std::list<Zombie*>* zombies, std::list<Witch*>* witches,
                      std::list<Personaje*>* personajes, int max_x, int max_y, int modo);
     ~GeneradorZombies();
-    void run() override;
+    void generar_zombie();
     void stop();
     void apurar();
     void desapurar();
