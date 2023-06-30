@@ -292,11 +292,11 @@ void MyRenderer::add_character(Message& message){
 			textures = all_textures[7]->all_textures();
 			new_character = new Zombie(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
 			break;
-		case(explotion):
+		case(explot):
 			textures = all_textures[8]->all_textures();
 			new_character = new Explotion(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
 			break;
-		case(smoke):
+		case(smok):
 			textures = all_textures[9]->all_textures();
 			new_character = new Smoke(message.get_x(),message.get_y(),width,height,textures,frame,message.get_id());
 			break;
@@ -312,7 +312,7 @@ void MyRenderer::modify_character(Message& message){
 		if(all_characters[i]->is(id)){
 			int x = message.get_x();
 			int y = message.get_y();
-			myenum::Type_of_action action = message.get_action();
+			Type_of_action action = message.get_action();
 			all_characters[i]->set_position(x,y);
 			all_characters[i]->change_action(action,frame);
 			found = true;

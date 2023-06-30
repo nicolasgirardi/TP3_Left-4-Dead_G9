@@ -1,19 +1,7 @@
-#include <iostream>
-#include <stdexcept>
 #include <algorithm>
-
-#include <SDL.h>
-
-#include <SDL2pp/SDL.hh>
-#include <SDL2pp/AudioDevice.hh>
-#include <SDL2pp/AudioSpec.hh>
-#include <SDL2pp/Wav.hh>
 #include <SDL2pp/SDL2pp.hh>
 #include "../../common_libs/include/common_character.h"
-#include "../../common_libs/include/common_animation.h"
 #include "../include/client_zombie.h"
-#include "../../common_libs/include/common_center.h"
-#include "../../common_libs/include/common_myenum.h"
 
 Zombie::Zombie(int pos_x,int pos_y,int width,int height,std::vector<SDL2pp::Texture*>& texture,uint32_t frame,int ID):
     attack_1(frame,texture[0],4,5,96),
@@ -40,37 +28,37 @@ void Zombie::copy(int& center,SDL2pp::Renderer* renderer,uint32_t& frame){
     int new_x = pos_x - center + (width/2) - 64; //el 64 hay que definirlo de alguna forma mejor
     current_animation->copy(frame,new_x,pos_y,renderer,invert);
 }
-void Zombie::change_action(myenum::Type_of_action& code,uint32_t& frame){
+void Zombie::change_action(Type_of_action& code,uint32_t& frame){
     Animation* next_animation = current_animation;
     switch(code){
-        case(myenum::attack_1):
+        case(Type_of_action::attack_1):
             next_animation = &attack_1;
             break;
-        case(myenum::attack_2):
+        case(Type_of_action::attack_2):
             next_animation = &attack_2;
             break;
-        case(myenum::attack_3):
+        case(Type_of_action::attack_3):
             next_animation = &attack_3;
             break;
-        case(myenum::bite):
+        case(Type_of_action::bite):
             next_animation = &bite;
             break;
-        case(myenum::dead):
+        case(Type_of_action::dead):
             next_animation = &dead;
             break;
-        case(myenum::hurt):
+        case(Type_of_action::hurt):
             next_animation = &hurt;
             break;
-        case(myenum::idle):
+        case(Type_of_action::idle):
             next_animation = &idle;
             break;
-        case(myenum::jump):
+        case(Type_of_action::jump):
             next_animation = &jump;
             break;
-        case(myenum::run):
+        case(Type_of_action::run):
             next_animation = &run;
             break;
-        case(myenum::walk):
+        case(Type_of_action::walk):
             next_animation = &walk;
             break;
     }

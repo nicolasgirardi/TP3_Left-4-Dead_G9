@@ -33,13 +33,13 @@ void Smoke::copy(int& center,SDL2pp::Renderer* renderer,uint32_t& frame){
     int new_x = pos_x - center + (width/2) - 64; //el 64 hay que definirlo de alguna forma mejor
     current_animation->copy(frame,new_x,pos_y,renderer,invert);
 }
-void Smoke::change_action(myenum::Type_of_action& code,uint32_t& frame){
+void Smoke::change_action(Type_of_action& code,uint32_t& frame){
     Animation* next_animation = current_animation;
     switch(code){
-        case(myenum::smoke):
+        case(Type_of_action::smoke):
             next_animation = &smoke;
             break;
-        case(myenum::idle):
+        case(Type_of_action::idle):
             next_animation = &idle;
             break;
     }

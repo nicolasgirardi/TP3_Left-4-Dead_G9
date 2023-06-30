@@ -1,4 +1,4 @@
-#include "../include/estado_zombie.h"
+#include "../../include/zombies/estado_zombie.h"
 
 EstadoZombie::EstadoZombie(Zombie* zombie){
     this->id_zombie = zombie->get_tipo_zombie();

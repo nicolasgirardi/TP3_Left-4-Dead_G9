@@ -35,8 +35,8 @@ void Zombie::mover(std::list<Personaje>& personajes) {
     Personaje* personaje_mas_cercano = nullptr;
     int distancia_personaje_mas_cercano = 0;
     for (auto it = personajes.begin(); it != personajes.end(); ++it) {
-        Personaje* personaje = *it;
-        std::vector<int> posicion_personaje = personaje->get_posicion();
+        //Personaje& personaje = it.operator*();
+        std::vector<int> posicion_personaje = it->get_posicion();
         int distancia = sqrt(pow(posicion_personaje[0] - x, 2) +
                              pow(posicion_personaje[1] - y, 2));
         if (personaje_mas_cercano == nullptr ||

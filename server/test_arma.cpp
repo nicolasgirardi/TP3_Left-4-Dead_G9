@@ -1,10 +1,10 @@
 #include <CppUTest/CommandLineTestRunner.h>
 
-#include "./include/armas/arma.h"
-#include "./include/armas/idf.h"
-#include "./include/armas/p90.h"
-#include "./include/armas/scout.h"
-#include "./include/armas/creador_armas.h"
+#include "../../common_libs/include/armas/arma.h"
+#include "../../common_libs/include/armas/idf.h"
+#include "../../common_libs/include/armas/p90.h"
+#include "../../common_libs/include/armas/scout.h"
+#include "../../common_libs/include/armas/creador_armas.h"
 
 TEST_GROUP(arma_test) {
     IDF* idf;

@@ -10,12 +10,13 @@
 class ServerSender : public Thread {
  private:
     Protocolo& protocolo;
-    Queue<EventoUsuario>& eventosUsuario;
+    //Queue<EventoUsuario>& eventosUsuario;
     std::atomic<bool> running;
 
 
  public:
-    ServerSender(Protocolo& protocolo, Queue<EventoUsuario>& eventosUsuario);
+    //ServerSender(Protocolo& protocolo, Queue<EventoUsuario>& eventosUsuario);
+    ServerSender(Protocolo& protocolo);
     virtual void run() override;
     void stop();
 

@@ -22,6 +22,8 @@ public:
     ServerReciever(ServerReciever&&) = delete;
     ServerReciever& operator=(const ServerReciever&) = delete;
     ServerReciever& operator=(ServerReciever&&) = delete;
+
+    bool isAlive();
 };
 
 

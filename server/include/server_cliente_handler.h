@@ -17,6 +17,7 @@
 #include "../../common_libs/include/eventos/creador_eventos.h"
 #include "./server_reciever.h"
 #include "../../common_libs/include/common_protocolo.h"
+#include "../../common_libs/include/common_estado_juego.h"
 
 #define CREAR "crear"
 #define JOIN "join"
@@ -29,7 +30,7 @@ private:
     Protocolo protocolo;
     ListaPartidas* partidas;
     Partida* partida;
-    Queue<std::string> mensajes;
+    Queue<EstadoJuego> mensajes;
     Queue<Evento*>* queueJuego;
     std::atomic<bool> esDuenio;
     Juego* juego;
@@ -38,7 +39,7 @@ private:
 public:
     ClienteHandler(Socket socket, ListaPartidas* partidas, int id);
     ~ClienteHandler();
-    Queue<std::string>* get_mensajes();
+    Queue<EstadoJuego>* get_mensajes();
     bool is_running();
     void run() override;
     void stop();

@@ -14,6 +14,8 @@
 #include "common_mensaje_cliente.h"
 #include "eventos/creador_eventos.h"
 #include "evento_usuario.h"
+#include "common_estado_juego.h"
+#include "common_myenum.h"
 
 #define CODIGO_INVALIDO 0xFFFFFFFF
 
@@ -28,6 +30,7 @@ class Protocolo {
     uint8_t recvByte();
     uint16_t recvDosBytes();
     uint32_t recvCuatroBytes();
+    std::string recvData();
     Message getMessage(std::string& estadoJuego);
 
  public:
@@ -35,7 +38,7 @@ class Protocolo {
     explicit Protocolo(Socket socket);
 
     void enviar_codigo_partida(uint32_t codigoPartida);
-    void enviar_estado_juego(std::string estado);
+    void enviar_estado_juego(EstadoJuego& estadoJuego);
     void enviar_inicio_partida(std::vector<std::string> inicioPartida);
     void enviar_info(std::string info);
     void enviar_evento(const EventoUsuario &eventoUsuario);

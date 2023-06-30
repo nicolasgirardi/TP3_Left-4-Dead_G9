@@ -5,13 +5,14 @@
 #include <iostream>
 
 GeneradorZombies::GeneradorZombies(int cantidad_zombies,
-                                   std::list<Zombie*>* zombies,
-                                   std::list<Witch*>* witches,
-                                   std::list<Personaje*>* personajes,
+                                   std::list<Zombie*>& zombies,
+                                   std::list<Witch*>& witches,
+                                   std::list<Personaje>& personajes,
                                    int max_x, int max_y, int modo) :
                                    cantidad_zombies(cantidad_zombies),
                                    modo(modo),
                                    zombies(zombies),
+                                   witches(witches),
                                    personajes(personajes),
                                    max_x(max_x),
                                    max_y(max_y) {}
@@ -28,7 +29,7 @@ void GeneradorZombies::generar_zombie() {
             int x = rand() % max_x;
             int y = rand() % max_y;
             Zombie* zombie = new Zombie(x, y);
-            zombies->push_back(zombie);
+            zombies.push_back(zombie);
             contador_witches++;
             if (contador_witches == 4) {
                 contador_witches = 0;
@@ -39,7 +40,7 @@ void GeneradorZombies::generar_zombie() {
             int x = rand() % max_x;
             int y = rand() % max_y;
             Zombie* zombie = new Zombie(x, y);
-            zombies->push_back(zombie);
+            zombies.push_back(zombie);
             contador_zombies++;
             contador_witches++;
             if (contador_witches == 4) {

@@ -26,11 +26,12 @@ void ClienteHandler::run() {
         juego->start();
     }
     while(partida.getRunning()) {
-        std::string msg = mensajes.pop();
+        EstadoJuego msg = mensajes.pop();
         protocolo.enviar_estado_juego(msg);
     }
     if (juego != nullptr) {
-        protocolo.enviar_estado_juego("FIN");
+        EstadoJuego estadoJuego(id, idPersonajeElegido);
+        protocolo.enviar_estado_juego(estadoJuego);
         juego->stop();
         juego->join();
         delete juego;

@@ -39,7 +39,7 @@ class Soldier3: public Character {
 
     void copy(int& center,SDL2pp::Renderer* renderer,uint32_t& frame);
 
-    void change_action(myenum::Type_of_action& code,uint32_t& frame);
+    void change_action(Type_of_action& code,uint32_t& frame);
 
     void change_position(int& x,int& y);
 

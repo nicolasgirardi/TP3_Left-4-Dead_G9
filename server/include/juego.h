@@ -23,11 +23,12 @@
 #include "../../common_libs/include/eventos/creador_eventos.h"
 #include "./partida.h"
 #include "../../common_libs/include/common_personaje.h"
-#include "zombies/zombie.h"
-#include "zombies/witch.h"
-#include "zombies/generador_zombies.h"
+#include "../../common_libs/include/zombies/zombie.h"
+#include "../../common_libs/include/zombies/witch.h"
+#include "../../common_libs/include/zombies/generador_zombies.h"
 #include "./estado_jugador.h"
-#include "./estado_zombie.h"
+#include "../../common_libs/include/zombies/estado_zombie.h"
+#include "../../common_libs/include/common_estado_juego.h"
 
 #define MAX_EVENTOS 100
 #define MAX_X 1000
@@ -41,7 +42,7 @@ private:
     int modo;
     int cantidad_zombies = 10;
     Queue<Evento*>* ejecutar;
-    std::map<int, Queue<std::string>&>& clientes;
+    std::map<int, Queue<EstadoJuego>&>& clientes;
     std::list<Personaje>& personajes;
     std::list<Zombie*> zombies;
     std::list<Witch*> witches;
@@ -49,7 +50,7 @@ private:
 
 public:
     //Juego(Partida& partida);
-    Juego(std::map<int, Queue<std::string>&>& clientes, std::list<Personaje>& personajes, int modo,
+    Juego(std::map<int, Queue<EstadoJuego>&>& clientes, std::list<Personaje>& personajes, int modo,
           Queue<Evento*>* queueJuego);
     ~Juego();
     Queue<Evento*>* getQueue();
@@ -58,6 +59,8 @@ public:
     void run() override;
     void stop();
     bool gameRunning();
+
+    void initGame();
 };
 
 #endif // JUEGO_H

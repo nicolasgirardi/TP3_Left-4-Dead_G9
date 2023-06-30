@@ -45,10 +45,38 @@ void Protocolo::enviar_codigo_partida(uint32_t codigo) {
     sendCuatroBytes(codigo);
 }
 
-void Protocolo::enviar_estado_juego(std::string estado) {
-    uint32_t largo = estado.length();
-    socket.sendall(&largo, 4, &wasClosed);
-    socket.sendall(estado.c_str(), largo, &wasClosed);
+void Protocolo::enviar_estado_juego(EstadoJuego& estadoJuego) {
+    std::cout << "game over: " << static_cast<int>(estadoJuego.get_game_over()) << std::endl;
+    std::cout << "id: " << static_cast<int>(estadoJuego.get_id()) << std::endl;
+    std::cout << "id character: " << static_cast<int>(estadoJuego.get_id_character()) << std::endl;
+    std::cout << "x: " << static_cast<int>(estadoJuego.get_x()) << std::endl;
+    std::cout << "y: " << static_cast<int>(estadoJuego.get_y()) << std::endl;
+    std::cout << "accion: " << static_cast<int>(estadoJuego.get_accion()) << std::endl;
+    std::cout << "ABM: " << static_cast<int>(estadoJuego.get_ABM()) << std::endl;
+    std::cout << "vida: " << static_cast<int>(estadoJuego.get_vida()) << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+    //send first 4 bytes instead of 1
+    uint32_t result = 0;
+    result |= static_cast<uint32_t>(estadoJuego.get_game_over()) << 24;
+    result |= static_cast<uint32_t>(estadoJuego.get_id()) << 16;
+    result |= static_cast<uint32_t>(estadoJuego.get_id_character()) << 8;
+    result |= static_cast<uint32_t>(estadoJuego.get_x());
+    sendCuatroBytes(result);
+    //sendByte(estadoJuego.get_game_over());
+    //sendByte(estadoJuego.get_id());
+    //sendByte(estadoJuego.get_id_character());
+    //sendByte(estadoJuego.get_x());
+    //sendByte(estadoJuego.get_y());
+    result = 0;
+    result |= static_cast<uint32_t>(estadoJuego.get_y()) << 24;
+    result |= static_cast<uint32_t>(estadoJuego.get_accion()) << 16;
+    result |= static_cast<uint32_t>(estadoJuego.get_ABM()) << 8;
+    result |= static_cast<uint32_t>(estadoJuego.get_vida());
+    sendCuatroBytes(result);
+    //sendByte(estadoJuego.get_accion());
+    //sendByte(estadoJuego.get_ABM());
+    //sendByte(estadoJuego.get_vida());
 }
 
 std::string Protocolo::recibir_inicio_partida() {
@@ -79,14 +107,32 @@ uint32_t Protocolo::recibir_codigo_partida() {
 }*/
 
 Message Protocolo::recibir_estado_juego(){
-    uint32_t largo;
-    socket.recvall(&largo, 4, &wasClosed);
-    char estado[largo + 1];
-    socket.recvall(estado, largo, &wasClosed);
-    estado[largo] = '\0';
-    std::string estado_str(estado);
-
-    return getMessage(std::ref(estado_str));
+    uint32_t aux = recvCuatroBytes();
+    uint8_t game_over, id, id_character, ABM;
+    game_over = (aux >> 24) & 0xFF;
+    id = (aux >> 16) & 0xFF;
+    id_character = (aux >> 8) & 0xFF;
+    ABM = aux & 0xFF;
+    uint16_t posiciones = recvDosBytes();
+    uint8_t posX = (posiciones >> 8) & 0xFF;
+    uint8_t posY = posiciones & 0xFF;
+    uint8_t accion = recvByte();
+    uint32_t vida = recvCuatroBytes();
+    //uint8_t game_over = recvByte();
+    //uint8_t  id = recvByte();
+    //uint8_t id_character = recvByte();
+    //uint8_t ABM = recvByte();
+    Type_of_character character = get_character(id_character);
+    Type_of_AMB abm = get_AMB(ABM);
+    if (game_over == 0x01) {
+        return {id, character, abm};
+    }
+    //uint8_t posX = recvByte();
+    //uint8_t posY = recvByte();
+    //uint8_t accion = recvByte();
+    //uint32_t vida = recvCuatroBytes();
+    Type_of_action action = get_action(accion);
+    return {id, action, posX, posY, character, abm, 0x00000000, vida};
 }
 
 std::string Protocolo::recibir_nombre() {
@@ -102,7 +148,9 @@ std::string Protocolo::recibir_nombre() {
 Personaje Protocolo::recibir_personaje() {
     uint8_t idPersonaje = recvByte();
     uint8_t idArma = recvByte();
-    return {idPersonaje, idArma};
+    //cast idArma a int
+
+    return {static_cast<int>(idPersonaje), static_cast<int>(idArma)};
 }
 
 uint8_t Protocolo::recibir_modo() {
@@ -209,7 +257,7 @@ std::vector<Message> Protocolo::getMessage(std::string &estadoJuego) {
     estadoJuego.erase(0, estadoJuego.find(delimiter) + delimiter.length());
     //Problemas con el endiannes por mandar en String
     return {id, action, pos_x, pos_y, type, ABM, ammo, hp};
-}*/
+}
 
 Message Protocolo::getMessage(std::string &estadoJuego) {
 
@@ -248,5 +296,12 @@ Message Protocolo::getMessage(std::string &estadoJuego) {
     estadoJuego.erase(0, estadoJuego.find(delimiter) + delimiter.length());
     //Problemas con el endiannes por mandar en String
     return {id, action, pos_x, pos_y, type, ABM, ammo, hp};
-}
+}*/
 
+std::string Protocolo::recvData() {
+    uint32_t largo = recvCuatroBytes();
+    std::vector<char> estado(largo + 1);
+    socket.recvall(&estado[0], largo, &wasClosed);
+    estado[largo + 1] = '\0';
+    return estado.data();
+}

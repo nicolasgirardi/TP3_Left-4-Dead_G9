@@ -52,33 +52,45 @@ int main(int argc, char *argv[]){
 
     Queue<Message> estadoDelJuego(2000);
     ServerReciever serverReciever(std::ref(protocolo), std::ref(estadoDelJuego));
-    SDLHandlerEvent sdlHandlerEvent;
-    ServerSender serverSender(std::ref(protocolo), std::ref(sdlHandlerEvent.get_eventos_usuario()));
+    //ServerSender serverSender(std::ref(protocolo));
+    //serverSender.start();
+    //SDLHandlerEvent sdlHandlerEvent;
+    //ServerSender serverSender(std::ref(protocolo), std::ref(sdlHandlerEvent.get_eventos_usuario()));
 
     serverReciever.start();
-    sdlHandlerEvent.start();
-    serverSender.start();
+    //serverSender.stop();
+    //serverSender.join();
+
+
+    //return 0;
+    //sdlHandlerEvent.start();
+    //serverSender.start();
 
 	Thread* my_renderer;
 	my_renderer = new MyRenderer(960,720,war1_pale,1,&estadoDelJuego);
 	my_renderer->start();
-	myenum::Type_of_action action1 = myenum::walk;
-	Type_of_character type = soldier3;
-	Message message(3,myenum::idle,400,0,soldier3,alta,50,200);
-    estadoDelJuego.push(message);
-	Message message1(1,myenum::idle,400,100,soldier3,alta,50,200);
-    estadoDelJuego.push(message1);
+    while(true){
+
+    }
+    serverReciever.join();
+    estadoDelJuego.close();
+    my_renderer->join();
+    delete my_renderer;
+    return 0;
+	//Type_of_action action1 = walk;
+	//Type_of_character type = soldier3;
+	//Message message(3,idle,400,0,soldier3,alta,50,200);
+    //estadoDelJuego.push(message);
+	//Message message1(1,idle,400,100,soldier3,alta,50,200);
+    //estadoDelJuego.push(message1);
 	//Message message2(2,myenum::idle,200,100,smoke,alta,50,200);
 	//queue.push(message2);
-	for(int i = 0;i<400;i++){
-		Message message2(3,myenum::idle,400,i/2,soldier3,modificacion,50,200);
-        estadoDelJuego.push(message2);
-		SDL_Delay(20);
-	}
-    estadoDelJuego.close();
-	my_renderer->join();
-	delete my_renderer;
-	return 0;
+	//for(int i = 0;i<400;i++){
+		//Message message2(3,myenum::idle,400,i/2,soldier3,modificacion,50,200);
+       // estadoDelJuego.push(message2);
+		//SDL_Delay(20);
+	//}
+
 }
 
 std::vector<std::string> getCommand(std::string command) {

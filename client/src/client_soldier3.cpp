@@ -44,37 +44,37 @@ void Soldier3::copy(int& center,SDL2pp::Renderer* renderer,uint32_t& frame){
     int new_x = pos_x - center + (width/2) - 64; //el 64 hay que definirlo de alguna forma mejor
     current_animation->copy(frame,new_x,pos_y,renderer,invert);
 }
-void Soldier3::change_action(myenum::Type_of_action& code,uint32_t& frame){
+void Soldier3::change_action(Type_of_action& code,uint32_t& frame){
     Animation* next_animation = current_animation;
     switch(code){
-        case(myenum::attack):
+        case(Type_of_action::attack):
             next_animation = &attack;
             break;
-        case(myenum::dead):
+        case(Type_of_action::dead):
             next_animation = &dead;
             break;
-        case(myenum::grenade):
+        case(Type_of_action::grenade):
             next_animation = &grenade;
             break;
-        case(myenum::hurt):
+        case(Type_of_action::hurt):
             next_animation = &hurt;
             break;
-        case(myenum::idle):
+        case(Type_of_action::idle):
             next_animation = &idle;
             break;
-        case(myenum::recharge):
+        case(Type_of_action::recharge):
             next_animation = &Recharge;
             break;
-        case(myenum::run):
+        case(Type_of_action::run):
             next_animation = &run;
             break;
-        case(myenum::shot_1):
+        case(Type_of_action::shot_1):
             next_animation = &shot_1;
             break;
-        case(myenum::shot_2):
+        case(Type_of_action::shot_2):
             next_animation = &shot_2;
             break;
-        case(myenum::walk):
+        case(Type_of_action::walk):
             next_animation = &walk;
             break;
     }

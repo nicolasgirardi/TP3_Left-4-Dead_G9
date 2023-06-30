@@ -1,7 +1,7 @@
 #ifndef ESTADO_ZOMBIE_H
 #define ESTADO_ZOMBIE_H
 
-#include "zombies/zombie.h"
+#include "zombie.h"
 
 class EstadoZombie{
         private:

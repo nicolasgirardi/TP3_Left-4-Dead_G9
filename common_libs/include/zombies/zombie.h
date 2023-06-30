@@ -3,7 +3,7 @@
 
 #include <list>
 #include <string>
-#include "../../../common_libs/include/common_personaje.h"
+#include "../common_personaje.h"
 
 class Zombie {
  private:

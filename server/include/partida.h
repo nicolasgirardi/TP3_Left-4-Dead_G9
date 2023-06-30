@@ -7,15 +7,15 @@
 #include "../../common_libs/include/common_socket.h"
 #include "../../common_libs/include/eventos/evento.h"
 #include "../../common_libs/include/common_personaje.h"
+#include "../../common_libs/include/common_estado_juego.h"
 #include "./juego.h"
-#include "../../common_libs/include/common_personaje.h"
 #include "./generador_id.h"
 
-#define MAX_CLIENTES 2
+#define MAX_CLIENTES 1
 
 class Partida {
  private:
-    std::map<int, Queue<std::string>&> clientes;
+    std::map<int, Queue<EstadoJuego>&> clientes;
     int id;
     int modo;
     std::string nombre;
@@ -27,11 +27,11 @@ class Partida {
 
  public:
     Partida(int id, std::string nombre);
-    void addClient(Queue<std::string>& mensajes, int id, Personaje& personaje);
+    void addClient(Queue<EstadoJuego>& mensajes, int id, Personaje& personaje);
     bool addPersonaje(int id, int arma);
     void removeClient(int id);
     bool isFull();
-    std::map<int, Queue<std::string>&>& getClientes();
+    std::map<int, Queue<EstadoJuego> &> & getClientes();
     std::list<Personaje>& getPersonajes();
     std::string getEstado();
     int getId();

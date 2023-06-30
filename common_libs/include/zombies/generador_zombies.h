@@ -3,7 +3,7 @@
 
 #include <list>
 
-#include "../../../common_libs/include/common_thread.h"
+#include "../common_thread.h"
 #include "./zombie.h"
 #include "./witch.h"
 
@@ -13,17 +13,17 @@ class GeneradorZombies {
     int cantidad_zombies;
     int modo;
     int tiempo_creacion = 10;
-    std::list<Zombie*>* zombies;
-    std::list<Witch*>* witches;
+    std::list<Zombie*>& zombies;
+    std::list<Witch*>& witches;
     int contador_witches = 0;
-    std::list<Personaje*>* personajes;
+    std::list<Personaje>& personajes;
     int max_x;
     int max_y;
     bool apurado = false;
 
  public:
-    GeneradorZombies(int cantidad_zombies, std::list<Zombie*>* zombies, std::list<Witch*>* witches,
-                     std::list<Personaje*>* personajes, int max_x, int max_y, int modo);
+    GeneradorZombies(int cantidad_zombies, std::list<Zombie*>& zombies, std::list<Witch*>& witches,
+                     std::list<Personaje>& personajes, int max_x, int max_y, int modo);
     ~GeneradorZombies();
     void generar_zombie();
     void stop();

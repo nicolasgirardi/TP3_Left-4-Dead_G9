@@ -28,7 +28,7 @@ void Jumper::mover(std::list<Personaje*> personajes) {
     int distancia_personaje_mas_cercano = 0;
     for (auto it = personajes.begin(); it != personajes.end(); ++it) {
         Personaje* personaje = *it;
-        std::vector<int> posicion_personaje = personaje->mover(0, 0);
+        std::vector<int> posicion_personaje = personaje->mover();
         int distancia = sqrt(pow(posicion_personaje[0] - x, 2) +
                              pow(posicion_personaje[1] - y, 2));
         if (personaje_mas_cercano == nullptr ||
@@ -47,7 +47,7 @@ void Jumper::mover(std::list<Personaje*> personajes) {
         // Salto
         return;
     }
-    std::vector<int> posicion_personaje = personaje_mas_cercano->mover(0, 0);
+    std::vector<int> posicion_personaje = personaje_mas_cercano->mover();
     if (x < posicion_personaje[0]) {
         x += velocidad;
     } else if (x > posicion_personaje[0]) {

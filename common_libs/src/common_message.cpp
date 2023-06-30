@@ -1,6 +1,6 @@
 #include "../include/common_message.h"
 
-Message::Message(int id, myenum::Type_of_action action, int pos_x, int pos_y, Type_of_character type, Type_of_AMB ABM,
+Message::Message(int id, Type_of_action action, int pos_x, int pos_y, Type_of_character type, Type_of_AMB ABM,
                  uint32_t ammo, uint32_t hp){
     this->id = id;
     this->action = action;
@@ -12,12 +12,18 @@ Message::Message(int id, myenum::Type_of_action action, int pos_x, int pos_y, Ty
     this->hp = hp;
 }
 
+Message::Message(int id, Type_of_character type, Type_of_AMB ABM) {
+    this->id = id;
+    this->type = type;
+    this->ABM = ABM;
+}
+
 Message::Message() = default;
 
 int Message::get_id(){
     return id;
 }
-myenum::Type_of_action Message::get_action(){
+Type_of_action Message::get_action(){
     return action;
 }
 void Message::update(Character* character,uint32_t& frame){
@@ -63,4 +69,12 @@ uint32_t Message::get_ammo(){
 uint32_t Message::get_hp(){
     return hp;
 }
+
+bool Message::es_fin_de_juego() {
+    if (get_action() == Type_of_action::fin){
+        return true;
+    }
+    return false;
+}
+
 

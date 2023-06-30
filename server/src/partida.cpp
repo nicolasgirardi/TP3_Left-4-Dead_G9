@@ -4,7 +4,7 @@
 Partida::Partida(int id, std::string nombre) : id(id), nombre(nombre), isRunning(true),
     queueJuego(new Queue<Evento*>(200)) {}
 
-void Partida::addClient(Queue<std::string>& mensajes, int id, Personaje& personaje) {
+void Partida::addClient(Queue<EstadoJuego>& mensajes, int id, Personaje& personaje) {
     std::lock_guard<std::mutex> lock(m);
     bool exists = false;
     for (auto& pj : personajes) {
@@ -14,7 +14,7 @@ void Partida::addClient(Queue<std::string>& mensajes, int id, Personaje& persona
     }
     if (!exists) {
         personajes.push_back(std::move(personaje));
-        clientes.insert(std::pair<int, Queue<std::string>&>(id, mensajes));
+        clientes.insert(std::pair<int, Queue<EstadoJuego>&>(id, mensajes));
     } else {
         std::cout << "throw error: personaje ya existe en la partida" << std::endl;
     }
@@ -69,7 +69,7 @@ Partida::Partida(Partida &&other) {
     this->queueJuego = other.queueJuego;
 }
 
-std::map<int, Queue<std::string> &> &Partida::getClientes() {
+std::map<int, Queue<EstadoJuego> &> & Partida::getClientes() {
     return clientes;
 }
 

@@ -35,7 +35,7 @@ class Character{
     void set_position(int& horizontal,int& vertical);
     int get_vertical();
     virtual void add_to_center(Center& center) = 0;
-    virtual void change_action(myenum::Type_of_action& code,uint32_t& frame) = 0;
+    virtual void change_action(Type_of_action& code,uint32_t& frame) = 0;
     bool is(int& another_id);
     void set_hp(uint32_t hp);
     void set_ammo(uint32_t ammo);
