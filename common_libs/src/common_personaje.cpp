@@ -134,3 +134,32 @@ int Personaje::get_estado_movimiento() {
     return 3;
   }
 }
+
+Personaje::Personaje(Personaje &&other) noexcept {
+    this->id = other.id;
+    this->x = other.x;
+    this->y = other.y;
+    this->velocidad_x = other.velocidad_x;
+    this->velocidad_y = other.velocidad_y;
+    this->arma = CreadorArmas::crear_arma(other.arma->get_tipo_arma());
+    this->disparando = other.disparando;
+    this->tiempo_disparo = other.tiempo_disparo;
+    this->disparo = other.disparo;
+    this->vida = other.vida;
+    this->vidas = other.vidas;
+}
+
+Personaje &Personaje::operator=(Personaje &&other) {
+    this->id = other.id;
+    this->x = other.x;
+    this->y = other.y;
+    this->velocidad_x = other.velocidad_x;
+    this->velocidad_y = other.velocidad_y;
+    this->arma = CreadorArmas::crear_arma(other.get_tipo_arma());
+    this->disparando = other.disparando;
+    this->tiempo_disparo = other.tiempo_disparo;
+    this->disparo = other.disparo;
+    this->vida = other.vida;
+    this->vidas = other.vidas;
+    return *this;
+}

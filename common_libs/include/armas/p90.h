@@ -6,7 +6,7 @@
 class P90 : public Arma {
  public:
   P90();
-  ~P90();
+  ~P90() override;
 };
 
 #endif  // P90_H_

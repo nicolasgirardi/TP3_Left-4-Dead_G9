@@ -4,7 +4,7 @@
 Partida::Partida(int id, std::string nombre) : id(id), nombre(nombre), isRunning(true),
     queueJuego(new Queue<Evento*>(200)) {}
 
-void Partida::addClient(Queue<EstadoJuego>& mensajes, int id, Personaje& personaje) {
+void Partida::addClient(Queue<EstadoJuego>& mensajes, int id, Personaje personaje) {
     std::lock_guard<std::mutex> lock(m);
     bool exists = false;
     for (auto& pj : personajes) {

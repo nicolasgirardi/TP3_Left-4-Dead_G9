@@ -31,6 +31,8 @@ class Arma {
   int disparar();
   int recargar();
   std::string get_estado();
+  Arma(Arma&& other) noexcept ;
+  Arma& operator=(Arma&& other);
 };
 
 

@@ -1,8 +1,7 @@
+#include <iostream>
 #include "../../include/armas/arma.h"
 
 Arma::Arma() {}
-
-Arma::~Arma() {}
 
 int Arma::iniciar_disparo() {
   this->disparando = true;
@@ -59,4 +58,29 @@ std::string Arma::get_estado() {
   estado += std::to_string(this->velocidad_disparo) + " ";
   estado += std::to_string(this->disparando) + " ";
   return estado;
+}
+
+Arma::Arma(Arma &&other) noexcept {
+    this->danio = other.danio;
+    this->tipo_arma = other.tipo_arma;
+    this->municion_maxima = other.municion_maxima;
+    this->municion_actual = other.municion_actual;
+    this->velocidad_disparo = other.velocidad_disparo;
+    this->disparando = other.disparando;
+    this->tiempo_disparo = other.tiempo_disparo;
+}
+
+Arma &Arma::operator=(Arma &&other) {
+    this->danio = other.danio;
+    this->tipo_arma = other.tipo_arma;
+    this->municion_maxima = other.municion_maxima;
+    this->municion_actual = other.municion_actual;
+    this->velocidad_disparo = other.velocidad_disparo;
+    this->disparando = other.disparando;
+    this->tiempo_disparo = other.tiempo_disparo;
+    return *this;
+}
+
+Arma::~Arma() {
+    std::cout << "Se elimina arma principal" << std::endl;
 }

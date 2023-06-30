@@ -6,7 +6,7 @@
 class Scout : public Arma {
  public:
   Scout();
-  ~Scout();
+  ~Scout() override = default;
 };
 
 #endif  // SCOUT_H_

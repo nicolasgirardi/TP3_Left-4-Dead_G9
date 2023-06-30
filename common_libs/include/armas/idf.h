@@ -6,7 +6,7 @@
 class IDF : public Arma {
  public:
   IDF();
-  ~IDF();
+  ~IDF() override;
 };
 
 #endif  // IDF_H_

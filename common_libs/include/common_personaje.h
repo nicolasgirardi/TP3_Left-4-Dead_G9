@@ -41,6 +41,11 @@ class Personaje {
   int get_estado_movimiento();
   std::vector<int> get_posicion();
   std::string get_estado();
+
+  //make move constructor and move assignment operator
+    Personaje(Personaje&& other) noexcept ;
+    Personaje& operator=(Personaje&& other);
+    Personaje(const Personaje&) = delete;
 };
 
 

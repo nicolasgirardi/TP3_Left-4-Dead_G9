@@ -1,3 +1,4 @@
+#include <iostream>
 #include "../../include/armas/idf.h"
 
 IDF::IDF() {
@@ -7,4 +8,6 @@ IDF::IDF() {
     this->velocidad_disparo = 1;
 }
 
-IDF::~IDF() {}
+IDF::~IDF() {
+    std::cout << "Se elimina IDF" << std::endl;
+}

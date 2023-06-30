@@ -71,9 +71,9 @@ uint32_t ClienteHandler::crearPartida() {
 
     int idPartida = partidas->addPartida(nombrePartida, modo);
     Partida& partida = partidas->getPartida(idPartida);
-    partida.addClient(std::ref(mensajes), id, personaje);
-    esDuenio = true;
     idPersonajeElegido = personaje.get_id();
+    partida.addClient(std::ref(mensajes), id, std::move(personaje));
+    esDuenio = true;
     return idPartida;
 }
 
@@ -82,7 +82,7 @@ uint32_t ClienteHandler::joinPartida(uint32_t codigoPartida) {
         Partida &partida = partidas->getPartida(codigoPartida);
         Personaje personaje = protocolo.recibir_personaje();
         idPersonajeElegido = personaje.get_id();
-        partida.addClient(std::ref(mensajes), id, personaje);
+        partida.addClient(std::ref(mensajes), id, std::move(personaje));
         return partida.getId();
     } catch (std::exception& e) {
         return CODIGO_INVALIDO;

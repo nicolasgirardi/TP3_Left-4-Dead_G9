@@ -1,3 +1,4 @@
+#include <iostream>
 #include "../../include/armas/p90.h"
 
 P90::P90() {
@@ -7,4 +8,6 @@ P90::P90() {
     this->velocidad_disparo = 1;
 }
 
-P90::~P90() {}
+P90::~P90() {
+    std::cout << "Se elimina P90" << std::endl;
+}

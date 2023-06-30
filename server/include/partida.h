@@ -11,7 +11,7 @@
 #include "./juego.h"
 #include "./generador_id.h"
 
-#define MAX_CLIENTES 1
+#define MAX_CLIENTES 2
 
 class Partida {
  private:
@@ -27,7 +27,7 @@ class Partida {
 
  public:
     Partida(int id, std::string nombre);
-    void addClient(Queue<EstadoJuego>& mensajes, int id, Personaje& personaje);
+    void addClient(Queue<EstadoJuego>& mensajes, int id, Personaje personaje);
     bool addPersonaje(int id, int arma);
     void removeClient(int id);
     bool isFull();
