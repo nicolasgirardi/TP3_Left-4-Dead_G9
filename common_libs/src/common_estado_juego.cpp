@@ -1,12 +1,24 @@
 #include "../include/common_estado_juego.h"
 
-//Codigo repetido se podria haber solucionado con herencia
-//Tener un Character que Personaje y Zombie hereden atributos comunes que son los que se serializan al cliente.
 EstadoJuego::EstadoJuego(Personaje &personaje, uint8_t abm) : id(personaje.get_id()) {
     this->game_over = 0x00;
     this->x = personaje.get_posicion()[0];
     this->y = personaje.get_posicion()[1];
-    this->id_character = static_cast<uint8_t>(personaje.get_tipo_arma()); // 0: IDF 1: P90, 2: SCOUT
+    int tipoArma = personaje.get_tipo_arma();
+    switch (tipoArma) {
+        case 1:
+            this->id_character = 0x04;
+            break;
+        case 2:
+            this->id_character = 0x03;
+            break;
+        case 3:
+            this->id_character = 0x02;
+            break;
+        default:
+            this->id_character = 0x02;
+            break;
+    }
     this->accion = setAccion(personaje.get_estado_movimiento(), personaje.get_disparando());
     this->ABM = abm;
     this->vida = personaje.get_vida();

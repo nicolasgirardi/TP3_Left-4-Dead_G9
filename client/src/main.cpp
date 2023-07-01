@@ -45,12 +45,16 @@ int main(int argc, char *argv[]){
         protocolo.enviar_info(command);
         uint32_t gaming = protocolo.recibir_codigo_partida();
         if (gaming != CODIGO_INVALIDO) {
+            std::cout << "Codigo de partida: " << static_cast<int>(gaming) << std::endl;
             break;
         }
         std::cerr << "Error: codigo de partida invalido" << std::endl;
     }
-
     Queue<Message> estadoDelJuego(2000);
+    Message cliente1 = protocolo.recibir_estado_juego();
+    Message cliente2 = protocolo.recibir_estado_juego();
+    estadoDelJuego.push(cliente1);
+    estadoDelJuego.push(cliente2);
     ServerReciever serverReciever(std::ref(protocolo), std::ref(estadoDelJuego));
     //ServerSender serverSender(std::ref(protocolo));
     //serverSender.start();
