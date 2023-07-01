@@ -16,6 +16,8 @@ enum Type_of_character : std::uint8_t {
 
 inline Type_of_character get_character(uint8_t id) {
     switch (id) {
+        case 0x00:
+            return zombie;
         case 0x01:
             return jumper;
         case 0x02:

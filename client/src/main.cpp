@@ -52,9 +52,11 @@ int main(int argc, char *argv[]){
     }
     Queue<Message> estadoDelJuego(2000);
     Message cliente1 = protocolo.recibir_estado_juego();
-    Message cliente2 = protocolo.recibir_estado_juego();
+    //Message cliente2 = protocolo.recibir_estado_juego();
+    //Message client3 = protocolo.recibir_estado_juego();
     estadoDelJuego.push(cliente1);
-    estadoDelJuego.push(cliente2);
+    //estadoDelJuego.push(cliente2);
+    //estadoDelJuego.push(client3);
     ServerReciever serverReciever(std::ref(protocolo), std::ref(estadoDelJuego));
     //ServerSender serverSender(std::ref(protocolo));
     //serverSender.start();
@@ -76,7 +78,7 @@ int main(int argc, char *argv[]){
     while(true){
 
     }
-    serverReciever.join();
+    //serverReciever.join();
     estadoDelJuego.close();
     my_renderer->join();
     delete my_renderer;

@@ -24,13 +24,13 @@ EstadoJuego::EstadoJuego(Personaje &personaje, uint8_t abm) : id(personaje.get_i
     this->vida = personaje.get_vida();
 }
 
-EstadoJuego::EstadoJuego(Zombie *zombie, uint8_t abm) : id(zombie->get_tipo_zombie()){
+EstadoJuego::EstadoJuego(Zombie *zombie) : id(zombie->get_tipo_zombie()){
     this->game_over = 0x00;
     this->x = zombie->get_x();
     this->y = zombie->get_y();
     this->id_character = zombie->get_tipo_zombie();
-    this->ABM = abm;
-    this->accion = 0x07; // Attack hardcodeado
+    this->ABM = zombie->get_abm();
+    this->accion = 0x00; // Attack hardcodeado
     this->vida = zombie->get_vida();
 }
 //TODO: Revisar

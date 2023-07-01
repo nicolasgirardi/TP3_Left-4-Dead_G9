@@ -6,6 +6,7 @@
 #include "../common_thread.h"
 #include "./zombie.h"
 #include "./witch.h"
+#include "../common_estado_juego.h"
 
 class GeneradorZombies {
  private:

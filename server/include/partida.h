@@ -11,7 +11,7 @@
 #include "./juego.h"
 #include "./generador_id.h"
 
-#define MAX_CLIENTES 2
+#define MAX_CLIENTES 1
 
 class Partida {
  private:

@@ -18,7 +18,7 @@ private:
     uint8_t vida;
 public:
     EstadoJuego(Personaje& personaje, uint8_t abm);
-    EstadoJuego(Zombie* zombie, uint8_t abm);
+    EstadoJuego(Zombie* zombie);
     EstadoJuego(int idCliente, int idPersonaje);
     ~EstadoJuego() = default;
     uint8_t setAccion(int movimiento, bool disparando);

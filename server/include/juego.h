@@ -59,7 +59,6 @@ public:
     void run() override;
     void stop();
     bool gameRunning();
-
     void initGame();
 };
 

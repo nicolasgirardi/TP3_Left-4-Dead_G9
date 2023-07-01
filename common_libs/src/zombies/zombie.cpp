@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-Zombie::Zombie(int x, int y) : x(x), y(y) {}
+Zombie::Zombie(int x, int y) : x(x), y(y), abm(0x00) {}
 
 int Zombie::get_x() {
     return x;
@@ -32,6 +32,7 @@ Zombie::~Zombie() {}
 
 void Zombie::mover(std::list<Personaje>& personajes) {
     // Busco el personaje mas cercano
+    this->abm = 0x02;
     Personaje* personaje_mas_cercano = nullptr;
     int distancia_personaje_mas_cercano = 0;
     for (auto it = personajes.begin(); it != personajes.end(); ++it) {
@@ -69,18 +70,22 @@ bool Zombie::esta_vivo() {
 }
 
 void Zombie::recibir_danio(int danio) {
+    this->abm = 0x02;
     vida -= danio;
 }
 
 bool Zombie::choco_con_personaje(Personaje& personaje) {
+    this->abm = 0x02;
     std::vector<int> posicion_personaje = personaje.get_posicion();
     int distancia = sqrt(pow(posicion_personaje[0] - x, 2) +
                          pow(posicion_personaje[1] - y, 2));
     return distancia <= 1;
 }
 
-std::string Zombie::serializar() {
-    std::string serializacion = "Z " + std::to_string(x) + " " +
-                                std::to_string(y) + " "  ;
-    return serializacion;
+uint8_t Zombie::get_abm() const {
+    return abm;
+}
+
+void Zombie::morir() {
+    this->abm = 0x01;
 }

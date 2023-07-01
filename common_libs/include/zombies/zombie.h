@@ -13,6 +13,7 @@ class Zombie {
     float velocidad = 0.5;
     int danio = 10;
     int tipo_zombie = 0;
+    uint8_t abm;
 
  public:
         Zombie(int x, int y);
@@ -27,7 +28,10 @@ class Zombie {
         bool esta_vivo();
         void recibir_danio(int danio);
         bool choco_con_personaje(Personaje& personaje);
-        std::string serializar();
+
+    uint8_t get_abm() const;
+
+    void morir();
 };
 
 #endif  // ZOMBIE_H_

@@ -5,17 +5,19 @@
 
 Juego::Juego(std::map<int, Queue<EstadoJuego>&>& clientes, std::list<Personaje>& personajes, int modo,
              Queue<Evento*>* queueJuego) : ejecutar(queueJuego), clientes(clientes), personajes(personajes),
-             keep_running(true), kpPartida(true) {}
+             keep_running(true), kpPartida(true), modo(modo) {}
 
 void Juego::run() {
-    GeneradorZombies generador_zombies(cantidad_zombies, std::ref(zombies), std::ref(witches), std::ref(personajes),
+
+    GeneradorZombies generador_zombies(cantidad_zombies, std::ref(zombies),
+                                       std::ref(witches), std::ref(personajes),
                                        MAX_X, MAX_Y, modo);
     initGame();
     while (kpPartida) {
+        std::vector<EstadoJuego> estados;
         // Me fijo de ejecutar eventos
         // Le mando a todos los clientes el estado del juego
         // Espero para poder mandarlo más o menos cada 1/60 segundos
-        std::vector<EstadoJuego> estados;
         Evento* evento;
         while (ejecutar->try_pop(evento)) {
             int id = evento->get_id_personaje();
@@ -27,7 +29,8 @@ void Juego::run() {
         for (auto it = zombies.begin(); it != zombies.end(); ++it) {
             Zombie* zombie = *it;
             if (zombie->get_vida() <= 0) {
-                estados.emplace_back(zombie, 0x01);
+                zombie->morir();
+                estados.emplace_back(zombie);
                 zombies.erase(it);
                 delete zombie;
             }
@@ -85,7 +88,7 @@ void Juego::run() {
             estados.emplace_back(*it, 0x02);
         }
         for (auto & zombie : zombies) {
-            estados.emplace_back(zombie, 0x02);
+            estados.emplace_back(zombie);
         }
         for (auto& cliente : clientes) {
             for (auto& estado : estados) {
@@ -108,16 +111,15 @@ void Juego::run() {
 }
 
 void Juego::initGame() {
-    std::vector<EstadoJuego> estadoJuego;
+    std::vector<EstadoJuego> estados;
     for (auto & personaje : personajes) {
-        estadoJuego.emplace_back(personaje, 0x00);
+        estados.emplace_back(personaje, 0x00);
     }
     for (auto & cliente : clientes) {
-        for (auto & it2 : estadoJuego) {
+        for (auto & it2 : estados) {
             cliente.second.push(it2);
         }
     }
-    //std::destroy(estadoJuego.begin(), estadoJuego.end());
 }
 
 void Juego::stop() {
