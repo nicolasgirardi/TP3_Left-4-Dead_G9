@@ -25,8 +25,13 @@ void Juego::run() {
             evento->ejecutar(personaje);
         }
 
+        //movimiento de personajes
+        for (auto & personaje : personajes) {
+            personaje.mover();
+        }
+
         // Veo si los zombies siguen vivos
-        /*for (auto it = zombies.begin(); it != zombies.end(); ++it) {
+        for (auto it = zombies.begin(); it != zombies.end(); ++it) {
             Zombie* zombie = *it;
             if (zombie->get_vida() <= 0) {
                 zombie->morir();
@@ -34,10 +39,10 @@ void Juego::run() {
                 zombies.erase(it);
                 delete zombie;
             }
-        }*/
+        }
 
         // Veo si los zombies chocaron con algun personaje
-        /*for (auto zombie : zombies) {
+        for (auto zombie : zombies) {
             for (auto it2 = personajes.begin(); it2 != personajes.end(); ++it2) {
                 if (zombie->choco_con_personaje(*it2)) {
                     // Si chocaron, le saco vida al personaje
@@ -49,10 +54,10 @@ void Juego::run() {
                     }
                 }
             }
-        }*/
+        }
 
         // Veo si los personajes le dispararon a algun zombie o MARGEN_PARA_HIT pixeles alrededor
-        /*for (auto & personaje : personajes) {
+        for (auto & personaje : personajes) {
             if (personaje.get_disparando()) {
                 std::vector<int> posicion = personaje.get_posicion();
                 for (auto it2 = zombies.begin(); it2 != zombies.end(); ++it2) {
@@ -65,12 +70,12 @@ void Juego::run() {
                     }
                 }
             }
-        }*/
+        }
 
         // Muevo a los zombies
-       /* for (auto zombie : zombies) {
+        for (auto zombie : zombies) {
             zombie->mover(personajes);
-        }*/
+        }
 
         // Veo si hay witches vivas
         //if (witches.size() > 0) {
@@ -81,15 +86,15 @@ void Juego::run() {
       //  }
 
         // Genero zombies
-        //generador_zombies.generar_zombie();
+        generador_zombies.generar_zombie();
 
         // Mando el estado del juego a todos los clientes
         for (auto it = personajes.begin(); it != personajes.end(); ++it) {
             estados.emplace_back(*it, 0x02);
         }
-        /*for (auto & zombie : zombies) {
+        for (auto & zombie : zombies) {
             estados.emplace_back(zombie);
-        }*/
+        }
         for (auto& cliente : clientes) {
             for (auto& estado : estados) {
                 cliente.second.push(estado);

@@ -111,7 +111,7 @@ int Personaje::get_tipo_arma() {
 }
 
 bool Personaje::get_disparando() {
-  return this->disparo;
+  return this->disparando;
 }
 
 int Personaje::get_danio() {

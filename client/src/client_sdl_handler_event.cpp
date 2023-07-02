@@ -21,10 +21,10 @@ void SDLHandlerEvent::run() {
                 EventoUsuario evento(CMensaje::MOVE, 0xFFFFFFFF, 0x00000000);
                 eventosUsuario.push(evento);
             } else if (key == SDLK_w) {
-                EventoUsuario evento(CMensaje::MOVE, 0x00000000, 0x00000001);
+                EventoUsuario evento(CMensaje::MOVE, 0x00000000, 0xFFFFFFFF);
                 eventosUsuario.push(evento);
             } else if (key == SDLK_s) {
-                EventoUsuario evento(CMensaje::MOVE, 0x00000000, 0xFFFFFFFF);
+                EventoUsuario evento(CMensaje::MOVE, 0x00000000, 0x00000001);
                 eventosUsuario.push(evento);
             } else {
                 std::cout << "key no mapeada: " << key << std::endl;

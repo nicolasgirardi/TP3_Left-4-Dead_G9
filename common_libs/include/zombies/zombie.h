@@ -7,6 +7,7 @@
 
 class Zombie {
  private:
+    int id;
     int x;
     int y;
     int vida = 50;
@@ -16,7 +17,7 @@ class Zombie {
     uint8_t abm;
 
  public:
-        Zombie(int x, int y);
+        Zombie(int x, int y, int id);
         int get_x();
         int get_y();
         int get_vida();
@@ -32,6 +33,8 @@ class Zombie {
     uint8_t get_abm() const;
 
     void morir();
+
+    int get_id() const;
 };
 
 #endif  // ZOMBIE_H_

@@ -25,7 +25,8 @@ EstadoJuego::EstadoJuego(Personaje &personaje, uint8_t abm) : id(personaje.get_i
     this->vida = personaje.get_vida();
 }
 
-EstadoJuego::EstadoJuego(Zombie *zombie) : id(zombie->get_tipo_zombie()){
+EstadoJuego::EstadoJuego(Zombie *zombie) {
+    this->id = zombie->get_id();
     this->game_over = 0x00;
     this->x = zombie->get_x();
     this->y = zombie->get_y();
@@ -40,22 +41,23 @@ EstadoJuego::EstadoJuego(int idCliente, int idPersonaje) : id(idCliente), id_cha
 }
 
 uint8_t EstadoJuego::setAccion(int movimiento, bool disparando) {
+    //TODO : Setear bien las acciones en conjunto a las animaciones que espera el cliente.
     if (movimiento == 0 && !disparando) {
         return idle; //IDLE
     } else if (movimiento == 0 && disparando) {
-        return attack; //DISPARANDO EN EL LUGAR
+        return shot_1; //DISPARANDO EN EL LUGAR
     } else if (movimiento == 1 && !disparando) {
         return run; // velocidad solo en y
     } else if (movimiento == 1 && disparando) {
-        return run_attack; // velocidad solo en y y disparando
+        return shot_2; // velocidad solo en y y disparando
     } else if (movimiento == 2 && !disparando) {
         return run; //velocidad solo en x y no disparando
     } else if (movimiento == 2 && disparando) {
-        return run_attack; //velocidad solo en x y disparando
+        return shot_1; //velocidad solo en x y disparando
     } else if (movimiento == 3 && !disparando) {
         return walk; //velocidad en x e y y no disparando
     } else if (movimiento == 3 && disparando) {
-        return run_attack; //velocidad en x e y y disparando
+        return shot_1; //velocidad en x e y y disparando
     }
     return idle;
 }

@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-Zombie::Zombie(int x, int y) : x(x), y(y), abm(0x00) {}
+Zombie::Zombie(int x, int y, int id) : x(x), y(y), id(id), abm(0x00) {}
 
 int Zombie::get_x() {
     return x;
@@ -88,4 +88,8 @@ uint8_t Zombie::get_abm() const {
 
 void Zombie::morir() {
     this->abm = 0x01;
+}
+
+int Zombie::get_id() const {
+    return id;
 }

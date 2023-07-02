@@ -28,7 +28,8 @@ void GeneradorZombies::generar_zombie() {
             // Genero un zombie
             int x = rand() % max_x;
             int y = rand() % max_y;
-            Zombie* zombie = new Zombie(x, y);
+            int id = zombies.size() + 3;
+            Zombie* zombie = new Zombie(x, y, id);
             zombies.push_back(zombie);
             contador_witches++;
             if (contador_witches == 4) {
@@ -39,7 +40,8 @@ void GeneradorZombies::generar_zombie() {
             // Genero un zombie
             int x = rand() % max_x;
             int y = rand() % max_y;
-            Zombie* zombie = new Zombie(x, y);
+            int id = zombies.size() + 3;
+            Zombie* zombie = new Zombie(x, y, id);
             zombies.push_back(zombie);
             contador_zombies++;
             contador_witches++;
