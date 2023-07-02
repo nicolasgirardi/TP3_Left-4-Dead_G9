@@ -52,33 +52,25 @@ int main(int argc, char *argv[]){
     }
     Queue<Message> estadoDelJuego(2000);
     Message cliente1 = protocolo.recibir_estado_juego();
-    //Message cliente2 = protocolo.recibir_estado_juego();
-    //Message client3 = protocolo.recibir_estado_juego();
     estadoDelJuego.push(cliente1);
-    //estadoDelJuego.push(cliente2);
-    //estadoDelJuego.push(client3);
+    Thread* my_renderer;
+    my_renderer = new MyRenderer(960,720,war1_pale,1,&estadoDelJuego);
+    my_renderer->start();
+    Queue<EventoUsuario> eventosUsuario(2000);
     ServerReciever serverReciever(std::ref(protocolo), std::ref(estadoDelJuego));
-    //ServerSender serverSender(std::ref(protocolo));
-    //serverSender.start();
-    //SDLHandlerEvent sdlHandlerEvent;
-    //ServerSender serverSender(std::ref(protocolo), std::ref(sdlHandlerEvent.get_eventos_usuario()));
+    SDLHandlerEvent sdlHandlerEvent(std::ref(eventosUsuario));
+    ServerSender serverSender(std::ref(protocolo), std::ref(eventosUsuario));
 
     serverReciever.start();
-    //serverSender.stop();
-    //serverSender.join();
+    sdlHandlerEvent.start();
+    serverSender.start();
 
-
-    //return 0;
-    //sdlHandlerEvent.start();
-    //serverSender.start();
-
-	Thread* my_renderer;
-	my_renderer = new MyRenderer(960,720,war1_pale,1,&estadoDelJuego);
-	my_renderer->start();
-    while(true){
-
+    while(sdlHandlerEvent.isRunning()){
     }
-    //serverReciever.join();
+    std::cout << "Termino el juego" << std::endl;
+    sdlHandlerEvent.join();
+    serverReciever.join();
+    serverSender.join();
     estadoDelJuego.close();
     my_renderer->join();
     delete my_renderer;

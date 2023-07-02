@@ -10,4 +10,5 @@ EventoMover::~EventoMover() = default;
 
 void EventoMover::ejecutar(Personaje* personaje) {
     personaje->modificar_velocidad(x, y);
+    personaje->mover();
 }

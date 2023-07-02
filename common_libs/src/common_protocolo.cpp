@@ -46,8 +46,6 @@ void Protocolo::enviar_codigo_partida(uint32_t codigo) {
 }
 
 void Protocolo::enviar_estado_juego(EstadoJuego& estadoJuego) {
-    std::cout << "id: " << static_cast<int>(estadoJuego.get_id()) << std::endl;
-    std::cout << "id character: " << static_cast<int>(estadoJuego.get_id_character()) << std::endl;
     uint32_t result = 0;
     result |= static_cast<uint32_t>(estadoJuego.get_game_over()) << 24;
     result |= static_cast<uint32_t>(estadoJuego.get_id()) << 16;
@@ -65,9 +63,9 @@ void Protocolo::enviar_estado_juego(EstadoJuego& estadoJuego) {
 std::string Protocolo::recibir_inicio_partida() {
     uint8_t inicioPartida = recvByte();
     switch (inicioPartida) {
-        case ClienteMensaje::CREAR:
+        case CMensaje::ClienteMensaje::CREAR:
             return "crear";
-        case ClienteMensaje::JOIN:
+        case CMensaje::ClienteMensaje::JOIN:
             return "join";
         default:
             return "0";
@@ -134,20 +132,18 @@ uint8_t Protocolo::recibir_modo() {
 Evento *Protocolo::recibir_evento(int& idPersonaje) {
     uint8_t codigo = recvByte();
     switch (codigo) {
-        case ClienteMensaje::MOVE: {
+        case CMensaje::ClienteMensaje::MOVE: {
             int32_t param1 = recvCuatroBytes();
             int32_t param2 = recvCuatroBytes();
             return CreadorEventos::crearEvento(0, idPersonaje, param1, param2);
         }
-        case ClienteMensaje::STOP_MOVE: {
-            int32_t param1 = recvCuatroBytes();
-            int32_t param2 = recvCuatroBytes();
-            return CreadorEventos::crearEvento(1, idPersonaje, param1, param2);
+        case CMensaje::ClienteMensaje::STOP_MOVE: {
+            return CreadorEventos::crearEvento(1, idPersonaje);
         }
-        case ClienteMensaje::SHOOT: {
+        case CMensaje::ClienteMensaje::SHOOT: {
             return CreadorEventos::crearEvento(2, idPersonaje);
         }
-        case ClienteMensaje::STOP_SHOOT: {
+        case CMensaje::ClienteMensaje::STOP_SHOOT: {
             return CreadorEventos::crearEvento(3, idPersonaje);
         }
         default: {
@@ -189,8 +185,10 @@ void Protocolo::enviar_info(std::string info) {
 
 void Protocolo::enviar_evento(const EventoUsuario &eventoUsuario) {
     sendByte(eventoUsuario.getIdEvento());
-    sendCuatroBytes(eventoUsuario.getParam1());
-    sendCuatroBytes(eventoUsuario.getParam2());
+    if (eventoUsuario.getIdEvento() == CMensaje::ClienteMensaje::MOVE) {
+        sendCuatroBytes(eventoUsuario.getParam1());
+        sendCuatroBytes(eventoUsuario.getParam2());
+    }
 }
 //TODO: DEBERIA QUEDAR ASI
 /*

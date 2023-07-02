@@ -47,7 +47,7 @@ class MyRenderer: public Thread {
     public:
     MyRenderer(int width, int height,Type_of_map map,int ID,Queue<Message>* queue);
 
-    void run();
+    void run() override;
 
     ~MyRenderer();
     

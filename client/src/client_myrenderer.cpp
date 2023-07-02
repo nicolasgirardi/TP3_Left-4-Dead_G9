@@ -313,6 +313,9 @@ void MyRenderer::modify_character(Message& message){
 			int x = message.get_x();
 			int y = message.get_y();
 			Type_of_action action = message.get_action();
+            if (action == Type_of_action::run) {
+                std::cout << "run" << std::endl;
+            }
 			all_characters[i]->set_position(x,y);
 			all_characters[i]->change_action(action,frame);
 			found = true;

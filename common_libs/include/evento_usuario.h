@@ -10,23 +10,18 @@ class EventoUsuario {
     int32_t param1;
     int32_t param2;
  public:
-    EventoUsuario(uint8_t idEvento, int32_t param1, int32_t param2) : idEvento(idEvento),
-        param1(param1), param2(param2) {}
+    EventoUsuario(uint8_t idEvento, int32_t param1, int32_t param2);
 
-    EventoUsuario() {
-    }
+    EventoUsuario(uint8_t idEvento);
 
-    uint8_t getIdEvento() const {
-        return idEvento;
-    }
+    uint8_t getIdEvento() const;
 
-    int32_t getParam1() const {
-        return param1;
-    }
+    int32_t getParam1() const;
 
-    int32_t getParam2() const {
-        return param2;
-    }
+    int32_t getParam2() const;
+
+    //make copiable
+    EventoUsuario(const EventoUsuario&) = default;
 };
 
 

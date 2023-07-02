@@ -1,4 +1,5 @@
 #include "../include/common_estado_juego.h"
+#include "../include/common_myenum.h"
 
 EstadoJuego::EstadoJuego(Personaje &personaje, uint8_t abm) : id(personaje.get_id()) {
     this->game_over = 0x00;
@@ -40,23 +41,23 @@ EstadoJuego::EstadoJuego(int idCliente, int idPersonaje) : id(idCliente), id_cha
 
 uint8_t EstadoJuego::setAccion(int movimiento, bool disparando) {
     if (movimiento == 0 && !disparando) {
-        return 0x00; //IDLE
+        return idle; //IDLE
     } else if (movimiento == 0 && disparando) {
-        return 0x01; //DISPARANDO EN EL LUGAR
+        return attack; //DISPARANDO EN EL LUGAR
     } else if (movimiento == 1 && !disparando) {
-        return 0x02; // velocidad solo en y
+        return run; // velocidad solo en y
     } else if (movimiento == 1 && disparando) {
-        return 0x03; // velocidad solo en y y disparando
+        return run_attack; // velocidad solo en y y disparando
     } else if (movimiento == 2 && !disparando) {
-        return 0x04; //velocidad solo en x y no disparando
+        return run; //velocidad solo en x y no disparando
     } else if (movimiento == 2 && disparando) {
-        return 0x05; //velocidad solo en x y disparando
+        return run_attack; //velocidad solo en x y disparando
     } else if (movimiento == 3 && !disparando) {
-        return 0x06; //velocidad en x e y y no disparando
+        return walk; //velocidad en x e y y no disparando
     } else if (movimiento == 3 && disparando) {
-        return 0x07; //velocidad en x e y y disparando
+        return run_attack; //velocidad en x e y y disparando
     }
-    return 0x00;
+    return idle;
 }
 
 uint8_t EstadoJuego::get_id() const {
