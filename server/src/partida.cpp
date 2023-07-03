@@ -1,8 +1,8 @@
 #include "../include/partida.h"
 #include "../include/juego.h"
 
-Partida::Partida(int id, std::string nombre) : id(id), nombre(nombre), isRunning(true),
-    queueJuego(new Queue<Evento*>(200)) {}
+Partida::Partida(int id, std::string nombre, int modo) : id(id), nombre(nombre), modo(modo), isRunning(true),
+    queueJuego(new Queue<Evento*>(2000)) {}
 
 void Partida::addClient(Queue<EstadoJuego>& mensajes, int id, Personaje personaje) {
     std::lock_guard<std::mutex> lock(m);

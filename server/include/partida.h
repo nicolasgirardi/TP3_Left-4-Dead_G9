@@ -26,7 +26,7 @@ class Partida {
     std::mutex m;
 
  public:
-    Partida(int id, std::string nombre);
+    Partida(int id, std::string nombre, int modo);
     void addClient(Queue<EstadoJuego>& mensajes, int id, Personaje personaje);
     bool addPersonaje(int id, int arma);
     void removeClient(int id);

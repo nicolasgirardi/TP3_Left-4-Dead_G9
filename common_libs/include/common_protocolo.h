@@ -24,6 +24,7 @@ class Protocolo {
     Socket socket;
     bool wasClosed;
     void sendByte(uint8_t byte);
+    void sendDosBytes(uint16_t dosBytes);
     void sendCuatroBytes(int32_t param1);
     int sendData(const std::string& data);
 

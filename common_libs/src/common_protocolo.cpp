@@ -14,6 +14,11 @@ void Protocolo::sendByte(uint8_t byte) {
     socket.sendall(&byte, 1, &wasClosed);
 }
 
+void Protocolo::sendDosBytes(uint16_t dosBytes) {
+    uint16_t dosBytesNet = htons(dosBytes);
+    socket.sendall(&dosBytesNet, 2, &wasClosed);
+}
+
 void Protocolo::sendCuatroBytes(int32_t param1) {
     uint32_t aux = htonl(param1);
     socket.sendall(&aux, 4, &wasClosed);
@@ -52,12 +57,11 @@ void Protocolo::enviar_estado_juego(EstadoJuego& estadoJuego) {
     result |= static_cast<uint32_t>(estadoJuego.get_id_character()) << 8;
     result |= static_cast<uint32_t>(estadoJuego.get_ABM());
     sendCuatroBytes(result);
-    result = 0;
-    result |= static_cast<uint32_t>(estadoJuego.get_x()) << 24;
-    result |= static_cast<uint32_t>(estadoJuego.get_y()) << 16;
-    result |= static_cast<uint32_t>(estadoJuego.get_accion()) << 8;
-    result |= static_cast<uint32_t>(estadoJuego.get_vida());
-    sendCuatroBytes(result);
+    sendCuatroBytes(estadoJuego.get_x());
+    sendCuatroBytes(estadoJuego.get_y());
+    uint16_t aux =
+            (static_cast<uint16_t>(estadoJuego.get_accion()) << 8) | static_cast<uint16_t>(estadoJuego.get_vida());
+    sendDosBytes(aux);
 }
 
 std::string Protocolo::recibir_inicio_partida() {
@@ -95,11 +99,11 @@ Message Protocolo::recibir_estado_juego(){
     id_character = (aux >> 8) & 0xFF;
     ABM = aux & 0xFF;
 
-    aux = recvCuatroBytes();
-    posX = (aux >> 24) & 0xFF;
-    posY = (aux >> 16) & 0xFF;
-    accion = (aux >> 8) & 0xFF;
-    vida = aux & 0xFF;
+    posX = recvCuatroBytes();
+    posY = recvCuatroBytes();
+    uint16_t dosBytes = recvDosBytes();
+    accion = (dosBytes >> 8) & 0xFF;
+    vida = dosBytes & 0xFF;
     Type_of_character character = get_character(id_character);
     Type_of_AMB abm = get_AMB(ABM);
     if (game_over == 0x01) {

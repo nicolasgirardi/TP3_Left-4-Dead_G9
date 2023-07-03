@@ -1,3 +1,4 @@
+#include <iostream>
 #include "../include/common_estado_juego.h"
 #include "../include/common_myenum.h"
 

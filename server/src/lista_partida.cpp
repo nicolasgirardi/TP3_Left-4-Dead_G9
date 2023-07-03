@@ -6,7 +6,7 @@ ListaPartidas::ListaPartidas() {}
 int ListaPartidas::addPartida(std::string nombre, int modo = 0) {
     std::lock_guard<std::mutex> lock(m);
     int id = partidas.size();
-    Partida partida(id, nombre);
+    Partida partida(id, nombre, modo);
     partidas.emplace(id, std::move(partida));
     return id;
 }
